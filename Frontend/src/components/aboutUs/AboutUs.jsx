@@ -1,11 +1,10 @@
-import work from '../../../public/images/work.jpg'
 import style from './AboutUs.module.css'
 
 const AboutUs = () => {
   return (
     <section className={style.aboutUsContainer}>
         <div>
-          <img src={work} alt="" />
+          <img src='./images/work.jpg' alt="" />
         </div>
 
         <div>

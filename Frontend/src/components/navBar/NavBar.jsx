@@ -1,8 +1,8 @@
 
-const NavbAR = () => {
+const NavBar = () => {
   return (
-    <div>NavbAR</div>
+    <div>NavBar</div>
   )
 }
 
-export default NavbAR
+export default NavBar
