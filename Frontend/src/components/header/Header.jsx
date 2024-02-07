@@ -4,11 +4,11 @@ const Header = () => {
   return (
     <div className={style.HeaderContainer}>
       <div className={style.titleContainer}>
-        <h1>if you can imagine it,
-          we can develop it</h1>
+          <h1 className={style.h1}>If you can imagine it, we can develop it</h1>
+          <img src="./images/logo-header.png" alt="" />
       </div>
       <div className={style.ImgContainer}>
-
+            <img className={style.imgResponsive} src="./images/responsive.png" alt="resposive" />
       </div>
     </div>
   )
