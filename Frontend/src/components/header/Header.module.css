@@ -1,3 +1,39 @@
 .HeaderContainer {
+    background-color: aliceblue;
+    height: 800px;
     border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.titleContainer {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 15px;
+    margin-left: 150px;
+}
+
+.h1 {
+    color: #2e2e2e;
+    width: 90%;
+    height: max-content;
+    font-size: 75px;
+    letter-spacing: -3px;
+    margin-bottom: 10px;
+    line-height: 5rem;
+}
+
+.ImgContainer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgResponsive {
+    width: 650px;
 }
