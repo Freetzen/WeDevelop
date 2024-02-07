@@ -20,7 +20,7 @@ const Highlights = () => {
   return (
     <div className={styles.carouselcontainer}>
       <h2>Take a look at our highlights</h2>
-      <Carousel className={styles.carouselStyles}>
+      <Carousel autoPlay={true} interval={3000} infiniteLoop={true} className={styles.carouselStyles}>
         {
           projects.map((project, index) => (
             <div key={index}>
