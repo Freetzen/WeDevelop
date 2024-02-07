@@ -1,0 +1,65 @@
+.NavBarContainer {
+    width: auto;
+    height: auto;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.menu {
+    width: auto;
+    height: auto;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline;
+    padding: 0;
+}
+
+.menu li a {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 18px;
+    color: #fff;
+    text-shadow: .3px .3px 1px rgba(0,0,0,.4);
+    text-decoration: none;
+    margin: 0px 5px;
+    padding: 5px;
+}
+
+.menu li a:hover {
+    border-bottom: 1px solid #fff;
+}
+.login {
+    width: auto;
+    height: auto;
+}
+
+.login a {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 18px;
+    color: #fff;
+    text-shadow: .3px .3px 1px rgba(0,0,0,.4);
+    text-decoration: none;
+}
