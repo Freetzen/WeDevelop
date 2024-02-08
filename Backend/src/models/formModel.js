@@ -5,18 +5,13 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    email: {
+    images: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    password: {
+    description: {
         type: String,
-        required: false
-    },
-    role: {
-        type: String,
-        default: "user"
+        required: true
     },
     createdAt: {
         type: Date,
@@ -24,6 +19,6 @@ const userSchema = new Schema({
     }
 });
 
-const userModel = model("users", userSchema)
+const userModel = model("form", userSchema)
 
-module.exports =  userModel
+module.exports = userModel
