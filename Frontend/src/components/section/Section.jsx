@@ -14,6 +14,7 @@ import { Language } from '../questions/language/Language'
 export const Section = ({quote, setQuote}) => {
 
   const [question, setQuestion] = useState(1)
+  
 
   const switchQuestion = (question) => {
 
@@ -54,9 +55,12 @@ export const Section = ({quote, setQuote}) => {
       {
       switchQuestion(question)
       }
-
+      {question !== 1 && ( 
       <button
-      onClick={() =>{setQuestion(question + 1)}}>siguiente pregunta</button>
+        onClick={() => {setQuestion(question - 1)}}>Anterior pregunta</button>
+    )}
+      <button
+      onClick={() =>{setQuestion(question + 1)}}>Siguiente pregunta</button>
     </div>
   )
 }
