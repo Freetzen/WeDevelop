@@ -1,7 +1,10 @@
 const express = require('express');
-const getMusic = require('../controllers/getMusic');
+const postUsers = require('../controllers/postUsers');
+const postForm = require('../controllers/postForm');
 const router = express.Router();
 
-router.get('/music/:title', getMusic)
+
+router.post('/login', postUsers)
+router.post('/form', postForm)
 
 module.exports = router
