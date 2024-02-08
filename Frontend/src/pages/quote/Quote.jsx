@@ -3,28 +3,22 @@ import { Section } from "../../components/section/Section";
 
 export const Quote = () => {
 
-  const [website, setWebsite] = useState({
+  const [quote, setQuote] = useState({
     purpose:'',
-    //legalNorm: null
-    extraServices: null, //Whats App
-    lenguage: null,
-    design: null,
-  })
-
-  const [ecommerce, setEcommerce] = useState({
-    purpose:'',
-    apiOrDatabase: null,
     amountOfProducts: null,
-    extraServices: null,
-    support: null,
-    lenguage: null,
+    amountOfVisits: null,
+    apiOrDatabase: null,
     design: null,
+    extraRequeriments: null,
+    extraServices: null,
+    lenguage: null,
+    legalNorm: null,
+    support: null,
   })
-
   
   return (  
     <>
-    <Section website={website} setWebsite={setWebsite} ecommerce={ecommerce} setEcommerce={setEcommerce}/>
+    <Section quote={quote} setQuote={setQuote}/>
     </>
   )
 }
