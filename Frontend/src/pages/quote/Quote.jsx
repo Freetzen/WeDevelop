@@ -4,7 +4,7 @@ import { Section } from "../../components/section/Section";
 export const Quote = () => {
 
   const [quote, setQuote] = useState({
-    purpose:'',
+    purpose: '',
     amountOfProducts: null,
     amountOfVisits: null,
     apiOrDatabase: null,
@@ -15,10 +15,10 @@ export const Quote = () => {
     legalNorm: null,
     support: null,
   })
-  
-  return (  
+
+  return (
     <>
-    <Section quote={quote} setQuote={setQuote}/>
+      <Section quote={quote} setQuote={setQuote} />
     </>
   )
 }
