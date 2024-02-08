@@ -5,7 +5,7 @@
 }
 .quoteStartProyect{ 
     width: 300px;
-    margin-left: 23%; /* Margen izquierdo automático */
+    margin-left: auto; /* Margen izquierdo automático */
     margin-right: auto;
 }
 .quoteButton{
