@@ -12,15 +12,11 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: false
-    },
-    image: {
-        type: String,
-        required: false
+        required: true
     },
     role: {
         type: String,
-        default: "user"
+        default: "admin"
     },
     createdAt: {
         type: Date,
@@ -28,6 +24,6 @@ const userSchema = new Schema({
     }
 });
 
-const userModel = model("users", userSchema)
+const adminModel = model("usersAdmin", userSchema)
 
-module.exports =  userModel
+module.exports =  adminModel

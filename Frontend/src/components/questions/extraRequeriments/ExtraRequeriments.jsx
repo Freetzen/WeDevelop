@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import style from "./ExtraRequeriments.module.css"
 
 export const ExtraRequeriments = ({quote, setQuote, question, setQuestion}) => {
 
