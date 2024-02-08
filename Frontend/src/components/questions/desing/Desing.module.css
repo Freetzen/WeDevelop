@@ -1,0 +1,43 @@
+.container {
+    text-align: center;
+  }
+  
+  .imageContainer {
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+   
+  }
+  
+  .model {
+    margin: 20px;
+    transition: .5s;
+   
+  }
+  .model img {
+    border-radius: 15px 0 15px 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  .model:hover img {
+    filter: brightness(90%);
+    transform: scale(1.1);
+  }
+  
+  
+  .textArea {
+    width:40%;
+    resize: none;
+    transition: box-shadow 0.3s ease, height 0.3s ease;
+    height: 100px; /* ajusta la altura como desees */
+    font-size: 16px;
+    padding-left: .5rem;
+    padding-top: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .textArea:hover {
+    box-shadow: 0 0 20px rgba(127, 122, 20, 0.3);
+    border-color: #2a4dd7;
+  }
