@@ -1,0 +1,25 @@
+.apiOrDatabaseContainer{
+    display: flex;
+}
+.ApiOrDatabaseTitle{
+    margin-left: 50%;
+    margin-right: auto;
+}
+.ApiOrDatabaseOpcionOne{
+    margin-left: 60%;
+    margin-right: 30px;
+}
+.ApiOrDatabaseOpcionTwo{
+    margin: auto;
+}
+.ApiOrDatabaseInput{
+    width: 250px; /* Establece el ancho del input */
+    height: 40px;
+    margin-left: 25%;
+    margin-right: 50%;
+}
+.ApiOrDatabaseUpload{
+    margin-top: 10px;
+    margin-left: 50%;
+    margin-right: 50%;
+}
