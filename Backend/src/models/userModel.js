@@ -22,6 +22,10 @@ const userSchema = new Schema({
         type: String,
         default: "user"
     },
+    suspended: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: Date.now

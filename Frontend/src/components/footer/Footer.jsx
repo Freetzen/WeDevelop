@@ -3,7 +3,6 @@ const Footer = () => {
   return (
 
     <div className={style.footer}>
-
       <div className={style.footerContainer1}>
         <h3>Quick Links</h3>
         <a href="/home">Home</a>
