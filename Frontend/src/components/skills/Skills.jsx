@@ -10,7 +10,7 @@ import { FcBullish } from "react-icons/fc";
 
 const Skills = () => {
 
-  const skills = ["Experience", "Creativity", "Attention to detail", "Professional", "Unique desings", "Efficiency"]
+  const skills = ["Experience", "Creativity", "Attention to detail", "Professional", "Original designs", "Efficiency"]
 
   return (
     <div className={style.containerSkills}>
@@ -77,7 +77,6 @@ const Skills = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, voluptatum, repellendus ducimus quae dolor aspernatur facere dicta ratione recusandae voluptatibus quo iste nesciunt accusamus.</p>
           </div>
         </div>
-
       </div>
     </div>
   )
