@@ -1,32 +1,41 @@
-.quoteContainer{
+.quoteContainer {
+    background-image: url('./images/fondo.jpg');
+    background-attachment: fixed;
+    height: 500px;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.containerTitle {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.containerTitle .quoteStartProyect {
+    font-size: 50px; 
+    font-weight: 600;
+    letter-spacing: -2px;;
+    color: aliceblue;
+}
+
+.containerButton { 
+    width: 100%;
+    text-align: center;
+}
+
+.containerButton .quoteButton{
     width: 300px;
-    margin-left: auto; /* Margen izquierdo automático */
-    margin-right: auto;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
 }
-.quoteStartProyect{ 
-    width: 300px;
-    margin-left: auto; /* Margen izquierdo automático */
-    margin-right: auto;
+
+.containerButton .quoteButton a{
+   text-decoration: none;
+   font-size: 20px;
+   color: #6940FF;
 }
-.quoteButton{
-    width: 300px; /* Ancho fijo */
-    margin-left: auto; /* Margen izquierdo automático */
-    margin-right: auto;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-   
-}
-.quoteButton:hover{
-    border-color: #646cff;
-  }
-.quoteButton:focus,
-.quoteButton:focus-visible{
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+
