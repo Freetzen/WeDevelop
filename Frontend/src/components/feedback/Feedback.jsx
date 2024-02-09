@@ -1,7 +1,10 @@
+import style from './Feedback.module.css'
 
 const Feedback = () => {
   return (
-    <div>Feedback</div>
+    <div className={style.containerFeedback}>
+      <p>FeedBack</p>
+    </div>
   )
 }
 
