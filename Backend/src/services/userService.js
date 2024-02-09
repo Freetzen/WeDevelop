@@ -50,4 +50,21 @@ const updateUser = async (id, info) => {
     }
 }
 
-module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser}
+const suspendUser = async (id) => {
+    try {
+        return await userModel.findByIdAndUpdate(id, { suspended: true });
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+const unsuspendUser = async (id) => {
+    try {
+        return await userModel.findByIdAndUpdate(id, { suspended: false });
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+
+module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser}
