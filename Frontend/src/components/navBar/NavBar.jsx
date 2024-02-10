@@ -1,8 +1,19 @@
 import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 const NavBar = () => {
+    const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+
+    const handleLogin = () => {
+        loginWithRedirect({
+            authorizationParams: {
+              redirect_uri: window.location.origin 
+            }
+          });
+    }
+
     return (
         <div className={style.NavBarContainer}>
 
@@ -30,7 +41,11 @@ const NavBar = () => {
             </div>
 
             <div className={style.login}>
-                <Link to="/login">Login</Link>
+            {!isAuthenticated ? (
+                 <button onClick={() => loginWithRedirect()}>LogIn</button>
+              ) : (
+                <button onClick={() => logout()}>LogOut</button>
+              )}
             </div>
         </div>
     )
