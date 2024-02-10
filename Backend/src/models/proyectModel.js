@@ -3,13 +3,18 @@ const { Schema, model } = require('mongoose')
 const proyectSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     images: {
         type: String,
         required: true
     },
     description: {
+        type: String,
+        required: true
+    },
+    category: {
         type: String,
         required: true
     },
