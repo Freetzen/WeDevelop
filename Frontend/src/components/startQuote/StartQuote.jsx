@@ -5,7 +5,7 @@ const StartQuote = () => {
     <>
       <div className={style.quoteContainer}>
         <div className={style.containerTitle}>
-          <h2 className={style.quoteStartProyect}>Start Proyect</h2>
+          <h2 className={style.quoteStartProyect}>Start Project</h2>
         </div>
         <div className={style.containerButton}>
           <button className={style.quoteButton}><Link to={"/quote"}>Quote Now</Link></button>
