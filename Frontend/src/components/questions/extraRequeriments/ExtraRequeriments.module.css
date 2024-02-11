@@ -1,0 +1,90 @@
+.containerExtraRequeriments {
+    background-color: #6940ff;
+    border: 1px solid black;
+    height: 920px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerExtraRequeriments .titleCuestion {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.containerExtraRequeriments .titleCuestion h3 {
+    width: 70%;
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: 200;
+    letter-spacing: -1px;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.ExtraRequerimentsContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.ExtraRequerimentsContainer .ExtraRequerimentsOpcionOne{
+    margin: 15px 15px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ExtraRequerimentsContainer .ExtraRequerimentsOpcionOne .button{
+    margin: 0px 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    color: aliceblue;
+    background-color: #FCC922;
+    box-shadow: black 6px 6px;
+    cursor: pointer;
+}
+
+.ExtraRequerimentsTwo {
+    width: 50%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ExtraRequerimentsTwo h2 {
+    width: 90%;
+    color: #1c1c1c;
+    font-size: 17px;
+    
+}
+
+.ExtraRequerimentsTwo .ExtraRequerimentsTextArea {
+    width: 90%;
+    height: 150px;
+    margin: 10px 0px;
+    padding: 5px;
+    box-shadow: black 6px 6px;
+    border: none;
+}
+
+.ExtraRequerimentsTwo .ExtraRequerimentsUpload {
+    width: 90%;
+    height: 40px;
+    margin: 10px 0px;
+    background-color: rgb(42, 226, 226);
+    border: none ;
+    box-shadow: black 6px 6px;
+    cursor: pointer;
+    font-size: 15px;
+}

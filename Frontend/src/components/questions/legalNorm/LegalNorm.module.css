@@ -1,5 +1,70 @@
-.legalnorm {
-    background-color: black;
+.containerLegalNorm {
+    background-color: #6940ff;
+    height: 920px;
+    width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.containerLegalNorm .titleCuestion {
+    display: flex;
+    justify-content: center;
+}
+
+.containerLegalNorm .titleCuestion h3 {
+    width: 80%;
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: 200;
+    letter-spacing: -1px;
+    margin: 30px 0px;
+    text-align: center;
+}
+
+.containerButtons {
+    padding: 15px;
+}
+
+.containerButtons .button {
+    margin: 0px 10px;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    color: aliceblue;
+    background-color: #FCC922;
+    box-shadow: black 6px 6px;
+    cursor: pointer;
+}
+
+.TrueLegalNorm {
+    width: 80%;
+    height: 200px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.TrueLegalNorm label{
+    text-align: center;
+    font-size: 30px;
+    color:aliceblue;
+}
+
+.TrueLegalNorm input{
+    width: 500px;
+    height: 70px;
+    font-size: 15px;
+    padding: 15px;
+    box-shadow: black 6px 6px;
+}
+
+.TrueLegalNorm button{
+    width: 200px;
+    height: 50px;
+    background-color: aquamarine;
 }
