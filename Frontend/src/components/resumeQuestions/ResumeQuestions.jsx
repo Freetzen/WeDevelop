@@ -1,9 +1,8 @@
 
-export const ResumeQuestions = ({quote, question, setQuestion}) => {
+export const ResumeQuestions = ({quote, setQuestion}) => {
 
     const array = Object.keys(quote)
     const values = Object.values(quote);
-    console.log(array)
 
     const handleClick = (event) => {
         event.preventDefault()
