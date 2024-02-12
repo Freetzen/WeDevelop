@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
 
   try {
     const newProject = await projectsProvider.postProjects(project);
-    setProject({
+    setproject({
       name: "",
       images: "",
       description: "",

@@ -29,7 +29,7 @@ const projectsProvider = {
 
     async uploadImg (imgFile) {
         try {
-            const url = `https://api.imgbb.com/1/upload?expiration=600&key=9435bd9e0656491504055e47dbc66e6c&name=${imgFile.name}`
+            const url = `https://api.imgbb.com/1/upload?key=9435bd9e0656491504055e47dbc66e6c&name=${imgFile.name}`
             const data = new FormData();
             data.append("image", imgFile);
             const upload = await fetch(url, {

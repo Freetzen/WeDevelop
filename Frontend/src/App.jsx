@@ -1,11 +1,11 @@
-import { Routes, Route, useParams } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/navBar/NavBar'
 import Home from './pages/home/Home'
 import { Quote } from './pages/quote/Quote'
 import ContactUs from './pages/contactUs/ContactUs'
-
 import Projects from './pages/projects/Projects'
+import AdminWindow from './pages/adminWindow/AdminWindow'
 
 function App() {
 
