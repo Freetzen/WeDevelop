@@ -1,6 +1,6 @@
-const { findProyectById } = require("../services/proyectService")
+const { findProyectById } = require("../services/projectService")
 
-const getProyectById = async(req, res) => {
+const getProjectById = async(req, res) => {
   try {
     const {id} = req.params
     const proyectId = await findProyectById(id)
@@ -10,4 +10,4 @@ const getProyectById = async(req, res) => {
   }
 }
 
-module.exports = getProyectById
+module.exports = getProjectById

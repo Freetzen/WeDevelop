@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-const proyectSchema = new Schema({
+const projectSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -24,6 +24,6 @@ const proyectSchema = new Schema({
     }
 });
 
-const proyectModel = model("proyect", proyectSchema)
+const projectModel = model("project", projectSchema)
 
-module.exports = proyectModel
+module.exports = projectModel
