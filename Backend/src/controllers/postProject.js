@@ -1,10 +1,10 @@
-const { createProyect } = require("../services/proyectService");
+const { createProject } = require("../services/projectService");
 
-const postProyect = async(req, res) => {
+const postProject = async(req, res) => {
   try {
     const { name, images, description, category } = req.body;
     if(name  && images && description && category) {
-      const form = await createProyect({
+      const form = await createProject({
         name,
         images,
         description,
@@ -19,4 +19,4 @@ const postProyect = async(req, res) => {
     res.status(500).send({ error: error.message });
   }
 }
-module.exports = postProyect
+module.exports = postProject
