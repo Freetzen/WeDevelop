@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './Purpose.module.css'
 
 
 export const Purpose = ({ quote, setQuote, question, setQuestion }) => {
@@ -13,16 +14,22 @@ export const Purpose = ({ quote, setQuote, question, setQuestion }) => {
   }
 
   return (
-    <div>
-      <button
-        value="ecommerce"
-        onClick={handleClick}
-      >Ecommerce</button>
-
-      <button
-        value="web"
-        onClick={handleClick}
-      >Web</button>
+    <div className={style.containerPurpose}>
+      <div className={style.titleCuestion}>
+        <h3>¿Que finalidad tendra su proyecto?</h3>
+      </div>
+      <div className={style.containerButtons}>
+        <button
+          className={style.button}
+          value="ecommerce"
+          onClick={handleClick}
+        >Ecommerce</button>
+        <button
+          className={style.button}
+          value="web"
+          onClick={handleClick}
+        >Web</button>
+      </div>
     </div>
   );
 }

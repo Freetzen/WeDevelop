@@ -1,15 +1,19 @@
 const express = require('express');
 const postUsers = require('../controllers/postUsers');
-const postForm = require('../controllers/postForm');
+const postProyect = require('../controllers/postProyect');
 const getUsers = require('../controllers/getUsers');
 const postAdmin = require('../controllers/postAdmin');
 const getUserByEmail = require('../controllers/getUserByEmail');
+const getProyects = require('../controllers/getProyects');
+const getProyectById = require('../controllers/getProyectById');
 const router = express.Router();
 
 router.get('/users', getUsers)
+router.get('/proyects', getProyects)
 router.get('/users/email', getUserByEmail)
+router.get('/proyects/:id', getProyectById)
 router.post('/login', postUsers)
-router.post('/form', postForm)
+router.post('/proyects', postProyect)
 router.post('/admin', postAdmin)
 
 module.exports = router

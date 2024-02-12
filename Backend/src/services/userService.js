@@ -1,4 +1,5 @@
 const userModel = require('../models/userModel')
+const axios = require('axios')
 
 const findUsers = async () => {
     try {
@@ -65,6 +66,7 @@ const unsuspendUser = async (id) => {
         throw new Error(error);
     }
 }
+
 
 
 module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser}

@@ -37,30 +37,23 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
   }
 
   return (
-    <div className={styles.extraServices}>
-      <button
-        onClick={handleClickGoBack}
-      >
-        Pregunta anterior
-      </button>
-      <h3>
-        ¿Requiere integración con plataformas externas o servicios, como redes sociales o sistemas de pago en línea?
-      </h3>
+    <div className={styles.containerExtraServices}>
 
-      <button
-        value="Si"
-        onClick={handleClick}
-      >Si</button>
+      <div className={styles.titleCuestion}>
+        <h3>¿Requiere integración con plataformas externas o servicios, como redes sociales o sistemas de pago en línea?</h3>
+      </div>
+      
+      <div className={styles.containerButtons}>
+        <button className={styles.button} value="Si" onClick={handleClick}>Si</button>
 
-      <button
-        value="No"
-        onClick={handleClick}
-      >No</button>
+        <button className={styles.button} value="No" onClick={handleClick}>No</button>
+
+        <button className={styles.button} onClick={handleClickGoBack}>Pregunta anterior</button>
+      </div>
       <br />
-
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
-        <div>
+        <div className={styles.TrueExtraServiceContainer}>
           <label>¿Cuales?</label>
           <br />
           <input

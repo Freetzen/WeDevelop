@@ -1,5 +1,4 @@
 .NavBarContainer {
-    background-color: rgba(240, 248, 255, 0);
     height: 10%;
     width: 100%;
     display: flex;
@@ -50,9 +49,11 @@
 
 /* Login */
 
-.login a {
-    text-decoration: none;
-    color: aliceblue;
+.login button {
     font-weight: 400;
     font-size: 17px;
+    color: aliceblue;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }

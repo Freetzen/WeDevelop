@@ -1,9 +1,10 @@
 const { Schema, model } = require('mongoose')
 
-const userSchema = new Schema({
+const proyectSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     images: {
         type: String,
@@ -13,12 +14,16 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    category: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
 
-const userModel = model("form", userSchema)
+const proyectModel = model("proyect", proyectSchema)
 
-module.exports = userModel
+module.exports = proyectModel
