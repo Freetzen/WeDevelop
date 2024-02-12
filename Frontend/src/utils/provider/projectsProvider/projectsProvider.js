@@ -4,7 +4,7 @@ import axios from "axios"
 const projectsProvider = {
     async getProjects () {
         try {
-            const getProjects = await axios('http://localhost:3001/projects')
+            const getProjects = await axios.get('http://localhost:3001/projects')
             return getProjects.data
         } catch (error) {
             return error.message
@@ -20,7 +20,7 @@ const projectsProvider = {
     },
     async getProjectById (id) {
         try {
-            const getProyectsId = await axios(`http://localhost:3001/projects/${id}`)
+            const getProyectsId = await axios.get(`http://localhost:3001/projects/${id}`)
             return getProyectsId.data
         } catch (error) {
             return error.message

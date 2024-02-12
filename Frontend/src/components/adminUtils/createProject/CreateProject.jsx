@@ -1,5 +1,5 @@
 import { useState } from "react";
-import projectsProvider from "../../utils/provider/projectsProvider/projectsProvider";
+import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
 
 const CreateProject = () => {
 
