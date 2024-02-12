@@ -5,13 +5,13 @@ export const Quote = () => {
 
   const [quote, setQuote] = useState({
     purpose: '',
-    apiOrDatabase: null,
+    apiOrDatabase: "no",
     amountOfProducts: null,
     extraServices: null,
     legalNorm: null,
     amountOfVisits: null,
-    lenguage: null,
-    design: null,
+    language: null,
+    desing: null,
     support: null,
     extraRequeriments: null,
   })

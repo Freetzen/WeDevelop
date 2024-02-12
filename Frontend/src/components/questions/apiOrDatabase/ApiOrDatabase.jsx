@@ -3,20 +3,28 @@ import style from "./ApiOrDatabase.module.css"
 
 export const ApiOrDatabase = ({ quote, setQuote, question, setQuestion }) => {
 
-const [apiOrDatabase, setApiOrDatabase] = useState("no")
+const [apiOrDatabase, setApiOrDatabase] = useState("")
 
 
   const handleChange = (event) => {
     setApiOrDatabase(event.target.value)
   }
+  
   const handleClick = (event) => {
-    event.preventDefault();
-    setApiOrDatabase(event.target.value)
-    setQuote({
-      ...quote,
-      'apiOrDatabase': apiOrDatabase
-    })
-    setQuestion(question + 1)
+    const valueClick = event.target.value
+    if(apiOrDatabase === ""){
+      setQuote({
+        ...quote,
+        'apiOrDatabase': valueClick
+      })
+      setQuestion(question + 1)
+    }else{
+      setQuote({
+        ...quote,
+        'apiOrDatabase': apiOrDatabase
+      })
+      setQuestion(question + 1)
+    }
   }
 
   return (
