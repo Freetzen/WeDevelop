@@ -8,10 +8,10 @@
     align-items: center;
     padding: 15px;
     margin-top: 6px;
-    position: absolute;
-    top:15px;
+    position: relative;
+    top: 15px;
     left: 0;
-    z-index: 1000 ;
+    z-index: 1000;
 }
 
 /* Logo Nav */
