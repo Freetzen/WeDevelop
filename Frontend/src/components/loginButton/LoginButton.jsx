@@ -1,17 +1,20 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import userProvider from "../../utils/provider/userProvider/userProvider";
 
 const LoginButton = () => {
     const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
+
     const postUserData = async () => {
       try {
-        await axios.post('http://localhost:3001/login', {
+        const newUser = {
           name: user.name,
           email: user.email,
           image: user.picture
-        });
+        }
+        const createUser = await userProvider.createUser(newUser)
       } catch (error) {
         console.error('Error al enviar los datos del usuario al servidor:', error);
       }

@@ -1,3 +1,6 @@
+import axios from "axios"
+
+
 const proyectsProvider = {
     async getProyects () {
         try {
@@ -9,8 +12,9 @@ const proyectsProvider = {
     },
     async postProyects (proyect) {
         try {
-            const postProyects = await axios(`http://localhost:3001/proyects`, proyect)
-            return postProyects.data
+            console.log('PROVIDER', proyect)
+            const newProyects = await axios.post(`http://localhost:3001/proyects`, proyect)
+            return newProyects
         } catch (error) {
             return error.message
         }
@@ -23,6 +27,23 @@ const proyectsProvider = {
             return error.message
         }
     },
+
+    async uploadImg (imgFile) {
+        try {
+            const url = `https://api.imgbb.com/1/upload?expiration=600&key=9435bd9e0656491504055e47dbc66e6c&name=${imgFile.name}`
+            const data = new FormData();
+            data.append("image", imgFile);
+            const upload = await fetch(url, {
+                method: "POST",
+                body: data
+              })
+              const responseData = await upload.json()
+              console.log(responseData)
+              return responseData
+        } catch (error) {
+            return error.message
+        }
+    }
 
 
 }

@@ -9,6 +9,7 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
   const handleChange = (event) => {
     setApiOrDatabase(event.target.value)
   }
+  
   const handleClick = (event) => {
     const valueClick = event.target.value
     if(apiOrDatabase === ""){
