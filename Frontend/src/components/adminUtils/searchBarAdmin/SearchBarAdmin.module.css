@@ -32,17 +32,17 @@
     align-items: center;
 }
 
-label {
+.label {
     font-size: 18px;
     color: black;
     margin-right: 10px;
 }
 
-input {
+.input {
     margin-right: 10px;
 }
 
-button {
+.button {
     color: #090909;
     padding: 0.7em 1.7em;
     font-size: 12px;
@@ -55,7 +55,7 @@ button {
     margin-right: 10px;
 }
 
-button:active {
+.button:active {
     color: #666;
     box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
