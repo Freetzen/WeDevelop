@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import style from './Highlights.module.css'
+import ProjectsButton from "../projectsButton/ProjectsButton";
 
 const Highlights = () => {
   const [projects, setProjects] = useState([
@@ -38,6 +39,9 @@ const Highlights = () => {
             ))
           }
         </Carousel>
+      </div>
+      <div className={style.buttonContainer}>
+        <ProjectsButton />
       </div>
     </div>
   )
