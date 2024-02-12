@@ -1,5 +1,7 @@
 
 import style from './ResumeQuestions.module.css';
+import { GoQuestion } from "react-icons/go";
+import { MdOutlineEdit } from "react-icons/md";
 
 export const ResumeQuestions = ({ quote, setQuestion }) => {
 
@@ -19,30 +21,38 @@ export const ResumeQuestions = ({ quote, setQuestion }) => {
     return (
 
         <div className={style.containerResumen}>
-            <div className={style.titleCuestion}>
-                <h3>Resumen</h3>
-            </div>
 
             <div className={style.containerAnswers}>
-                
                 <div className={style.Answers}>
+                    <div className={style.containerTitle}>
+                        <div className={style.TitleQuestion}>
+                            <span>QUESTIONS</span>
+                        </div>
+                        <div className={style.TitleAnswer}>
+                            <span>ANSWERS</span>
+                        </div>
+                        <div className={style.TitleEdit}>
+                            <span>Edit</span>
+                        </div>
+                    </div>
                     {
                         array.map((e, index) => (
                             <div className={style.Question} key={index}>
-                                <div className={style.containerQuestion}>
+                                <div className={style.containerQuestionAndIcon}>
                                     <span className={style.question}>{e}</span>
+                                    <GoQuestion />
                                 </div>
                                 <div className={style.containerQuestion}>
-                                    <span className={style.question}>{quote[e]}</span>
+                                    <span className={style.answer}>{quote[e]}</span>
                                 </div>
-                                <div className={style.containerQuestion}>
-                                <button
-                                    className={style.button}
-                                    key={index}
-                                    value={e}
-                                    onClick={handleClick}
-                                >Editar</button>
-                                </div>   
+                                <div className={style.containerButton}>
+                                    <button
+                                        className={style.button}
+                                        value={e}
+                                        onClick={handleClick}
+                                    >✎
+                                    </button>
+                                </div>
                             </div>
                         ))
                     }
