@@ -3,7 +3,7 @@ const { createUser } = require("../services/userService");
 
 
 const postUsers = async(req, res) => {
-    const {name, image} = req.body
+    const {name, email, image} = req.body
     try {
     //  const hashPassword = createHash(password);
         const users = await createUser({
