@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import style from './Section.module.css'
 import { Support } from '../questions/support/Support'
 import { AmountVisites } from '../questions/amountVisites/AmountVisites'
 import { Purpose } from '../questions/purpose/Purpose'
@@ -9,12 +10,14 @@ import { ApiOrDatabase } from '../questions/apiOrDatabase/ApiOrDatabase'
 import { AmountOfProducts } from '../questions/amountOfProducts/amountOfProducts'
 import { LegalNorm } from '../questions/legalNorm/LegalNorm'
 import { Language } from '../questions/language/Language'
+import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
 
 
-export const Section = ({quote, setQuote}) => {
+export const Section = ({ quote, setQuote }) => {
 
   const [question, setQuestion] = useState(1)
-  
+
+
 
   const switchQuestion = (question) => {
 
@@ -43,24 +46,39 @@ export const Section = ({quote, setQuote}) => {
       return <Support quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
     case 10:
       return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 11:
+      return <ResumeQuestions quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
     default:
       return <></>
+
     }
   }
-  
+
 
   return (
-    <div>
-      
+    <div className={style.containerSection}>
       {
-      switchQuestion(question)
+        switchQuestion(question)
       }
-      {question !== 1 && ( 
-      <button
-        onClick={() => {setQuestion(question - 1)}}>Anterior pregunta</button>
-    )}
-      <button
-      onClick={() =>{setQuestion(question + 1)}}>Siguiente pregunta</button>
+
+      <div className={style.containerButtons}>
+        {question > 1 || question === 11 && (
+          <button
+            className={style.Buttons}
+            onClick={() => { setQuestion(question - 1) }}>Anterior pregunta</button>
+        )}
+        {question < 11 && (
+          <button
+          className={style.Buttons}
+          onClick={() => { setQuestion(question + 1) }}>Siguiente pregunta</button>
+          )
+        }
+        {question === 11 && (
+          <button>elegir planes</button>
+        )
+
+        }
+      </div>
     </div>
   )
 }

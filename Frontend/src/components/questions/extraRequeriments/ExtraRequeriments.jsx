@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from "./ExtraRequeriments.module.css"
 
-export const ExtraRequeriments = ({quote, setQuote, question, setQuestion}) => {
+export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) => {
 
   const [requeriment, setRequeriment] = useState('')
 
@@ -9,41 +9,50 @@ export const ExtraRequeriments = ({quote, setQuote, question, setQuestion}) => {
     setRequeriment(event.target.value)
   }
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    setRequeriment(e.target.value)
-    setQuote({
-      ...quote,
-      'extraRequeriments': e.target.value
-    })
-    setQuestion(question + 1)
+
+  const handleClick = (event) => {
+    const valueClick = event.target.value
+    if(requeriment === ""){
+      setQuote({
+        ...quote,
+        'extraRequeriments': valueClick
+      })
+      setQuestion(question + 1)
+    }else{
+      setQuote({
+        ...quote,
+        'extraRequeriments': requeriment
+      })
+      setQuestion(question + 1)
+    }
   }
 
   return (
-    <div>
-      <h2>Tu página tiene algun requisito no contemplado dentro de nuestra ruta de preguntas?</h2>
-      <div>
-        <button
-          value='no'
-          onClick={handleClick}
-        >
-          No
-        </button>
+    <div className={style.containerExtraRequeriments}>
+      <div className={style.titleCuestion}>
+        <h3>¿Tu página tiene algun requisito no contemplado dentro de nuestra ruta de preguntas?</h3>
       </div>
-
-
-      <div>
-      <input
-        value={requeriment}
-        type='text'
-        placeholder='Especifique cuales son los requisitos'
-        onChange={handleChange}
-      ></input>
-        <button
-          onClick={handleClick}
-        >
-        Guardar cambios
-        </button>
+      <div className={style.ExtraRequerimentsContainer}>
+        <div className={style.ExtraRequerimentsOpcionOne}>
+          <button
+            className={style.button}
+            value="No"
+            onClick={handleClick}
+          >No</button>
+        </div>
+        <div className={style.ExtraRequerimentsTwo}>
+          <textarea
+          placeholder='Especifique los requisitos aqui'
+            value={requeriment}
+            type='text'
+            onChange={handleChange}
+            className={style.ExtraRequerimentsTextArea}
+          ></textarea>
+          <button
+            className={style.ExtraRequerimentsUpload}
+            onClick={handleClick}
+          >Guardar cambios</button>
+        </div>
       </div>
     </div>
   );

@@ -1,55 +1,71 @@
 import React, { useState } from 'react';
 import style from './Support.module.css'
-import service from './servicios-digitales.png';
-import no from './no.png';
-import si from './si.png';
+import YesSuppor from './SupportWebYes.png';
+import NoSupport from './SupportWebNo.png';
+import { FcCancel } from "react-icons/fc";
+import { FcOk } from "react-icons/fc";
 
-export const Support = ({quote, setQuote, question, setQuestion}) => {
+export const Support = ({ quote, setQuote, question, setQuestion }) => {
 
   const [showOptions, setShowOptions] = useState(false);
+  const [selectedSupport, setSelectedSupport] = useState(null); // Nuevo estado para almacenar el valor seleccionado
 
   const handleYesClick = () => {
     setShowOptions(true);
   };
- 
+  
 
   const handleClick = (e) => {
-    const valueClick = e.target.value
-    setQuote({
-      ...quote,
-      'support': valueClick
-    })
-    setShowOptions(false);
-    setQuestion(question + 1)
-  }
-
+    const valueClick = e.target.value;
+   
+      setSelectedSupport(valueClick); 
+      setQuote({
+        ...quote,
+        'support': valueClick
+      });
+      setShowOptions(false);
+      setQuestion(question + 1);
+    
+    console.log(valueClick);
+  };
 
   return (
-    <div className={style.container}>
-      <h1>Su web requerirá de soporte?</h1>
-      <div className={style.imageContainer} onClick={handleYesClick}>
-        <img src={service} alt="servicios" className={style.image} />
-        <div>
-          <img src={si} alt="sí" className={style.smallImage} />
-        </div>
+    <div className={style.containerSupport}>
+      <div className={style.titleCuestion}>
+        <h3>¿Su web requerira soporte?</h3>
       </div>
-      <div className={style.imageContainer} onClick={handleClick}>
-        <img src={service} alt="servicios" className={style.image} />
-        <div>
-          <img src={no} alt="sí" className={style.smallImage} />
+
+      <div className={style.containerImages}>
+        <div className={style.imageContainer} onClick={handleYesClick}>
+          <img src={YesSuppor} alt="servicios" className={style.image} />
+          <div className={style.containerIcon}>
+            <FcOk className={style.smallImage} />
+          </div>
+          <div className={style.title}>
+            <h4>Requires Support</h4>
+          </div>
+        </div>
+        <div className={style.imageContainer} onClick={handleClick} value='No'>
+          <img src={NoSupport} alt="servicios" className={style.image} />
+          <div className={style.containerIcon}>
+            <FcCancel className={style.smallImage}/>
+          </div>
+          <div className={style.title}>
+            <h4>No Support Required</h4>
+          </div>
         </div>
       </div>
       {showOptions && (
-        <div>
+        <div className={style.containerOptions}>
           <h2>Opciones de soporte</h2>
-          <ul  className={style['options-list']}>
-            <li className={style['option-item']} onClick={handleClick}>Semanal</li>
-            <li className={style['option-item']} onClick={handleClick}>Mensual</li>
-            <li className={style['option-item']}onClick={handleClick}>Trimestral</li>
-            <li className={style['option-item']}onClick={handleClick}>Otros</li>
-          </ul>
+          <div className={style['options-list']}>
+            <button className={style['option-item']} onClick={handleClick} value='Semanal'>Semanal</button>
+            <button className={style['option-item']} onClick={handleClick} value='Mensual'>Mensual</button>
+            <button className={style['option-item']} onClick={handleClick} value='Trimestral'>Trimestral</button>
+            <button className={style['option-item']} onClick={handleClick} value='Otros'>Otros</button>
+          </div>
         </div>
       )}
-      </div>
+    </div>
   );
 };

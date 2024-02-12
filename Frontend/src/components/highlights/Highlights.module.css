@@ -1,6 +1,6 @@
 .carouselcontainer {
     background-color: aliceblue;
-    height: 1100px;
+    height: 100%;
     padding: 30px 15px;
 }
 
@@ -32,6 +32,11 @@
     width: 60%;
     height: max-content; 
     margin: 20px 20px;
+}
+
+.buttonContainer {
+    width: auto;
+    margin:50px auto;
 }
 
 @media screen and (max-width: 768px) {

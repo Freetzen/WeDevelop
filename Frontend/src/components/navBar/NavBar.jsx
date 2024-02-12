@@ -1,8 +1,11 @@
 import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
+import Login from "../login/Login";
 
 
 const NavBar = () => {
+
+
     return (
         <div className={style.NavBarContainer}>
 
@@ -15,7 +18,7 @@ const NavBar = () => {
             <div className={style.menu}>
                 <ul>
                     <li>
-                        <Link to="/home" >Home</Link>
+                        <Link to="/" >Home</Link>
                     </li>
                     <li>
                         <Link to="/quote">Quote</Link>
@@ -30,7 +33,7 @@ const NavBar = () => {
             </div>
 
             <div className={style.login}>
-                <Link to="/login">Login</Link>
+                <Login />
             </div>
         </div>
     )

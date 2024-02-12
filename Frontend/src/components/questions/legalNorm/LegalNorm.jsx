@@ -35,30 +35,23 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
   }
 
   return (
-    <div className={styles.legalnorm}>
-      <button
-        onClick={handleClickGoBack}
-      >
-        Pregunta anterior
-      </button>
-      <h3>
-        ¿Existen requisitos legales o normativas específicas que deban cumplirse en el desarrollo de su sitio web?
-      </h3>
+    <div className={styles.containerLegalNorm}>
+      <div className={styles.titleCuestion}>
+        <h3>¿Existen requisitos legales o normativas específicas que deban cumplirse en el desarrollo de su sitio web?</h3>
+      </div>
 
-      <button
-        value="Si"
-        onClick={handleClick}
-      >Si</button>
+      <div className={styles.containerButtons}>
+        <button className={styles.button} value="Si" onClick={handleClick}>Si</button>
 
-      <button
-        value="No"
-        onClick={handleClick}
-      >No</button>
+        <button className={styles.button} value="No" onClick={handleClick}>No</button>
+
+        <button className={styles.button} onClick={handleClickGoBack}>Pregunta anterior</button>
+      </div>
       <br />
 
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
-        <div>
+        <div className={styles.TrueLegalNorm}>
           <label>¿Cuales?</label>
           <br />
           <input
