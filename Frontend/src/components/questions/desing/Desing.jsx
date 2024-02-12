@@ -58,11 +58,10 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
     }
   ])
 
-  const handleClick = (e) => {
-    const valueClick = e.target.value
+  const handleClick = (title) => {
     setQuote({
       ...quote,
-      'desing': valueClick
+      'desing': title
     })
     setQuestion(question + 1)
   }
@@ -79,9 +78,6 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
     setQuestion(question + 1)
   }
 
-
-
-
   return (
     <div className={styles.containerDesing}>
       <div className={styles.titleCuestion}>
@@ -90,8 +86,8 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
       <div className={styles.imageContainer}>
         {
           projects.map((project, index) => (
-            <div key={index} className={styles.model} onClick={handleClick}>
-              <img src={project.url} alt="model2" />
+            <div key={index} className={styles.model} onClick={() => handleClick(project.title)}>
+              <img src={project.url} alt="" />
               <div className={styles.titleContainer}>
                 <h4>{project.title} </h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, nihil veritatis dolorum illum blanditiis dolores.</p>
