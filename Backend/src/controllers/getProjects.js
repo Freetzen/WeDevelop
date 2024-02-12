@@ -1,8 +1,8 @@
-const { findProyect } = require("../services/projectService")
+const { findProject } = require("../services/projectService")
 
 const getProjects = async(req, res) => {
 try {
-    const form = await findProyect()
+    const form = await findProject()
 
     res.status(200).json(form)
 } catch (error) {
