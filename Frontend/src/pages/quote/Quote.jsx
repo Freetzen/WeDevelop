@@ -10,8 +10,8 @@ export const Quote = () => {
     extraServices: null,
     legalNorm: null,
     amountOfVisits: null,
-    lenguage: null,
-    design: null,
+    language: null,
+    desing: null,
     support: null,
     extraRequeriments: null,
   })
