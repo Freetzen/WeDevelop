@@ -6,6 +6,7 @@ import { Quote } from './pages/quote/Quote'
 import ContactUs from './pages/contactUs/ContactUs'
 
 import Projects from './pages/projects/Projects'
+import AdminWindow from './pages/adminWindow/AdminWindow'
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
       <Route path="/quote" element={<Quote/>}></Route>
       <Route path="/contact" element={<ContactUs/>}></Route>
       <Route path="/projects" element={<Projects/>}></Route>
-      <Route path="/admin" element={<AdminWindow />}></Route>
+      <Route path="/admin" element={<AdminWindow/>}></Route>
     </Routes>
 
     </>

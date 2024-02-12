@@ -10,7 +10,7 @@ export default function Projects() {
 
   useEffect(() =>{
     const getUs = async () => {
-      const totalProjects = await projectsProvider.getProyects();
+      const totalProjects = await projectsProvider.getProjects();
       setProjects(totalProjects)
 
     }
