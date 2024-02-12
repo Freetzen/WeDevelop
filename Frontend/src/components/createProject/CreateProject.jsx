@@ -1,9 +1,9 @@
 import { useState } from "react";
-import proyectsProvider from "../../utils/provider/proyectsProvider/proyectsProvider";
+import projectsProvider from "../../utils/provider/projectsProvider/projectsProvider";
 
-const CreateProyect = () => {
+const CreateProject = () => {
 
-const [proyect, setProyect] = useState({
+const [project, setproject] = useState({
   name: "",
   images: "",
   description: "",
@@ -25,14 +25,14 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const newProyect = await proyectsProvider.postProyects(proyect);
-    setProyect({
+    const newProject = await projectsProvider.postProjects(project);
+    setProject({
       name: "",
       images: "",
       description: "",
       category: category[0],
     });
-    return newProyect;
+    return newProject;
   } catch (error) {
     return error.message;
   }
@@ -40,27 +40,27 @@ const handleSubmit = async (e) => {
 
 const handleChange = (e) => {
   const input = e.target.value;
-  setProyect({
-    ...proyect,
+  setproject({
+    ...project,
     [e.target.name]: input,
   });
 };
 
 const handleCategory = (e) => {
-  setProyect({
-    ...proyect,
+  setproject({
+    ...project,
     category: e.target.value,
   });
 };
 
 const handleImage = async (e) => {
   const imgFile = e.target.files[0];
-  console.log(proyect);
+  console.log(project);
 
   try {
-    const { data } = await proyectsProvider.uploadImg(imgFile);
-    setProyect({
-      ...proyect,
+    const { data } = await projectsProvider.uploadImg(imgFile);
+    setproject({
+      ...project,
       images: data.url,
     });
   } catch (error) {}
@@ -74,7 +74,7 @@ const handleImage = async (e) => {
         <input
           type="text"
           name="name"
-          value={proyect.name}
+          value={project.name}
           onChange={handleChange}
         />
 
@@ -82,7 +82,7 @@ const handleImage = async (e) => {
         <input
           type="text"
           name="description"
-          value={proyect.description}
+          value={project.description}
           onChange={handleChange}
         />
 
@@ -106,4 +106,4 @@ const handleImage = async (e) => {
   );
 }
 
-export default CreateProyect
+export default CreateProject

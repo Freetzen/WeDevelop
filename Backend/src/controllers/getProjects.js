@@ -1,6 +1,6 @@
-const { findProyect } = require("../services/proyectService")
+const { findProyect } = require("../services/projectService")
 
-const getProyects = async(req, res) => {
+const getProjects = async(req, res) => {
 try {
     const form = await findProyect()
 
@@ -10,4 +10,4 @@ try {
 }
 }
 
-module.exports = getProyects
+module.exports = getProjects

@@ -1,27 +1,26 @@
 import axios from "axios"
 
 
-const proyectsProvider = {
-    async getProyects () {
+const projectsProvider = {
+    async getProjects () {
         try {
-            const getProyects = await axios('http://localhost:3001/proyects')
-            return getProyects.data
+            const getProjects = await axios('http://localhost:3001/projects')
+            return getProjects.data
         } catch (error) {
             return error.message
         }
     },
-    async postProyects (proyect) {
+    async postProjects (project) {
         try {
-            console.log('PROVIDER', proyect)
-            const newProyects = await axios.post(`http://localhost:3001/proyects`, proyect)
-            return newProyects
+            const newProjects = await axios.post(`http://localhost:3001/projects`, project)
+            return newProjects
         } catch (error) {
             return error.message
         }
     },
-    async getProyectById (id) {
+    async getProjectById (id) {
         try {
-            const getProyectsId = await axios(`http://localhost:3001/proyects/${id}`)
+            const getProyectsId = await axios(`http://localhost:3001/projects/${id}`)
             return getProyectsId.data
         } catch (error) {
             return error.message
@@ -48,4 +47,4 @@ const proyectsProvider = {
 
 }
 
-export default proyectsProvider
+export default projectsProvider

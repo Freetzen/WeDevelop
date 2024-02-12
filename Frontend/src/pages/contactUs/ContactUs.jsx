@@ -1,6 +1,5 @@
-import { useState } from "react";
 import Contact from "../../components/contact/Contact";
-import CreateProyect from "../../components/createProyect/CreateProyect";
+import CreateProject from "../../components/createProject/CreateProject";
 
 const ContactUs = () => {
 
@@ -9,7 +8,7 @@ const ContactUs = () => {
     <div style={{ paddingTop: '150px'}} >
       <Contact/>
 
-      <CreateProyect/>
+      <CreateProject/>
     </div>
 
 

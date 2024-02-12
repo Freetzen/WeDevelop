@@ -1,6 +1,6 @@
 import ProjectsCard from "../../components/projectsCard/ProjectsCard";
 import style from "./Projects.module.css";
-import proyectsProvider from "../../utils/provider/proyectsProvider/proyectsProvider";
+import projectsProvider from "../../utils/provider/projectsProvider/projectsProvider";
 import { useEffect, useState } from "react";
 
 export default function Projects() {
@@ -10,7 +10,7 @@ export default function Projects() {
 
   useEffect(() =>{
     const getUs = async () => {
-      const totalProjects = await proyectsProvider.getProyects();
+      const totalProjects = await projectsProvider.getProyects();
       setProjects(totalProjects)
 
     }
