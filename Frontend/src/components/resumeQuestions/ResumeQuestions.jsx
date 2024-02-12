@@ -1,10 +1,10 @@
+
 import style from './ResumeQuestions.module.css';
 
 export const ResumeQuestions = ({ quote, setQuestion }) => {
 
     const array = Object.keys(quote)
 
-    console.log(array)
 
     const handleClick = (event) => {
         event.preventDefault()
@@ -15,6 +15,7 @@ export const ResumeQuestions = ({ quote, setQuestion }) => {
             }
         })
     }
+
     return (
 
         <div className={style.containerResumen}>
@@ -47,16 +48,7 @@ export const ResumeQuestions = ({ quote, setQuestion }) => {
                     }
                 </div>
             </div>
-
-            {/* {
-                array.map((e, index) => (
-                    <button
-                        key={index}
-                        value={e}
-                        onClick={handleClick}
-                    >{e}: {quote[e]}</button>
-                ))
-            } */}
         </div>
     )
+
 }
