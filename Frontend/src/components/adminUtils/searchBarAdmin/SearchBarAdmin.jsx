@@ -60,8 +60,9 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
             </div>
 
             <div className={style.buttons3}>
-                <label >Buscar :  </label>
+                <label className={style.label}>Buscar :  </label>
                 <input
+                className={style.input}
                     type="text"
                     name='search'
                     value={name}
@@ -69,7 +70,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
                     onChange={handleChange}
                 />
 
-                <button onClick={() => { handleClick() }}
+                <button className={style.button} onClick={() => { handleClick() }}
                 >Buscar</button>
             </div>
         </div>
