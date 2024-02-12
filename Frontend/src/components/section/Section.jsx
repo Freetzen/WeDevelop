@@ -10,6 +10,7 @@ import { ApiOrDatabase } from '../questions/apiOrDatabase/ApiOrDatabase'
 import { AmountOfProducts } from '../questions/amountOfProducts/amountOfProducts'
 import { LegalNorm } from '../questions/legalNorm/LegalNorm'
 import { Language } from '../questions/language/Language'
+import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
 
 
 export const Section = ({ quote, setQuote }) => {
@@ -21,32 +22,35 @@ export const Section = ({ quote, setQuote }) => {
   const switchQuestion = (question) => {
 
     switch (question) {
-      case 1:
-        return <Purpose quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />;
-      case 2:
-        return <ApiOrDatabase quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      case 3:
-        if (quote.purpose === "ecommerce") {
-          return <AmountOfProducts quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-        } else {
-          setQuestion(question + 1)
-        }
-      case 4:
-        return <ExtraServices quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      case 5:
-        return <LegalNorm quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      case 6:
-        return <AmountVisites quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />;
-      case 7:
-        return <Language quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      case 8:
-        return <Desing quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      case 9:
-        return <Support quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      case 10:
-        return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      default:
-        return <></>
+    case 1:
+      return <Purpose quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question}/>;
+    case 2:
+      return <ApiOrDatabase quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 3:
+      if(quote.purpose === "ecommerce"){
+        return <AmountOfProducts quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      }else{
+        setQuestion(question + 1)
+      }
+    case 4:
+      return <ExtraServices quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 5:
+      return <LegalNorm quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 6:
+      return <AmountVisites quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />;
+    case 7:
+      return <Language quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 8:
+      return <Desing quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 9:
+      return <Support quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 10:
+      return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 11:
+      return <ResumeQuestions quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    default:
+      return <></>
+
     }
   }
 
