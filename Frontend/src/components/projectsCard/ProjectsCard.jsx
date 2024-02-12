@@ -5,7 +5,7 @@ import style from "./ProjectsCard.module.css";
 export default function ProjectsCard({project}) {
     return (
 
-        <Link to={`/proyects/${project._id}`}>
+        <Link to={`/projects/${project._id}`}>
             <div className={style.container}>
                 <h2>{project.name}</h2>
                 <img src={project.images} />
