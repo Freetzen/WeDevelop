@@ -4,6 +4,7 @@ import NavBar from './components/navBar/NavBar'
 import Home from './pages/home/Home'
 import { Quote } from './pages/quote/Quote'
 import ContactUs from './pages/contactUs/ContactUs'
+
 import Projects from './pages/projects/Projects'
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
       <Route path="/quote" element={<Quote/>}></Route>
       <Route path="/contact" element={<ContactUs/>}></Route>
       <Route path="/projects" element={<Projects/>}></Route>
+      <Route path="/admin" element={<AdminWindow />}></Route>
     </Routes>
+
     </>
   )
 }

@@ -1,29 +1,69 @@
 .containerResumen {
     background-color: #6940ff;
-    border: 1px solid black;
-    height: 1500px;
+    height: 1100px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-}
-
-.containerResumen .titleCuestion h3 {
-    border: 1px solid black;
-    color: aliceblue;
-    font-size: 50px;
-    font-weight: 200;
-    letter-spacing: -1px;
-    margin: 20px 0px;
 }
 
 .containerResumen .containerAnswers {
-    border: 1px solid black;
-    background-color: #e8e8e8;
-    width: 50%;
+    width: 60%;
     height: max-content;
+}
+
+.containerAnswers .Answers .containerTitle{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.containerAnswers .Answers .containerTitle .TitleQuestion{
+    background-color: #232323;
+    width:50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.TitleQuestion span{
+    color: aliceblue;
+    font-weight: 700;
+}
+
+.containerAnswers .Answers .containerTitle .TitleAnswer{
+    background-color: #232323;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.TitleAnswer span{
+    color: aliceblue;
+    font-weight: 700;
+}
+
+
+.containerAnswers .Answers .containerTitle .TitleEdit{
+    background-color: #232323;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.TitleEdit span{
+    color: aliceblue;
+    font-weight: 700;
 }
 
 .containerAnswers .Answers {
@@ -34,18 +74,59 @@
     height: 70px;
     display: flex;
     align-items: center; 
+    
+}
+
+.containerQuestionAndIcon {
+    border-top: 1px solid rgb(166, 166, 166);
+    border-right: 1px solid rgb(166, 166, 166);
+    background-color: #eeeff1;
+    width:50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
 }
 
 .containerQuestion {
-    border: 1px solid black;
+    border-top: 1px solid rgb(166, 166, 166);
+    border-right: 1px solid rgb(166, 166, 166);
+    background-color: #eeeff1;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 15px 0px;
+}
+
+.containerButton {
+    border-top: 1px solid rgb(166, 166, 166);
+    background-color: #eeeff1;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
 }
 
 .question {
     font-size: 15px;
+    color: #797979;
+    
 }
 
+.answer {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f1f1f; 
+}
+
+.button {
+    border: none;
+    font-size: 25px;
+    color: #6940ff;
+    cursor: pointer;
+}

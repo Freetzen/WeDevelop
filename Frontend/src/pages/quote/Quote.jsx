@@ -5,7 +5,7 @@ export const Quote = () => {
 
   const [quote, setQuote] = useState({
     purpose: '',
-    apiOrDatabase: "no",
+    apiOrDatabase: null,
     amountOfProducts: null,
     extraServices: null,
     legalNorm: null,
