@@ -47,16 +47,6 @@ export const ResumeQuestions = ({ quote, setQuestion }) => {
                     }
                 </div>
             </div>
-
-            {/* {
-                array.map((e, index) => (
-                    <button
-                        key={index}
-                        value={e}
-                        onClick={handleClick}
-                    >{e}: {quote[e]}</button>
-                ))
-            } */}
         </div>
     )
 }
