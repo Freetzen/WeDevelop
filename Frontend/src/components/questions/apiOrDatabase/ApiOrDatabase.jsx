@@ -36,7 +36,7 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
         <div className={style.ApiOrDatabaseOpcionOne}>
           <button
             className={style.button}
-            value="no"
+            value="No"
             onClick={handleClick}
           >No</button>
         </div>

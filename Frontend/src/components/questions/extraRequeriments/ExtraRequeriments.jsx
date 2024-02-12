@@ -9,14 +9,22 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
     setRequeriment(event.target.value)
   }
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    setRequeriment(e.target.value)
-    setQuote({
-      ...quote,
-      'extraRequeriments': e.target.value
-    })
-    setQuestion(question + 1)
+
+  const handleClick = (event) => {
+    const valueClick = event.target.value
+    if(requeriment === ""){
+      setQuote({
+        ...quote,
+        'extraRequeriments': valueClick
+      })
+      setQuestion(question + 1)
+    }else{
+      setQuote({
+        ...quote,
+        'extraRequeriments': requeriment
+      })
+      setQuestion(question + 1)
+    }
   }
 
   return (
@@ -28,7 +36,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
         <div className={style.ExtraRequerimentsOpcionOne}>
           <button
             className={style.button}
-            value="no"
+            value="No"
             onClick={handleClick}
           >No</button>
         </div>
