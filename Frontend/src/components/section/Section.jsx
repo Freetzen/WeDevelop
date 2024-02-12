@@ -9,6 +9,7 @@ import { ApiOrDatabase } from '../questions/apiOrDatabase/ApiOrDatabase'
 import { AmountOfProducts } from '../questions/amountOfProducts/amountOfProducts'
 import { LegalNorm } from '../questions/legalNorm/LegalNorm'
 import { Language } from '../questions/language/Language'
+import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
 
 
 export const Section = ({quote, setQuote}) => {
@@ -43,6 +44,8 @@ export const Section = ({quote, setQuote}) => {
       return <Support quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
     case 10:
       return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+    case 11:
+      return <ResumeQuestions quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
     default:
       return <></>
     }

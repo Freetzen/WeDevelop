@@ -3,7 +3,7 @@ import style from "./ApiOrDatabase.module.css"
 
 export const ApiOrDatabase = ({quote, setQuote, question, setQuestion}) => {
 
-const [apiOrDatabase, setApiOrDatabase] = useState("")
+const [apiOrDatabase, setApiOrDatabase] = useState("no")
 
 const handleChange = (event) => {
   setApiOrDatabase(event.target.value)
