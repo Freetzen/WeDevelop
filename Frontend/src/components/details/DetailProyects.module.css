@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f7f7f7; /* Color de fondo */
+  background-color: #6940ff; /* Color de fondo */
 }
 
 .detailproduct {
@@ -78,6 +78,7 @@
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   transition: all 0.3s ease; /* Transición suave */
   font-family: 'Roboto', sans-serif; /* Fuente */
+  margin: 0px 5px;
 }
 
 .button1 {

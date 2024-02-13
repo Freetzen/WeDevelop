@@ -63,16 +63,14 @@ export default function Projects() {
 
   return(
     <div className={style.projectsContainer}>
-        <div>
-          <h3>Proyectos creados</h3>
-
+        <div className={style.filtersContainer}>
           <select name="filter" onChange={handleClick}>
             {
               category.map((e, index) => (<option key={index} value={e}>{e}</option>))
               }
           </select>
         </div>
-       <div className={style.proyectos}>
+        <div className={style.proyectos}>
           {  
           categories.length === 0 
           ? projects.map((proyecto, index) => (<ProjectsCard key={index} project={proyecto} />)) 

@@ -1,10 +1,12 @@
 import Contact from "../../components/contact/Contact";
+import style from './ContactUs.module.css'
+
 
 const ContactUs = () => {
 
   return (
 
-    <div style={{ paddingTop: '150px'}} >
+    <div className={style.containerContactUs}>
       <Contact/>
     </div>
 

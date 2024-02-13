@@ -1,75 +1,85 @@
 import { useState } from "react";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
+import style from './CreateProject.module.css'
 
 const CreateProject = () => {
 
-const [project, setproject] = useState({
-  name: "",
-  images: "",
-  description: "",
-  category: "",
-});
-
-const category = [
-  "",
-  "E-commerce",
-  "Tourism",
-  "Health",
-  "Landing Page",
-  "Social Network",
-  "Portfolio",
-  "Entertainment",
-];
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-    const newProject = await projectsProvider.postProjects(project);
-    setproject({
-      name: "",
-      images: "",
-      description: "",
-      category: category[0],
-    });
-    return newProject;
-  } catch (error) {
-    return error.message;
-  }
-};
-
-const handleChange = (e) => {
-  const input = e.target.value;
-  setproject({
-    ...project,
-    [e.target.name]: input,
+  const [project, setproject] = useState({
+    name: "",
+    images: "",
+    description: "",
+    category: "",
   });
-};
 
-const handleCategory = (e) => {
-  setproject({
-    ...project,
-    category: e.target.value,
-  });
-};
+  const category = [
+    "",
+    "E-commerce",
+    "Tourism",
+    "Health",
+    "Landing Page",
+    "Social Network",
+    "Portfolio",
+    "Entertainment",
+  ];
 
-const handleImage = async (e) => {
-  const imgFile = e.target.files[0];
-  console.log(project);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    const { data } = await projectsProvider.uploadImg(imgFile);
+    try {
+      const newProject = await projectsProvider.postProjects(project);
+      setproject({
+        name: "",
+        images: "",
+        description: "",
+        category: category[0],
+      });
+      return newProject;
+    } catch (error) {
+      return error.message;
+    }
+  };
+
+  const handleChange = (e) => {
+    const input = e.target.value;
     setproject({
       ...project,
-      images: data.url,
+      [e.target.name]: input,
     });
-  } catch (error) {}
-};
+  };
+
+  const handleCategory = (e) => {
+    setproject({
+      ...project,
+      category: e.target.value,
+    });
+  };
+
+  const handleImage = async (e) => {
+    const imgFile = e.target.files[0];
+    console.log(project);
+
+    try {
+      const { data } = await projectsProvider.uploadImg(imgFile);
+      setproject({
+        ...project,
+        images: data.url,
+      });
+    } catch (error) { }
+  };
 
 
   return (
-    <div style={{ paddingTop: "150px" }}>
-      <form onSubmit={handleSubmit}>
+    <div className={style.containerCreateProject}>
+      <div className={style.flyerWebDevelop}>
+        <div className={style.containerImage}>
+          <img src='./images/logo-nav.png' alt="" />
+          <span>By developers</span>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit} className={style.form}>
+        <div className={style.titleProject}>
+          <h3>Create Project</h3>
+        </div>
         <label>Name: </label>
         <input
           type="text"
@@ -96,11 +106,13 @@ const handleImage = async (e) => {
             );
           })}
         </select>
-
-        <label>File: </label>
-        <input type="file" name="image" onChange={handleImage}/>
-
-        <button type="submit" /* disabled={!proyect.name && !proyect.category && !proyect.images && !proyect.description} */>Send</button>
+        <div className={style.containerSelectArchivos}>
+          <label>Import Image: </label>
+          <input className={style.inputArchivos} type="file" name="image" onChange={handleImage} />
+        </div>
+        <div className={style.containerButton}>
+          <button type="submit" /* disabled={!proyect.name && !proyect.category && !proyect.images && !proyect.description} */>Send</button>
+        </div>
       </form>
     </div>
   );
