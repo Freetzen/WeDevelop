@@ -66,10 +66,10 @@ const PaginateProyect = ({info, projects, setProjects, setInfo}) => {
   return (
     <div>
         {
-            info.hasPrevPage === true ? <button onClick={handlePrev}>Prev</button> : null
+            info.hasPrevPage === true ? <button className={style.Buttons} onClick={handlePrev}>Prev</button> : null
         }
         {
-            info.hasNextPage === true ? <button onClick={handleNext}>Next</button> : null
+            info.hasNextPage === true ? <button className={style.Buttons} onClick={handleNext}>Next</button> : null
         }
     </div>
   )

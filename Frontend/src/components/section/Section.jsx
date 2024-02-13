@@ -67,19 +67,19 @@ export const Section = ({ quote, setQuote }) => {
       }
 
       <div className={style.containerButtons}>
-        {question > 1 || question === 11 && (
+        {/* {question > 1 || question === 11 && (
           <button
             className={style.Buttons}
             onClick={() => { setQuestion(question - 1) }}>Anterior pregunta</button>
-        )}
-        {question < 11 && (
+        )} */}
+        {/* {question < 11 && (
           <button
           className={style.Buttons}
           onClick={() => { setQuestion(question + 1) }}>Siguiente pregunta</button>
           )
-        }
+        } */}
         {question === 11 && (
-          <button className={style.Buttons} onClick={pricing}>elegir planes</button>
+          <button className={style.Buttons} onClick={pricing}>Elegir planes</button>
         )
 
         }
