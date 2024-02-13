@@ -31,15 +31,15 @@
 .containerCards .boxCard{
     background-color: aliceblue;
     width: 250px;
-    height: max-content;
-    margin: 10px 30px;
-    padding: 15px;
+    height: 350;
+    margin: 5px 30px;
     border-radius: 15px;
 }
 
 .containerCards .boxCard .icon{
     text-align: center;
     font-size: 50px;
+    margin-top: 20px;
 }
 
 .containerCards .titleCard{ 
@@ -58,5 +58,8 @@
 .containerCards .titleCard p{
     font-size: 15px;
     color: #484848;
+    text-align: center;
+    padding: 10px 20px;
+    
 }
 
