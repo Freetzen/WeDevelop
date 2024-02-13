@@ -8,7 +8,7 @@ import StartQuote from "../../components/startQuote/StartQuote"
 
 const Home = () => {
   return (
-    <div>
+    <div style={{backgroundColor: 'aliceblue'}}>
       <Header/>
       <AboutUs/>
       <Skills/>
