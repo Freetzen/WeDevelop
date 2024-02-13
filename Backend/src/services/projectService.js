@@ -3,15 +3,15 @@ const projectModel = require('../models/projectModel')
 
 const findProject = async (page, limit) => {
     try {
-        return await projectModel.paginate({}, {page, limit});
+        return await projectModel.paginate({}, { page, limit });
     } catch (error) {
         throw new Error(error);
     }
 }
- 
+
 const findProjectByCategory = async (category) => {
     try {
-        return await projectModel.find({"category": category})
+        return await projectModel.find({ "category": category })
     } catch (error) {
         throw new Error(error);
     }
