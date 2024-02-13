@@ -2,9 +2,10 @@ import axios from "axios"
 
 
 const projectsProvider = {
-    async getProjects () {
+    async getProjects (page) {
         try {
-            const getProjects = await axios.get('http://localhost:3001/projects')
+            if(!page) page = 1
+            const getProjects = await axios.get(`http://localhost:3001/projects?page=${page}`)
             return getProjects.data
         } catch (error) {
             return error.message
@@ -22,6 +23,15 @@ const projectsProvider = {
         try {
             const getProyectsId = await axios.get(`http://localhost:3001/projects/${id}`)
             return getProyectsId.data
+        } catch (error) {
+            return error.message
+        }
+    },
+
+    async getProjectByCategory (category) {
+        try {
+            const getProyectsCategory = await axios.get(`http://localhost:3001/projects/category?category=${category}`)
+            return getProyectsCategory.data
         } catch (error) {
             return error.message
         }

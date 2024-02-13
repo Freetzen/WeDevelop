@@ -1,13 +1,22 @@
 const projectModel = require('../models/projectModel')
 
-const findProject = async () => {
+
+const findProject = async (page, limit) => {
     try {
-        return await projectModel.find();
+        return await projectModel.paginate({}, {page, limit});
     } catch (error) {
         throw new Error(error);
     }
 }
  
+const findProjectByCategory = async (category) => {
+    try {
+        return await projectModel.find({"category": category})
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 const findProjectById = async (id) => {
     try {
         return await projectModel.findById(id);
@@ -41,4 +50,4 @@ const updateProject = async (id, info) => {
     }
 }
 
-module.exports = { findProject, findProjectById, createProject, deleteProject, updateProject}
+module.exports = { findProject, findProjectById, createProject, deleteProject, updateProject, findProjectByCategory}
