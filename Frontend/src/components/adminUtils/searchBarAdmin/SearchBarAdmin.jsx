@@ -30,7 +30,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
     }
     const getProjets = async () => {
         const projectsResponse = await projectsProvider.getProjects()
-        setItemsToEdit(projectsResponse)
+        setItemsToEdit(projectsResponse.docs)
     }
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {

@@ -12,11 +12,11 @@ const getProjectByCategory = require('../controllers/getProjectByCategory');
 const router = express.Router();
 
 router.get('/projects/category', getProjectByCategory)
+router.get('/projects/name', getProjectByName)
 router.get('/projects/:id', getProjectById)
 router.get('/projects', getProjects)
 router.get('/users', getUsers)
 router.get('/users/email', getUserByEmail)
-router.get('/projects/name', getProjectByName)
 router.post('/login', postUsers)
 router.post('/projects', postProject)
 router.post('/admin', postAdmin)
