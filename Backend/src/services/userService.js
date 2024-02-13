@@ -8,7 +8,7 @@ const findUsers = async () => {
         throw new Error(error);
     }
 }
- 
+
 const findUserById = async (id) => {
     try {
         return await userModel.findById(id);
@@ -19,7 +19,7 @@ const findUserById = async (id) => {
 
 const findUserByEmail = async (email) => {
     try {
-        const user = await userModel.findOne({ email: email });
+        const user = await userModel.findOne({ email: { $regex: new RegExp('^' + email, 'i') } });
         return user
     } catch (error) {
         throw new Error(error);
@@ -69,4 +69,4 @@ const unsuspendUser = async (id) => {
 
 
 
-module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser}
+module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser }
