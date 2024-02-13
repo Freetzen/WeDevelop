@@ -32,14 +32,26 @@ export default function ProjectDetails() {
     const backToHome = () => {
         navigate('/projects')
       }
+      const goToQuote = () => {
+        navigate('/quote')
+    }
 
     return (
-        <div className={style.detailsContainer}>
-            <h2>{projectById.name}</h2>
-            <img src={projectById.images} alt={projectById.name} />
-            <p>{projectById.description}</p>
-            <h5>{projectById.category}</h5>
-            <button onClick={backToHome} className='backToHome'>BACK TO HOME</button>
-        </div>
-    );
+      <div className={style.detailsContainer}>
+      <div className={style.detailproduct}>
+          <div className={style.detailsLeft}>
+              <div><h2>{projectById.name}</h2></div>
+              <img src={projectById.images} alt={projectById.name} className="imgDetails"/>
+          </div>
+          <div className={style.detailsRight}>
+              <h5>{projectById.category}</h5>
+              <p>{projectById.description}</p>
+              <div className={style.buttonsContainer}>
+                  <button onClick={backToHome} className={style.button1}>Back Projects</button>
+                  <button onClick={goToQuote} className={style.button2}>Get a Quote</button>
+              </div>
+          </div>
+      </div>
+  </div>
+);
 }
