@@ -9,7 +9,7 @@ import AdminWindow from './pages/adminWindow/AdminWindow'
 import CreateProject from './components/adminUtils/createProject/CreateProject'
 import ProjectDetails from './components/details/DetailProyects'
 
-
+    
 function App() {
 
   return (
@@ -20,7 +20,6 @@ function App() {
       <Route path="/quote" element={<Quote/>}></Route>
       <Route path="/contact" element={<ContactUs/>}></Route>
       <Route path="/projects" element={<Projects/>}></Route>
-
       <Route path="/projects/:id" element={<ProjectDetails/>}></Route>
       <Route path="/admin" element={<AdminWindow />}></Route>
       <Route path="/createProject" element={<CreateProject />}></Route>
