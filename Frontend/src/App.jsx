@@ -11,7 +11,7 @@ import ProjectDetails from './components/details/DetailProyects'
 import Pricing from './components/pricing/Pricing'
 
 
-
+    
 function App() {
 
   return (
