@@ -95,14 +95,25 @@ const AdminWindow = () => {
                 {
                     !itemsToEdit.length
                         ? <h3>No se han seleccionado items</h3>
-                        : itemsToEdit.map(item => (
-                            <AdminItemCard
-                                key={item._id}
-                                id={item.id}
-                                name={item.name}
-                                email={item.email}
-                            />
-                        ))
+                        : itemsToEdit[0].email
+                            ? itemsToEdit.map(item => (
+                                <AdminItemCard
+                                    key={item._id}
+                                    id={item._id}
+                                    name={item.name}
+                                    email={item.email}
+                                    suspended={item.suspended}
+                                />
+                            ))
+                            : itemsToEdit.map(item => (
+                                <AdminItemCard
+                                    key={item._id}
+                                    id={item._id}
+                                    name={item.name}
+                                    images={item.images}
+                                    category={item.category}
+                                />
+                            ))
                 }
             </div>
             <br />

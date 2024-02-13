@@ -10,7 +10,7 @@ const userProvider = {
             return error.message
         }
     },
-    async createUser (user) {
+    async createUser(user) {
         try {
             const createUser = await axios.post('http://localhost:3001/login', user)
             return createUser.data
