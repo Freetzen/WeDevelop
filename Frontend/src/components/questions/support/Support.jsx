@@ -8,12 +8,11 @@ import { FcOk } from "react-icons/fc";
 export const Support = ({ quote, setQuote, question, setQuestion }) => {
 
   const [showOptions, setShowOptions] = useState(false);
-  const [selectedSupport, setSelectedSupport] = useState(null); // Nuevo estado para almacenar el valor seleccionado
-
+  const [selectedSupport, setSelectedSupport] = useState(null); 
   const handleYesClick = () => {
     setShowOptions(true);
   };
-  
+
 
   const handleClick = (e) => {
     const valueClick = e.target.value;
@@ -45,12 +44,14 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
             <h4>Requires Support</h4>
           </div>
         </div>
+
         <div className={style.imageContainer} onClick={handleClick} value='No'>
+
           <img src={NoSupport} alt="servicios" className={style.image} />
           <div className={style.containerIcon}>
             <FcCancel className={style.smallImage}/>
           </div>
-          <div className={style.title}>
+          <div className={style.title} onClick={handleClick} >
             <h4>No Support Required</h4>
           </div>
         </div>

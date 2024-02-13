@@ -41,7 +41,7 @@ export default function ProjectDetails() {
       <div className={style.detailproduct}>
           <div className={style.detailsLeft}>
               <div><h2>{projectById.name}</h2></div>
-              <img src={projectById.images} alt={projectById.name} className="imgDetails"/>
+              <img src={projectById.images} alt={projectById.name} className="imgDetails" style={{width: '500px'}}/>
           </div>
           <div className={style.detailsRight}>
               <h5>{projectById.category}</h5>

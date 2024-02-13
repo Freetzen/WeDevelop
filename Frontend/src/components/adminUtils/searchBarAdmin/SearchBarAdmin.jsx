@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import style from './SearchBarAdmin.module.css'
 import validator from 'validator'
 import userProvider from '../../../utils/provider/userProvider/userProvider';
+import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
 
 
 export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
@@ -19,27 +20,38 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
         if (name === '') return window.alert('Debes ingresar un nombre')
         if (validator.isEmail(name)) getUsEmail(name)
         else {
-            setItemsToEdit([])
-            window.alert('Ahora debemos hacer el de pryectos')
+            getProjectName(name)
         }
-        console.log('Este es el items', itemsToEdit);
         setName('')
     }
     const getUs = async () => {
-        setItemsToEdit([])
         const usersResponse = await userProvider.getUsers()
         setItemsToEdit(usersResponse)
+    }
+    const getProjets = async () => {
+        const projectsResponse = await projectsProvider.getProjects()
+        setItemsToEdit(projectsResponse)
+    }
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleClick()
+        }
+    }
+    const getProjectName = async (name) => {
+        setItemsToEdit([])
+        const projectsResponse = await projectsProvider.getProjectByName(name)
+        if (projectsResponse.length === 0) return window.alert('No existen coincidencias con el nombre proporcionado')
+        else setItemsToEdit(projectsResponse)
+        console.log(projectsResponse);
     }
     const getUsEmail = async (email) => {
         setItemsToEdit([])
         // if (name === '') return window.alert('Debes ingresar un nombre')
         const usersResponse = await userProvider.getUserByEmail(email)
-        console.log(' esta es la userresponse', usersResponse);
         if (usersResponse === null) {
             return window.alert('No existen coincidencias con el nombre proporcionado')
         }
-        else setItemsToEdit([...itemsToEdit, usersResponse])
-        console.log('Este es el items en get', itemsToEdit);
+        else setItemsToEdit([usersResponse])
     }
     return (
         <div className={style.searBar}>
@@ -47,7 +59,9 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
                 <button
                     onClick={getUs}
                 >Usuarios</button>
-                <button>Proyectos</button>
+                <button
+                    onClick={getProjets}
+                >Proyectos</button>
             </div>
 
             <div className={style.buttons2}>
@@ -62,12 +76,13 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
             <div className={style.buttons3}>
                 <label className={style.label}>Buscar :  </label>
                 <input
-                className={style.input}
+                    className={style.input}
                     type="text"
                     name='search'
                     value={name}
                     placeholder='Ingrese email o proyecto'
                     onChange={handleChange}
+                    onKeyPress={handleKeyPress}
                 />
 
                 <button className={style.button} onClick={() => { handleClick() }}
