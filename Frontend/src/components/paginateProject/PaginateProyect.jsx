@@ -1,5 +1,6 @@
 import React from 'react'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
+import style from './PaginateProyect.module.css'
 
 const PaginateProyect = ({info, projects, setProjects, setInfo}) => {
 
