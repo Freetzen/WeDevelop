@@ -8,6 +8,8 @@ import Projects from './pages/projects/Projects'
 import AdminWindow from './pages/adminWindow/AdminWindow'
 import CreateProject from './components/adminUtils/createProject/CreateProject'
 import ProjectDetails from './components/details/DetailProyects'
+import Pricing from './components/pricing/Pricing'
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
       <Route path="/" element={<Home/>}></Route>
       <Route path="/quote" element={<Quote/>}></Route>
       <Route path="/contact" element={<ContactUs/>}></Route>
+      <Route path="/pricing" element={<Pricing/>}></Route>
       <Route path="/projects" element={<Projects/>}></Route>
       <Route path="/projects/:id" element={<ProjectDetails/>}></Route>
       <Route path="/admin" element={<AdminWindow />}></Route>
