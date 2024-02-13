@@ -13,6 +13,7 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
     setShowOptions(true);
   };
 
+
   const handleClick = (e) => {
     const valueClick = e.target.value;
    
@@ -43,7 +44,9 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
             <h4>Requires Support</h4>
           </div>
         </div>
-        <div className={style.imageContainer} >
+
+        <div className={style.imageContainer} onClick={handleClick} value='No'>
+
           <img src={NoSupport} alt="servicios" className={style.image} />
           <div className={style.containerIcon}>
             <FcCancel className={style.smallImage}/>

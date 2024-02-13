@@ -1,19 +1,23 @@
 const express = require('express');
 const postUsers = require('../controllers/postUsers');
-const postProyect = require('../controllers/postProyect');
+const postProject = require('../controllers/postProject');
 const getUsers = require('../controllers/getUsers');
 const postAdmin = require('../controllers/postAdmin');
 const getUserByEmail = require('../controllers/getUserByEmail');
-const getProyects = require('../controllers/getProyects');
-const getProyectById = require('../controllers/getProyectById');
+const getProjects = require('../controllers/getProjects');
+const getProjectById = require('../controllers/getProjectById');
+const putProject = require('../controllers/putProject');
+const getProjectByCategory = require('../controllers/getProjectByCategory');
 const router = express.Router();
 
+router.get('/projects/category', getProjectByCategory)
+router.get('/projects/:id', getProjectById)
+router.get('/projects', getProjects)
 router.get('/users', getUsers)
-router.get('/proyects', getProyects)
 router.get('/users/email', getUserByEmail)
-router.get('/proyects/:id', getProyectById)
 router.post('/login', postUsers)
-router.post('/proyects', postProyect)
+router.post('/projects', postProject)
 router.post('/admin', postAdmin)
+router.put('/projects', putProject)
 
 module.exports = router

@@ -7,10 +7,12 @@ export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
     const valueClick = e.target.value
     setQuote({
       ...quote,
-      'amountVisites': valueClick
+      'amountOfVisits': valueClick
     })
     setQuestion(question + 1)
   }
+
+
   return (
     <div className={style.containerAmountVisites}>
       <div className={style.titleCuestion}>

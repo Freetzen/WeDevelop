@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
-const proyectSchema = new Schema({
+const projectSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -24,6 +25,8 @@ const proyectSchema = new Schema({
     }
 });
 
-const proyectModel = model("proyect", proyectSchema)
+projectSchema.plugin(mongoosePaginate)
 
-module.exports = proyectModel
+const projectModel = model("project", projectSchema)
+
+module.exports = projectModel
