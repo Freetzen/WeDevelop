@@ -7,7 +7,7 @@ const findProject = async () => {
         throw new Error(error);
     }
 }
- 
+
 const findProjectById = async (id) => {
     try {
         return await projectModel.findById(id);
@@ -41,4 +41,12 @@ const updateProject = async (id, info) => {
     }
 }
 
-module.exports = { findProject, findProjectById, createProject, deleteProject, updateProject}
+const findProjectByName = async (name) => {
+    try {
+        return await projectModel.find({ name: { $regex: new RegExp(name, 'i') } });
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+module.exports = { findProject, findProjectById, createProject, deleteProject, updateProject, findProjectByName }

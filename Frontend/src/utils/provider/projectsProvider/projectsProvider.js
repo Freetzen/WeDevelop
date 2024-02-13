@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 const projectsProvider = {
-    async getProjects () {
+    async getProjects() {
         try {
             const getProjects = await axios.get('http://localhost:3001/projects')
             return getProjects.data
@@ -10,7 +10,7 @@ const projectsProvider = {
             return error.message
         }
     },
-    async postProjects (project) {
+    async postProjects(project) {
         try {
             const newProjects = await axios.post(`http://localhost:3001/projects`, project)
             return newProjects
@@ -18,7 +18,7 @@ const projectsProvider = {
             return error.message
         }
     },
-    async getProjectById (id) {
+    async getProjectById(id) {
         try {
             const getProyectsId = await axios.get(`http://localhost:3001/projects/${id}`)
             return getProyectsId.data
@@ -27,7 +27,7 @@ const projectsProvider = {
         }
     },
 
-    async uploadImg (imgFile) {
+    async uploadImg(imgFile) {
         try {
             const url = `https://api.imgbb.com/1/upload?key=9435bd9e0656491504055e47dbc66e6c&name=${imgFile.name}`
             const data = new FormData();
@@ -35,10 +35,18 @@ const projectsProvider = {
             const upload = await fetch(url, {
                 method: "POST",
                 body: data
-              })
-              const responseData = await upload.json()
-              console.log(responseData)
-              return responseData
+            })
+            const responseData = await upload.json()
+            console.log(responseData)
+            return responseData
+        } catch (error) {
+            return error.message
+        }
+    },
+    async getProjectByName(name) {
+        try {
+            const getProjectsName = await axios.get(`http://localhost:3001/projects/name?name=${name}`)
+            return getProjectsName.data
         } catch (error) {
             return error.message
         }
