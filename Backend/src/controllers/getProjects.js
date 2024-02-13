@@ -1,5 +1,6 @@
 const { findProject } = require("../services/projectService")
 
+
 const getProjects = async(req, res) => {
 try {
     let page = req.query.page

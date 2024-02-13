@@ -2,6 +2,7 @@
     border: 1px solid black;
     height: 1500px;
     background-color: rgb(113, 113, 113);
+
     display: flex;
     align-items: center;
     align-content: center;
@@ -44,11 +45,11 @@
     color: #0f5337;
 }
 
-h2 {
+.adminWindow h2 {
     font-size: 25px;
 }
 
-h3 {
+.adminWindow h3 {
     font-size: 20px;
 }
 

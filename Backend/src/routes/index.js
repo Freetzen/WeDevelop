@@ -7,6 +7,7 @@ const getUserByEmail = require('../controllers/getUserByEmail');
 const getProjects = require('../controllers/getProjects');
 const getProjectById = require('../controllers/getProjectById');
 const putProject = require('../controllers/putProject');
+const getProjectByName = require('../controllers/getProjectByName');
 const getProjectByCategory = require('../controllers/getProjectByCategory');
 const router = express.Router();
 
@@ -15,6 +16,7 @@ router.get('/projects/:id', getProjectById)
 router.get('/projects', getProjects)
 router.get('/users', getUsers)
 router.get('/users/email', getUserByEmail)
+router.get('/projects/name', getProjectByName)
 router.post('/login', postUsers)
 router.post('/projects', postProject)
 router.post('/admin', postAdmin)

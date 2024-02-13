@@ -11,12 +11,17 @@ import { AmountOfProducts } from '../questions/amountOfProducts/amountOfProducts
 import { LegalNorm } from '../questions/legalNorm/LegalNorm'
 import { Language } from '../questions/language/Language'
 import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
+import {useNavigate} from "react-router-dom"
 
 
 export const Section = ({ quote, setQuote }) => {
 
   const [question, setQuestion] = useState(1)
 
+  const navigate = useNavigate()
+  const pricing = () => {
+    navigate('/pricing')
+  }
 
 
   const switchQuestion = (question) => {
@@ -74,7 +79,7 @@ export const Section = ({ quote, setQuote }) => {
           )
         }
         {question === 11 && (
-          <button>elegir planes</button>
+          <button className={style.Buttons} onClick={pricing}>elegir planes</button>
         )
 
         }
