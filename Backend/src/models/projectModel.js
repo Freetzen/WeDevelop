@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 const projectSchema = new Schema({
     name: {
@@ -23,6 +24,8 @@ const projectSchema = new Schema({
         default: Date.now
     }
 });
+
+projectSchema.plugin(mongoosePaginate)
 
 const projectModel = model("project", projectSchema)
 

@@ -2,9 +2,11 @@ import axios from "axios"
 
 
 const projectsProvider = {
-    async getProjects() {
+
+    async getProjects (page) {
         try {
-            const getProjects = await axios.get('http://localhost:3001/projects')
+            if(!page) page = 1
+            const getProjects = await axios.get(`http://localhost:3001/projects?page=${page}`)
             return getProjects.data
         } catch (error) {
             return error.message
@@ -27,7 +29,17 @@ const projectsProvider = {
         }
     },
 
-    async uploadImg(imgFile) {
+
+    async getProjectByCategory (category) {
+        try {
+            const getProyectsCategory = await axios.get(`http://localhost:3001/projects/category?category=${category}`)
+            return getProyectsCategory.data
+        } catch (error) {
+            return error.message
+        }
+    },
+
+    async uploadImg (imgFile) {
         try {
             const url = `https://api.imgbb.com/1/upload?key=9435bd9e0656491504055e47dbc66e6c&name=${imgFile.name}`
             const data = new FormData();

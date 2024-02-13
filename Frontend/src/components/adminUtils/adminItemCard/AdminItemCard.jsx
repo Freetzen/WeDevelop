@@ -2,6 +2,7 @@ import React from 'react';
 import style from './AdminItemCard.module.css'
 import { NavLink } from 'react-router-dom';
 export default function AdminItemCard(props) {
+
     return (
         <NavLink to={`/admin/${props.id}`}>
             <div className={style.card} >
@@ -31,5 +32,6 @@ export default function AdminItemCard(props) {
                 <h4>{props.email ? props.email : null}</h4> */}
             </div>
         </NavLink>
+
     )
 }
