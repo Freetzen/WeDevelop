@@ -15,6 +15,7 @@ const userProvider = {
             const createUser = await axios.post('http://localhost:3001/login', user)
             return createUser.data
         } catch (error) {
+            console.error(error)
             return error.message
         }
     },
