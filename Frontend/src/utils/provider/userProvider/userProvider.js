@@ -18,7 +18,16 @@ const userProvider = {
         } catch (error) {
             return error.message
         }
-    }
+    },
+
+    async postUserAdmin (userAdmin) {
+        try {
+            const newUserAdmin = await axios(`http://localhost:3001/proyects`, userAdmin)
+            return newUserAdmin.data
+        } catch (error) {
+            return error.message
+        }
+    },
 
 }
 
