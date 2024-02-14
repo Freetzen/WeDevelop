@@ -6,7 +6,7 @@ import userProvider from '../../../utils/provider/userProvider/userProvider';
 import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
 
 
-export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
+export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailState }) {
     const [name, setName] = useState('')
 
     const handleChange = (e) => {
@@ -25,10 +25,12 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
         setName('')
     }
     const getUs = async () => {
+        setDetailState('')
         const usersResponse = await userProvider.getUsers()
         setItemsToEdit(usersResponse)
     }
     const getProjets = async () => {
+        setDetailState('')
         const projectsResponse = await projectsProvider.getProjects()
         setItemsToEdit(projectsResponse.docs)
     }
