@@ -1,29 +1,64 @@
-import React from 'react';
-import style from './AdminDetail.module.css'
-import userProvider from '../../../utils/provider/userProvider/userProvider';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import style from "./AdminDetail.module.css";
+import { useNavigate } from "react-router-dom";
+import userProvider from "../../../utils/provider/userProvider/userProvider";
+
 export default function AdminDetail(props) {
+    const { id } = useParams();
+
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                const userData = await userProvider.getUserByEmail(email);
+                setUser(userData);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getUser();
+    }, [id]);
+
+    const navigate = useNavigate();
+
+    const backToAdmin = () => {
+        navigate('/admin');
+    };
 
 
-    const getUs = async () => {
-        const usersResponse = await userProvider.getUsers()
-        setItemsToEdit(usersResponse)
+    if (loading) {
+        return <div>Loading...</div>;
     }
-    
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    if (!user) {
+        return <div>User not found</div>;
+    }
+
     return (
-
-            <div className={style.card} >
-
-                            <div>
-                                <h3>nombre {props.name}</h3>
-                                <br />
-                                <h4> mail{props.email}</h4>
-                                <br />
-                                <h4>Status: {props.suspended ? 'No Activo' : 'Activo'}</h4>
-                            </div>
-
-                
+        <div className={style.detailsContainer}>
+            Hola Soy detail
+            <div className={style.detailproduct}>
+                <div className={style.detailsLeft}>
+                    <div><h2>{user.name}</h2></div>
+                </div>
+                <div className={style.detailsRight}>
+                    <h5>{user.email}</h5>
+                    <div className={style.buttonsContainer}>
+                        <button onClick={backToAdmin} className={style.button1}>Back to Projects</button>
+                    </div>
+                </div>
             </div>
-
-
-    )
+        </div>
+    );
 }
