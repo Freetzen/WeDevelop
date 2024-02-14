@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import style from './AdminWindow.module.css'
 import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import AdminItemCard from '../../components/adminUtils/adminItemCard/adminItemCard'
+import AdminItemCard from '../../components/adminUtils/adminItemCard/AdminItemCard'
 import SearchBarAdmin from '../../components/adminUtils/searchBarAdmin/SearchBarAdmin'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
