@@ -9,6 +9,7 @@ const getProjectById = require('../controllers/getProjectById');
 const putProject = require('../controllers/putProject');
 const getProjectByName = require('../controllers/getProjectByName');
 const getProjectByCategory = require('../controllers/getProjectByCategory');
+const putUser = require('../controllers/putUser');
 const router = express.Router();
 
 router.get('/projects/category', getProjectByCategory)
@@ -21,5 +22,6 @@ router.post('/login', postUsers)
 router.post('/projects', postProject)
 router.post('/admin', postAdmin)
 router.put('/projects', putProject)
+router.put('/users', putUser)
 
 module.exports = router

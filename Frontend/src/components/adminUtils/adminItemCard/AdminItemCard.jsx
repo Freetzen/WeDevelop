@@ -6,7 +6,8 @@ import projectsProvider from '../../../utils/provider/projectsProvider/projectsP
 export default function AdminItemCard(props) {
 
     const handleClick = async () => {
-        props.setDetailState(props.id)
+        if (props.email) props.setDetailState(props.email)
+        else props.setDetailState(props.id)
     }
 
     return (
