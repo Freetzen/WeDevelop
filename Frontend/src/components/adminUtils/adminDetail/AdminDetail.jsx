@@ -4,7 +4,7 @@ import style from "./AdminDetail.module.css";
 import { useNavigate } from "react-router-dom";
 import userProvider from "../../../utils/provider/userProvider/userProvider";
 
-export default function AdminDetail() {
+export default function AdminDetail(props) {
     const { id } = useParams();
 
     const [user, setUser] = useState(null);
@@ -47,6 +47,7 @@ export default function AdminDetail() {
 
     return (
         <div className={style.detailsContainer}>
+            Hola Soy detail
             <div className={style.detailproduct}>
                 <div className={style.detailsLeft}>
                     <div><h2>{user.name}</h2></div>
