@@ -11,6 +11,7 @@ import ProjectDetails from './components/details/DetailProyects'
 import Pricing from './components/pricing/Pricing'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
+import { UserAccount } from './pages/userAccount/UserAccount'
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>
+        <Route path='/useraccount' element={<UserAccount/>}></Route>
       </Routes>
 
     </>
