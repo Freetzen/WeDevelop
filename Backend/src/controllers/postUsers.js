@@ -100,10 +100,6 @@ const postUsers = async(req, res) => {
                     <h3>¡Gracias por unirte a nosotros!</h3>
                   </section>
                   <a href="https://urianviera.com/">
-                    <img
-                      class="logo"
-                      src="https://urianviera.com/assets/imgs/logo.png"
-                      alt="Urian-Viera Logo" />
                   </a>
                 </div>
               </body>
