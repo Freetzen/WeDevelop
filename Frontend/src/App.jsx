@@ -29,7 +29,7 @@ function App() {
         <Route path="/projects" element={<Projects />}></Route>
         <Route path="/projects/:id" element={<ProjectDetails />}></Route>
         <Route path="/admin" element={<AdminWindow />}></Route>
-        <Route path="admin/:id" element ={AdminDetail}></Route>
+        <Route path="admin/:id" element ={<AdminDetail />}></Route>
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>

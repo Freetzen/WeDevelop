@@ -25,6 +25,11 @@ export default function AdminItemCard(props) {
                             </div>
                         )
                 }
+
+                {/* <img src={props.images ? props.images : null} alt="" />
+                <h3>{props.name}</h3>
+                <br />
+                <h4>{props.email ? props.email : null}</h4> */}
             </div>
         </NavLink>
 
