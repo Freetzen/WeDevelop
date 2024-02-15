@@ -16,14 +16,14 @@ export const Purpose = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={style.containerPurpose}>
       <div className={style.titleCuestion}>
-        <h3>¿Que finalidad tendra su proyecto?</h3>
+        <h3>What will be the purpose of your project?</h3>
       </div>
       <div className={style.containerButtons}>
         <button
           className={style.button}
           value="ecommerce"
           onClick={handleClick}
-        >Ecommerce</button>
+        >E-commerce</button>
         <button
           className={style.button}
           value="web"

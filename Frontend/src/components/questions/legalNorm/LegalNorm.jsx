@@ -11,7 +11,7 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
-    if (valueClick === 'Si') setPosAnswer(true)
+    if (valueClick === 'Yes') setPosAnswer(true)
     else {
       setQuote({
         ...quote,
@@ -37,27 +37,27 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={styles.containerLegalNorm}>
       <div className={styles.titleCuestion}>
-        <h3>¿Existen requisitos legales o normativas específicas que deban cumplirse en el desarrollo de su sitio web?</h3>
+        <h3>Are there any specific legal requirements or regulations that must be met in the development of your website?</h3>
       </div>
 
       <div className={styles.containerButtons}>
-        <button className={styles.button} value="Si" onClick={handleClick}>Si</button>
+        <button className={styles.button} value="Yes" onClick={handleClick}>Yes</button>
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
-        <button className={styles.button} onClick={handleClickGoBack}>Pregunta anterior</button>
+        <button className={styles.button} onClick={handleClickGoBack}>Previous question</button>
       </div>
       <br />
 
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
         <div className={styles.TrueLegalNorm}>
-          <label>¿Cuales?</label>
+          <label>Which ones?</label>
           <br />
           <input
             name='requirements'
             type="text"
-            placeholder='ingrese aqui los requisitos'
+            placeholder='enter the requirements here'
             value={requirements}
             onChange={handleChange}
           />
@@ -65,7 +65,7 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
           <button
             onClick={handleClickContinue}
           >
-            Continuar
+            Continue
           </button>
         </div>
       ) : (<></>)}

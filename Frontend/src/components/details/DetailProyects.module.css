@@ -60,7 +60,7 @@
 .detailsRight p, .detailsRight h5 {
   margin-bottom: 20px; /* Espaciado inferior */
   font-size: 18px; /* Tamaño de fuente */
-  color: #666; /* Color de texto */
+  color: #000000; /* Color de texto */
   font-family: 'Roboto', sans-serif; /* Fuente */
 }
 

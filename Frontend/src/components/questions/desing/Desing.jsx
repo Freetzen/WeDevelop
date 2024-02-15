@@ -81,7 +81,7 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={styles.containerDesing}>
       <div className={styles.titleCuestion}>
-        <h3>Templates</h3>
+        <h3>Select a Templates</h3>
       </div>
       <div className={styles.imageContainer}>
         {
@@ -99,16 +99,16 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
           ))
         }
       </div>
-      <h4>¿No te gusta ninguna plantilla? <ImSad /></h4>
+      <h4>Don't like any template? <ImSad /></h4>
       <textarea
         onChange={(e) => setValorTextarea(e.target.value)}
         name={valorTextarea}
         id=""
         cols="30"
         rows="10"
-        placeholder='Escribe tus ideas aqui'
+        placeholder='Write your ideas here'
       ></textarea>
-      <button onClick={capturarValor}>Enviar</button>
+      <button onClick={capturarValor}>Continue</button>
     </div>
   )
 }

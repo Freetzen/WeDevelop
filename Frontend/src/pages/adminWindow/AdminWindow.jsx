@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import style from './AdminWindow.module.css'
-import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, CartesianGrid } from 'recharts'
+import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, CartesianGrid, YAxis } from 'recharts'
 import SearchBarAdmin from '../../components/adminUtils/searchBarAdmin/SearchBarAdmin'
 import AdminItemCard from '../../components/adminUtils/adminItemCard/AdminItemCard'
 import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
@@ -71,12 +71,13 @@ const AdminWindow = () => {
 
     return (
         <div className={style.adminWindow}>
+      
             <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} />
             <div className={style.containerPanel}>
                 <div className={style.graphscontainer}>
                     <div className={style.box}>
                         <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
-                            <h3>Status de usuarios</h3>
+                            <h3>Users Status</h3>
                         </div>
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <PieChart>
@@ -101,7 +102,7 @@ const AdminWindow = () => {
                     </div>
                     <div className={style.box}>
                         <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
-                            <h3>Tipo de página</h3>
+                            <h3>Type of Project</h3>
                         </div>
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <PieChart >
@@ -126,7 +127,7 @@ const AdminWindow = () => {
                     </div>
                     <div className={style.box}>
                         <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
-                            <h3>Valoraciones por cantidad de estrellas</h3>
+                            <h3>Ratings by number of stars</h3>
                         </div>
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <BarChart
@@ -149,7 +150,7 @@ const AdminWindow = () => {
                     </div>
                 </div>
                 <div className={style.titleAdminUser}>
-                    <h2>Administración de usuarios y proyectos</h2>
+                    <h2>User and project management</h2>
                 </div>
                 <div className={style.adminusers}>
                     {!itemsToEdit.length ? '' : itemsToEdit[0].email ? 
@@ -162,7 +163,7 @@ const AdminWindow = () => {
                     <div className={style.adminCards}>
                         {
                             !itemsToEdit.length
-                                ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                                ? <div className={style.titleContaine}><h3>No items have been selected</h3></div>
                                 : itemsToEdit[0].email
                                     ? itemsToEdit.map(item => (
                                         <AdminItemCard

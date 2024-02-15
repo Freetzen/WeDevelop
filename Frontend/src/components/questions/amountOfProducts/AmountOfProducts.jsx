@@ -15,26 +15,26 @@ export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => 
   return (
     <div className={style.containerAmountOfProductse}>
       <div className={style.titleCuestion}>
-        <h3>¿Cantidad estimada de productos a publicar?</h3>
+        <h3>Estimated number of products to publish?</h3>
       </div>
       <div className={style.containerButtons}>
         <button
         className={style.button}
-          value="menos de 10"
+          value="under 10"
           onClick={handleClick}
-        >Menos de 10</button>
+        >Under 10</button>
 
         <button
         className={style.button}
-          value="de 10 a 20"
+          value="10 to 20"
           onClick={handleClick}
-        >De 10 a 20</button>
+        >10 to 20</button>
 
         <button
         className={style.button}
-          value="más de 20"
+          value="Over 20"
           onClick={handleClick}
-        >Más de 20</button>
+        >Over 20</button>
       </div>
     </div>
   )
