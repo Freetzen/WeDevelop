@@ -11,7 +11,12 @@ const NotFound = () => {
 
     return (
         <div className={style.notFound}>
-            <h1>404 - Page Not Found</h1>
+        
+        <div className={style.img}>
+            <img src= "./images/404NotFound.png" />
+        </div>
+        
+        <h1>404 - Page Not Found</h1>
         <p>
         You might be here because:
         <br />
