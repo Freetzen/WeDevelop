@@ -1,22 +1,37 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import style from "./ReviewForm.module.css";
+import axios from 'axios';
 
-const ReviewForm = ({ onSubmit }) => {
+const ReviewForm = ({handleNewReview}) => {
   const { user } = useAuth0();
   const [rating, setRating] = useState(1);
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const newMessage = {
+    name: user.name,
+    email: user.email,
+    image: user.picture,
+    rating, 
+    message, 
+    date: new Date().toLocaleDateString()
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({ name: user.name,email: user.email, image: user.picture, rating, message, date: new Date().toLocaleDateString() });
-    setRating(1);
-    setMessage('');
+    try {
+      await axios.post('http://localhost:3001/reviews', newMessage);
+      handleNewReview(newMessage);
+      setRating(1);
+      setMessage('');
+    } catch (error) {
+      console.error('Error al enviar datos al servidor:', error);
+    }
   };
 
   return (
     <div className={style.container}>
-        <form onSubmit={handleSubmit} className={style.form}>
+        <form className={style.form}>
             <div className={style.linea}>
                 <label>
                 Message:
@@ -36,7 +51,9 @@ const ReviewForm = ({ onSubmit }) => {
                     ))}
                 </select>
             </div>
-            <button type="submit">Send review!</button>
+            {(message !== '') && (
+            <button onClick={handleSubmit} type="submit">Send review!</button>
+               )} 
     </form>
     </div>
     
