@@ -16,7 +16,7 @@ const ReviewForm = ({ onSubmit }) => {
 
   return (
     <div className={style.container}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={style.form}>
             <div className={style.linea}>
                 <label>
                 Message:

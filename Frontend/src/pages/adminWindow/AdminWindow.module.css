@@ -41,7 +41,6 @@
     align-items: center;
     padding-left: 20px;
     letter-spacing: -1px;
-    
 }
 
 .box .title h3{
@@ -51,8 +50,9 @@
 }
 
 .adminWindow .titleAdminUser {
-    text-align: start;
-    margin: 10px 10px;
+    width: 98%;
+    text-align: center;
+    border: 1px solid black;
 }
 
 .adminWindow .titleAdminUser h2 {
@@ -61,6 +61,7 @@
     text-align: start;
     letter-spacing: -2px;
     color: #707070;
+    border: 1px solid black;
 }
 
 .containerPanel .adminusers {
