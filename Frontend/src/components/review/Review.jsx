@@ -54,7 +54,7 @@ export default function Review() {
         </div>
 
         { isAuthenticated ?
-        <div>
+        <div className={style.containerTitle}>
           <h2>Leave us a review</h2>
           <ReviewForm onSubmit={handleReviewSubmit} />
         </div>

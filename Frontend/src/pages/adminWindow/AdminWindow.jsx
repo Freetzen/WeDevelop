@@ -71,8 +71,7 @@ const AdminWindow = () => {
 
     return (
         <div className={style.adminWindow}>
-      
-            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} />
+            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState}/>
             <div className={style.containerPanel}>
                 <div className={style.graphscontainer}>
                     <div className={style.box}>
@@ -121,7 +120,11 @@ const AdminWindow = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip />
-                                <Legend />
+                                <Legend  margin={{
+                                    top: 20,
+                                    right: 20,
+                                    left: 20,
+                                }}/>
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
@@ -137,7 +140,6 @@ const AdminWindow = () => {
                                     top: 20,
                                     right: 20,
                                     left: 20,
-                                    bottom: 20,
                                 }}
                             >
                                 <XAxis dataKey='name' />
@@ -149,9 +151,6 @@ const AdminWindow = () => {
                         </ResponsiveContainer>
                     </div>
                 </div>
-                <div className={style.titleAdminUser}>
-                    <h2>User and project management</h2>
-                </div>
                 <div className={style.adminusers}>
                     {!itemsToEdit.length ? '' : itemsToEdit[0].email ? 
                     <div className={style.containerInfo}>
@@ -162,28 +161,37 @@ const AdminWindow = () => {
                     
                     <div className={style.adminCards}>
                         {
-                            !itemsToEdit.length
-                                ? <div className={style.titleContaine}><h3>No items have been selected</h3></div>
-                                : itemsToEdit[0].email
-                                    ? itemsToEdit.map(item => (
-                                        <AdminItemCard
-                                            key={item._id}
-                                            id={item._id}
-                                            name={item.name}
-                                            email={item.email}
-                                            suspended={item.suspended}
-                                        />
-                                    ))
-                                    : itemsToEdit.map(item => (
-                                        <AdminItemCard
-                                            key={item._id}
-                                            id={item._id}
-                                            name={item.name}
-                                            images={item.images}
-                                            category={item.category}
-                                        />
-                                    ))
-                        }
+                    detailState
+                        ? <AdminDetail
+                            detailState={detailState}
+                            setDetailState={setDetailState}
+                            setItemsToEdit={setItemsToEdit}
+                            itemsToEdit={itemsToEdit}
+                        />
+                        : !itemsToEdit.length
+                            ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                            : itemsToEdit[0].email
+                                ? itemsToEdit.map(item => (
+                                    <AdminItemCard
+                                        key={item._id}
+                                        id={item._id}
+                                        name={item.name}
+                                        email={item.email}
+                                        suspended={item.suspended}
+                                        setDetailState={setDetailState}
+                                    />
+                                ))
+                                : itemsToEdit.map(item => (
+                                    <AdminItemCard
+                                        key={item._id}
+                                        id={item._id}
+                                        name={item.name}
+                                        images={item.images}
+                                        category={item.category}
+                                        setDetailState={setDetailState}
+                                    />
+                                ))
+                }
                     </div>
                 </div>
             </div>
