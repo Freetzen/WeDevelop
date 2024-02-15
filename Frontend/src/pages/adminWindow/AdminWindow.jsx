@@ -1,23 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './AdminWindow.module.css'
 import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import AdminItemCard from '../../components/adminUtils/adminItemCard/adminItemCard'
 import SearchBarAdmin from '../../components/adminUtils/searchBarAdmin/SearchBarAdmin'
 import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
+import userProvider from '../../utils/provider/userProvider/userProvider'
+import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
     const [detailState, setDetailState] = useState('')
-    const pieGraph = [
-        { name: 'Activo', value: 25, valuePercent: `${25}%` },
-        { name: 'Inactivo', value: 75, valuePercent: `${75}%` }
-    ]
+
+    const [pieGraph, setPieGraph] = useState([
+        { name: 'Asset', value: 0, valuePercent: `${25}%` },
+        { name: 'Idle', value: 0, valuePercent: `${75}%` }
+    ])
     const pieGraphColors = ['#59B4C3', '#7F27FF']
 
-    const pieGraphTipo = [
-        { name: 'ecommerce', value: 40, valuePercent: `${25}%` },
-        { name: 'Web', value: 23, valuePercent: `${75}%` },
-        { name: 'Personalizado', value: 15, valuePercent: `${75}%` },
-    ]
+    const [pieGraphTipo, setpieGraphTipo] = useState([
+        { name: 'E-commerce', value: 40, valuePercent: `${25}%` },
+        { name: 'Entertainment', value: 23, valuePercent: `${75}%` },
+        { name: 'Health', value: 15, valuePercent: `${75}%` },
+        { name: 'Landing Page', value: 15, valuePercent: `${75}%` },
+        { name: 'Portfolio', value: 15, valuePercent: `${75}%` },
+        { name: 'Social Network', value: 15, valuePercent: `${75}%` },
+        { name: 'Tourism', value: 15, valuePercent: `${75}%` },
+    ])
+
     const pieGraphTipoColors = ['#DCF2F1', '#7FC7D9', '#365486']
 
     const barGraph = [
@@ -27,6 +35,39 @@ const AdminWindow = () => {
         { name: '2', valoraciones: 3 },
         { name: '1', valoraciones: 2 },
     ]
+    useEffect(() => {
+        bringData()
+    }, [])
+
+    const bringData = async () => {
+        const users = await userProvider.getUsers()
+        const docs = await projectsProvider.getProjectsAll()
+
+        const counterProjects = docs.reduce((counter, item) => {
+            const categoryModif = item.category.replace(/-/g, ' ').replace(/\s+/g, '_');
+            counter[categoryModif] = (counter[categoryModif] || 0) + 1;
+            return counter;
+        }, {});
+
+        const counterUsers = users.reduce((counter, item) => {
+            counter[item.suspended] = (counter[item.suspended] || 0) + 1;
+            return counter;
+        }, { true: 0, false: 0 });
+
+        setPieGraph([
+            { name: 'Asset', value: counterUsers.false, valuePercent: `${25}%` },
+            { name: 'Idle', value: counterUsers.true, valuePercent: `${75}%` }
+        ])
+        setpieGraphTipo([
+            { name: 'E-commerce', value: counterProjects.E_commerce, valuePercent: `${25}%` },
+            { name: 'Entertainment', value: counterProjects.Entertainment, valuePercent: `${75}%` },
+            { name: 'Health', value: counterProjects.Health, valuePercent: `${75}%` },
+            { name: 'Landing Page', value: counterProjects.Landing_Page, valuePercent: `${75}%` },
+            { name: 'Portfolio', value: counterProjects.Portfolio, valuePercent: `${75}%` },
+            { name: 'Social Network', value: counterProjects.Social_Network, valuePercent: `${75}%` },
+            { name: 'Tourism', value: counterProjects.Tourism, valuePercent: `${75}%` },
+        ])
+    }
 
     return (
         <div className={style.adminWindow}>
