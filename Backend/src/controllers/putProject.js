@@ -1,9 +1,9 @@
 const { updateProject } = require("../services/projectService")
 
-const putProject = async(req, res) => {
+const putProject = async (req, res) => {
     try {
-        const {id, name, category, images, description} = req.body
-        const response = await updateProject(id, {
+        const { _id, name, category, images, description } = req.body
+        const response = await updateProject(_id, {
             name,
             images,
             description,
