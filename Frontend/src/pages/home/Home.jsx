@@ -1,5 +1,4 @@
 import AboutUs from "../../components/aboutUs/AboutUs"
-import Feedback from "../../components/feedback/Feedback"
 import Footer from "../../components/footer/Footer"
 import Header from "../../components/header/Header"
 import Highlights from "../../components/highlights/Highlights"
@@ -15,7 +14,6 @@ const Home = () => {
       <Skills/>
       <Highlights/>
       <StartQuote/>
-      <Feedback/>
       <Review />
       <Footer/>
     </div>

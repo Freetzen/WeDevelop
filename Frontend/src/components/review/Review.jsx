@@ -34,7 +34,6 @@ export default function Review() {
       const sendReviewsToServer = async () => {
         try {
             const response = await axios.post('http://localhost:3001/reviews', reviews);
-            console.log('Datos enviados al servidor:', response.data);
          } catch (error) {
           console.error('Error al enviar datos al servidor:', error);
         }
