@@ -4,9 +4,10 @@ import style from './SearchBarAdmin.module.css'
 import validator from 'validator'
 import userProvider from '../../../utils/provider/userProvider/userProvider';
 import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
+import { BsSearch } from "react-icons/bs";
 
 
-export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
+export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailState }) {
     const [name, setName] = useState('')
 
     const handleChange = (e) => {
@@ -25,12 +26,14 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
         setName('')
     }
     const getUs = async () => {
+        setDetailState('')
         const usersResponse = await userProvider.getUsers()
         setItemsToEdit(usersResponse)
     }
     const getProjets = async () => {
+        setDetailState('')
         const projectsResponse = await projectsProvider.getProjects()
-        setItemsToEdit(projectsResponse)
+        setItemsToEdit(projectsResponse.docs)
     }
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
@@ -55,39 +58,40 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
     }
     return (
         <div className={style.searBar}>
-            <div className={style.buttons1}>
-                <button
-                    onClick={getUs}
-                >Usuarios</button>
-                <button
-                    onClick={getProjets}
-                >Proyectos</button>
+
+            <div className={style.containerTitle}>
+                <img src="./images/LogoPanelAdmin.png" alt="" />
+
+            </div>
+            <div className={style.containerButtons}>
+                <div className={style.buttons3}>
+                    <label htmlFor="">Search</label>
+                    <input
+                        className={style.input}
+                        type="text"
+                        name='search'
+                        value={name}
+                        placeholder='Insert email or project'
+                        onChange={handleChange}
+                        onKeyPress={handleKeyPress}
+                    />
+
+                    <button className={style.button} onClick={() => { handleClick() }}
+                    ><BsSearch /></button>
+                </div>
+                <div className={style.buttons1}>
+                    <label htmlFor="">Show</label>
+                    <button onClick={getUs}>Users</button>
+                    <button onClick={getProjets}>Proyects</button>
+                </div>
+
+                <div className={style.buttons1}>
+                    <label htmlFor="">Create</label>
+                    <button><NavLink to={'/createProject'}>Create Project</NavLink></button>
+                    <button><NavLink to={'/createUser'}>Create User</NavLink></button>
+                </div>
             </div>
 
-            <div className={style.buttons2}>
-                <NavLink to={'/createProject'}>
-                    <button>Crear Proyecto</button>
-                </NavLink>
-                <NavLink to={'/createUser'}>
-                    <button>Crear Usuario</button>
-                </NavLink>
-            </div>
-
-            <div className={style.buttons3}>
-                <label className={style.label}>Buscar :  </label>
-                <input
-                    className={style.input}
-                    type="text"
-                    name='search'
-                    value={name}
-                    placeholder='Ingrese email o proyecto'
-                    onChange={handleChange}
-                    onKeyPress={handleKeyPress}
-                />
-
-                <button className={style.button} onClick={() => { handleClick() }}
-                >Buscar</button>
-            </div>
         </div>
     )
 }

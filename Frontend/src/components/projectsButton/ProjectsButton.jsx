@@ -7,7 +7,7 @@ export default function ProyectsButton() {
     return(
      <div className={style.container}>
         <Link to="/projects">
-            <button className={style.boton}>Ver mas proyectos</button>
+            <button className={style.boton}>Show Projects</button>
        </Link>
      </div>
       

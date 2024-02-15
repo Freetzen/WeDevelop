@@ -1,59 +1,120 @@
 .adminWindow {
-    border: 1px solid black;
-    height: 1500px;
-    background-color: rgb(113, 113, 113);
+    background-color: #F5F5F5;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
 
+}
+
+.containerPanel {
+    display: flex;
+    width: 99%;
+    height: max-content;
+    flex-direction: column;
+    background-color: #EAEDF1;
+    padding: 10px;
+}
+
+.containerPanel .containerTitle {
+    padding: 20px;
+    margin: 10px 10px;
+}
+
+.containerPanel .graphscontainer {
+    margin: 10px 10px;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.box {
+    background-color: #F5F5F5;
+    width: 33%;
+    height: max-content;
+}
+
+.box .title {
+    height: 60px;
     display: flex;
     align-items: center;
-    align-content: center;
+    padding-left: 20px;
+    letter-spacing: -1px;
+}
+
+.box .title h3{
     font-size: 20px;
-    letter-spacing: -2px;
-    color: #212121;
+    font-weight: 300;
+    color: aliceblue;
+}
+
+.adminWindow .titleAdminUser {
+    width: 98%;
     text-align: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 100px;
+    border: 1px solid black;
+}
+
+.adminWindow .titleAdminUser h2 {
+    font-size: 30px;
+    font-weight: 200;
+    text-align: start;
+    letter-spacing: -2px;
+    color: #707070;
+    border: 1px solid black;
+}
+
+.containerPanel .adminusers {
+    background-color: #F5F5F5;
+    height: 50%;
+    width: 99%;
+    margin: 10px 10px;
 }
 
 .adminusers {
-    margin-top: 20px;
-    width: 100%;
+    height: max-content;
+    
 }
 
+.adminusers .containerInfo {
+    background-color: #2F61E4;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 25px;
+        
+    
+}
 
-.graphscontainer {
-    width: 100%;
-    height: auto;
+.adminusers .containerInfo p{
+    background-color: #2F61E4;
+        font-size: 20px;
+        font-weight: 300;
+        color: aliceblue;
+}
+
+.adminusers .adminCards {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    padding: 5px 0px;
+    
+}
+
+.adminusers .adminCards .titleContaine {
+    height: 500px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.adminCards {
-    width: 100%;
-    margin: 10px;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-flow: row wrap;
-
-}
-
-.adminWindow h2 {
-    margin-top: 10px;
-    color: #0f5337;
-}
-
-.adminWindow h2 {
-    font-size: 25px;
-}
-
-.adminWindow h3 {
-    font-size: 20px;
+.adminusers .adminCards .titleContaine h3 {
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: -2px;
+    color: rgb(95, 95, 95);
 }
 
 
-/* .graphs {
-    display: flex;
-} */
+
+

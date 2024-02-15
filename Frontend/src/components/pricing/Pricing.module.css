@@ -1,24 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  font-family: "poppins ", sans-serif;
-}
-
-body {
-  width: 100%;
-  height: auto;
-  background-color: aliceblue;
-  background-image: linear-gradient(45deg, #5222d0 0%, #6940ff 100%);
-}
 
 .pricing {
+  background-image: linear-gradient(45deg, #5222d0 0%, #6940ff 100%);
   display: flex;
   justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 2rem;
+  padding: 150px 0px;
 }
 
 .container {
@@ -26,8 +14,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: auto;
+  width: 450px;
+  height: max-content;
   background-image: url('./images/fondo.jpg');
   border-radius: 10px;
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
@@ -51,7 +39,7 @@ body {
   text-align: center;
 }
 .header > img {
-  width: 300px;
+  width: 250px;
   display: block;
   margin: 0 auto;
 }
@@ -65,7 +53,7 @@ body {
   border-bottom: 1px solid #6940ff;
 }
 .detail > p:hover {
-  background-color: salmon;
+  background-color: rgb(76, 79, 248);
 }
 
 .check {
@@ -73,6 +61,9 @@ body {
 }
 .nocheck {
   color: red;
+}
+.star{
+  color: gold;
 }
 
 .price {

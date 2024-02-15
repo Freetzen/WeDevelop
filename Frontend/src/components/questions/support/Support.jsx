@@ -31,7 +31,7 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={style.containerSupport}>
       <div className={style.titleCuestion}>
-        <h3>¿Su web requerira soporte?</h3>
+        <h3>Will your website require support?</h3>
       </div>
 
       <div className={style.containerImages}>
@@ -47,7 +47,7 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
 
         <div className={style.imageContainer} onClick={handleClick} value='No'>
 
-          <img src={NoSupport} alt="servicios" className={style.image} />
+          <img src={NoSupport} alt="Services" className={style.image} />
           <div className={style.containerIcon}>
             <FcCancel className={style.smallImage}/>
           </div>
@@ -58,12 +58,12 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
       </div>
       {showOptions && (
         <div className={style.containerOptions}>
-          <h2>Opciones de soporte</h2>
+          <h2>Support options</h2>
           <div className={style['options-list']}>
-            <button className={style['option-item']} onClick={handleClick} value='Semanal'>Semanal</button>
-            <button className={style['option-item']} onClick={handleClick} value='Mensual'>Mensual</button>
-            <button className={style['option-item']} onClick={handleClick} value='Trimestral'>Trimestral</button>
-            <button className={style['option-item']} onClick={handleClick} value='Otros'>Otros</button>
+            <button className={style['option-item']} onClick={handleClick} value='Weekly'>Weekly</button>
+            <button className={style['option-item']} onClick={handleClick} value='Monthly'>Monthly</button>
+            <button className={style['option-item']} onClick={handleClick} value='Quarterly'>Quarterly</button>
+            <button className={style['option-item']} onClick={handleClick} value='Others'>Others</button>
           </div>
         </div>
       )}

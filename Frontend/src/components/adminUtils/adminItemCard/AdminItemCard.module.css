@@ -1,47 +1,38 @@
+a {
+    text-decoration: none;
+}
+
 .card {
-    box-sizing: border-box;
-    width: 220px;
-    height: 254px;
-    background: rgba(217, 217, 217, 0.58);
-    border: 1px solid white;
-    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-    backdrop-filter: blur(6px);
-    border-radius: 17px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.5s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    font-weight: bolder;
-    color: rgb(19, 136, 122);
-    flex-direction: column;
+    height: 70px;
     margin-bottom: 20px;
+    border-bottom: 1px solid rgb(206, 206, 206);
 }
 
-.card:hover {
-    border: 1px solid black;
-    transform: scale(1.05);
+.containerInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 30px;
 }
 
-.card:active {
-    transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.card h3 {
-    font-size: 20px;
-}
-
-.card h4 {
+.containerInfo p {
     font-size: 15px;
+    color:rgb(136, 136, 136) ;
+    text-align: start;
+    width:20%;
+    
 }
 
-.card img {
-    object-fit: cover;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 17px;
-    width: 200px;
-    height: 185px;
+.containerInfo .isActive {
+    font-size: 22px;
+    color:rgb(136, 136, 136) ;
+    text-align: end;
+    padding-right: 10px;
+    
+}
+
+.containerInfo .email {
+    text-align: center;
+    
 }
