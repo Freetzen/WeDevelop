@@ -34,8 +34,6 @@ const UserAdmin = () => {
         }
 
     }
-
-
     return (
         <div style={{ marginTop: '200px' }}>
             <form onSubmit={handleSubmit}>
