@@ -27,7 +27,7 @@ const Highlights = () => {
   return (
     <div className={style.carouselcontainer}>
       <div className={style.containerTitle}>
-        <h2>WebDevelop Templates</h2>
+        <h2>WeDevelop Templates</h2>
       </div>
       <div className={style.containerCarrusel}>
         <Carousel {...carouselSettings} autoPlay={true} interval={3000} infiniteLoop={true} className={style.carouselStyles} >
