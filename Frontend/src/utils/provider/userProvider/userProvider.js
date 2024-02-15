@@ -15,6 +15,7 @@ const userProvider = {
             const createUser = await axios.post('http://localhost:3001/login', user)
             return createUser.data
         } catch (error) {
+            console.error(error)
             return error.message
         }
     },
@@ -31,6 +32,14 @@ const userProvider = {
     async postUserAdmin(userAdmin) {
         try {
             const newUserAdmin = await axios.post(`http://localhost:3001/admin`, userAdmin)
+            return newUserAdmin.data
+        } catch (error) {
+            return error.message
+        }
+    },
+    async putUser(info) {
+        try {
+            const newUserAdmin = await axios.put(`http://localhost:3001/users`, info)
             return newUserAdmin.data
         } catch (error) {
             return error.message

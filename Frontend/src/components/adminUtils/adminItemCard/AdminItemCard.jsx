@@ -3,10 +3,16 @@ import style from './AdminItemCard.module.css'
 import { NavLink } from 'react-router-dom';
 import { FaCheck } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
+
 export default function AdminItemCard(props) {
 
+    const handleClick = async () => {
+        if (props.email) props.setDetailState(props.email)
+        else props.setDetailState(props.id)
+    }
+
     return (
-        <NavLink to={`/admin/${props.id}`}>
+        <NavLink onClick={handleClick}>
             <div className={style.card} >
                 {
                     props.email
@@ -25,11 +31,6 @@ export default function AdminItemCard(props) {
                             </div>
                         )
                 }
-
-                {/* <img src={props.images ? props.images : null} alt="" />
-                <h3>{props.name}</h3>
-                <br />
-                <h4>{props.email ? props.email : null}</h4> */}
             </div>
         </NavLink>
 

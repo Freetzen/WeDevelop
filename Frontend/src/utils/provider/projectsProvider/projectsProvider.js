@@ -3,9 +3,9 @@ import axios from "axios"
 
 const projectsProvider = {
 
-    async getProjects (page) {
+    async getProjects(page) {
         try {
-            if(!page) page = 1
+            if (!page) page = 1
             const getProjects = await axios.get(`http://localhost:3001/projects?page=${page}`)
             return getProjects.data
         } catch (error) {
@@ -30,7 +30,7 @@ const projectsProvider = {
     },
 
 
-    async getProjectByCategory (category) {
+    async getProjectByCategory(category) {
         try {
             const getProyectsCategory = await axios.get(`http://localhost:3001/projects/category?category=${category}`)
             return getProyectsCategory.data
@@ -39,7 +39,7 @@ const projectsProvider = {
         }
     },
 
-    async uploadImg (imgFile) {
+    async uploadImg(imgFile) {
         try {
             const url = `https://api.imgbb.com/1/upload?key=9435bd9e0656491504055e47dbc66e6c&name=${imgFile.name}`
             const data = new FormData();
@@ -62,7 +62,23 @@ const projectsProvider = {
         } catch (error) {
             return error.message
         }
-    }
+    },
+    async putProject(info) {
+        try {
+            const newUserAdmin = await axios.put(`http://localhost:3001/projects`, info)
+            return newUserAdmin.data
+        } catch (error) {
+            return error.message
+        }
+    },
+    async getProjectsAll() {
+        try {
+            const allProjects = await axios.get(`http://localhost:3001/allprojects`)
+            return allProjects.data
+        } catch (error) {
+            return error.message
+        }
+    },
 
 
 }
