@@ -30,7 +30,7 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
   return (
     <div className={style.containerApiOrDatabase}>
       <div className={style.titleCuestion}>
-        <h3>¿Su página consumira alguna API o base de datos externa?</h3>
+        <h3>Will your site consume any API or external database?</h3>
       </div>
       <div className={style.apiOrDatabaseContainer}>
         <div className={style.ApiOrDatabaseOpcionOne}>
@@ -44,14 +44,14 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
           <input
             value={apiOrDatabase}
             type='text'
-            placeholder='Especifique su api o base de datos a usar'
+            placeholder='Specify your api or database to use'
             onChange={handleChange}
             className={style.ApiOrDatabaseInput}
           ></input>
           <button
             className={style.ApiOrDatabaseUpload}
             onClick={handleClick}
-          >Guardar cambios</button>
+          >Save</button>
         </div>
       </div>
     </div>

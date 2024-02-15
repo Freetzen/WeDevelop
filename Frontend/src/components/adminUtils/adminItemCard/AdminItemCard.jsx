@@ -26,8 +26,8 @@ export default function AdminItemCard(props) {
                         : (
                             <div className={style.containerInfo}>
                                 <img src={props.images ? props.images : null} alt="" />
-                                <h4>{props.name}</h4>
-                                <h4>{props.category}</h4>
+                                <h4>Name: {props.name}</h4>
+                                <h4>Category: {props.category}</h4>
                             </div>
                         )
                 }

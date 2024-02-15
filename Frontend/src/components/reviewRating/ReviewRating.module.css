@@ -6,7 +6,7 @@
 }
 
 .subContainer {
-    width: 400px;
+    width: max-content;
     height: auto;
     margin: 0px auto;
     padding: 30px 40px;
@@ -29,4 +29,6 @@
 
 .subContainer p {
     font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
 }

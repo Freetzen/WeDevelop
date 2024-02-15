@@ -13,14 +13,12 @@ const getProjectByName = require('../controllers/getProjectByName');
 const getProjectByCategory = require('../controllers/getProjectByCategory');
 const getReviewAvarage = require('../controllers/getReviewAvarage');
 const putUser = require('../controllers/putUser');
-const getAllProjects = require('../controllers/getAllProjects');
 const router = express.Router();
 
 router.get('/projects/category', getProjectByCategory)
 router.get('/projects/name', getProjectByName)
 router.get('/projects/:id', getProjectById)
 router.get('/projects', getProjects)
-router.get('/allprojects', getAllProjects)
 router.get('/users', getUsers)
 router.get('/users/email', getUserByEmail)
 router.post('/login', postUsers)
