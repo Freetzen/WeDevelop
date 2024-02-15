@@ -24,7 +24,7 @@ const Skills = () => {
           </div>
           <div className={style.titleCard}>
             <h4>Experience</h4>
-            <p>Con experiencia en creación de páginas web, destacamos en diseño, programación y optimización. Nuestro enfoque centrado en el usuario y conocimientos actualizados garantizan sitios web eficientes y estéticos</p>
+            <p>With experience in website creation, we excel in design, programming and optimization. Our user-centered approach and up-to-date knowledge ensure efficient and aesthetically pleasing websites.</p>
           </div>
         </div>
 
@@ -34,7 +34,7 @@ const Skills = () => {
           </div>
           <div className={style.titleCard}>
             <h4>Creativity</h4>
-            <p>Fusionamos ideas innovadoras para dar vida a proyectos únicos. Nuestra habilidad en el arte de la creatividad se refleja en diseños originales y soluciones imaginativas que superan las expectativas, añadiendo un toque distintivo a cada creación.</p>
+            <p>We fuse innovative ideas to bring unique projects to life. Our skill in the art of creativity is reflected in original designs and imaginative solutions that exceed expectations, adding a distinctive touch to each creation.</p>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ const Skills = () => {
           </div>
           <div className={style.titleCard}>
             <h4>Attention to detail</h4>
-            <p>Cada proyecto es cuidadosamente supervisado para garantizar precisión y calidad. Nuestra dedicación se refleja en resultados impecables, donde cada elemento está finamente ajustado para brindar la máxima excelencia.</p>
+            <p>Each project is carefully supervised to ensure precision and quality. Our dedication is reflected in impeccable results, where every element is finely tuned to provide the utmost excellence.</p>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ const Skills = () => {
           </div>
           <div className={style.titleCard}>
             <h4>Professional</h4>
-            <p>Elevamos el estándar de profesionalismo en cada tarea que emprendemos. Con enfoque riguroso, integridad y experiencia sólida, ofrecemos servicios excepcionales. Nuestra dedicación a la excelencia y ética profesional se traduce en resultados satisfactorios.</p>
+            <p>We raise the standard of professionalism in every assignment we undertake. With rigorous focus, integrity and solid experience, we deliver exceptional services. Our dedication to excellence and professional ethics translates into satisfying results.</p>
           </div>
         </div>
 
@@ -64,7 +64,7 @@ const Skills = () => {
           </div>
           <div className={style.titleCard}>
             <h4>Unique desings</h4>
-            <p>Creamos diseños únicos que cautivan y destacan. Nuestra pasión por la originalidad se refleja en cada proyecto, fusionando innovación estética para ofrecer soluciones visualmente impactantes y con una impresión duradera.</p>
+            <p>We create unique designs that captivate and stand out. Our passion for originality is reflected in every project, fusing aesthetic innovation to deliver visually stunning solutions with a lasting impression.</p>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ const Skills = () => {
           </div>
           <div className={style.titleCard}>
             <h4>Efficiency</h4>
-            <p>Priorizamos la eficiencia en cada fase de nuestro trabajo. Desde la planificación hasta la ejecución, nuestros procesos optimizados garantizan resultados rápidos y precisos, entregando proyectos de alta calidad en tiempo récord.</p>
+            <p>We prioritize efficiency in every phase of our work. From planning to execution, our streamlined processes ensure fast and accurate results, delivering high quality projects in record time.</p>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const AdminWindow = () => {
             <div className={style.graphscontainer}>
 
                 <ResponsiveContainer width='28%' height={300}>
-                    <h3>Status de usuarios</h3>
+                    <h3>Users Status</h3>
                     <PieChart>
                         <Pie
                             dataKey='value'
@@ -53,7 +53,7 @@ const AdminWindow = () => {
                 </ResponsiveContainer>
 
                 <ResponsiveContainer width='28%' height={300}>
-                    <h3>Tipo de página</h3>
+                    <h3>Type of Project</h3>
                     <PieChart>
                         <Pie
                             dataKey='value'
@@ -71,7 +71,7 @@ const AdminWindow = () => {
                 </ResponsiveContainer>
 
                 <ResponsiveContainer width='42%' height={300} >
-                    <h3>Valoraciones por cantidad de estrellas</h3>
+                    <h3>Ratings by number of stars</h3>
                     <br />
                     <BarChart
                         data={barGraph}
@@ -89,7 +89,7 @@ const AdminWindow = () => {
             <br />
             <hr />
             <div className={style.adminusers}>
-                <h2>Administración de usuarios y proyectos</h2>
+                <h2>User and project management</h2>
             </div>
             <SearchBarAdmin
                 setItemsToEdit={setItemsToEdit}
@@ -107,7 +107,7 @@ const AdminWindow = () => {
                             itemsToEdit={itemsToEdit}
                         />
                         : !itemsToEdit.length
-                            ? <h3>No se han seleccionado items</h3>
+                            ? <h3>No items have been selected</h3>
                             : itemsToEdit[0].email
                                 ? itemsToEdit.map(item => (
                                     <AdminItemCard

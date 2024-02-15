@@ -17,18 +17,18 @@ export default function AdminItemCard(props) {
                     props.email
                         ? (
                             <div>
-                                <h3>{props.name}</h3>
+                                <h3>Name: {props.name}</h3>
                                 <br />
-                                <h4>{props.email}</h4>
+                                <h4>Email: {props.email}</h4>
                                 <br />
-                                <h4>Status: {props.suspended ? 'No Activo' : 'Activo'}</h4>
+                                <h4>Status: {props.suspended ? 'Disabled' : 'Active'}</h4>
                             </div>
                         )
                         : (
                             <div>
                                 <img src={props.images ? props.images : null} alt="" />
-                                <h4>{props.name}</h4>
-                                <h4>{props.category}</h4>
+                                <h4>Name: {props.name}</h4>
+                                <h4>Category: {props.category}</h4>
                             </div>
                         )
                 }

@@ -60,35 +60,35 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
             <div className={style.buttons1}>
                 <button
                     onClick={getUs}
-                >Usuarios</button>
+                >Users</button>
                 <button
                     onClick={getProjets}
-                >Proyectos</button>
+                >Projects</button>
             </div>
 
             <div className={style.buttons2}>
                 <NavLink to={'/createProject'}>
-                    <button>Crear Proyecto</button>
+                    <button>Create Project</button>
                 </NavLink>
                 <NavLink to={'/createUser'}>
-                    <button>Crear Usuario</button>
+                    <button>Create User</button>
                 </NavLink>
             </div>
 
             <div className={style.buttons3}>
-                <label className={style.label}>Buscar :  </label>
+                <label className={style.label}>Search :  </label>
                 <input
                     className={style.input}
                     type="text"
                     name='search'
                     value={name}
-                    placeholder='Ingrese email o proyecto'
+                    placeholder='Insert email or project'
                     onChange={handleChange}
                     onKeyPress={handleKeyPress}
                 />
 
                 <button className={style.button} onClick={() => { handleClick() }}
-                >Buscar</button>
+                >Enter</button>
             </div>
         </div>
     )
