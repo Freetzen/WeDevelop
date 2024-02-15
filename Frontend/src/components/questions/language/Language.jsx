@@ -14,14 +14,14 @@ export const Language = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={style.containerLanguage}>
       <div className={style.titleCuestion}>
-        <h3>¿Cuantos idiomas necesitas que admita tu sitio web?</h3>
+        <h3>How many languages do you need your website to support?</h3>
       </div>
       <div className={style.containerButtons}>
         <button
           className={style.button}
-          value="Solo un idioma"
+          value="One language"
           onClick={handleClick}
-        >Solo un idioma</button>
+        >One language</button>
 
         <button
           className={style.button}
@@ -31,9 +31,9 @@ export const Language = ({ quote, setQuote, question, setQuestion }) => {
 
         <button
           className={style.button}
-          value="Multilingue"
+          value="Multilingual"
           onClick={handleClick}
-        >Multilingue</button>
+        >Multilingual</button>
       </div>
     </div>
   )

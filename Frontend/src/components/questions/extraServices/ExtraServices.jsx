@@ -40,21 +40,21 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
     <div className={styles.containerExtraServices}>
 
       <div className={styles.titleCuestion}>
-        <h3>¿Requiere integración con plataformas externas o servicios, como redes sociales o sistemas de pago en línea?</h3>
+        <h3>Do you require integration with external platforms or services, such as social networks or online payment systems?</h3>
       </div>
       
       <div className={styles.containerButtons}>
-        <button className={styles.button} value="Si" onClick={handleClick}>Si</button>
+        <button className={styles.button} value="Yes" onClick={handleClick}>Yes</button>
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
-        <button className={styles.button} onClick={handleClickGoBack}>Pregunta anterior</button>
+        <button className={styles.button} onClick={handleClickGoBack}>Previous question</button>
       </div>
       <br />
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
         <div className={styles.TrueExtraServiceContainer}>
-          <label>¿Cuales?</label>
+          <label>Which ones?</label>
           <br />
           <input
             name='platform'
@@ -67,7 +67,7 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
           <button
             onClick={handleClickContinue}
           >
-            Continuar
+            Continue
           </button>
         </div>
       ) : (<></>)}

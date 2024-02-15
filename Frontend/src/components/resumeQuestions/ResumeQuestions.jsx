@@ -26,10 +26,10 @@ export const ResumeQuestions = ({ quote, setQuestion }) => {
                 <div className={style.Answers}>
                     <div className={style.containerTitle}>
                         <div className={style.TitleQuestion}>
-                            <span>QUESTIONS</span>
+                            <span>Questions</span>
                         </div>
                         <div className={style.TitleAnswer}>
-                            <span>ANSWERS</span>
+                            <span>Answers</span>
                         </div>
                         <div className={style.TitleEdit}>
                             <span>Edit</span>
