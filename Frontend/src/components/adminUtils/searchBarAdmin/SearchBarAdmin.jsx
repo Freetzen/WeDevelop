@@ -4,6 +4,7 @@ import style from './SearchBarAdmin.module.css'
 import validator from 'validator'
 import userProvider from '../../../utils/provider/userProvider/userProvider';
 import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
+import { BsSearch } from "react-icons/bs";
 
 
 export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
@@ -55,39 +56,39 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit }) {
     }
     return (
         <div className={style.searBar}>
-            <div className={style.buttons1}>
-                <button
-                    onClick={getUs}
-                >Usuarios</button>
-                <button
-                    onClick={getProjets}
-                >Proyectos</button>
+            <div className={style.containerTitle}>
+                <img src="./images/LogoPanelAdmin.png" alt="" />
+            </div>
+            <div className={style.containerButtons}>
+                <div className={style.buttons3}>
+                    <label htmlFor="">Buscar</label>
+                    <input
+                        className={style.input}
+                        type="text"
+                        name='search'
+                        value={name}
+                        placeholder='Ingrese email o proyecto'
+                        onChange={handleChange}
+                        onKeyPress={handleKeyPress}
+                    />
+
+                    <button className={style.button} onClick={() => { handleClick() }}
+                    ><BsSearch /></button>
+                </div>
+                <div className={style.buttons1}>
+                    <label htmlFor="">Ver</label>
+                    <button onClick={getUs}>Usuarios</button>
+                    <button onClick={getProjets}>Proyectos</button>
+                </div>
+
+                <div className={style.buttons1}>
+                    <label htmlFor="">Crear</label>
+                    <button><NavLink to={'/createProject'}>Crear Proyecto</NavLink></button>
+                    <button><NavLink to={'/createUser'}>Crear Usuario</NavLink></button>
+                </div>
             </div>
 
-            <div className={style.buttons2}>
-                <NavLink to={'/createProject'}>
-                    <button>Crear Proyecto</button>
-                </NavLink>
-                <NavLink to={'/createUser'}>
-                    <button>Crear Usuario</button>
-                </NavLink>
-            </div>
 
-            <div className={style.buttons3}>
-                <label className={style.label}>Buscar :  </label>
-                <input
-                    className={style.input}
-                    type="text"
-                    name='search'
-                    value={name}
-                    placeholder='Ingrese email o proyecto'
-                    onChange={handleChange}
-                    onKeyPress={handleKeyPress}
-                />
-
-                <button className={style.button} onClick={() => { handleClick() }}
-                >Buscar</button>
-            </div>
         </div>
     )
 }
