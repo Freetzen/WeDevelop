@@ -31,7 +31,9 @@ const NavBar = () => {
                     </li>
                 </ul>
             </div>
-
+            <Link to="/useraccount">
+            <button>account</button>
+            </Link>
             <div className={style.login}>
                 <Login />
             </div>
