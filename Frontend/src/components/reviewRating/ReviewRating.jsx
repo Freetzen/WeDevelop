@@ -30,7 +30,7 @@ export default function ReviewRating(){
   return (
     <div className={style.container}>
         <div className={style.subContainer}>
-            <h3><span className={style.rating}>{data.rating}</span> <br/>Rating: {renderStars()}</h3>
+            <h3><span className={style.rating}>{data.rating.toFixed(1)}</span> <br/>Rating: {renderStars()}</h3>
             <p>(Total comments: {data.amount})</p>
         </div>
       
