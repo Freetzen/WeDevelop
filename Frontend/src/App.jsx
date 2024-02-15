@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/navBar/NavBar'
 import Home from './pages/home/Home'
@@ -15,12 +15,14 @@ import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 
 
 
+
 function App() {
+
+  const location = useLocation()
 
   return (
     <>
-
-      <NavBar />
+    {location.pathname !== '/admin' && <NavBar />}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/quote" element={<Quote />}></Route>

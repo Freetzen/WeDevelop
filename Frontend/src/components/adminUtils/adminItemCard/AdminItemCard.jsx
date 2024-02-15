@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './AdminItemCard.module.css'
 import { NavLink } from 'react-router-dom';
-import userProvider from '../../../utils/provider/userProvider/userProvider';
-import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
+import { FaCheck } from "react-icons/fa";
+import { IoMdCloseCircle } from "react-icons/io";
+
 export default function AdminItemCard(props) {
 
     const handleClick = async () => {
@@ -16,16 +17,14 @@ export default function AdminItemCard(props) {
                 {
                     props.email
                         ? (
-                            <div>
-                                <h3>Name: {props.name}</h3>
-                                <br />
-                                <h4>Email: {props.email}</h4>
-                                <br />
-                                <h4>Status: {props.suspended ? 'Disabled' : 'Active'}</h4>
+                            <div className={style.containerInfo}>
+                                <p>{props.name}</p>
+                                <p className={style.email}>{props.email}</p>
+                                <p className={style.isActive}style={props.suspended ? {color: 'red'} : {color: 'forestgreen'}}>{props.suspended ? <IoMdCloseCircle/> : <FaCheck/>}</p>
                             </div>
                         )
                         : (
-                            <div>
+                            <div className={style.containerInfo}>
                                 <img src={props.images ? props.images : null} alt="" />
                                 <h4>Name: {props.name}</h4>
                                 <h4>Category: {props.category}</h4>
