@@ -3,8 +3,10 @@ import style from './AdminWindow.module.css'
 import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import AdminItemCard from '../../components/adminUtils/adminItemCard/adminItemCard'
 import SearchBarAdmin from '../../components/adminUtils/searchBarAdmin/SearchBarAdmin'
+import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
+    const [detailState, setDetailState] = useState('')
     const pieGraph = [
         { name: 'Activo', value: 25, valuePercent: `${25}%` },
         { name: 'Inactivo', value: 75, valuePercent: `${75}%` }
@@ -89,31 +91,44 @@ const AdminWindow = () => {
             <div className={style.adminusers}>
                 <h2>Administración de usuarios y proyectos</h2>
             </div>
-            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} />
+            <SearchBarAdmin
+                setItemsToEdit={setItemsToEdit}
+                itemsToEdit={itemsToEdit}
+                setDetailState={setDetailState}
+            />
             <br />
             <div className={style.adminCards}>
                 {
-                    !itemsToEdit.length
-                        ? <h3>No se han seleccionado items</h3>
-                        : itemsToEdit[0].email
-                            ? itemsToEdit.map(item => (
-                                <AdminItemCard
-                                    key={item._id}
-                                    id={item._id}
-                                    name={item.name}
-                                    email={item.email}
-                                    suspended={item.suspended}
-                                />
-                            ))
-                            : itemsToEdit.map(item => (
-                                <AdminItemCard
-                                    key={item._id}
-                                    id={item._id}
-                                    name={item.name}
-                                    images={item.images}
-                                    category={item.category}
-                                />
-                            ))
+                    detailState
+                        ? <AdminDetail
+                            detailState={detailState}
+                            setDetailState={setDetailState}
+                            setItemsToEdit={setItemsToEdit}
+                            itemsToEdit={itemsToEdit}
+                        />
+                        : !itemsToEdit.length
+                            ? <h3>No se han seleccionado items</h3>
+                            : itemsToEdit[0].email
+                                ? itemsToEdit.map(item => (
+                                    <AdminItemCard
+                                        key={item._id}
+                                        id={item._id}
+                                        name={item.name}
+                                        email={item.email}
+                                        suspended={item.suspended}
+                                        setDetailState={setDetailState}
+                                    />
+                                ))
+                                : itemsToEdit.map(item => (
+                                    <AdminItemCard
+                                        key={item._id}
+                                        id={item._id}
+                                        name={item.name}
+                                        images={item.images}
+                                        category={item.category}
+                                        setDetailState={setDetailState}
+                                    />
+                                ))
                 }
             </div>
             <br />
