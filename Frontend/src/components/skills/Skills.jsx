@@ -15,7 +15,7 @@ const Skills = () => {
   return (
     <div className={style.containerSkills}>
       <div className={style.containerTitle}>
-        <h1 className={style.title}>Why WebDevelop?</h1>
+        <h1 className={style.title}>Why WeDevelop?</h1>
       </div>
       <div className={style.containerCards}>
         <div className={style.boxCard}>
