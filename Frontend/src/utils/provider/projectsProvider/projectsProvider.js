@@ -71,6 +71,14 @@ const projectsProvider = {
             return error.message
         }
     },
+    async getProjectsAll() {
+        try {
+            const allProjects = await axios.get(`http://localhost:3001/allprojects`)
+            return allProjects.data
+        } catch (error) {
+            return error.message
+        }
+    },
 
 
 }
