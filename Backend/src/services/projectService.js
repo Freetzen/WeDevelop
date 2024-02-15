@@ -59,5 +59,13 @@ const findProjectByName = async (name) => {
     }
 }
 
-module.exports = { findProject, findProjectById, createProject, deleteProject, updateProject, findProjectByName, findProjectByCategory }
+const findAllProjects = async () => {
+    try {
+        return await projectModel.find();
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+module.exports = { findProject, findProjectById, createProject, deleteProject, updateProject, findProjectByName, findProjectByCategory, findAllProjects }
 
