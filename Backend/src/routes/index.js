@@ -14,10 +14,14 @@ const getProjectByCategory = require('../controllers/getProjectByCategory');
 const getReviewAvarage = require('../controllers/getReviewAvarage');
 const putUser = require('../controllers/putUser');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 const getAllProjects = require('../controllers/getAllProjects');
 >>>>>>> 643c99abea7360d93e9ef1480c7557bacd65f3fb
+=======
+const getAllProjects = require('../controllers/getAllProjects');
+>>>>>>> ad6fb3a168434c413c779bfab59f22234305a87f
 const router = express.Router();
 
 router.get('/projects/category', getProjectByCategory)
