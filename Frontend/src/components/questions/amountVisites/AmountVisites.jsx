@@ -16,27 +16,27 @@ export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={style.containerAmountVisites}>
       <div className={style.titleCuestion}>
-        <h3>¿Cuantas visitas estima que tendra su pagina?</h3>
+        <h3>How many visits do you estimate your site will have?</h3>
       </div>
 
       <div className={style.containerButtons}>
         <button
           className={style.button}
-          value="5 a 10 visitas por mes"
+          value="5 to 10 visits per month"
           onClick={handleClick}
-        >5 a 10 visitas por mes</button>
+        >5 to 10 visits per month</button>
 
         <button
           className={style.button}
-          value="10 a 20 visitas por mes"
+          value="10 to 20 visits per month"
           onClick={handleClick}
-        >10 a 20 visitas por mes</button>
+        >10 to 20 visits per month</button>
 
         <button
           className={style.button}
-          value="20 o mas visitas por mes"
+          value="20 or more visits per month"
           onClick={handleClick}
-        >20 o mas visitas por mes</button>
+        >20 or more visits per month</button>
       </div>
     </div>
   )

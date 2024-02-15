@@ -31,11 +31,11 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         };
     }, [])
 
-    console.log('datos sol', changes);
+    //console.log('datos sol', changes);
 
     const handleChange = (e) => {
-        console.log('este es name', e.target.name);
-        console.log('este es value', e.target.value);
+        //console.log('este es name', e.target.name);
+       // console.log('este es value', e.target.value);
         setChanges({
             ...changes,
             [e.target.name]: e.target.value
@@ -89,7 +89,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
                                 onChange={handleChange}
                                 value={changes.suspended}>
                                 <option value={false} key="false">Active</option>
-                                <option value={true} key="true">No Active</option>
+                                <option value={true} key="true">Disabled</option>
                             </select>
                             <br />
                             <button onClick={sendUserChanges}>Send</button>
