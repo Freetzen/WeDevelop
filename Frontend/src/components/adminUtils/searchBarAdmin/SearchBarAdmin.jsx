@@ -56,6 +56,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
         }
         else setItemsToEdit([usersResponse])
     }
+    
     return (
         <div className={style.searBar}>
             <div className={style.containerTitle}>

@@ -21,7 +21,11 @@ function App() {
 
   return (
     <>
-    {location.pathname !== '/admin' && <NavBar />}
+      {location.pathname !== '/admin'
+        && location.pathname !== '/createProject'
+        && location.pathname !== '/createUser'
+        && <NavBar />}
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/quote" element={<Quote />}></Route>

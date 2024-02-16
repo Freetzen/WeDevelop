@@ -31,11 +31,8 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         };
     }, [])
 
-    console.log('datos sol', changes);
-
+    
     const handleChange = (e) => {
-        console.log('este es name', e.target.name);
-        console.log('este es value', e.target.value);
         setChanges({
             ...changes,
             [e.target.name]: e.target.value
@@ -47,6 +44,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         setItemsToEdit(usersResponse)
         setDetailState('')
     }
+
     const sendprojectChanges = async () => {
         await projectsProvider.putProject(changes);
         const projectsResponse = await projectsProvider.getProjects()
@@ -66,79 +64,94 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
     };
 
 
+    const [edit, setEdit] = useState(false)
+
+    const handleEdit = () => {
+        setEdit(!edit)
+    }
+
+
     return (
         <div className={style.detailsContainer}>
             {
                 isUser
                     ? (
-                        <div>
-                            <label>Name : {changes.name}</label>
-                            <br />
-                            <label>Role : </label>
-                            <select
-                                name="role"
-                                onChange={handleChange}
-                                value={changes.role}>
-                                <option value="admin" key="admin">Admin</option>
-                                <option value="user" key="user">User</option>
-                            </select>
-                            <br />
-                            <label>Status : </label>
-                            <select
-                                name="suspended"
-                                onChange={handleChange}
-                                value={changes.suspended}>
-                                <option value={false} key="false">Active</option>
-                                <option value={true} key="true">No Active</option>
-                            </select>
-                            <br />
-                            <button onClick={sendUserChanges}>Send</button>
+                        <div className={style.containerCard}>
+                            <div className={style.labelAndSelect}>
+                                <label style={{ paddingLeft: '20px' }}>{changes.name}</label>
+                                <label className={style.labelEmail}>{changes.email}</label>
+                                <select
+                                    name="suspended"
+                                    onChange={handleChange}
+                                    value={changes.suspended}>
+                                    <option value={false} key="false">Active</option>
+                                    <option value={true} key="true">No Active</option>
+                                </select>
+                                <select
+                                    name="role"
+                                    onChange={handleChange}
+                                    value={changes.role}>
+                                    <option value="admin" key="admin">Admin</option>
+                                    <option value="user" key="user">User</option>
+                                </select>
+                            </div>
+                            <div className={style.containerButton}>
+                                <button onClick={sendUserChanges}>Send</button>
+                            </div>
                         </div>
                     )
                     : (
-                        <div>
-                            <label>Name : </label>
-                            <input
-                                type="text"
-                                placeholder={changes.name}
-                                name="name"
-                                value={changes.name}
-                                onChange={handleChange}
-                            />
-                            <img src={changes.images} alt="" />
-                            <br />
-
+                        <div className={style.containerDetailProject}>
                             <div className={style.containerSelectArchivos}>
-                                <label>Import New Image: </label>
-                                <input className={style.inputArchivos} type="file" name="image" onChange={handleImage} />
+                                <img src={changes.images} alt="" />
+                                <input className={style.inputArchivos} style={edit ? { display: '' } : { display: 'none' }} type="file" name="image" onChange={handleImage} />
                             </div>
-                            <br />
-
-                            <label>Category: </label>
-                            <select
-                                name="category"
-                                onChange={handleChange}
-                                value={changes.category}>
-                                <option value='Tourism' key="Tourism">Tourism</option>
-                                <option value='E-commerce' key="E-commerce">E-commerce</option>
-                                <option value='Social Network' key="Social Network">Social Network</option>
-                                <option value='Health' key="Health">Health</option>
-                                <option value='Landing Page' key="Landing Page">Landing Page</option>
-                                <option value='Portfolio' key="Portfolio">Portfolio</option>
-                                <option value='Entertainment' key="Entertainment">Entertainment</option>
-                            </select>
-                            <br />
-                            <label>Description : </label>
-                            <textarea
-                                name="description"
-                                id="description"
-                                cols="60"
-                                rows="10"
-                                placeholder={changes.description}
-                                value={changes.description}
-                                onChange={handleChange} />
-                            <br />
-                            <button onClick={sendprojectChanges}>Send</button>
+                            <div className={style.InputSelectAndDescription}>
+                                <div className={style.containerInput}>
+                                    <h2 style={edit ? { display: 'none' } : { display: '' }}>{changes.name}</h2>
+                                    <input
+                                        style={edit ? { display: '' } : { display: 'none' }}
+                                        type="text"
+                                        placeholder={changes.name}
+                                        name="name"
+                                        value={changes.name}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className={style.containerSelecth4}>
+                                    <h4 style={edit ? { display: 'none' } : { display: '' }}>{changes.category}</h4>
+                                    <select
+                                        style={edit ? { display: '' } : { display: 'none' }}
+                                        name="category"
+                                        onChange={handleChange}
+                                        value={changes.category}>
+                                        <option value='Tourism' key="Tourism">Tourism</option>
+                                        <option value='E-commerce' key="E-commerce">E-commerce</option>
+                                        <option value='Social Network' key="Social Network">Social Network</option>
+                                        <option value='Health' key="Health">Health</option>
+                                        <option value='Landing Page' key="Landing Page">Landing Page</option>
+                                        <option value='Portfolio' key="Portfolio">Portfolio</option>
+                                        <option value='Entertainment' key="Entertainment">Entertainment</option>
+                                    </select>
+                                </div>
+                                <div className={style.containerTextAreaAndP}>
+                                    <p style={edit ? { display: 'none' } : { display: '' }}>{changes.description}</p>
+                                    <textarea
+                                        style={edit ? { display: '' } : { display: 'none' }}
+                                        name="description"
+                                        id="description"
+                                        cols="60"
+                                        rows="10"
+                                        placeholder={changes.description}
+                                        value={changes.description}
+                                        onChange={handleChange} />
+                                </div>
+                                <div className={style.containerButtons}>
+                                    <button onClick={() => setEdit(false)} style={edit ? { display: '' } : { display: 'none' }}>Cancelar</button>
+                                    <button onClick={handleEdit} style={edit ? { display: 'none' } : { display: '' }} >Editar</button>
+                                    <button onClick={sendprojectChanges} style={edit ? { display: '' } : { display: 'none' }} >Send</button>
+                                </div>
+                            </div>
                         </div>
                     )
             }

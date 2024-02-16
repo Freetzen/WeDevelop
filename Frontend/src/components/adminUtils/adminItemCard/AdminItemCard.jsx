@@ -18,16 +18,19 @@ export default function AdminItemCard(props) {
                     props.email
                         ? (
                             <div className={style.containerInfo}>
-                                <p>{props.name}</p>
+                                <p className={style.user}>{props.name}</p>
                                 <p className={style.email}>{props.email}</p>
-                                <p className={style.isActive}style={props.suspended ? {color: 'red'} : {color: 'forestgreen'}}>{props.suspended ? <IoMdCloseCircle/> : <FaCheck/>}</p>
+                                <p className={style.status} style={props.suspended ? { color: 'red' } : { color: 'forestgreen' }}>{props.suspended ? <IoMdCloseCircle /> : <FaCheck />}</p>
+                                <p className={style.role}>{props.role}</p>
                             </div>
                         )
                         : (
-                            <div className={style.containerInfo}>
-                                <img src={props.images ? props.images : null} alt="" />
-                                <h4>{props.name}</h4>
-                                <h4>{props.category}</h4>
+                            <div className={style.containerProject}>
+                                <div className={style.containerImagen}>
+                                    <img src={props.images ? props.images : null} alt="" />
+                                </div>
+                                <p >{props.name}</p>
+                                <p className={style.category}>{props.category}</p>
                             </div>
                         )
                 }
