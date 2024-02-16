@@ -6,7 +6,7 @@ const Contact = () => {
 
   const [state, handleSubmit] = useForm("xrgnqgnz");
   if (state.succeeded) {
-    return <p>Mensaje enviado!!</p>;
+    return <p>Message has been sent!!</p>;
   }
   return (
     <div className={style.containerContactUs}>
@@ -29,9 +29,10 @@ const Contact = () => {
         <input id="email" type="email" name="email" />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
 
-
-        <textarea id="message" name="message" />
+        
+        <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
+        
 
         <div className={style.containerButton}>
         <button type="submit" disabled={state.submitting}>

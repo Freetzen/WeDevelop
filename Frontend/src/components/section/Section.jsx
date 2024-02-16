@@ -79,7 +79,7 @@ export const Section = ({ quote, setQuote }) => {
           )
         } */}
         {question === 11 && (
-          <button className={style.Buttons} onClick={pricing}>Elegir planes</button>
+          <button className={style.Buttons} onClick={pricing}>select plans</button>
         )
 
         }

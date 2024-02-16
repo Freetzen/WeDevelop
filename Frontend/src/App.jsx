@@ -12,6 +12,8 @@ import Pricing from './components/pricing/Pricing'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import { UserAccount } from './pages/userAccount/UserAccount'
+import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
+
 
 
 
@@ -31,6 +33,7 @@ function App() {
         <Route path="/projects" element={<Projects />}></Route>
         <Route path="/projects/:id" element={<ProjectDetails />}></Route>
         <Route path="/admin" element={<AdminWindow />}></Route>
+        <Route path="admin/:id" element ={<AdminDetail />}></Route>
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>

@@ -10,7 +10,7 @@ export default function ProjectsCard({project}) {
             <img src={project.images} className={style.img}/>
             <div className={style.containerTitle}>
                 <h2>{project.name}</h2>
-                <h5> Categoria: {project.category}</h5>
+                <h5> Category: {project.category}</h5>
             </div>
             </div>
         </Link>
