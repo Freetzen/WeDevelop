@@ -1,9 +1,11 @@
 import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import Login from "../login/Login";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const NavBar = () => {
+    const { user } = useAuth0()
 
 
     return (
@@ -31,6 +33,9 @@ const NavBar = () => {
                     </li>
                 </ul>
             </div>
+            {
+                
+            }
             <Link to="/useraccount">
             <button>account</button>
             </Link>
