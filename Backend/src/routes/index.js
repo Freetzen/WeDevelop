@@ -14,6 +14,7 @@ const getProjectByCategory = require('../controllers/getProjectByCategory');
 const getReviewAvarage = require('../controllers/getReviewAvarage');
 const putUser = require('../controllers/putUser');
 const getAllProjects = require('../controllers/getAllProjects');
+const postPreference = require('../controllers/postPreference');
 const router = express.Router();
 
 router.get('/projects/category', getProjectByCategory)
@@ -31,5 +32,6 @@ router.post('/reviews', postReviews);
 router.get('/reviews', getReviews);
 router.get('/reviewsRating', getReviewAvarage);
 router.put('/users', putUser);
+router.post("/preference",postPreference)
 
 module.exports = router

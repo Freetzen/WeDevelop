@@ -9,7 +9,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
     setRequeriment(event.target.value)
   }
 
-
+console.log(question)
   const handleClick = (event) => {
     const valueClick = event.target.value
     if(requeriment === ""){

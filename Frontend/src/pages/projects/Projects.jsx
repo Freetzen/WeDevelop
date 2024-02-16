@@ -9,6 +9,7 @@ export default function Projects() {
 
   const [projects, setProjects] = useState([])
   const [categories, setcategories] = useState([])
+  const [filters, setFilters] = useState([])
   const [info, setInfo] = useState([]);
 
   useEffect(() =>{
@@ -56,10 +57,26 @@ export default function Projects() {
 
   const handleClick = async(e) => {
     e.preventDefault()
-    const category = await projectsProvider.getProjectByCategory(e.target.value)
-    if(category === '') setcategories(projects)
-    setcategories(category)
-}
+    const filter = e.target.value;
+    const response = await projectsProvider.getProjectByCategory(filter)
+    if(response === '' || filter === 'Restart Filters') {
+      setcategories(projects)
+      setFilters([])
+    }else{
+      setcategories(response)
+      setFilters((prevFilters) => [...prevFilters, filter])
+    }
+    // if(response){
+    //   if(!categories){
+    //     setcategories(response)
+    //     setFilters((prevFilters) => [...prevFilters, filter])
+    //   }else{
+    //     setcategories((prevCategories)=>[...prevCategories,response])
+    //     setFilters((prevFilters) => [...prevFilters, filter])
+    //   }
+    // }
+  }
+  const filteredProjects = categories.length ? categories : projects;
 
   return(
     <div className={style.projectsContainer}>
@@ -69,12 +86,17 @@ export default function Projects() {
               category.map((e, index) => (<option key={index} value={e}>{e}</option>))
               }
           </select>
+          <h3>selected categories</h3>
+          <ol>
+
+          { 
+           filters.length ? filters.map((e,index)=>(<li key={index}>{e}</li>)) : null
+          }
+          </ol>
         </div>
         <div className={style.proyectos}>
           {  
-          categories.length === 0 
-          ? projects.map((proyecto, index) => (<ProjectsCard key={index} project={proyecto} />)) 
-          : categories.map((proyecto, index) => (<ProjectsCard key={index} project={proyecto} />))
+           filteredProjects.map((proyecto, index) => (<ProjectsCard key={index} project={proyecto} />)) 
           }
       </div>
 
