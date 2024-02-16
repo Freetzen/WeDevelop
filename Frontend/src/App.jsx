@@ -27,6 +27,7 @@ function App() {
       {location.pathname !== '/admin'
         && location.pathname !== '/createProject'
         && location.pathname !== '/createUser'
+        && location.pathname !== '/useraccount'
         && <NavBar />}
 
       <Routes>
@@ -41,7 +42,6 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path='/useraccount' element={<UserAccount/>}></Route>
       </Routes>
 
     </>
