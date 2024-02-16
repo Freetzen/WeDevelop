@@ -5,7 +5,6 @@ import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvide
 
 const ReviewForm = () => {
   const { user } = useAuth0();
-
   const [info, setInfo] = useState({
     name: user.name,
     email: user.email,

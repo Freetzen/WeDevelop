@@ -1,6 +1,8 @@
 
 import { useState } from 'react'
 import userProvider from '../../../utils/provider/userProvider/userProvider';
+import style from './UserAdmin.module.css'
+import { Link } from 'react-router-dom'
 
 
 const UserAdmin = () => {
@@ -35,15 +37,27 @@ const UserAdmin = () => {
 
     }
     return (
-        <div style={{ marginTop: '200px' }}>
-            <form onSubmit={handleSubmit}>
+        <div className={style.containerCreateProject}>
+            <div className={style.flyerWebDevelop}>
+                <div className={style.containerImage}>
+                    <img src='./images/logo-nav.png' alt="" />
+                    <span>By developers</span>
+                </div>
+                <Link to='/admin'><button className={style.buttonBack}>Back</button></Link>
+            </div>
+            <form onSubmit={handleSubmit} className={style.form}>
+                <div className={style.titleProject}>
+                    <h3>Create User</h3>
+                </div>
                 <label htmlFor="user">User: </label>
                 <input type="text" name='name' value={userAdmin.name} onChange={handleChange} />
                 <label htmlFor="user">Email: </label>
                 <input type="text" name='email' value={userAdmin.email} onChange={handleChange} />
                 <label htmlFor="password">Password: </label>
                 <input type="password" name='password' value={userAdmin.password} onChange={handleChange} />
-                <button type='submit'>Create</button>
+                <div className={style.containerButton}>
+                    <button type='submit'>Create</button>
+                </div>
             </form>
         </div>
     )

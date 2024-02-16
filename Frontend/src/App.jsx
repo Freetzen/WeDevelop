@@ -11,7 +11,9 @@ import ProjectDetails from './components/details/DetailProyects'
 import Pricing from './components/pricing/Pricing'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
+import { UserAccount } from './pages/userAccount/UserAccount'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
+
 
 
 
@@ -22,7 +24,11 @@ function App() {
 
   return (
     <>
-    {location.pathname !== '/admin' && <NavBar />}
+      {location.pathname !== '/admin'
+        && location.pathname !== '/createProject'
+        && location.pathname !== '/createUser'
+        && <NavBar />}
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
@@ -35,6 +41,7 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>
+        <Route path='/useraccount' element={<UserAccount/>}></Route>
       </Routes>
 
     </>

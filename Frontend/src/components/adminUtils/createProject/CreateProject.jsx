@@ -1,6 +1,7 @@
 import { useState } from "react";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
 import style from './CreateProject.module.css'
+import {Link} from 'react-router-dom'
 
 const CreateProject = () => {
 
@@ -75,6 +76,7 @@ const CreateProject = () => {
           <img src='./images/logo-nav.png' alt="" />
           <span>By developers</span>
         </div>
+        <Link to='/admin'><button className={style.buttonBack}>Back</button></Link>
       </div>
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.titleProject}>
@@ -114,6 +116,7 @@ const CreateProject = () => {
           <button type="submit" /* disabled={!proyect.name && !proyect.category && !proyect.images && !proyect.description} */>Send</button>
         </div>
       </form>
+
     </div>
   );
 }

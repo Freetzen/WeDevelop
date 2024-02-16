@@ -10,7 +10,7 @@
 }
 
 .containerCreateProject .flyerWebDevelop {
-    background-color: #2f62e4ed;
+    background-color: #2F61E4;
     width: 30%;
     height: 80%;
     display: flex;
@@ -58,28 +58,6 @@ form input {
     height: 40px;
     margin: 5px 0px;
     padding: 10px;
-}
-
-.form select {
-    border: none;
-    height: 30px;
-    width: 100%;
-    margin: 5px 0px;
-    color: #232323;
-}
-
-.form .containerSelectArchivos {
-    margin: 15px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-}
-
-.containerSelectArchivos label {
-    font-size: 13px;
-    margin: 10px 0px;
-    color: #2F61E4;
 }
 
 .form .containerButton {
