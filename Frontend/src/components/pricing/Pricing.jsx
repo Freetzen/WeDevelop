@@ -3,8 +3,44 @@ import styles from './pricing.module.css';
 import { FaCheck } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { MdStars } from "react-icons/md";
+import { Wallet, initMercadoPago } from '@mercadopago/sdk-react'
+import { useState } from 'react';
+import { createPreference } from '../../utils/provider/pricingProvider/pricingProvider';
 
-const Pricing = () => {
+
+const Pricing = ({quote}) => {
+// const [preferenceId, setPreferenceId] = useState(null)
+const [project, setProject] = useState({
+    title: "",
+    price: 0,
+    quantity: 1,
+    info: quote
+})
+const handleClick = (title, price) => {
+    setProject({...project,
+        title,
+        price
+    })
+    console.log("valor click:",project)
+    handleBuy(project)
+}
+
+const handleBuy = async(project) => {
+    console.log("valores del buy:",project)
+    try {
+        const response = await createPreference(project)
+        return response
+    } catch (error) {
+        console.log("ultimo error", error.message)
+    }
+    // if(id){
+    //     setPreferenceId(id)
+    // }
+    }
+
+    initMercadoPago('YOUR_PUBLIC_KEY',{
+        locale: "es-AR"
+    });
   return (
     <section className={styles.pricing}>
         <div className={styles.container}>
@@ -38,7 +74,7 @@ const Pricing = () => {
                 <p><sup>$</sup>9.99<sub>/month</sub></p>
             </div>
 
-            <button className={styles.cardbutton}>Get Started</button>
+            <button className={styles.cardbutton} onClick={()=> handleClick("Basic Plan",9.99)}>Get Started</button>
 
         </div>
 
@@ -73,7 +109,7 @@ const Pricing = () => {
                 <p><sup>$</sup>19.99<sub>/month</sub></p>
             </div>
 
-            <button className={styles.cardbutton}>Get Started</button>
+            <button className={styles.cardbutton} onClick={()=>handleClick("Business Plan",19.99)}>Get Started</button>
 
         </div>
 
@@ -108,8 +144,10 @@ const Pricing = () => {
                 <p><sup>$</sup>29.99<sub>/month</sub></p>
             </div>
 
-            <button className={styles.cardbutton}>Get Started</button>
-
+            <button className={styles.cardbutton} onClick={()=>handleClick("enterprise Plan",9.99)}>Get Started</button>
+            
+             {/* <Wallet initialization={{ preferenceId: "preferenceId" }} customization={{ texts:{ valueProp: 'smart_option'}}} /> */}
+            
         </div>
         
     </section>

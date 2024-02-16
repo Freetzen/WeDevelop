@@ -11,17 +11,13 @@ import { AmountOfProducts } from '../questions/amountOfProducts/amountOfProducts
 import { LegalNorm } from '../questions/legalNorm/LegalNorm'
 import { Language } from '../questions/language/Language'
 import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import Pricing from '../pricing/Pricing'
 
 
 export const Section = ({ quote, setQuote }) => {
 
   const [question, setQuestion] = useState(1)
-
-  const navigate = useNavigate()
-  const pricing = () => {
-    navigate('/pricing')
-  }
 
 
   const switchQuestion = (question) => {
@@ -53,6 +49,8 @@ export const Section = ({ quote, setQuote }) => {
       return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
     case 11:
       return <ResumeQuestions quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 12:
+      return <Pricing quote={quote} />
     default:
       return <></>
 
@@ -78,11 +76,13 @@ export const Section = ({ quote, setQuote }) => {
           onClick={() => { setQuestion(question + 1) }}>Siguiente pregunta</button>
           )
         } */}
-        {question === 11 && (
-          <button className={style.Buttons} onClick={pricing}>select plans</button>
+        {/* {question === 11 && (
+        <Link to="/pricing">
+          <button className={style.Buttons} >select plans</button>
+        </Link>
         )
 
-        }
+        } */}
       </div>
     </div>
   )

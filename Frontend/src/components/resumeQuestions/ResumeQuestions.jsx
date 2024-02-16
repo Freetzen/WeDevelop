@@ -3,10 +3,10 @@ import style from './ResumeQuestions.module.css';
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineEdit } from "react-icons/md";
 
-export const ResumeQuestions = ({ quote, setQuestion }) => {
+export const ResumeQuestions = ({ quote, setQuestion, question }) => {
 
     const array = Object.keys(quote)
-
+console.log(question)
 
     const handleClick = (event) => {
         event.preventDefault()
@@ -58,6 +58,7 @@ export const ResumeQuestions = ({ quote, setQuestion }) => {
                     }
                 </div>
             </div>
+            <button onClick={()=>setQuestion(question + 1)}>select Plans</button>
         </div>
     )
 
