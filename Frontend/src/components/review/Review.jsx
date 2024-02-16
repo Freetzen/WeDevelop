@@ -8,16 +8,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Review() {
     const { isAuthenticated } = useAuth0();
-    const [reviews, setReviews] = useState({});
+    const [ newReview , setNewReview] = useState({});
     const [messages, setMessages] = useState([]);
-    const message = messages.filter(message => message.date);
+    const message = messages?.filter(msg=> msg.message);
 
-    const handleReviewSubmit = (review) => {
-      setReviews(review);
-    };
-
-  
-
+    const handleNewReview = (newReview) => {
+      setNewReview(newReview);
+    }
+    
     useEffect(() => {
       const fetchMessages = async () => {
         try {
@@ -28,27 +26,14 @@ export default function Review() {
         }
       };
       fetchMessages();
-    },[]);
-
-    useEffect(() => {
-      const sendReviewsToServer = async () => {
-        try {
-            const response = await axios.post('http://localhost:3001/reviews', reviews);
-         } catch (error) {
-          console.error('Error al enviar datos al servidor:', error);
-        }
-      };
-      if (reviews) {
-        sendReviewsToServer();
-      }
-    }, [reviews]);
+    },[newReview]);
   
     return (
       <div className={style.container}>
         <div><ReviewRating /></div>
         <h2>Reviews and comments</h2>
         <div className={style.cardContainer}>
-          {message.map((review, index) => (
+          {message?.map((review, index) => (
           <ReviewCard key={index} review={review} />
         ))}
         </div>
@@ -56,7 +41,7 @@ export default function Review() {
         { isAuthenticated ?
         <div className={style.containerTitle}>
           <h2>Leave us a review</h2>
-          <ReviewForm onSubmit={handleReviewSubmit} />
+          <ReviewForm handleNewReview={handleNewReview} />
         </div>
         : <h3>You must be singed up to send review</h3>
         }
