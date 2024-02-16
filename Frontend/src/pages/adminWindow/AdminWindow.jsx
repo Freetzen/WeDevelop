@@ -6,6 +6,7 @@ import AdminItemCard from '../../components/adminUtils/adminItemCard/AdminItemCa
 import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
 import userProvider from '../../utils/provider/userProvider/userProvider'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
+import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
     const [detailState, setDetailState] = useState('')
@@ -28,13 +29,13 @@ const AdminWindow = () => {
 
     const pieGraphTipoColors = ['#f94144', '#f3722c', '#f9844a', '#f9c74f', '#90be6d', '#43aa8b', '#277da1']
 
-    const barGraph = [
+    const [barGraph, setBarGraph] = useState([
         { name: '5', valoraciones: 70 },
         { name: '4', valoraciones: 20 },
         { name: '3', valoraciones: 5 },
         { name: '2', valoraciones: 3 },
         { name: '1', valoraciones: 2 },
-    ]
+    ])
     useEffect(() => {
         bringData()
     }, [])
@@ -42,6 +43,7 @@ const AdminWindow = () => {
     const bringData = async () => {
         const users = await userProvider.getUsers()
         const docs = await projectsProvider.getProjectsAll()
+        const reviews = await reviewsProvider.getReview()
 
         const counterProjects = docs.reduce((counter, item) => {
             const categoryModif = item.category.replace(/-/g, ' ').replace(/\s+/g, '_');
@@ -54,6 +56,17 @@ const AdminWindow = () => {
             return counter;
         }, { true: 0, false: 0 });
 
+        const counterRatings = reviews.reduce((counter, item) => {
+            counter[item.rating] = (counter[item.rating] || 0) + 1;
+            return counter;
+        }, {});
+        setBarGraph([
+            { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
+            { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },
+            { name: '3', valoraciones: counterRatings[3] ? counterRatings[3] : 0 },
+            { name: '2', valoraciones: counterRatings[2] ? counterRatings[2] : 0 },
+            { name: '1', valoraciones: counterRatings[1] ? counterRatings[1] : 0 },
+        ])
         setPieGraph([
             { name: 'Active', value: counterUsers.false, valuePercent: `${25}%` },
             { name: 'Inactive', value: counterUsers.true, valuePercent: `${75}%` }
@@ -69,6 +82,7 @@ const AdminWindow = () => {
         ])
 
     }
+    console.log(barGraph);
 
     return (
         <div className={style.adminWindow}>
@@ -120,6 +134,11 @@ const AdminWindow = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip />
+                                <Legend margin={{
+                                    top: 20,
+                                    right: 20,
+                                    left: 20,
+                                }} />
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
