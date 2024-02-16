@@ -1,6 +1,5 @@
 const initialState = {
-    ecommerce: {},
-    website: {}
+    roleUser:""
 }
 const reducer = (state = initialState, action) => {
     switch (action) {

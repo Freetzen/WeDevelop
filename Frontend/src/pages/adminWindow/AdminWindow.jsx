@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import style from './AdminWindow.module.css'
-import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, CartesianGrid } from 'recharts'
+import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, CartesianGrid, YAxis } from 'recharts'
 import SearchBarAdmin from '../../components/adminUtils/searchBarAdmin/SearchBarAdmin'
 import AdminItemCard from '../../components/adminUtils/adminItemCard/AdminItemCard'
 import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
@@ -77,7 +77,7 @@ const AdminWindow = () => {
                 <div className={style.graphscontainer}>
                     <div className={style.box}>
                         <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
-                            <h3>Status de usuarios</h3>
+                            <h3>Users Status</h3>
                         </div>
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <PieChart>
@@ -102,7 +102,7 @@ const AdminWindow = () => {
                     </div>
                     <div className={style.box}>
                         <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
-                            <h3>Tipo de página</h3>
+                            <h3>Type of Project</h3>
                         </div>
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <PieChart >
@@ -125,7 +125,7 @@ const AdminWindow = () => {
                     </div>
                     <div className={style.box}>
                         <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
-                            <h3>Valoraciones por cantidad de estrellas</h3>
+                            <h3>Ratings by number of stars</h3>
                         </div>
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <BarChart

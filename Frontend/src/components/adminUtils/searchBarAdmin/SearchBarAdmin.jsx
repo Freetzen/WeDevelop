@@ -59,18 +59,20 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
     
     return (
         <div className={style.searBar}>
+
             <div className={style.containerTitle}>
                 <img src="./images/LogoPanelAdmin.png" alt="" />
+
             </div>
             <div className={style.containerButtons}>
                 <div className={style.buttons3}>
-                    <label htmlFor="">Buscar</label>
+                    <label htmlFor="">Search</label>
                     <input
                         className={style.input}
                         type="text"
                         name='search'
                         value={name}
-                        placeholder='Ingrese email o proyecto'
+                        placeholder='Insert email or project'
                         onChange={handleChange}
                         onKeyPress={handleKeyPress}
                     />
@@ -79,18 +81,17 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
                     ><BsSearch /></button>
                 </div>
                 <div className={style.buttons1}>
-                    <label htmlFor="">Ver</label>
-                    <button onClick={getUs}>Usuarios</button>
-                    <button onClick={getProjets}>Proyectos</button>
+                    <label htmlFor="">Show</label>
+                    <button onClick={getUs}>Users</button>
+                    <button onClick={getProjets}>Proyects</button>
                 </div>
 
                 <div className={style.buttons1}>
-                    <label htmlFor="">Crear</label>
-                    <button><NavLink to={'/createProject'}>Crear Proyecto</NavLink></button>
-                    <button><NavLink to={'/createUser'}>Crear Usuario</NavLink></button>
+                    <label htmlFor="">Create</label>
+                    <button><NavLink to={'/createProject'}>Create Project</NavLink></button>
+                    <button><NavLink to={'/createUser'}>Create User</NavLink></button>
                 </div>
             </div>
-
 
         </div>
     )

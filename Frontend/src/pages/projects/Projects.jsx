@@ -44,7 +44,7 @@ export default function Projects() {
   }, []);
 
   const category = [
-    'Reiniciar Filtros',
+    'Restart Filters',
     "E-commerce",
     "Tourism",
     "Health",

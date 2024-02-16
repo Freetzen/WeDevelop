@@ -44,7 +44,7 @@ export default function ProjectDetails() {
               <img src={projectById.images} alt={projectById.name} className="imgDetails" style={{width: '500px'}}/>
           </div>
           <div className={style.detailsRight}>
-              <h5>{projectById.category}</h5>
+              <h5><strong>Category:</strong> {projectById.category}</h5>
               <p>{projectById.description}</p>
               <div className={style.buttonsContainer}>
                   <button onClick={backToHome} className={style.button1}>Back Projects</button>

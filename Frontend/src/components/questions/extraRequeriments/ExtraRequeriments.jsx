@@ -30,7 +30,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
   return (
     <div className={style.containerExtraRequeriments}>
       <div className={style.titleCuestion}>
-        <h3>¿Tu página tiene algun requisito no contemplado dentro de nuestra ruta de preguntas?</h3>
+        <h3>Does your site have any requirements not covered by our question routing?</h3>
       </div>
       <div className={style.ExtraRequerimentsContainer}>
         <div className={style.ExtraRequerimentsOpcionOne}>
@@ -42,7 +42,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
         </div>
         <div className={style.ExtraRequerimentsTwo}>
           <textarea
-          placeholder='Especifique los requisitos aqui'
+          placeholder='Specify the requirements here'
             value={requeriment}
             type='text'
             onChange={handleChange}
@@ -51,7 +51,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
           <button
             className={style.ExtraRequerimentsUpload}
             onClick={handleClick}
-          >Guardar cambios</button>
+          >Continue</button>
         </div>
       </div>
     </div>
