@@ -15,16 +15,16 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
 
 
   const handleClick = (e) => {
-    const valueClick = e.target.value;
+    const valueClick = e.currentTarget.getAttribute('value');
    
-      setSelectedSupport(valueClick); 
-      setQuote({
-        ...quote,
-        'support': valueClick
-      });
-      setShowOptions(false);
-      setQuestion(question + 1);
-    
+    setSelectedSupport(valueClick); 
+    setQuote({
+      ...quote,
+      'support': valueClick
+    });
+    setShowOptions(false);
+    setQuestion(question + 1);
+  
     console.log(valueClick);
   };
 
@@ -51,7 +51,7 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
           <div className={style.containerIcon}>
             <FcCancel className={style.smallImage}/>
           </div>
-          <div className={style.title} onClick={handleClick} >
+          <div className={style.title}>
             <h4>No Support Required</h4>
           </div>
         </div>
