@@ -7,6 +7,14 @@ const findReviews = async () => {
         throw new Error(error);
     }
 }
+const createRevew = async (form) => {
+    try {
+        const newUser = await reviewModel.create(form);
+        return newUser;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
 
 
-module.exports = {findReviews};
+module.exports = { findReviews, createRevew };

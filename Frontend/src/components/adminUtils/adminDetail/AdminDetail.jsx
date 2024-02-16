@@ -35,7 +35,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
 
     const handleChange = (e) => {
         //console.log('este es name', e.target.name);
-       // console.log('este es value', e.target.value);
+        // console.log('este es value', e.target.value);
         setChanges({
             ...changes,
             [e.target.name]: e.target.value

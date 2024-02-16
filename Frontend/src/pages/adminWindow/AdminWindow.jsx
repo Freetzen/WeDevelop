@@ -6,6 +6,7 @@ import AdminItemCard from '../../components/adminUtils/adminItemCard/AdminItemCa
 import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
 import userProvider from '../../utils/provider/userProvider/userProvider'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
+import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
     const [detailState, setDetailState] = useState('')
@@ -28,13 +29,13 @@ const AdminWindow = () => {
 
     const pieGraphTipoColors = ['#0FBCBB', '#E56741', '#7334EF']
 
-    const barGraph = [
+    const [barGraph, setBarGraph] = useState([
         { name: '5', valoraciones: 70 },
         { name: '4', valoraciones: 20 },
         { name: '3', valoraciones: 5 },
         { name: '2', valoraciones: 3 },
         { name: '1', valoraciones: 2 },
-    ]
+    ])
     useEffect(() => {
         bringData()
     }, [])
@@ -42,6 +43,7 @@ const AdminWindow = () => {
     const bringData = async () => {
         const users = await userProvider.getUsers()
         const docs = await projectsProvider.getProjectsAll()
+        const reviews = await reviewsProvider.getReview()
 
         const counterProjects = docs.reduce((counter, item) => {
             const categoryModif = item.category.replace(/-/g, ' ').replace(/\s+/g, '_');
@@ -54,6 +56,17 @@ const AdminWindow = () => {
             return counter;
         }, { true: 0, false: 0 });
 
+        const counterRatings = reviews.reduce((counter, item) => {
+            counter[item.rating] = (counter[item.rating] || 0) + 1;
+            return counter;
+        }, {});
+        setBarGraph([
+            { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
+            { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },
+            { name: '3', valoraciones: counterRatings[3] ? counterRatings[3] : 0 },
+            { name: '2', valoraciones: counterRatings[2] ? counterRatings[2] : 0 },
+            { name: '1', valoraciones: counterRatings[1] ? counterRatings[1] : 0 },
+        ])
         setPieGraph([
             { name: 'Asset', value: counterUsers.false, valuePercent: `${25}%` },
             { name: 'Idle', value: counterUsers.true, valuePercent: `${75}%` }
@@ -68,10 +81,11 @@ const AdminWindow = () => {
             { name: 'Tourism', value: counterProjects.Tourism, valuePercent: `${75}%` },
         ])
     }
+    console.log(barGraph);
 
     return (
         <div className={style.adminWindow}>
-            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState}/>
+            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState} />
             <div className={style.containerPanel}>
                 <div className={style.graphscontainer}>
                     <div className={style.box}>
@@ -120,11 +134,11 @@ const AdminWindow = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip />
-                                <Legend  margin={{
+                                <Legend margin={{
                                     top: 20,
                                     right: 20,
                                     left: 20,
-                                }}/>
+                                }} />
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
@@ -152,46 +166,46 @@ const AdminWindow = () => {
                     </div>
                 </div>
                 <div className={style.adminusers}>
-                    {!itemsToEdit.length ? '' : itemsToEdit[0].email ? 
-                    <div className={style.containerInfo}>
-                        <p>User</p>
-                        <p>Email</p>
-                        <p>Status</p>
-                    </div> : ''}
-                    
+                    {!itemsToEdit.length ? '' : itemsToEdit[0].email ?
+                        <div className={style.containerInfo}>
+                            <p>User</p>
+                            <p>Email</p>
+                            <p>Status</p>
+                        </div> : ''}
+
                     <div className={style.adminCards}>
                         {
-                    detailState
-                        ? <AdminDetail
-                            detailState={detailState}
-                            setDetailState={setDetailState}
-                            setItemsToEdit={setItemsToEdit}
-                            itemsToEdit={itemsToEdit}
-                        />
-                        : !itemsToEdit.length
-                            ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
-                            : itemsToEdit[0].email
-                                ? itemsToEdit.map(item => (
-                                    <AdminItemCard
-                                        key={item._id}
-                                        id={item._id}
-                                        name={item.name}
-                                        email={item.email}
-                                        suspended={item.suspended}
-                                        setDetailState={setDetailState}
-                                    />
-                                ))
-                                : itemsToEdit.map(item => (
-                                    <AdminItemCard
-                                        key={item._id}
-                                        id={item._id}
-                                        name={item.name}
-                                        images={item.images}
-                                        category={item.category}
-                                        setDetailState={setDetailState}
-                                    />
-                                ))
-                }
+                            detailState
+                                ? <AdminDetail
+                                    detailState={detailState}
+                                    setDetailState={setDetailState}
+                                    setItemsToEdit={setItemsToEdit}
+                                    itemsToEdit={itemsToEdit}
+                                />
+                                : !itemsToEdit.length
+                                    ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                                    : itemsToEdit[0].email
+                                        ? itemsToEdit.map(item => (
+                                            <AdminItemCard
+                                                key={item._id}
+                                                id={item._id}
+                                                name={item.name}
+                                                email={item.email}
+                                                suspended={item.suspended}
+                                                setDetailState={setDetailState}
+                                            />
+                                        ))
+                                        : itemsToEdit.map(item => (
+                                            <AdminItemCard
+                                                key={item._id}
+                                                id={item._id}
+                                                name={item.name}
+                                                images={item.images}
+                                                category={item.category}
+                                                setDetailState={setDetailState}
+                                            />
+                                        ))
+                        }
                     </div>
                 </div>
             </div>
