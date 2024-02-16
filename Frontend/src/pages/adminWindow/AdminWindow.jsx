@@ -11,10 +11,10 @@ const AdminWindow = () => {
     const [detailState, setDetailState] = useState('')
 
     const [pieGraph, setPieGraph] = useState([
-        { name: 'Asset', value: 0, valuePercent: `${25}%` },
-        { name: 'Idle', value: 0, valuePercent: `${75}%` }
+        { name: 'Inactive', value: 0, valuePercent: `${25}%` },
+        { name: 'Active', value: 0, valuePercent: `${75}%` }
     ])
-    const pieGraphColors = ['#0FBCBB', '#1186EC']
+    const pieGraphColors = ['#F9C74F', '#fc2f00']
 
     const [pieGraphTipo, setpieGraphTipo] = useState([
         { name: 'E-commerce', value: 40, valuePercent: `${25}%` },
@@ -26,7 +26,7 @@ const AdminWindow = () => {
         { name: 'Tourism', value: 15, valuePercent: `${75}%` },
     ])
 
-    const pieGraphTipoColors = ['#0FBCBB', '#E56741', '#7334EF']
+    const pieGraphTipoColors = ['#f94144', '#f3722c', '#f9844a', '#f9c74f', '#90be6d', '#43aa8b', '#277da1']
 
     const barGraph = [
         { name: '5', valoraciones: 70 },
@@ -55,8 +55,8 @@ const AdminWindow = () => {
         }, { true: 0, false: 0 });
 
         setPieGraph([
-            { name: 'Asset', value: counterUsers.false, valuePercent: `${25}%` },
-            { name: 'Idle', value: counterUsers.true, valuePercent: `${75}%` }
+            { name: 'Active', value: counterUsers.false, valuePercent: `${25}%` },
+            { name: 'Inactive', value: counterUsers.true, valuePercent: `${75}%` }
         ])
         setpieGraphTipo([
             { name: 'E-commerce', value: counterProjects.E_commerce, valuePercent: `${25}%` },
@@ -67,11 +67,12 @@ const AdminWindow = () => {
             { name: 'Social Network', value: counterProjects.Social_Network, valuePercent: `${75}%` },
             { name: 'Tourism', value: counterProjects.Tourism, valuePercent: `${75}%` },
         ])
+
     }
 
     return (
         <div className={style.adminWindow}>
-            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState}/>
+            <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState} />
             <div className={style.containerPanel}>
                 <div className={style.graphscontainer}>
                     <div className={style.box}>
@@ -83,8 +84,8 @@ const AdminWindow = () => {
                                 <Pie
                                     dataKey='value'
                                     data={pieGraph}
-                                    innerRadius={50}
-                                    outerRadius={100}
+                                    innerRadius={0}
+                                    outerRadius={90}
                                     fill='#82ca9d'
                                     labelLine={false}
                                     label={pieGraphTipo}
@@ -106,10 +107,9 @@ const AdminWindow = () => {
                         <ResponsiveContainer width='100%' height={320} className={style.graph}>
                             <PieChart >
                                 <Pie
-
                                     dataKey='value'
                                     data={pieGraphTipo}
-                                    innerRadius={50}
+                                    innerRadius={60}
                                     outerRadius={100}
                                     fill='#82ca9d'
                                     labelLine={false}
@@ -120,11 +120,6 @@ const AdminWindow = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip />
-                                <Legend  margin={{
-                                    top: 20,
-                                    right: 20,
-                                    left: 20,
-                                }}/>
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
@@ -145,7 +140,7 @@ const AdminWindow = () => {
                                 <XAxis dataKey='name' />
                                 <Tooltip />
                                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                                <Bar dataKey='valoraciones' fill='#1186EC' barSize={50} />
+                                <Bar dataKey='valoraciones' fill='#3F963F' barSize={50} />
                                 <Legend />
                             </BarChart>
                         </ResponsiveContainer>
@@ -154,10 +149,15 @@ const AdminWindow = () => {
                 <div className={style.adminusers}>
                     {!itemsToEdit.length ? '' : itemsToEdit[0].email ? 
                     <div className={style.containerInfo}>
-                        <p>User</p>
-                        <p>Email</p>
+                        <p className={style.user}>User</p>
+                        <p className={style.email}>Email</p>
                         <p>Status</p>
-                    </div> : ''}
+                        <p className={style.role}>Role</p>
+                    </div> : <div className={style.containerInfoProject}>
+                        <p className={style.image}>Image</p>
+                        <p className={style.name}>Name</p>
+                        <p className={style.category}>Category</p>
+                    </div>}
                     
                     <div className={style.adminCards}>
                         {
@@ -178,6 +178,7 @@ const AdminWindow = () => {
                                         name={item.name}
                                         email={item.email}
                                         suspended={item.suspended}
+                                        role={item.role}
                                         setDetailState={setDetailState}
                                     />
                                 ))
