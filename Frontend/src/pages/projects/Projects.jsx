@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import PaginateProyect from "../../components/paginateProject/PaginateProyect";
 import Select from 'react-select';
 
-export default function Projects() {
+export default function Projects({ setSelectedOptions, selectedOptions }) {
 
-  const [selectedOptions, setSelectedOptions] = useState([])
+  // const [selectedOptions, setSelectedOptions] = useState([])
   const [projects, setProjects] = useState([])
   const [totalInfo, setTotalInfo] = useState([])
 
