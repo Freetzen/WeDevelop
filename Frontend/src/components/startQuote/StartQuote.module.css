@@ -1,5 +1,5 @@
 .quoteContainer {
-    background-image: url('./images/fondo.jpg');
+    background-image: url('../images/fondo.jpg');
     background-attachment: fixed;
     height: 500px;
     padding: 30px 15px;
