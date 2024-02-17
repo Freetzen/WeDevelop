@@ -1,0 +1,100 @@
+.containerSupport {
+  background-color: #6940ff;
+  height: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerSupport .titleCuestion h3 {
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin: 20px 0px;
+}
+
+.containerImages {
+  width: 60%;
+  margin: 20px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.imageContainer {
+  margin: 15px 15px;
+  width: 450px;
+  position: relative;
+  display: inline-block;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.image {
+  max-width: 450px;
+  height: auto;
+}
+
+
+.containerIcon .smallImage {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  font-size: 100px;
+}
+
+
+.imageContainer:hover {
+  transform: scale(1.03);
+}
+
+.imageContainer .title {
+  border: 1px solid white;
+  margin: 20px 0px;
+  padding: 15px;
+  text-align: center;
+}
+
+.imageContainer .title h4{
+ color: aliceblue;
+ font-size: 30px;
+}
+
+.containerOptions {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0px;
+  padding: 15px;
+}
+
+.containerOptions h2 {
+  color: aliceblue;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 20px 0px;
+}
+
+.options-list .option-item {
+  margin: 15px 10px;
+  width: 250px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  color: aliceblue;
+  background-color: #FCC922;
+  box-shadow: black 6px 6px;
+  cursor: pointer;
+
+}
+
+
+.option-item:hover {
+  transform: scale(1.04);
+}

@@ -1,0 +1,34 @@
+.container {
+    width: auto;
+    height: auto;
+    padding: 0px;
+    margin: 30px 0px;
+}
+
+.subContainer {
+    width: max-content;
+    height: auto;
+    margin: 0px auto;
+    padding: 30px 40px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0,.2);
+    border-radius: 6px;
+}
+
+.subContainer h3 {
+    font-size: 34px;
+    text-align: center;
+    color: rgba(0, 0, 0,.8);
+}
+
+.rating {
+    font-size: 72px;
+    color: #000;
+}
+
+.subContainer p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}

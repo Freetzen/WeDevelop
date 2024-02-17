@@ -2,16 +2,17 @@ import style from './AboutUs.module.css'
 
 const AboutUs = () => {
   return (
-    <section className={style.aboutUsContainer}>
+    <section className={style.aboutUsContainer} id='#AboutUs'>
+      <div className={style.containerimgAndTitle}>
         <div className={style.aboutUsDivImg}>
-          <img src='./images/work2.jpg' alt="AboutUsImg" />
+          <img src='./images/aboutUs.png' alt="AboutUsImg" />
         </div>
-
         <div className={style.aboutUsDiv}>
+          <h3>About us</h3>
           <p>
-            En WeDevelop, no solo creamos páginas web, sino que también tejemos historias digitales. Desde nuestros modestos comienzos en 2022, nos hemos dedicado apasionadamentre a la creacion de experiencias en línea excepcionales que cautivan, inspiran y conectan.
-          </p>
+          At WebDevelop, we don't just create websites, we weave digital stories. Since our modest beginnings in 2022, we have been passionately dedicated to creating exceptional online experiences that captivate, inspire and connect.          </p>
         </div>
+      </div>
 
     </section>
   )

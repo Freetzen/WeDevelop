@@ -1,0 +1,37 @@
+.container {
+    width: 100%;
+    height: auto;
+    padding: 30px 0;
+}
+
+.form {
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    margin: 0px auto;
+    background: rgba(0, 0, 0, .3);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, .2);
+    border-radius: 6px;
+}
+
+.linea {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.linea label {
+    width: 70px;
+}
+
+textarea { 
+    width: 100%;
+}
+
+select {
+    width: 60%;
+}
+
+button {
+    margin-top: 20px;
+}

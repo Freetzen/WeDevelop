@@ -1,0 +1,101 @@
+.containerDesing {
+  background-color: #6940ff;
+  border: 1px solid black;
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 0px;
+}
+
+.containerDesing .titleCuestion h3 {
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin: 20px 0px;
+}
+
+.containerDesing .imageContainer {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.containerDesing .imageContainer .model {
+  background-color: aliceblue;
+  width: 20%;
+  margin: 10px 10px;
+
+}
+
+.containerDesing .imageContainer .model img {
+  width: 100%;
+  height: 40%;
+}
+
+.containerDesing .imageContainer .model .titleContainer {
+  padding: 20px;
+}
+
+.containerDesing .imageContainer .model .titleContainer h4 {
+  font-size: 30px;
+  margin: 5px 0px;
+  font-weight: 600;
+  color: rgb(75, 75, 75);
+}
+
+.containerDesing .imageContainer .model .titleContainer P {
+  font-size: 16px;
+  margin: 5px 0px;
+  color: dimgrey;
+}
+
+.containerDesing .imageContainer .model .titleContainer .qualification span {
+  font-size: 30px;
+  color: rgb(243, 181, 23);
+}
+
+.containerDesing h4 {
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: 200;
+  letter-spacing: -1px;
+  margin: 50px 0px;
+}
+
+.containerDesing label {
+  font-size: 20px;
+  color: antiquewhite;
+}
+
+.containerDesing textarea {
+  background-color: rgb(237, 237, 237);
+  width: 40%;
+  height: 200px;
+}
+
+.containerDesing textarea {
+  background-color: rgb(237, 237, 237);
+  width: 40%;
+  height: 200px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.containerDesing button {
+  width: 200px;
+  height: 50px;
+  margin: 20px 0px;
+  font-weight: 700;
+  color: aliceblue;
+  background-color: #FCC922;
+  box-shadow: black 6px 6px;
+  cursor: pointer;
+}

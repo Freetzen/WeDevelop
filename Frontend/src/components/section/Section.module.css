@@ -1,0 +1,26 @@
+.containerSection {
+    position: relative;
+}
+
+
+.containerButtons {
+    width: 100%;
+    background-color: #6940ff;
+    position: absolute;
+    bottom: 3%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.containerButtons .Buttons {
+    margin: 15px 30px;
+    width: 170px;
+    height: 50px;
+    background-color: #232323;
+    color: aliceblue;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
