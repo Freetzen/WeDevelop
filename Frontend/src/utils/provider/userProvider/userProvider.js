@@ -4,7 +4,7 @@ const userProvider = {
 
     async getUsers() {
         try {
-            const getUser = await axios('http://localhost:3001/users')
+            const getUser = await axios('/users')
             return getUser.data
         } catch (error) {
             return error.message
@@ -12,7 +12,7 @@ const userProvider = {
     },
     async createUser(user) {
         try {
-            const createUser = await axios.post('http://localhost:3001/login', user)
+            const createUser = await axios.post('/login', user)
             return createUser.data
         } catch (error) {
             console.error(error)
@@ -22,7 +22,7 @@ const userProvider = {
 
     async getUserByEmail(email) {
         try {
-            const getUserEmail = await axios(`http://localhost:3001/users/email?email=${email}`)
+            const getUserEmail = await axios(`/users/email?email=${email}`)
             return getUserEmail.data
         } catch (error) {
             return error.message
@@ -31,7 +31,7 @@ const userProvider = {
 
     async postUserAdmin(userAdmin) {
         try {
-            const newUserAdmin = await axios.post(`http://localhost:3001/admin`, userAdmin)
+            const newUserAdmin = await axios.post(`/admin`, userAdmin)
             return newUserAdmin.data
         } catch (error) {
             return error.message
@@ -39,7 +39,7 @@ const userProvider = {
     },
     async putUser(info) {
         try {
-            const newUserAdmin = await axios.put(`http://localhost:3001/users`, info)
+            const newUserAdmin = await axios.put(`/users`, info)
             return newUserAdmin.data
         } catch (error) {
             return error.message

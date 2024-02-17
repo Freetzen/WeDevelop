@@ -15,7 +15,7 @@ const preferenceSchema = new Schema({
         required: true
     },
     info: {
-        type: Schema.Types.Mixed,
+        type: Object,
         required: true
     },
     createdAt: {

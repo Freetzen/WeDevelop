@@ -5,13 +5,12 @@ import { AmountVisites } from '../questions/amountVisites/AmountVisites'
 import { Purpose } from '../questions/purpose/Purpose'
 import { ExtraServices } from '../questions/extraServices/ExtraServices'
 import { ExtraRequeriments } from '../questions/extraRequeriments/ExtraRequeriments'
-import { Desing } from '../questions/Desing/Desing'
+import { Desing } from '../questions/desing/Desing'
 import { ApiOrDatabase } from '../questions/apiOrDatabase/ApiOrDatabase'
-import { AmountOfProducts } from '../questions/amountOfProducts/amountOfProducts'
+import { AmountOfProducts } from '../questions/amountOfProducts/AmountOfProducts'
 import { LegalNorm } from '../questions/legalNorm/LegalNorm'
 import { Language } from '../questions/language/Language'
 import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
-import {Link, useNavigate} from "react-router-dom"
 import Pricing from '../pricing/Pricing'
 
 

@@ -13,12 +13,13 @@ import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import { UserAccount } from './pages/userAccount/UserAccount'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
+import { useState } from 'react'
+import axios from 'axios'
 
-
-
-
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
+  const [selectedOptions, setSelectedOptions] = useState([])
 
   const location = useLocation()
 
@@ -34,10 +35,10 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
-        <Route path="/projects" element={<Projects />}></Route>
+        <Route path="/projects" element={<Projects setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />}></Route>
         <Route path="/projects/:id" element={<ProjectDetails />}></Route>
         <Route path="/admin" element={<AdminWindow />}></Route>
-        <Route path="admin/:id" element ={<AdminDetail />}></Route>
+        <Route path="admin/:id" element={<AdminDetail />}></Route>
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>
