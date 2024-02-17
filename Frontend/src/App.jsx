@@ -16,7 +16,7 @@ import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 function App() {
   const [selectedOptions, setSelectedOptions] = useState([])
