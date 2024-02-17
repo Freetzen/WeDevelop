@@ -14,6 +14,9 @@ import NotFound from './pages/notFound/NotFound'
 import { UserAccount } from './pages/userAccount/UserAccount'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
   const [selectedOptions, setSelectedOptions] = useState([])
