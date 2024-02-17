@@ -1,5 +1,5 @@
 
-import styles from './pricing.module.css';
+import styles from './Pricing.module.css';
 import { FaCheck } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { MdStars } from "react-icons/md";

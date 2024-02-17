@@ -6,7 +6,7 @@ const projectsProvider = {
     async getProjects(page) {
         try {
             if (!page) page = 1
-            const getProjects = await axios.get(`http://localhost:3001/projects?page=${page}`)
+            const getProjects = await axios.get(`/projects?page=${page}`)
             return getProjects.data
         } catch (error) {
             return error.message
@@ -14,7 +14,7 @@ const projectsProvider = {
     },
     async postProjects(project) {
         try {
-            const newProjects = await axios.post(`http://localhost:3001/projects`, project)
+            const newProjects = await axios.post(`/projects`, project)
             return newProjects
         } catch (error) {
             return error.message
@@ -22,7 +22,7 @@ const projectsProvider = {
     },
     async getProjectById(id) {
         try {
-            const getProyectsId = await axios.get(`http://localhost:3001/projects/${id}`)
+            const getProyectsId = await axios.get(`/projects/${id}`)
             return getProyectsId.data
         } catch (error) {
             return error.message
@@ -32,7 +32,7 @@ const projectsProvider = {
 
     async getProjectByCategory(object) {
         try {
-            const getProyectsCategory = await axios.get(`http://localhost:3001/projects/category`, { params: object })
+            const getProyectsCategory = await axios.get(`/projects/category`, { params: object })
             return getProyectsCategory.data
         } catch (error) {
             return error.message
@@ -56,7 +56,7 @@ const projectsProvider = {
     },
     async getProjectByName(name) {
         try {
-            const getProjectsName = await axios.get(`http://localhost:3001/projects/name?name=${name}`)
+            const getProjectsName = await axios.get(`/projects/name?name=${name}`)
             return getProjectsName.data
         } catch (error) {
             return error.message
@@ -64,7 +64,7 @@ const projectsProvider = {
     },
     async putProject(info) {
         try {
-            const newUserAdmin = await axios.put(`http://localhost:3001/projects`, info)
+            const newUserAdmin = await axios.put(`/projects`, info)
             return newUserAdmin.data
         } catch (error) {
             return error.message
@@ -72,7 +72,7 @@ const projectsProvider = {
     },
     async getProjectsAll() {
         try {
-            const allProjects = await axios.get(`http://localhost:3001/allprojects`)
+            const allProjects = await axios.get(`/allprojects`)
             return allProjects.data
         } catch (error) {
             return error.message
