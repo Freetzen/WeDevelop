@@ -56,7 +56,9 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
         }
         else setItemsToEdit([usersResponse])
     }
-    
+
+
+
     return (
         <div className={style.searBar}>
 
@@ -77,8 +79,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
                         onKeyPress={handleKeyPress}
                     />
 
-                    <button className={style.button} onClick={() => { handleClick() }}
-                    ><BsSearch /></button>
+                    <button className={style.button} onClick={() => { handleClick() }}><BsSearch /></button>
                 </div>
                 <div className={style.buttons1}>
                     <label htmlFor="">Show</label>

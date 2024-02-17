@@ -8,6 +8,8 @@
 .detailsContainer .containerCard {
     display: flex;
     flex-direction: column;
+    padding-right: 15px;
+    padding-bottom: 15px;
 }
 
 .labelAndSelect {
@@ -32,6 +34,11 @@
 
 .labelAndSelect select {
     width: 20%;
+    height: 40px;
+    border: 1px solid rgb(223, 223, 223);
+    padding-left: 10px;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .containerCard .containerButton {
@@ -48,6 +55,7 @@
     background-color: #2F61E4;
     color: antiquewhite;
     border: none;
+    cursor: pointer;
 
 }
 
@@ -104,6 +112,7 @@
     border: 1px solid rgb(205, 205, 205);
     background-color: rgb(221, 221, 221);
     color: rgb(105, 105, 105);
+    cursor: pointer;
 }
 
 /* select and h4 */
@@ -126,6 +135,7 @@
     font-size: 15px;
     padding-left: 10px;
     border: 1px solid rgb(205, 205, 205);
+    cursor: pointer;
 }
 
 /* textarea and p */
@@ -163,4 +173,5 @@
     background-color: #2F61E4;
     color: aliceblue;
     border: none;
+    cursor: pointer;
 }

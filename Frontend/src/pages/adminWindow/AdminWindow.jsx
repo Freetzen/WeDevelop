@@ -83,7 +83,6 @@ const AdminWindow = () => {
         ])
 
     }
-    console.log(barGraph);
 
     return (
         <div className={style.adminWindow}>
@@ -135,11 +134,6 @@ const AdminWindow = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip />
-                                <Legend margin={{
-                                    top: 20,
-                                    right: 20,
-                                    left: 20,
-                                }} />
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
