@@ -1,5 +1,4 @@
 import style from "./Skills.module.css";
-import { HiMiniUserGroup } from "react-icons/hi2";
 import { FcConferenceCall } from "react-icons/fc";
 import { FcIdea } from "react-icons/fc";
 import { FcVoicePresentation } from "react-icons/fc";
