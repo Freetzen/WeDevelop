@@ -10,7 +10,7 @@ const NavBar = () => {
 
     return (
         <div className={style.NavBarContainer}>
-
+            
             <Link to="/" className={style.Link}>
                 <div className={style.logo}>
                     <img src="./images/logo-nav.png" />
@@ -33,12 +33,6 @@ const NavBar = () => {
                     </li>
                 </ul>
             </div>
-            {
-                
-            }
-            <Link to="/useraccount">
-            <button>account</button>
-            </Link>
             <div className={style.login}>
                 <Login />
             </div>
