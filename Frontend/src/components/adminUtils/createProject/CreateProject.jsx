@@ -1,7 +1,7 @@
 import { useState } from "react";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
 import style from './CreateProject.module.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const CreateProject = () => {
 
@@ -57,8 +57,6 @@ const CreateProject = () => {
 
   const handleImage = async (e) => {
     const imgFile = e.target.files[0];
-    console.log(project);
-
     try {
       const { data } = await projectsProvider.uploadImg(imgFile);
       setproject({
