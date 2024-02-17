@@ -13,6 +13,13 @@ const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
+server.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', 'https://wedevelop-d6qjzj0pw-freetzen.vercel.app');
+   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+   res.header('Access-Control-Allow-Headers', 'Content-Type');
+   res.header('Access-Control-Allow-Credentials', true); // Habilitar credenciales
+   next();
+});
 
 server.use(session({
     store: MongoStore.create({
