@@ -28,9 +28,9 @@ export const UserAccount = ({menuIsActive, activeMenu}) => {
         <p>{user?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
-        <label htmlFor="">Membership</label>
+        <label >Membership</label>
         <p>Premium</p>
-        <label htmlFor="">Fecha de creacion de la cuenta</label>
+        <label >Fecha de creacion de la cuenta</label>
         <p> {res}</p>
       </div>
       <div className={style.buttonsContainer}>

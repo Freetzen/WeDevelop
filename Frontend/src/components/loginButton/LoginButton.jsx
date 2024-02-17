@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import style from './LoginButton.module.css'
-import { Link } from "react-router-dom";
 import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import { UserAccount } from "../../pages/userAccount/UserAccount";
 
@@ -72,5 +71,4 @@ const LoginButton = () => {
   );
 };
 
-{/* <button onClick={() => logout()}>LogOut</button> */ }
 export default LoginButton;

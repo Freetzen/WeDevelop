@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa";
+import { GoStarFill } from "react-icons/go";
 import style from "./ReviewRating.module.css";
 
 export default function ReviewRating({ totalReviews }) {
@@ -11,7 +11,7 @@ export default function ReviewRating({ totalReviews }) {
     const numStars = Math.round(average);
     const stars = [];
     for (let i = 0; i < numStars; i++) {
-      stars.push(<FaStar key={i} style={{ color: "gold" }} />);
+      stars.push(<GoStarFill key={i} style={{ color: "gold" }} />);
     }
     return stars;
   };
@@ -19,10 +19,10 @@ export default function ReviewRating({ totalReviews }) {
   return (
     <div className={style.container}>
       <div className={style.subContainer}>
-        <h3><span className={style.rating}>{average?.toFixed(1)}</span> <br />Rating: {renderStars()}</h3>
+        <h2 className={style.rating}>{average?.toFixed(1)}</h2>
+        <h4>Rating: {renderStars()}</h4>
         <p>(Total comments: {numReviews})</p>
       </div>
-
     </div>
   );
 };
