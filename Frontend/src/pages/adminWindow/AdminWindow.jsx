@@ -60,6 +60,7 @@ const AdminWindow = () => {
             counter[item.rating] = (counter[item.rating] || 0) + 1;
             return counter;
         }, {});
+        console.log('counter proj', counterProjects);
         setBarGraph([
             { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
             { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },
@@ -166,52 +167,52 @@ const AdminWindow = () => {
                     </div>
                 </div>
                 <div className={style.adminusers}>
-                    {!itemsToEdit.length ? '' : itemsToEdit[0].email ? 
-                    <div className={style.containerInfo}>
-                        <p className={style.user}>User</p>
-                        <p className={style.email}>Email</p>
-                        <p>Status</p>
-                        <p className={style.role}>Role</p>
-                    </div> : <div className={style.containerInfoProject}>
-                        <p className={style.image}>Image</p>
-                        <p className={style.name}>Name</p>
-                        <p className={style.category}>Category</p>
-                    </div>}
-                    
+                    {!itemsToEdit.length ? '' : itemsToEdit[0].email ?
+                        <div className={style.containerInfo}>
+                            <p className={style.user}>User</p>
+                            <p className={style.email}>Email</p>
+                            <p>Status</p>
+                            <p className={style.role}>Role</p>
+                        </div> : <div className={style.containerInfoProject}>
+                            <p className={style.image}>Image</p>
+                            <p className={style.name}>Name</p>
+                            <p className={style.category}>Category</p>
+                        </div>}
+
                     <div className={style.adminCards}>
                         {
-                    detailState
-                        ? <AdminDetail
-                            detailState={detailState}
-                            setDetailState={setDetailState}
-                            setItemsToEdit={setItemsToEdit}
-                            itemsToEdit={itemsToEdit}
-                        />
-                        : !itemsToEdit.length
-                            ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
-                            : itemsToEdit[0].email
-                                ? itemsToEdit.map(item => (
-                                    <AdminItemCard
-                                        key={item._id}
-                                        id={item._id}
-                                        name={item.name}
-                                        email={item.email}
-                                        suspended={item.suspended}
-                                        role={item.role}
-                                        setDetailState={setDetailState}
-                                    />
-                                ))
-                                : itemsToEdit.map(item => (
-                                    <AdminItemCard
-                                        key={item._id}
-                                        id={item._id}
-                                        name={item.name}
-                                        images={item.images}
-                                        category={item.category}
-                                        setDetailState={setDetailState}
-                                    />
-                                ))
-                }
+                            detailState
+                                ? <AdminDetail
+                                    detailState={detailState}
+                                    setDetailState={setDetailState}
+                                    setItemsToEdit={setItemsToEdit}
+                                    itemsToEdit={itemsToEdit}
+                                />
+                                : !itemsToEdit.length
+                                    ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                                    : itemsToEdit[0].email
+                                        ? itemsToEdit.map(item => (
+                                            <AdminItemCard
+                                                key={item._id}
+                                                id={item._id}
+                                                name={item.name}
+                                                email={item.email}
+                                                suspended={item.suspended}
+                                                role={item.role}
+                                                setDetailState={setDetailState}
+                                            />
+                                        ))
+                                        : itemsToEdit.map(item => (
+                                            <AdminItemCard
+                                                key={item._id}
+                                                id={item._id}
+                                                name={item.name}
+                                                images={item.images}
+                                                category={item.category}
+                                                setDetailState={setDetailState}
+                                            />
+                                        ))
+                        }
                     </div>
                 </div>
             </div>

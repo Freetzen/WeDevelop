@@ -30,9 +30,9 @@ const projectsProvider = {
     },
 
 
-    async getProjectByCategory(category) {
+    async getProjectByCategory(object) {
         try {
-            const getProyectsCategory = await axios.get(`http://localhost:3001/projects/category?category=${category}`)
+            const getProyectsCategory = await axios.get(`http://localhost:3001/projects/category`, { params: object })
             return getProyectsCategory.data
         } catch (error) {
             return error.message
@@ -49,7 +49,6 @@ const projectsProvider = {
                 body: data
             })
             const responseData = await upload.json()
-            console.log(responseData)
             return responseData
         } catch (error) {
             return error.message
