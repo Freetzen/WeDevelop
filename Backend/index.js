@@ -6,7 +6,7 @@ const { URLMONGODB } = process.env;
 const PORT = 3001;
 
 server.listen(PORT, () => {
-  console.log(`Server listening on port http://localhost${PORT}`);
+  console.log(`Server listening on port https://wedevelop-37n5bb0vo-freetzen.vercel.app`);
 })
 
 //Mongo DB
