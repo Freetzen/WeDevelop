@@ -2,76 +2,35 @@ import React from 'react'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
 import style from './PaginateProyect.module.css'
 
-const PaginateProyect = ({info, projects, setProjects, setInfo}) => {
+const PaginateProyect = ({ totalInfo, selectedOptions, dataInit, bringData }) => {
 
-    const handleNext = async () => {
-      const nextPages = info.page + 1;
-      const next = await projectsProvider.getProjects(nextPages);
-      setProjects(next.docs);
 
-      let {
-        hasNextPage,
-        hasPrevPage,
-        limit,
-        nextPage,
-        page,
-        pagingCounter,
-        prevPage,
-        totalDocs,
-        totalPages,
-      } = next;
+  const handleNext = async () => {
+    if (!selectedOptions.length) {
+      dataInit(totalInfo.nextPage)
+    }
+    else {
+      bringData(totalInfo.nextPage)
+    }
+  };
 
-      setInfo({
-        hasNextPage,
-        hasPrevPage,
-        limit,
-        nextPage,
-        page,
-        pagingCounter,
-        prevPage,
-        totalDocs,
-        totalPages,
-      });
-    };
-
-    const handlePrev = async () => {
-      const prevPages = info.page - 1;
-      const prev = await projectsProvider.getProjects(prevPages);
-      setProjects(prev.docs);
-
-      let {
-        hasNextPage,
-        hasPrevPage,
-        limit,
-        nextPage,
-        page,
-        pagingCounter,
-        prevPage,
-        totalDocs,
-        totalPages,
-      } = prev;
-
-      setInfo({
-        hasNextPage,
-        hasPrevPage,
-        limit,
-        nextPage,
-        page,
-        pagingCounter,
-        prevPage,
-        totalDocs,
-        totalPages,
-      });
-    };
+  const handlePrev = async () => {
+    if (!selectedOptions.length) {
+      dataInit(totalInfo.prevPage)
+    }
+    else {
+      bringData(totalInfo.prevPage)
+    }
+  };
 
   return (
     <div>
-        {
-            info.hasPrevPage === true ? <button className={style.Buttons} onClick={handlePrev}>Prev</button> : null
-        }
-        {
-            info.hasNextPage === true ? <button className={style.Buttons} onClick={handleNext}>Next</button> : null
-        }
+      {
+        totalInfo.hasPrevPage ? <button className={style.Buttons} onClick={handlePrev}>Prev</button> : null
+      }
+      {
+        totalInfo.hasNextPage ? <button className={style.Buttons} onClick={handleNext}>Next</button> : null
+      }
     </div>
   )
 }

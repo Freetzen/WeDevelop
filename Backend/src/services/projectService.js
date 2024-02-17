@@ -9,9 +9,9 @@ const findProject = async (page, limit) => {
     }
 }
 
-const findProjectByCategory = async (category) => {
+const findProjectByCategory = async (categories, page, limit) => {
     try {
-        return await projectModel.find({ "category": category })
+        return await projectModel.paginate({ "category": { $in: categories } }, { page: page, limit: limit });
     } catch (error) {
         throw new Error(error);
     }
