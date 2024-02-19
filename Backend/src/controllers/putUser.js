@@ -2,12 +2,13 @@ const { updateUser } = require("../services/userService")
 
 const putUser = async (req, res) => {
     try {
-        const { _id, name, email, role, suspended } = req.body
+        const { _id, name, email, role, suspended, banned } = req.body
         const response = await updateUser(_id, {
             name,
             email,
             role,
-            suspended
+            suspended,
+            banned,
         })
 
         res.status(200).json(response)
