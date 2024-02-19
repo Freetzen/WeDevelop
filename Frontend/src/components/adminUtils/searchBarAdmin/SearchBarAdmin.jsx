@@ -92,6 +92,11 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
                     <button><NavLink to={'/createProject'}>Create Project</NavLink></button>
                     <button><NavLink to={'/createUser'}>Create User</NavLink></button>
                 </div>
+
+                <div className={style.buttons1}>
+                    <label htmlFor="">Back</label>
+                    <button><NavLink to={'/'}>Home</NavLink></button>
+                </div>
             </div>
 
         </div>
