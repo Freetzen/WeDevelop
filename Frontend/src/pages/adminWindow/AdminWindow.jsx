@@ -60,7 +60,6 @@ const AdminWindow = () => {
             counter[item.rating] = (counter[item.rating] || 0) + 1;
             return counter;
         }, {});
-        console.log('counter proj', counterProjects);
         setBarGraph([
             { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
             { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },

@@ -6,7 +6,6 @@ import { MdOutlineEdit } from "react-icons/md";
 export const ResumeQuestions = ({ quote, setQuestion, question }) => {
 
     const array = Object.keys(quote)
-console.log(question)
 
     const handleClick = (event) => {
         event.preventDefault()
