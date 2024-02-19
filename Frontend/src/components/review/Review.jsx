@@ -6,6 +6,7 @@ import ReviewRating from "../reviewRating/ReviewRating";
 import { useAuth0 } from "@auth0/auth0-react";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import ReviewBar from "../reviewBar/ReviewBar";
+import LoginButton from "../loginButton/LoginButton";
 
 
 export default function Review() {
@@ -42,7 +43,7 @@ export default function Review() {
           {/* <h2>Leave us a review</h2> */}
           <ReviewForm />
         </div>
-        : <h3>You must be singed up to send review <button className={style.buttonLogin}>Login</button></h3>
+        : <h3>You must be singed up to send review <LoginButton /></h3>
       }
     </div>
   );
