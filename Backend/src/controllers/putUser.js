@@ -13,12 +13,13 @@ const putUser = async (req, res) => {
   try {
     const { _id, name, email, role, banned } = req.body;
 
+    console.log('BANNED BACK', banned)
+
     const response = await updateUser(_id, {
       name,
       email,
       role,
-      suspended,
-      banned,
+      banned
     });
 
     if (banned === 'true') {
