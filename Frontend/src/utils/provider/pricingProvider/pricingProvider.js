@@ -1,7 +1,6 @@
 import axios from "axios"
 
 export const createPreference = async (project) => {
-    console.log("datos provider:",project)
     try {
         const response = await axios.post("/preference", project)
         // const {id} = response.data;
