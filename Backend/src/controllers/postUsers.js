@@ -27,82 +27,58 @@ const postUsers = async(req, res) => {
             subject: `${name}, welcome to WeDevelop`,
             html: `<!DOCTYPE html>
             <html lang="en">
-              <head>
-                <meta charset="UTF-8" />
+            <head>
+                <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Envio de correo Electronico con NodeJS</title>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link
-                  href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600&display=swap"
-                  rel="stylesheet" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Notification</title>
+                <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600&display=swap" rel="stylesheet" />
                 <style>
-                  html {
-                    height: 100%;
-                  }
-                  body {
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    font-family: "Instrument Sans", sans-serif;
-                  }
-                  .content {
-                    top: 0;
-                    margin: 0 auto;
-                    width: 90%;
-                    height: 100vh;
-                    background-color: #f2f4f8;
-                  }
-                  .logo {
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    margin: 10px;
-                    width: 150px;
-                    margin-right: 50px;
-                  }
-                  h1 {
-                    color: #22b5a0;
-                    padding: 30px 5px;
-                  }
-                  h3 {
-                    text-align: center;
-                  }
-                  section {
-                    padding: 5px 50px;
-                  }
-                  p {
-                    text-align: justify;
-                    color: #666 !important;
-                  }
-                  hr {
-                    border: 1px solid #eee;
-                  }
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #f0f0f0;
+                    }
+                    .content {
+                        font-family: "Instrument Sans", sans-serif;
+                        text-align: center;
+                        width: 80%;
+                        max-width: 600px;
+                        background: linear-gradient(150deg, #b311d3, #1a38df);
+                        box-shadow: 5px 7px 9px rgb(18, 1, 38);
+                        border-radius: 10px;
+                        padding: 30px;
+                        color: #d2b5e9;
+                    }
+                    h1, h3, h2, p {
+                        margin: 10px 0;
+                    }
+                    h3, h2{
+                      color: #2ff145;
+                    }
+                    hr {
+                        border: 1px solid #5b0668;
+                    }
                 </style>
-              </head>
-              <body>
+            </head>
+            <body>
                 <div class="content">
-                  <h1 style="text-align: center">
-                    ¡Hi ${name}, welcome to WeDevelop !
-                    <hr />
-                  </h1>
-            
-                  <section>
+                    <h1>
+                        Hi ${name}, welcome to WeDevelop!!
+                        <hr />
+                    </h1>
                     <h3>
-                      Este correo electrónico es una prueba enviada utilizando Node.js.
+                        Your user was created correctly. ✔💻
                     </h3>
                     <p>
-                      Estamos emocionados de tenerte aquí y esperamos que disfrutes de
-                      nuestro contenido.
+                        We are excited to have you here and hope you enjoy our content.
                     </p>
-                    <br />
-                    <h3>¡Gracias por unirte a nosotros!</h3>
-                  </section>
-                  <a href="https://urianviera.com/">
-                  </a>
+                    <h3>Thanks for joining us!!</h3>    
                 </div>
-              </body>
+            </body>
             </html>`,
         };
 
