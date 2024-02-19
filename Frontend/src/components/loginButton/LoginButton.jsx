@@ -25,15 +25,15 @@ const LoginButton = () => {
           text: "Contact us.",
           footer: `<a href="https://wedevelop.vercel.app/contact">Why do I have this issue?</a>`
         });
-
         setTimeout(() => {
           logout()
-        }, 4000);
+        }, 6000);
 
      return 
         
       }
-      if(!textodeejemplo) await userProvider.createUser(newUser)
+      if(!textodeejemplo) { 
+        await userProvider.createUser(newUser)}
     } catch (error) {
       console.error('Error al enviar los datos del usuario al servidor:', error);
     }
@@ -46,14 +46,13 @@ const LoginButton = () => {
   useEffect(() => {
     if (isAuthenticated && user) {
       setLoading(true);
-
       const timer = setTimeout(() => {
         setLoading(false);
       }, 1000);
 
       return () => clearTimeout(timer);
     }
-  }, [isAuthenticated, user])
+  }, [])
   
   const [menuIsActive, setMenuIsActive] = useState(true)
 
