@@ -11,6 +11,7 @@ import ProjectDetails from './components/details/DetailProyects'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
+import SpinnerButtons from './components/spinners/spinnerButtons/SpinnerButtons'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -27,6 +28,7 @@ function App() {
         && location.pathname !== '/createProject'
         && location.pathname !== '/createUser'
         && location.pathname !== '/useraccount'
+        && location.pathname !== '/spinner'
         && <NavBar />}
 
       <Routes>
@@ -40,6 +42,7 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>
+        <Route path="/spinner" element={<SpinnerButtons />}></Route>
       </Routes>
 
     </>
