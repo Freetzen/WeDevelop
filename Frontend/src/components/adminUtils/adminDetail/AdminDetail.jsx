@@ -3,6 +3,7 @@ import validator from 'validator'
 import style from "./AdminDetail.module.css";
 import userProvider from "../../../utils/provider/userProvider/userProvider";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
+import Swal from 'sweetalert2'
 
 export default function AdminDetail({ detailState, setDetailState, setItemsToEdit }) {
     const [changes, setChanges] = useState({});
@@ -42,6 +43,15 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         await userProvider.putUser(changes);
         const usersResponse = await userProvider.getUsers()
         setItemsToEdit(usersResponse)
+        Swal.fire({
+            icon: "success",
+            title: "Your user has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+              popup: 'center',
+            }
+          });
         setDetailState('')
     }
 
@@ -50,6 +60,15 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         const projectsResponse = await projectsProvider.getProjects()
         setItemsToEdit(projectsResponse.docs)
         setDetailState('')
+        Swal.fire({
+            icon: "success",
+            title: "Your project has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+              popup: 'center',
+            }
+          });
     }
 
     const handleImage = async (e) => {
