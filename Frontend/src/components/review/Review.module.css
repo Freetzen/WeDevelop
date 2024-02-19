@@ -32,7 +32,6 @@
 }
 
 .container h3 {
-    margin-top: 20px;
     font-weight: 200;
 }
 
@@ -44,3 +43,13 @@
     font-weight: 200;
     cursor: pointer;
 }
+
+.H3andButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+

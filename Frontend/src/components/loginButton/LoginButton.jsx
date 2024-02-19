@@ -48,9 +48,9 @@ const LoginButton = () => {
 
 
   return (
-    <div>
+    <div className={style.containerLogin}>
       {!isAuthenticated ? (
-        <button style={isAuthenticated ? {display: 'none'} : {display: ''}} onClick={() => loginWithRedirect()}>LogIn</button>
+        <button className={style.buttonLogin} onClick={() => loginWithRedirect()}>LogIn</button>
       ) : (
         <>
         <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu}/>
