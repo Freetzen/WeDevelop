@@ -16,9 +16,8 @@ const LoginButton = () => {
         email: user.email,
         image: user.picture
       }
-      if (!isAuthenticated) {
-        await userProvider.createUser(newUser)
-      }
+      const textodeejemplo = await userProvider.getUserByEmail(user.email)
+      if(!textodeejemplo) await userProvider.createUser(newUser)
     } catch (error) {
       console.error('Error al enviar los datos del usuario al servidor:', error);
     }
