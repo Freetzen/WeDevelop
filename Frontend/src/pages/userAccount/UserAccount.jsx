@@ -34,14 +34,13 @@ export const UserAccount = ({ menuIsActive }) => {
       </div>
       <div className={style.buttonsContainer}>
         <div>
-          {
-            userBD.role === 'admin'
-              ?
-              <Link to={'/admin'}>
-                <button>Admin panel</button>
-              </Link>
-              : null
-          }
+        {
+  userBD && userBD.role === 'admin' ? (
+    <Link to={'/admin'}>
+      <button>Admin panel</button>
+    </Link>
+  ) : null
+}
         </div>
         <button onClick={() => logout()}>Sign Out</button>
       </div>

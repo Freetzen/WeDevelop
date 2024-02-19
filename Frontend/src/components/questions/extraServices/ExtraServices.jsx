@@ -11,7 +11,7 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
-    if (valueClick === 'Si') setPosAnswer(true)
+    if (valueClick === 'Yes') setPosAnswer(true)
     else {
       setQuote({
         ...quote,
