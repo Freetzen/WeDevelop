@@ -69,4 +69,4 @@ const unsuspendUser = async (id) => {
 
 
 
-module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser }
+module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser };

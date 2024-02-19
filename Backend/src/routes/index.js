@@ -23,13 +23,14 @@ router.get('/projects', getProjects)
 router.get('/allprojects', getAllProjects)
 router.get('/users', getUsers)
 router.get('/users/email', getUserByEmail)
+router.put('/projects', putProject)
 router.post('/login', postUsers)
 router.post('/projects', postProject)
-router.put('/projects', putProject)
 router.post('/reviews', postReviews);
 router.get('/reviews', getReviews);
 router.get('/reviewsRating', getReviewAvarage);
 router.put('/users', putUser);
 router.post("/preference",postPreference)
+
 
 module.exports = router
