@@ -24,15 +24,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    padding: 20px 5px;
     margin-bottom: 40px;
+    gap: 50px;
 }
 
 .containerCards .boxCard{
     background-color: aliceblue;
     width: 250px;
-    height: 350;
-    margin: 5px 30px;
+    height: 350px;
     border-radius: 15px;
 }
 
@@ -43,12 +42,15 @@
 }
 
 .containerCards .titleCard{ 
-    text-align: center;
     margin: 5px 10px;
     padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .containerCards .titleCard h4{
+    text-align: center;
     font-size: 20px;
     color: #484848;
     margin: 5px;
@@ -56,10 +58,11 @@
 }
 
 .containerCards .titleCard p{
+    width: 90%;
+    text-align:center;
     font-size: 15px;
     color: #484848;
-    text-align: center;
-    padding: 10px 20px;
+    
     
 }
 
