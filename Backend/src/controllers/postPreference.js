@@ -1,7 +1,6 @@
 const { createPreference } = require("../services/preferenceService")
 
 const postPreference = async(req, res) => {
-    console.log("controller:",req.body.info)
  try {
     const {title, price, quantity, info} = req.body
     const createdPreference = await createPreference({
