@@ -46,6 +46,24 @@ const userProvider = {
         }
     },
 
+    async bannedUser(id) {
+        try {
+            const newUserAdmin = await axios.put(`/userbanned/${id}`)
+            return newUserAdmin.data
+        } catch (error) {
+            return error.message
+        }
+    },
+
+    async unbannedUser(id) {
+        try {
+            const newUserAdmin = await axios.put(`/userbanned/${id}`)
+            return newUserAdmin.data
+        } catch (error) {
+            return error.message
+        }
+    }
+
 }
 
 export default userProvider

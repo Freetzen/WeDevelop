@@ -67,22 +67,6 @@ const unsuspendUser = async (id) => {
     }
 }
 
-const bannedUser = async (id) => {
-    try {
-        return await userModel.findByIdAndUpdate(id, { banned: true });
-    } catch (error) {
-        throw new Error(error);
-    }
-}
-
-const unbannedUser = async (id) => {
-    try {
-        return await userModel.findByIdAndUpdate(id, { banned: false });
-    } catch (error) {
-        throw new Error(error);
-    }
-}
 
 
-
-module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser, bannedUser, unbannedUser };
+module.exports = { findUsers, findUserById, findUserByEmail, createUser, deleteUser, updateUser, suspendUser, unsuspendUser };

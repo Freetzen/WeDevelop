@@ -89,7 +89,6 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         setEdit(!edit)
     }
 
-
     return (
         <div className={style.detailsContainer}>
             {
@@ -100,11 +99,11 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
                                 <label style={{ paddingLeft: '20px' }}>{changes.name}</label>
                                 <label className={style.labelEmail}>{changes.email}</label>
                                 <select
-                                    name="suspended"
+                                    name="banned"
                                     onChange={handleChange}
-                                    value={changes.suspended}>
-                                    <option value={false} key="false">Active</option>
-                                    <option value={true} key="true">No Active</option>
+                                    value={changes.banned}>
+                                    <option value={false} key="false">UnBanned</option>
+                                    <option value={true} key="true">Banned</option>
                                 </select>
                                 <select
                                     name="role"
