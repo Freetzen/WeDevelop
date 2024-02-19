@@ -43,7 +43,7 @@ export default function Review() {
           {/* <h2>Leave us a review</h2> */}
           <ReviewForm />
         </div>
-        : <h3>You must be singed up to send review <LoginButton /></h3>
+        : <div className={style.H3andButton}><h3>You must be singed up to send review </h3><LoginButton /></div>
       }
     </div>
   );
