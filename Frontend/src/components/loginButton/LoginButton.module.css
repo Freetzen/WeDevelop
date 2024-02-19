@@ -38,3 +38,11 @@
     justify-content: end;
     padding-right: 5px;
 }
+
+.buttonLogin {
+    border:none;
+    background-color: transparent;
+    color: #6940FF;
+    font-size: 17px;
+    cursor: pointer;
+}
