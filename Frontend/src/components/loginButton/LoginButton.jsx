@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import style from './LoginButton.module.css'
 import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
@@ -7,6 +8,8 @@ import { UserAccount } from "../../pages/userAccount/UserAccount";
 import Swal from 'sweetalert2'
 
 const LoginButton = () => {
+
+  const navigate = useNavigate
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const postUserData = async () => {
     try {
@@ -39,11 +42,12 @@ const LoginButton = () => {
     }
   };
 
-  isAuthenticated && user && postUserData(); //si el usuario esta autenticado y se recibieron los datos los envio al servidor del back
+  isAuthenticated && user && postUserData();
 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+
     if (isAuthenticated && user) {
       setLoading(true);
       const timer = setTimeout(() => {

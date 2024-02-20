@@ -14,7 +14,6 @@ import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import axios from 'axios'
-
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 function App() {
@@ -28,6 +27,7 @@ function App() {
         && location.pathname !== '/createProject'
         && location.pathname !== '/createUser'
         && location.pathname !== '/useraccount'
+        && location.pathname !== '/spinner'
         && <NavBar />}
 
       <Routes>
