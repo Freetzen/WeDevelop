@@ -11,13 +11,9 @@ const Contact = () => {
     await handleSubmit(event);
     if (state.succeeded) {
       Swal.fire({
-        icon: "success",
-        title: "Your message has been sent successfully",
-        showConfirmButton: false,
-        timer: 1500,
-        customClass: {
-          popup: "center",
-        },
+        title: "Message has been sent!!",
+        text: "We will contact you very soon.",
+        icon: "success"
       });
       formRef.current.reset(); 
     }
