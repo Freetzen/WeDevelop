@@ -11,10 +11,8 @@ import ProjectDetails from './components/details/DetailProyects'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
-import SpinnerButtons from './components/spinners/spinnerButtons/SpinnerButtons'
 import { useState } from 'react'
 import axios from 'axios'
-
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 function App() {
@@ -42,7 +40,6 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="/spinner" element={<SpinnerButtons />}></Route>
       </Routes>
 
     </>

@@ -32,7 +32,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         };
     }, [])
 
-    
+
     const handleChange = (e) => {
         setChanges({
             ...changes,
@@ -49,9 +49,9 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
             showConfirmButton: false,
             timer: 1500,
             customClass: {
-              popup: 'center',
+                popup: 'center',
             }
-          });
+        });
         setDetailState('')
     }
 
@@ -66,9 +66,9 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
             showConfirmButton: false,
             timer: 1500,
             customClass: {
-              popup: 'center',
+                popup: 'center',
             }
-          });
+        });
     }
 
     const handleImage = async (e) => {
@@ -89,7 +89,6 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         setEdit(!edit)
     }
 
-    console.log(changes)
 
     return (
         <div className={style.detailsContainer}>

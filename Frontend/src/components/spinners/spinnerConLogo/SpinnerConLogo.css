@@ -1,11 +1,12 @@
 .containerSpinner {
     background-image: url('../images/fondo.jpg');
+    backdrop-filter: blur(20px);
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
@@ -14,19 +15,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: zoomInOut 8s ease-in-out infinite;
+    animation: zoomInOut 5s ease-in-out infinite;
 }
 
 .containerImg img {
     width: 300px;
 }
 
-.container {
+.containerConLogo {
     width: 200px;
     height: 200px;
     position: absolute;
-    top: 35%;
-    left: 115%;
+    top:30px;
+    left: 350px;
     transform: translate(-50%, -50%);
     margin: auto;
     filter: url("#goo");
@@ -162,20 +163,20 @@
         transform: translate(-50%, -50%) scale(1);
     }
     50% {
-        transform: translate(-50%, -50%) scale(2.5);
+        transform: translate(-50%, -50%) scale(1.5);
     }
     60% {
-        transform: translate(-50%, -50%) scale(2.5);
+        transform: translate(-50%, -50%) scale(1.5);
     }
     70% {
-        transform: translate(-50%, -50%) scale(2.5);
+        transform: translate(-50%, -50%) scale(1.5);
     }
     80% {
-        transform: translate(-50%, -50%) scale(2.5);
+        transform: translate(-50%, -50%) scale(1.5);
         
     }
     90% {
-        transform: translate(-50%, -50%) scale(2.5);
+        transform: translate(-50%, -50%) scale(1.5);
         opacity: 90%
     }
 

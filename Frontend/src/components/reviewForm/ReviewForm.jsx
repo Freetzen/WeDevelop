@@ -10,7 +10,7 @@ const ReviewForm = () => {
     name: user.name,
     email: user.email,
     image: user.picture,
-    rating: 5,
+    rating: 0,
     message: ''
   });
 
