@@ -13,8 +13,6 @@ const putUser = async (req, res) => {
   try {
     const { _id, name, email, role, banned } = req.body;
 
-    console.log('BANNED BACK', banned)
-
     const response = await updateUser(_id, {
       name,
       email,
@@ -88,7 +86,7 @@ const putUser = async (req, res) => {
                       <h1 style="text-align: center">
                         Hi ${name}. Due to WeDevelop's internal policies, we have made the decision to block your account indefinitely.
                         For more information, contact us!
-                        <a src='https://wedevelop.vercel.app/contact'>Contact Us</a>
+                        <a href='https://wedevelop.vercel.app/contact'>Contact Us</a>
                         <hr />
                       </h1>
                 

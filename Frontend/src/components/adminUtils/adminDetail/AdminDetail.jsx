@@ -89,7 +89,6 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         setEdit(!edit)
     }
 
-
     return (
         <div className={style.detailsContainer}>
             {

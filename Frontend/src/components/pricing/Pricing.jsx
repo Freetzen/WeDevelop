@@ -23,12 +23,10 @@ const Pricing = ({ quote }) => {
             title,
             price
         })
-        console.log("valor click:", project)
         handleBuy(project)
     }
 
     const handleBuy = async (project) => {
-        console.log("valores del buy:", project)
         try {
             const response = await createPreference(project)
             return response

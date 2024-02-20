@@ -45,7 +45,6 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
         const projectsResponse = await projectsProvider.getProjectByName(name)
         if (projectsResponse.length === 0) return window.alert('No existen coincidencias con el nombre proporcionado')
         else setItemsToEdit(projectsResponse)
-        console.log(projectsResponse);
     }
     const getUsEmail = async (email) => {
         setItemsToEdit([])
