@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+}
+
+.filtro {
+    margin: 20px 0px;
+}
+
+.filtro select {
+    font-size: 16px;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: #6940ff;
+}
+
+.filtro option {
+    font-weight: 500;
+    color: #6940ff;
+    background: #fff;
+}
+
+.reviewsContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.notFound {
+    font-size: 24px;
+    font-weight: 400;
+    color: #6940ff;
+    margin-top: 120px;
+}
+
