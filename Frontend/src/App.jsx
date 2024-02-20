@@ -8,6 +8,7 @@ import Projects from './pages/projects/Projects'
 import AdminWindow from './pages/adminWindow/AdminWindow'
 import CreateProject from './components/adminUtils/createProject/CreateProject'
 import ProjectDetails from './components/details/DetailProyects'
+import ReviewsAll from './pages/reviewsAll/ReviewsAll'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
@@ -39,6 +40,7 @@ function App() {
         <Route path="admin/:id" element={<AdminDetail />}></Route>
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
+        <Route path="/reviews" element={<ReviewsAll />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
