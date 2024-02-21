@@ -1,5 +1,13 @@
 {
     "rewrites": [
       { "source": "/(.*)", "destination": "/" }
+    ],
+
+    "routes": [
+      {
+        "src": "/(.*)",
+        "methods": ["GET", "POST"],
+        "dest": "/$1"
+      }
     ]
 }
