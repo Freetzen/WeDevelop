@@ -86,27 +86,21 @@ const Pricing = ({ quote }) => {
                 </div>
 
                 <div className={styles.detail}>
-                    <p><span className={styles.check}><FaCheck /></span> <b> 2 </b>  Websites</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Custom domain</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  SSL certificate</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Advanced security features, such as end-to-end encryption.</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b> Priority access to new features and updates.</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b>40</b>  Fields per form</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Personalized email</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Personalized website</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Site Booster app</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Email automations</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Subscriptions / transactional portal</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Analytics app</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  live chat</p>
-                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  Professional logo</p>
-                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  Social media management</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Registration with other platforms.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Custom domain.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b> Templates predefined.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b>10</b>  Fields per form.</p>
+                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  Personalized email</p>
+                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  SSL certificate.</p>
+                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  Priority access to new features and updates.</p>
+                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  Email automations</p>
                     <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  Multi-site dashboard & admins</p>
-                    <p><span className={styles.star}><MdStars /></span> <b></b>  24/7 customer care</p>
+                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  live chat</p>
+                    <p><span className={styles.nocheck}><MdCancel /></span> <b></b>  AI personalized live chat</p>
                 </div>
 
                 <div className={styles.price}>
-                    <p><sup>$</sup>19.99<sub>/month</sub></p>
+                    <p><sup>$</sup>1500<sub>USD</sub></p>
                 </div>
 
                 <button className={styles.cardbutton} onClick={() => handleClick("Business Plan", 19.99)}>Get Started</button>
@@ -121,27 +115,21 @@ const Pricing = ({ quote }) => {
                 </div>
 
                 <div className={styles.detail}>
-                    <p><span className={styles.check}><FaCheck /></span> <b> 3-5 </b>  Websites</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Custom domain</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  SSL certificate</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Advanced security features, such as end-to-end encryption.</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b> Priority access to new features and updates.</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b>80</b>  Fields per form</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Personalized email</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Personalized website</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Site Booster app</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  SSL certificate.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Registration with other platforms.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Custom domain.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Priority access to new features and updates.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Personalized website.</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Personalized email.</p>
                     <p><span className={styles.check}><FaCheck /></span> <b></b>  Email automations</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Subscriptions / transactional portal</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Analytics app</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Professional logo</p>
-                    <p><span className={styles.check}><FaCheck /></span> <b></b>  Social media management</p>
                     <p><span className={styles.check}><FaCheck /></span> <b></b>  Multi-site dashboard & admins</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b></b>  live chat</p>
                     <p><span className={styles.check}><FaCheck /></span> <b></b>  AI personalized live chat</p>
-                    <p><span className={styles.star}><MdStars /></span> <b></b>  Priority customer care</p>
+                    <p><span className={styles.check}><FaCheck /></span> <b>+30</b>  Fields per form</p>
                 </div>
 
                 <div className={styles.price}>
-                    <p><sup>$</sup>29.99<sub>/month</sub></p>
+                    <p><sup>$</sup>2300<sub>USD</sub></p>
                 </div>
 
                 <button className={styles.cardbutton} onClick={() => handleClick("enterprise Plan", 9.99)}>Get Started</button>
