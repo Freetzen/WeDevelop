@@ -7,9 +7,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import ReviewBar from "../reviewBar/ReviewBar";
 import LoginButton from "../loginButton/LoginButton";
+import { useTranslation } from "react-i18next";
 
 
 export default function Review() {
+  const [t, i18n] = useTranslation("global");
   const { isAuthenticated } = useAuth0();
   const [messages, setMessages] = useState([]);
   const [totalReviews, setTotalReviews] = useState([])
@@ -43,7 +45,7 @@ export default function Review() {
           {/* <h2>Leave us a review</h2> */}
           <ReviewForm />
         </div>
-        : <div className={style.H3andButton}><h3>You must be singed up to send review </h3><LoginButton /></div>
+        : <div className={style.H3andButton}><h3>{t("RatingHome.NotLogged")} </h3><LoginButton /></div>
       }
     </div>
   );

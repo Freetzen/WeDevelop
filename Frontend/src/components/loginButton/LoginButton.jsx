@@ -5,8 +5,10 @@ import style from './LoginButton.module.css'
 import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import { UserAccount } from "../../pages/userAccount/UserAccount";
 import Swal from 'sweetalert2'
+import { useTranslation } from "react-i18next";
 
 const LoginButton = () => {
+  const [t, i18n] = useTranslation("global");
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const postUserData = async () => {
     try {
@@ -64,7 +66,7 @@ const LoginButton = () => {
   return (
     <div className={style.containerLogin}>
       {!isAuthenticated ? (
-        <button className={style.buttonLogin} onClick={() => loginWithRedirect()}>LogIn</button>
+        <button className={style.buttonLogin} onClick={() => loginWithRedirect()}>{t("LoginButton.title")}</button>
       ) : (
         <>
         <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu}/>

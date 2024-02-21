@@ -1,0 +1,83 @@
+{
+  "NavBar": {
+    "Home": "Inicio",
+    "Quote": "Cotizar",
+    "Projects": "Proyectos",
+    "ContactUs": "Contactanos"
+  },
+
+  "Header": {
+    "title": "Si puedes imaginarlo, nosotros podemos"
+  },
+
+  "LoginButton": {
+    "title": "Iniciar Sesion"
+  },
+
+  "AboutUs": {
+    "title": "Sobre nosotros",
+    "description": "En WebDevelop, no solo creamos sitios web, también tejemos historias digitales. Desde nuestros modestos comienzos en 2022, nos hemos dedicado con pasión a crear experiencias en línea excepcionales que cautivan, inspiran y conectan."
+  },
+
+  "WhyWedevelop": {
+    "title": "¿Por que WebDevelop?",
+    "section1": {
+      "title": "  Experiencia",
+      "description": "Con experiencia en la creación de sitios web, nos destacamos en diseño, programación y optimización. Nuestro enfoque centrado en el usuario y nuestro conocimiento actualizado garantizan sitios web eficientes y estéticamente agradables."
+    },
+    "section2": {
+      "title": "Creatividad",
+      "description": "Fusionamos ideas innovadoras para dar vida a proyectos únicos. Nuestra habilidad en el arte de la creatividad se refleja en diseños originales y soluciones imaginativas que superan las expectativas, añadiendo un toque distintivo a cada creación."
+    },
+    "section3": {
+      "title": "Atención al detalle",
+      "description": "Cada proyecto es cuidadosamente supervisado para garantizar precisión y calidad. Nuestra dedicación se refleja en resultados impecables, donde cada elemento está finamente afinado para brindar la máxima excelencia."
+    },
+    "section4": {
+      "title": "Profesionalismo",
+      "description": "Elevamos el nivel de profesionalismo en cada tarea que realizamos. Con un enfoque riguroso, integridad y experiencia sólida, brindamos servicios excepcionales. Nuestra dedicación a la excelencia y la ética profesional se traduce en resultados satisfactorios."
+    },
+    "section5": {
+      "title": "Diseños unicos",
+      "description": "Creamos diseños únicos que cautivan y destacan. Nuestra pasión por la originalidad se refleja en cada proyecto, fusionando la innovación estética para ofrecer soluciones visualmente impresionantes con una impresión duradera."
+    },
+    "section6": {
+      "title": "Eficiencia",
+      "description": "Priorizamos la eficiencia en cada fase de nuestro trabajo. Desde la planificación hasta la ejecución, nuestros procesos optimizados garantizan resultados rápidos y precisos, entregando proyectos de alta calidad en un tiempo récord."
+    }
+  },
+
+  "Highlights": {
+    "title": "Destacados",
+    "ProjectsButton": "Ver Todos Los Proyectos"
+  },
+
+  "QuoteHome": {
+    "title": "¡Calcula tu Presupuesto al Instante!",
+    "button": "Cotizar Ahora"
+  },
+
+  "RatingHome": {
+    "rating": "Calificación",
+    "comments": "Comentarios Totales",
+    "NotLogged": "Debes estar registrado para enviar una reseña"
+  },
+
+  "Footer": {
+    "bydeveloper": "Hecho por programadores",
+    "Navigation": {
+      "title": "Rutas",
+      "Home": "Inicio",
+      "Quote": "Cotizar",
+      "Projects": "Proyectos",
+      "ContactUs": "Contactanos"
+    },
+    "ContactUs": "Contactenos",
+    "Newsletter": {
+      "title": "Suscríbete a nuestro boletín",
+      "placeholder": "Ingresa tu correo electrónico",
+      "button": "Suscribirme"
+    },
+    "Copyright": "©WeDevelop Todos Los Derechos Reservados 2024"
+  }
+}
