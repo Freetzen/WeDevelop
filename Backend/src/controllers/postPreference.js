@@ -1,18 +1,55 @@
-const { createPreference } = require("../services/preferenceService")
+// SDK de Mercado Pago
+const { MercadoPagoConfig, Preference } = require("mercadopago");
+const {ACCESS_TOKEN} = process.env;
+// Agrega credenciales
+const client = new MercadoPagoConfig({
+  accessToken:
+  'TEST-8044533475948845-022019-af21cd73911e2e5a0a21744664b0fe4a-142403819'
+});
+const postPreference = async (req, res) => {
+  try {
+    const { title, price, quantity, quote  } = req.body;
 
-const postPreference = async(req, res) => {
- try {
-    const {title, price, quantity, info} = req.body
-    const createdPreference = await createPreference({
-        title,
-        price,
-        quantity,
-        info
-    })
-    res.status(200).json(createdPreference)
- } catch (error) {
-    res.status(500).send(error)
- }
-}
+    const shop = {
+      title,
+      price,
+      quantity,
+      info: quote
+    } 
 
-module.exports = postPreference
+    console.log(shop)
+
+    const body = {
+      items: [
+        {
+          title,
+          unit_price: Number(price),
+          quantity: Number(quantity),
+          currency_id: "ARS",
+        },
+      ],
+      back_urls: {
+        success: "https://wedevelop.vercel.app/",
+        failure: "https://wedevelop.vercel.app/contact",
+        pending: "https://wedevelop.vercel.app/projects",
+      },
+      auto_return: "approved",
+    };
+
+    const preference = new Preference(client);
+
+    try {
+      const result = await preference.create({ body });
+      console.log(result)
+      res.status(200).json({ id: result.id });
+    } catch (error) {
+      console.log(error.message)
+    }
+
+
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+module.exports = postPreference;

@@ -1,47 +1,67 @@
 
+import axios from "axios"
 import styles from './Pricing.module.css';
 import { FaCheck } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { MdStars } from "react-icons/md";
-import { Wallet, initMercadoPago } from '@mercadopago/sdk-react'
-import { useState } from 'react';
-import { createPreference } from '../../utils/provider/pricingProvider/pricingProvider';
-
+import { useEffect, useState } from 'react';
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 
 const Pricing = ({ quote }) => {
-    const stringQuote = JSON.stringify(quote)
-    // const [preferenceId, setPreferenceId] = useState(null)
+
+    initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', {locale: "es-AR"});
+
+    const [preferenceId, setPreferenceId] = useState('')
+
     const [project, setProject] = useState({
         title: "",
         price: 0,
         quantity: 1,
-        info: stringQuote
+        quote
     })
-    const handleClick = (title, price) => {
-        setProject({
-            ...project,
-            title,
-            price
-        })
-        handleBuy(project)
-    }
+    
 
-    const handleBuy = async (project) => {
+    const createPreference = async() => {
         try {
-            const response = await createPreference(project)
-            return response
-        } catch (error) {
-            console.log("ultimo error", error.message)
+            const response = await axios.post('http://localhost:3001/createpreference', project)
+            const {id} = response.data
+            return id
+        }catch (error) {
+            console.log(error.message)
         }
-        // if(id){
-        //     setPreferenceId(id)
-        // }
     }
 
-    initMercadoPago('YOUR_PUBLIC_KEY', {
-        locale: "es-AR"
-    });
+    const handleClick = async(e) => {
+        setPreferenceId('')
+        
+        const newProject = {
+            ...project,
+            'title': e.target.name,
+            'price': e.target.value
+        };
+    
+        await setProject(newProject);
+        
+        
+    } 
+
+    useEffect(() => {
+        handleBuy();     
+    }, [project])
+    
+
+    const handleBuy = async () => {
+        const id = await createPreference()
+        console.log('ID', id)
+        if(id){
+            await setPreferenceId(id)
+        }
+    }
+
+    console.log('PREFERENCE', preferenceId)
+
     return (
+        <>
         <section className={styles.pricing}>
             <div className={styles.container}>
                 {/* CARD 1 */}
@@ -74,7 +94,13 @@ const Pricing = ({ quote }) => {
                     <p><sup>$</sup>9.99<sub>/month</sub></p>
                 </div>
 
-                <button className={styles.cardbutton} onClick={() => handleClick("Basic Plan", 9.99)}>Get Started</button>
+
+                <button className={styles.cardbutton} name="Basic Plan" value='9.99' onClick={handleClick}>Get Started</button>
+                {
+                    preferenceId && project.title === "Basic Plan" && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />
+                }
+                
+
 
             </div>
 
@@ -102,8 +128,12 @@ const Pricing = ({ quote }) => {
                 <div className={styles.price}>
                     <p><sup>$</sup>1500<sub>USD</sub></p>
                 </div>
-
-                <button className={styles.cardbutton} onClick={() => handleClick("Business Plan", 19.99)}>Get Started</button>
+                
+                <button className={styles.cardbutton} name="Business Plan" value='1500' onClick={handleClick}>Get Started</button>
+                {
+                    preferenceId && project.title === "Business Plan" && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />
+                }
+               
 
             </div>
 
@@ -132,13 +162,21 @@ const Pricing = ({ quote }) => {
                     <p><sup>$</sup>2300<sub>USD</sub></p>
                 </div>
 
-                <button className={styles.cardbutton} onClick={() => handleClick("enterprise Plan", 9.99)}>Get Started</button>
+                
+                <button className={styles.cardbutton} name="Enterprise Plan" value='2300' onClick={handleClick}>Get Started</button>
+                {
+                    preferenceId && project.title === "Enterprise Plan" && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />
+                }
+              
 
                 {/* <Wallet initialization={{ preferenceId: "preferenceId" }} customization={{ texts:{ valueProp: 'smart_option'}}} /> */}
 
             </div>
 
+
         </section>
+           
+            </>
     );
 };
 
