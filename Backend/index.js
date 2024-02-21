@@ -1,10 +1,11 @@
 const { default: mongoose } = require("mongoose");
 const server = require("./src/server");
 require("dotenv").config();
-const { URLMONGODB, PORT } = process.env;
+const { URLMONGODB } = process.env;
 
+const PORT = 3001
 server.listen(PORT, () => {
-  console.log(`Server listening on port https://wedevelop-37n5bb0vo-freetzen.vercel.app`);
+  console.log(`Server listening on port http://localhost:3001`);
 })
 
 //Mongo DB
