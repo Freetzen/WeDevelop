@@ -3,6 +3,7 @@ import validator from 'validator'
 import style from "./AdminDetail.module.css";
 import userProvider from "../../../utils/provider/userProvider/userProvider";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
+import Swal from 'sweetalert2'
 
 export default function AdminDetail({ detailState, setDetailState, setItemsToEdit }) {
     const [changes, setChanges] = useState({});
@@ -31,7 +32,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         };
     }, [])
 
-    
+
     const handleChange = (e) => {
         setChanges({
             ...changes,
@@ -42,6 +43,15 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         await userProvider.putUser(changes);
         const usersResponse = await userProvider.getUsers()
         setItemsToEdit(usersResponse)
+        Swal.fire({
+            icon: "success",
+            title: "Your user has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+                popup: 'center',
+            }
+        });
         setDetailState('')
     }
 
@@ -50,6 +60,15 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         const projectsResponse = await projectsProvider.getProjects()
         setItemsToEdit(projectsResponse.docs)
         setDetailState('')
+        Swal.fire({
+            icon: "success",
+            title: "Your project has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+                popup: 'center',
+            }
+        });
     }
 
     const handleImage = async (e) => {
@@ -70,7 +89,6 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         setEdit(!edit)
     }
 
-
     return (
         <div className={style.detailsContainer}>
             {
@@ -81,11 +99,11 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
                                 <label style={{ paddingLeft: '20px' }}>{changes.name}</label>
                                 <label className={style.labelEmail}>{changes.email}</label>
                                 <select
-                                    name="suspended"
+                                    name="banned"
                                     onChange={handleChange}
-                                    value={changes.suspended}>
-                                    <option value={false} key="false">Active</option>
-                                    <option value={true} key="true">No Active</option>
+                                    value={changes.banned}>
+                                    <option value={false} key="false">UnBanned</option>
+                                    <option value={true} key="true">Banned</option>
                                 </select>
                                 <select
                                     name="role"

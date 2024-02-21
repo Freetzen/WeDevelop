@@ -31,3 +31,13 @@
     gap: 15px;
     padding: 70px 0px;
 }
+
+.selectOptions{
+    margin-top: 50px;
+}
+
+.selectContainer{
+    margin-top: 50px;
+    padding-left: 30%;
+    padding-right: 30%;
+}

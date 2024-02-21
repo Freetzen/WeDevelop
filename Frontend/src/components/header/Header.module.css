@@ -1,5 +1,5 @@
 .HeaderContainer {
-    background-image: url('./images/fondo.jpg');
+    background-image: url('../images/fondo.jpg');
     background-attachment: fixed;
     height: 900px;
     display: flex;

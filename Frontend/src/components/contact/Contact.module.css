@@ -10,7 +10,7 @@
 }
 
 .containerContactUs .flyerWebDevelop {
-    background-color: blueviolet;
+    background-color: #2F61E4;
     width: 30%;
     height: 80%;
     display: flex;
@@ -76,6 +76,7 @@
     width: 20%;
     height: 40px;
     border: none;
-    background-color: blueviolet;
+    background-color: #2F61E4;
     color: aliceblue;
+    cursor: pointer;
 }

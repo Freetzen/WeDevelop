@@ -50,6 +50,9 @@
 /* Login */
 
 .login button {
+    height: max-content;
+    height: 50px;
+    width: max-content;
     font-weight: 400;
     font-size: 17px;
     color: aliceblue;
@@ -57,3 +60,4 @@
     border: none;
     cursor: pointer;
 }
+

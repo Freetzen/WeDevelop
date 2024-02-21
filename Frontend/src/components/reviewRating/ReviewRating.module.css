@@ -1,23 +1,33 @@
 .container {
-    width: auto;
-    height: auto;
+    background-color: #FFFFFF;
+    border: 1px solid rgb(221, 221, 221);
+    width: 49%;
+    height: max-content;
     padding: 0px;
     margin: 30px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 .subContainer {
-    width: max-content;
-    height: auto;
-    margin: 0px auto;
-    padding: 30px 40px;
-    text-align: center;
-    background: #fff;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0,.2);
-    border-radius: 6px;
+    height: max-content;
+    width: 100%;
+    height: max-content;
+    padding: 20px 20px;
 }
 
-.subContainer h3 {
-    font-size: 34px;
+.subContainer h2 {
+    font-size: 120px;
+    font-weight: 700;
+    text-align: center;
+    color: rgba(0, 0, 0,.8);
+    margin-bottom: 15px;
+    padding: 0 auto;
+}
+
+.subContainer h4 {
+    font-size: 2rem;
+    font-weight: 500;
     text-align: center;
     color: rgba(0, 0, 0,.8);
 }
@@ -29,6 +39,7 @@
 
 .subContainer p {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     margin-top: 10px;
+    color: rgb(115, 115, 115);
 }

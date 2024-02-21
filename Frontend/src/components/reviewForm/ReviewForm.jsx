@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { GoStarFill } from "react-icons/go";
 import style from "./ReviewForm.module.css";
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider';
 
@@ -9,29 +10,38 @@ const ReviewForm = () => {
     name: user.name,
     email: user.email,
     image: user.picture,
-    rating: 5,
+    rating: 0,
     message: ''
   });
 
-
+  
   const handleChange = (e) => {
     setInfo({
       ...info,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
+
+  const handleRatingChange = (newRating) => {
+    const updatedRating = newRating === info.rating ? newRating - 1 : newRating;
+
+    setInfo({
+      ...info,
+      rating: updatedRating
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await reviewsProvider.postReview(info)
+    await reviewsProvider.postReview(info);
     setInfo({
       name: '',
       email: '',
       image: '',
-      rating: 5,
+      rating: 0,
       message: ''
-    })
-    return window.alert('Review uploaded successfully')
+    });
+    window.alert('Review uploaded successfully');
   };
 
   return (
@@ -40,24 +50,27 @@ const ReviewForm = () => {
         <div className={style.linea}>
           <label>Message: </label>
           <textarea key='message' name='message' value={info.message} rows="5" onChange={handleChange} />
+        </div>
 
+        <div className={style.starts}>
+          {[1, 2, 3, 4, 5].map((value) => (
+            <span
+              key={value}
+              onClick={() => handleRatingChange(value)}
+              style={{
+                cursor: 'pointer',
+                color: value <= info.rating ? 'gold' : 'gray',
+              }}
+            >
+              <GoStarFill />
+            </span>
+          ))}
         </div>
-        <div className={style.linea}>
-          <label>
-            Review:
-          </label>
-          <select key='rating' name='rating' value={info.rating} onChange={handleChange}>
-            {[1, 2, 3, 4, 5].map((value) => (
-              <option key={value} value={value}>
-                {value}star{value !== 1 && 's'}
-              </option>
-            ))}
-          </select>
+        <div className={style.containerButton}>
+          <button type="submit" disabled={info.message === ''}>Send review!</button>
         </div>
-        <button type="submit" disabled={info.message === ''}>Send review!</button>
       </form>
     </div>
-
   );
 };
 

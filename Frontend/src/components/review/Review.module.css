@@ -1,20 +1,55 @@
 .container {
     width: auto;
     height: auto;
-    padding: 40px 50px;
+    padding: 40px 0px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviewRatingAndContainer {
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cardContainer {
     width: 100%;
-    height: auto;
+    height: max-content;
     padding:0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.containerTitle h2 {
-    margin-top: 80px;
-    margin-bottom: 40px;
+.containerTitle {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
 }
+
+.container h3 {
+    font-weight: 200;
+}
+
+.container .buttonLogin {
+    background-color: transparent;
+    color: #6940FF;
+    border: none;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.H3andButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
