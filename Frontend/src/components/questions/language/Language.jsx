@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Language.module.css'
 
-export const Language = ({ quote, setQuote, question, setQuestion }) => {
+export const Language = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar  }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -10,6 +10,7 @@ export const Language = ({ quote, setQuote, question, setQuestion }) => {
       'language': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
   return (
     <div className={style.containerLanguage}>

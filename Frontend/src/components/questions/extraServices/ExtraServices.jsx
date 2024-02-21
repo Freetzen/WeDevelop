@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './ExtraServices.module.css'
 
-export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
+export const ExtraServices = ({ quote, setQuote, question, setQuestion, setProgressBar, progressBar }) => {
   const [platform, setPlatform] = useState('')
   const [positiveAnswer, setPosAnswer] = useState(false)
 
@@ -18,23 +18,21 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
         'extraServices': valueClick
       })
       setQuestion(question + 1)
+      setProgressBar(progressBar + 10)
     }
   }
 
   const handleClickContinue = (e) => {
+  
     e.preventDefault()
     setQuote({
       ...quote,
       'extraServices': platform
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
-  const handleClickGoBack = () => {
-    quote.purpose === 'ecommerce'
-      ? setQuestion(question - 1)
-      : setQuestion(question - 2)
-  }
 
   return (
     <div className={styles.containerExtraServices}>
@@ -48,7 +46,6 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
-        <button className={styles.button} onClick={handleClickGoBack}>Previous question</button>
       </div>
       <br />
       {/* A continuacion aparece el index si la respuesta es positiva */}

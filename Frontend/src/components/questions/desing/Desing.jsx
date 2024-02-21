@@ -3,7 +3,7 @@ import styles from "./Desing.module.css";
 import { ImSad } from "react-icons/im";
 import { FaRegSmileWink } from "react-icons/fa";
 
-export const Desing = ({ quote, setQuote, question, setQuestion }) => {
+export const Desing = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar  }) => {
 
   const [projects, setProjects] = useState([
     {
@@ -64,6 +64,7 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
       'desing': title
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
   // Captura el valor del textArea

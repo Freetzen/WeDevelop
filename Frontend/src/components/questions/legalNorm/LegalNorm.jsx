@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './LegalNorm.module.css'
 
-export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
+export const LegalNorm = ({ quote, setQuote, question, setQuestion, setProgressBar, progressBar }) => {
   const [requirements, setRequirements] = useState('')
   const [positiveAnswer, setPosAnswer] = useState(false)
 
@@ -18,6 +18,7 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
         'legalNorm': valueClick
       })
       setQuestion(question + 1)
+      setProgressBar(progressBar + 10)
     }
   }
 
@@ -28,10 +29,7 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
       'legalNorm': requirements
     })
     setQuestion(question + 1)
-  }
-
-  const handleClickGoBack = () => {
-    setQuestion(question - 1)
+    setProgressBar(progressBar + 10)
   }
 
   return (
@@ -45,7 +43,6 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion }) => {
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
-        <button className={styles.button} onClick={handleClickGoBack}>Previous question</button>
       </div>
       <br />
 

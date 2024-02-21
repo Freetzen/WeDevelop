@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from "./ApiOrDatabase.module.css"
 
-export const ApiOrDatabase = ({ quote, setQuote, question, setQuestion }) => {
+export const ApiOrDatabase = ({ quote, setQuote, question, setQuestion, setProgressBar, progressBar }) => {
 
 const [apiOrDatabase, setApiOrDatabase] = useState("")
 
@@ -11,6 +11,7 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
   }
   
   const handleClick = (event) => {
+    setProgressBar(progressBar + 10)
     const valueClick = event.target.value
     if(apiOrDatabase === ""){
       setQuote({
@@ -25,6 +26,8 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
       })
       setQuestion(question + 1)
     }
+
+    
   }
 
   return (

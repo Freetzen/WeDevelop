@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './AmountOfProducts.module.css'
 
-export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => {
+export const AmountOfProducts = ({ quote, setQuote, question, setQuestion,  setProgressBar, progressBar  }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -10,6 +10,7 @@ export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => 
       'amountOfProducts': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
   return (

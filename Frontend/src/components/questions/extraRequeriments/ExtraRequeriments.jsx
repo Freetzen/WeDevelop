@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from "./ExtraRequeriments.module.css"
 
-export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) => {
+export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
 
   const [requeriment, setRequeriment] = useState('')
 
@@ -10,6 +10,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
   }
 
   const handleClick = (event) => {
+    setProgressBar(progressBar + 10)
     const valueClick = event.target.value
     if(requeriment === ""){
       setQuote({

@@ -5,7 +5,7 @@ import NoSupport from './SupportWebNo.png';
 import { FcCancel } from "react-icons/fc";
 import { FcOk } from "react-icons/fc";
 
-export const Support = ({ quote, setQuote, question, setQuestion }) => {
+export const Support = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
 
   const [showOptions, setShowOptions] = useState(false);
   const [selectedSupport, setSelectedSupport] = useState(null); 
@@ -24,8 +24,8 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
     });
     setShowOptions(false);
     setQuestion(question + 1);
+    setProgressBar(progressBar + 10)
   
-    console.log(valueClick);
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './AmountVisites.module.css'
 
-export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
+export const AmountVisites = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -10,6 +10,7 @@ export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
       'amountOfVisits': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
 
