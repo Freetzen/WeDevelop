@@ -1,4 +1,3 @@
-const axios = require('axios')
 // SDK de Mercado Pago
 const { MercadoPagoConfig, Payment } = require("mercadopago");
 // Agrega credenciales
@@ -17,7 +16,11 @@ try {
 
     console.log('DATA.ID: ', id)
 
-    const payment = await axios.get(`https://api.mercadopago.com/v1/payments/${id}`)
+    const payment = new Payment(client);
+
+payment.get({
+	id: id,
+}).then(console.log).catch(console.log);
     
     console.log('PAYMENT: ', payment)
 
