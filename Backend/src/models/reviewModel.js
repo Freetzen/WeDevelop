@@ -1,7 +1,8 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+
 
 const reviewSchema = new Schema({
-
   name: {
     type: String,
   },
@@ -24,6 +25,8 @@ const reviewSchema = new Schema({
     default: Date.now
   },
 });
+
+reviewSchema.plugin(mongoosePaginate)
 
 const reviewModel = model("reviews", reviewSchema)
 

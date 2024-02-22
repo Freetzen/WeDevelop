@@ -39,7 +39,16 @@
 .notFound {
     font-size: 24px;
     font-weight: 400;
-    color: #6940ff;
+    color: hsl(253, 100%, 63%);
     margin-top: 120px;
+}
+
+.botonPaginado {
+    font-size: 16px;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: #6940ff;
 }
 
