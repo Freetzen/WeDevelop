@@ -1,6 +1,5 @@
 // SDK de Mercado Pago
 const { MercadoPagoConfig, Preference } = require("mercadopago");
-const {ACCESS_TOKEN} = process.env;
 // Agrega credenciales
 const client = new MercadoPagoConfig({
   accessToken:
