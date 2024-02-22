@@ -1,8 +1,10 @@
 import React from 'react'
 import style from './Purpose.module.css'
+import { useTranslation } from 'react-i18next';
 
 
 export const Purpose = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -16,7 +18,7 @@ export const Purpose = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={style.containerPurpose}>
       <div className={style.titleCuestion}>
-        <h3>What will be the purpose of your project?</h3>
+        <h3>{t("QuoteQuestions.Section1")}</h3>
       </div>
       <div className={style.containerButtons}>
         <button

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styles from "./Desing.module.css";
 import { ImSad } from "react-icons/im";
 import { FaRegSmileWink } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 export const Desing = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
 
   const [projects, setProjects] = useState([
     {
@@ -81,7 +83,7 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={styles.containerDesing}>
       <div className={styles.titleCuestion}>
-        <h3>Select a Templates</h3>
+        <h3>{t("QuoteQuestions.Section8.title")}</h3>
       </div>
       <div className={styles.imageContainer}>
         {
@@ -99,16 +101,16 @@ export const Desing = ({ quote, setQuote, question, setQuestion }) => {
           ))
         }
       </div>
-      <h4>Don't like any template? <ImSad /></h4>
+      <h4>{t("QuoteQuestions.Section8.subtitle")} <ImSad /></h4>
       <textarea
         onChange={(e) => setValorTextarea(e.target.value)}
         name={valorTextarea}
         id=""
         cols="30"
         rows="10"
-        placeholder='Write your ideas here'
+        placeholder={t("QuoteQuestions.Section8.input")}
       ></textarea>
-      <button onClick={capturarValor}>Continue</button>
+      <button onClick={capturarValor}>{t("QuoteQuestions.Section8.continue")}</button>
     </div>
   )
 }

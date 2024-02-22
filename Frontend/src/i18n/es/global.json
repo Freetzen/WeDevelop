@@ -1,0 +1,160 @@
+{
+  "NavBar": {
+    "Home": "Inicio",
+    "Quote": "Cotizar",
+    "Projects": "Proyectos",
+    "ContactUs": "Contactanos"
+  },
+
+  "Header": {
+    "title": "Si puedes imaginarlo, nosotros podemos"
+  },
+
+  "LoginButton": {
+    "title": "Iniciar Sesion"
+  },
+
+  "AboutUs": {
+    "title": "Sobre nosotros",
+    "description": "En WebDevelop, no solo creamos sitios web, también tejemos historias digitales. Desde nuestros modestos comienzos en 2022, nos hemos dedicado con pasión a crear experiencias en línea excepcionales que cautivan, inspiran y conectan."
+  },
+
+  "WhyWedevelop": {
+    "title": "¿Por que WebDevelop?",
+    "section1": {
+      "title": "  Experiencia",
+      "description": "Con experiencia en la creación de sitios web, nos destacamos en diseño, programación y optimización. Nuestro enfoque centrado en el usuario y nuestro conocimiento actualizado garantizan sitios web eficientes y estéticamente agradables."
+    },
+    "section2": {
+      "title": "Creatividad",
+      "description": "Fusionamos ideas innovadoras para dar vida a proyectos únicos. Nuestra habilidad en el arte de la creatividad se refleja en diseños originales y soluciones imaginativas que superan las expectativas, añadiendo un toque distintivo a cada creación."
+    },
+    "section3": {
+      "title": "Atención al detalle",
+      "description": "Cada proyecto es cuidadosamente supervisado para garantizar precisión y calidad. Nuestra dedicación se refleja en resultados impecables, donde cada elemento está finamente afinado para brindar la máxima excelencia."
+    },
+    "section4": {
+      "title": "Profesionalismo",
+      "description": "Elevamos el nivel de profesionalismo en cada tarea que realizamos. Con un enfoque riguroso, integridad y experiencia sólida, brindamos servicios excepcionales. Nuestra dedicación a la excelencia y la ética profesional se traduce en resultados satisfactorios."
+    },
+    "section5": {
+      "title": "Diseños unicos",
+      "description": "Creamos diseños únicos que cautivan y destacan. Nuestra pasión por la originalidad se refleja en cada proyecto, fusionando la innovación estética para ofrecer soluciones visualmente impresionantes con una impresión duradera."
+    },
+    "section6": {
+      "title": "Eficiencia",
+      "description": "Priorizamos la eficiencia en cada fase de nuestro trabajo. Desde la planificación hasta la ejecución, nuestros procesos optimizados garantizan resultados rápidos y precisos, entregando proyectos de alta calidad en un tiempo récord."
+    }
+  },
+
+  "Highlights": {
+    "title": "Destacados",
+    "ProjectsButton": "Ver Todos Los Proyectos"
+  },
+
+  "QuoteHome": {
+    "title": "¡Calcula tu Presupuesto al Instante!",
+    "button": "Cotizar Ahora"
+  },
+
+  "RatingHome": {
+    "rating": "Calificación",
+    "comments": "Comentarios Totales",
+    "NotLogged": "Debes estar registrado para enviar una reseña"
+  },
+
+  "Footer": {
+    "bydeveloper": "Hecho por programadores",
+    "Navigation": {
+      "title": "Rutas",
+      "Home": "Inicio",
+      "Quote": "Cotizar",
+      "Projects": "Proyectos",
+      "ContactUs": "Contactanos"
+    },
+    "ContactUs": "Contactenos",
+    "Newsletter": {
+      "title": "Suscríbete a nuestro boletín",
+      "placeholder": "Ingresa tu correo electrónico",
+      "button": "Suscribirme"
+    },
+    "Copyright": "©WeDevelop Todos Los Derechos Reservados 2024"
+  },
+
+
+  "QuoteQuestions": {
+    "Section1": "¿Cuál será el propósito de su proyecto?",
+    "Section2": {
+      "title": "¿Su sitio consumirá alguna API o base de datos externa?",
+      "input": "Especifica tu API o base de datos a usar",
+      "save": "Guardar"
+    },
+    "Section3": {
+      "title": "¿Número estimado de productos para publicar?",
+      "answer1": "Menos de 10",
+      "answer2": "Entre 10 a 20",
+      "answer3": "Mas de 20"
+    },
+    "Section4": {
+      "title": "¿Requieres integración con plataformas o servicios externos, como redes sociales o sistemas de pago online?",
+      "answer1": "Si",
+      "whichOne": {
+        "title": "¿Cuales?",
+        "input": "Especifica las plataformas o servicios que requieres",
+        "save": "Continuar"
+      },
+      "answer3": "Pregunta anterior"
+    },
+    "Section5": {
+      "title": "¿Existe algún requisito legal o normativa específica que deba cumplirse en el desarrollo de su sitio web?",
+      "answer1": "Si",
+      "whichOne": {
+        "title": "¿Cuales?",
+        "input": "Especifica cuales requieres",
+        "save": "Continuar"
+      },
+      "answer3": "Pregunta anterior"
+    },
+    "Section6": {
+      "title": "¿Cuántas visitas estima que tendrá su sitio?",
+      "answer1": "5 de 10 visitas por mes",
+      "answer2": "10 a 20 visitas por mes",
+      "answer3": "Mas de 20 visitas por mes"
+    },
+    "Section7": {
+      "title": "¿Cuántos idiomas necesita que admita su sitio web?",
+      "answer1": "Un lenguaje",
+      "answer2": "Bilingüe",
+      "answer3": "Multilingüe"
+    },
+    "Section8": {
+      "title": "Seleccione una plantilla",
+      "subtitle": "¿No te gusto ninguna plantilla?",
+      "input": "Escribe aqui tus ideas",
+      "continue": "Continuar"
+    },
+    "Section9": {
+      "title": "¿Su sitio web requerirá soporte?",
+      "answer1": {
+        "title": "Requiere soporte",
+        "subtitle": "Opciones de soporte",
+        "op1": "Semanal",
+        "op2": "Mensual",
+        "op3": "Trimestral",
+        "op4": "Otros"
+      },
+      "answer2": "No requiere soporte"
+    },
+    "Section10": {
+      "title": "¿Su sitio tiene algún requisito que no esté cubierto por nuestro enrutamiento de preguntas?",
+      "input": "Especifica tus requisitos aqui",
+      "continue": "Continuar"
+    },
+    "Summary": {
+      "questions": "Preguntas",
+      "answers": "Respuestas",
+      "edit": "Editar",
+      "plans": "Seleccionar Plan"
+    }
+  }
+}

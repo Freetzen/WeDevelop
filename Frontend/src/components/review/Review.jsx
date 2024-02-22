@@ -6,18 +6,20 @@ import ReviewRating from "../reviewRating/ReviewRating";
 import { useAuth0 } from "@auth0/auth0-react";
 import ReviewBar from "../reviewBar/ReviewBar";
 import LoginButton from "../loginButton/LoginButton";
+import { useTranslation } from "react-i18next";
 import ReviewsButton from "../reviewsButton/ReviewsButton";
 
+export default function Review({ totalReviews, messages }) {
+  const [t, i18n] = useTranslation("global");
 
-export default function Review({totalReviews, messages}) {
   const { isAuthenticated } = useAuth0();
 
   return (
     <div className={style.container}>
       <div className={style.reviewRatingAndContainer}>
         <ReviewRating totalReviews={totalReviews} />
-        <ReviewBar/>
-        </div>
+        <ReviewBar />
+      </div>
       {/* <h2>Reviews and comments</h2> */}
       <div className={style.cardContainer}>
         {messages?.map((review, index) => (
@@ -28,13 +30,17 @@ export default function Review({totalReviews, messages}) {
         <ReviewsButton />
       </div>
 
-      {isAuthenticated ?
+      {isAuthenticated ? (
         <div className={style.containerTitle}>
           {/* <h2>Leave us a review</h2> */}
           <ReviewForm />
         </div>
-        : <div className={style.H3andButton}><h3>You must be signed up to send review </h3><LoginButton /></div>
-      }
+      ) : (
+        <div className={style.H3andButton}>
+          <h3>{t("RatingHome.NotLogged")} </h3>
+          <LoginButton />
+        </div>
+      )}
     </div>
   );
 }

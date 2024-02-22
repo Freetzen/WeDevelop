@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styles from './ExtraServices.module.css'
+import { useTranslation } from 'react-i18next';
 
 export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
   const [platform, setPlatform] = useState('')
   const [positiveAnswer, setPosAnswer] = useState(false)
 
@@ -11,7 +13,7 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
-    if (valueClick === 'Yes') setPosAnswer(true)
+    if (valueClick === 'Yes' || valueClick === 'Si') setPosAnswer(true)
     else {
       setQuote({
         ...quote,
@@ -40,26 +42,26 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
     <div className={styles.containerExtraServices}>
 
       <div className={styles.titleCuestion}>
-        <h3>Do you require integration with external platforms or services, such as social networks or online payment systems?</h3>
+        <h3>{t("QuoteQuestions.Section4.title")}</h3>
       </div>
       
       <div className={styles.containerButtons}>
-        <button className={styles.button} value="Yes" onClick={handleClick}>Yes</button>
+        <button className={styles.button} value={t("QuoteQuestions.Section4.answer1")} onClick={handleClick}>{t("QuoteQuestions.Section4.answer1")}</button>
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
-        <button className={styles.button} onClick={handleClickGoBack}>Previous question</button>
+        <button className={styles.button} onClick={handleClickGoBack}>{t("QuoteQuestions.Section4.answer3")}</button>
       </div>
       <br />
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
         <div className={styles.TrueExtraServiceContainer}>
-          <label>Which ones?</label>
+          <label>{t("QuoteQuestions.Section4.whichOne.title")}</label>
           <br />
           <input
             name='platform'
             type="text"
-            placeholder='ingrese aqui las plataformas'
+            placeholder={t("QuoteQuestions.Section4.whichOne.input")}
             value={platform}
             onChange={handleChange}
           />
@@ -67,7 +69,7 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
           <button
             onClick={handleClickContinue}
           >
-            Continue
+            {t("QuoteQuestions.Section4.whichOne.save")}
           </button>
         </div>
       ) : (<></>)}

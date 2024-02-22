@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import style from "./ExtraRequeriments.module.css"
+import { useTranslation } from 'react-i18next';
 
 export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
 
   const [requeriment, setRequeriment] = useState('')
 
@@ -29,7 +31,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
   return (
     <div className={style.containerExtraRequeriments}>
       <div className={style.titleCuestion}>
-        <h3>Does your site have any requirements not covered by our question routing?</h3>
+        <h3>{t("QuoteQuestions.Section10.title")}</h3>
       </div>
       <div className={style.ExtraRequerimentsContainer}>
         <div className={style.ExtraRequerimentsOpcionOne}>
@@ -41,7 +43,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
         </div>
         <div className={style.ExtraRequerimentsTwo}>
           <textarea
-          placeholder='Specify the requirements here'
+          placeholder={t("QuoteQuestions.Section10.input")}
             value={requeriment}
             type='text'
             onChange={handleChange}
@@ -50,7 +52,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
           <button
             className={style.ExtraRequerimentsUpload}
             onClick={handleClick}
-          >Continue</button>
+          >{t("QuoteQuestions.Section10.continue")}</button>
         </div>
       </div>
     </div>
