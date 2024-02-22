@@ -1,11 +1,19 @@
 import axios from "axios"
 
 const reviewsProvider = {
-
-    async getReview() {
+    async getReview(page) {
         try {
-            const getReview = await axios.get(`/reviews`)
-            return getReview.data
+            if (!page) page = 1;
+            const getReviews = await axios.get(`/reviews?page=${page}`);
+            return getReviews.data;
+        } catch (error) {
+            return error.message;
+        }
+    },
+    async getReviewsByRating({rating, page}) {
+        try {
+            const getReviews = await axios.get(`/reviews/rating?rating=${rating}&page=${page}`)
+            return getReviews.data
         } catch (error) {
             return error.message
         }
