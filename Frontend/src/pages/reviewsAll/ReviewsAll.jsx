@@ -8,22 +8,31 @@ export default function ReviewsAll() {
 
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState("All");
+  const [totalInfo, setTotalInfo] = useState([])
+
 
   
   const dataInit = async (page = 1) => {
     try {
-      const response = await reviewsProvider.getReview(page);
-      setReviews(response);
+      const response = await reviewsProvider.getReviewsAll(page);
+      console.log(response);
+      setReviews(response.docs);
+      setTotalInfo(response);
     } catch(error) {
       console.error('Error al obtener reviews:', error);
     }
   }
   
   const bringData = async (page = 1) => {
-    try {
-      let ratingNumber = parseInt(rating); 
-      const response = await reviewsProvider.getReviewsByRating({rating: ratingNumber, page: page}); 
-      setReviews(response);
+    try { 
+      const ratingNumber = Number(rating);
+      let obj = {
+        rating: ratingNumber,
+        page
+      };
+      const response = await reviewsProvider.getReviewsByRating(obj); 
+      setReviews(response.docs);
+      setTotalInfo(response);
     } catch(error) {
       console.error('Error al obtener reviews por rating:', error);
     }
@@ -40,7 +49,7 @@ export default function ReviewsAll() {
       setRating(ratingSelected);
   }
 
-  return (
+  return(
     <div className={style.container}>
 
       <div className={style.titulo}>
@@ -65,10 +74,11 @@ export default function ReviewsAll() {
         <p className={style.notFound}>No reviews found with that rating</p> 
         }
       </div>
-
-      <div>
-        <PaginateReviews />
-      </div>
+      
+       <PaginateReviews totalInfo={totalInfo} bringData={bringData} dataInit={dataInit} rating={rating}/> 
+       
+    
+      
   </div>
   )
 }
