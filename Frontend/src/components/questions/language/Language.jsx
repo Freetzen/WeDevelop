@@ -1,7 +1,9 @@
 import React from 'react'
 import style from './Language.module.css'
+import { useTranslation } from 'react-i18next'
 
 export const Language = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -14,26 +16,26 @@ export const Language = ({ quote, setQuote, question, setQuestion }) => {
   return (
     <div className={style.containerLanguage}>
       <div className={style.titleCuestion}>
-        <h3>How many languages do you need your website to support?</h3>
+        <h3>{t("QuoteQuestions.Section7.title")}</h3>
       </div>
       <div className={style.containerButtons}>
         <button
           className={style.button}
-          value="One language"
+          value={t("QuoteQuestions.Section7.answer1")}
           onClick={handleClick}
-        >One language</button>
+        >{t("QuoteQuestions.Section7.answer1")}</button>
 
         <button
           className={style.button}
-          value="Bilingual"
+          value={t("QuoteQuestions.Section7.answer2")}
           onClick={handleClick}
-        >Bilingual</button>
+        >{t("QuoteQuestions.Section7.answer2")}</button>
 
         <button
           className={style.button}
-          value="Multilingual"
+          value={t("QuoteQuestions.Section7.answer3")}
           onClick={handleClick}
-        >Multilingual</button>
+        >{t("QuoteQuestions.Section7.answer3")}</button>
       </div>
     </div>
   )

@@ -79,5 +79,82 @@
       "button": "Suscribirme"
     },
     "Copyright": "©WeDevelop Todos Los Derechos Reservados 2024"
+  },
+
+
+  "QuoteQuestions": {
+    "Section1": "¿Cuál será el propósito de su proyecto?",
+    "Section2": {
+      "title": "¿Su sitio consumirá alguna API o base de datos externa?",
+      "input": "Especifica tu API o base de datos a usar",
+      "save": "Guardar"
+    },
+    "Section3": {
+      "title": "¿Número estimado de productos para publicar?",
+      "answer1": "Menos de 10",
+      "answer2": "Entre 10 a 20",
+      "answer3": "Mas de 20"
+    },
+    "Section4": {
+      "title": "¿Requieres integración con plataformas o servicios externos, como redes sociales o sistemas de pago online?",
+      "answer1": "Si",
+      "whichOne": {
+        "title": "¿Cuales?",
+        "input": "Especifica las plataformas o servicios que requieres",
+        "save": "Continuar"
+      },
+      "answer3": "Pregunta anterior"
+    },
+    "Section5": {
+      "title": "¿Existe algún requisito legal o normativa específica que deba cumplirse en el desarrollo de su sitio web?",
+      "answer1": "Si",
+      "whichOne": {
+        "title": "¿Cuales?",
+        "input": "Especifica cuales requieres",
+        "save": "Continuar"
+      },
+      "answer3": "Pregunta anterior"
+    },
+    "Section6": {
+      "title": "¿Cuántas visitas estima que tendrá su sitio?",
+      "answer1": "5 de 10 visitas por mes",
+      "answer2": "10 a 20 visitas por mes",
+      "answer3": "Mas de 20 visitas por mes"
+    },
+    "Section7": {
+      "title": "¿Cuántos idiomas necesita que admita su sitio web?",
+      "answer1": "Un lenguaje",
+      "answer2": "Bilingüe",
+      "answer3": "Multilingüe"
+    },
+    "Section8": {
+      "title": "Seleccione una plantilla",
+      "subtitle": "¿No te gusto ninguna plantilla?",
+      "input": "Escribe aqui tus ideas",
+      "continue": "Continuar"
+    },
+    "Section9": {
+      "title": "¿Su sitio web requerirá soporte?",
+      "answer1": {
+        "title": "Requiere soporte",
+        "subtitle": "Opciones de soporte",
+        "op1": "Semanal",
+        "op2": "Mensual",
+        "op3": "Trimestral",
+        "op4": "Otros"
+      },
+      "answer2": "No requiere soporte"
+    },
+    "Section10": {
+      "title": "¿Su sitio tiene algún requisito que no esté cubierto por nuestro enrutamiento de preguntas?",
+      "input": "Especifica tus requisitos aqui",
+      "continue": "Continuar"
+    },
+    "Summary": {
+      "questions": "Preguntas",
+      "answers": "Respuestas",
+      "edit": "Editar",
+      "plans": "Seleccionar Plan"
+    }
   }
 }

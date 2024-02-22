@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import style from "./ApiOrDatabase.module.css"
+import { useTranslation } from "react-i18next";
 
 export const ApiOrDatabase = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
 
 const [apiOrDatabase, setApiOrDatabase] = useState("")
 
@@ -30,7 +32,7 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
   return (
     <div className={style.containerApiOrDatabase}>
       <div className={style.titleCuestion}>
-        <h3>Will your site consume any API or external database?</h3>
+        <h3>{t("QuoteQuestions.Section2.title")}</h3>
       </div>
       <div className={style.apiOrDatabaseContainer}>
         <div className={style.ApiOrDatabaseOpcionOne}>
@@ -44,14 +46,14 @@ const [apiOrDatabase, setApiOrDatabase] = useState("")
           <input
             value={apiOrDatabase}
             type='text'
-            placeholder='Specify your api or database to use'
+            placeholder={t("QuoteQuestions.Section2.input")}
             onChange={handleChange}
             className={style.ApiOrDatabaseInput}
           ></input>
           <button
             className={style.ApiOrDatabaseUpload}
             onClick={handleClick}
-          >Save</button>
+          >{t("QuoteQuestions.Section2.save")}</button>
         </div>
       </div>
     </div>

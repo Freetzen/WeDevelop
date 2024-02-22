@@ -79,5 +79,82 @@
       "button": "Subscribe"
     },
     "Copyright": "©WeDevelop All Rights Reserved 2024"
+  },
+
+
+  "QuoteQuestions": {
+    "Section1": "What will be the purpose of your project?",
+    "Section2": {
+      "title": "Will your site consume any API or external database?",
+      "input": "Specify your api or database to use",
+      "save": "Save"
+    },
+    "Section3": {
+      "title": "Estimated number of products to publish?",
+      "answer1": "under 10",
+      "answer2": "10 to 20",
+      "answer3": "Over 20"
+    },
+    "Section4": {
+      "title": "Do you require integration with external platforms or services, such as social networks or online payment systems?",
+      "answer1": "Yes",
+      "whichOne": {
+        "title": "Which one?",
+        "input": "Specify the platforms or services you require",
+        "save": "Continue"
+      },
+      "answer3": "Previous question"
+    },
+    "Section5": {
+      "title": "Are there any specific legal requirements or regulations that must be met when developing your website?",
+      "answer1": "Yes",
+      "whichOne": {
+        "title": "Which one?",
+        "input": "Specify which ones you require",
+        "save": "Continue"
+      },
+      "answer3": "Previous question"
+    },
+    "Section6": {
+      "title": "How many visits do you estimate your site will have?",
+      "answer1": "5 to 10 visits per month",
+      "answer2": "10 to 20 visits per month",
+      "answer3": "20 or more visits per month"
+    },
+    "Section7": {
+      "title": "How many languages do you need your website to support?",
+      "answer1": "Single language",
+      "answer2": "Bilingual",
+      "answer3": "Multilingual"
+    },
+    "Section8": {
+      "title": "Select a Templates",
+      "subtitle": "Don't like any template?",
+      "input": "Write your ideas here",
+      "continue": "Continue"
+    },
+    "Section9": {
+      "title": "Will your website require support?",
+      "answer1": {
+        "title": "Requires Support",
+        "subtitle": "Support options",
+        "op1": "Weekly",
+        "op2": "Monthly",
+        "op3": "Quarterly",
+        "op4": "Others"
+      },
+      "answer2": "No Support Required"
+    },
+    "Section10": {
+      "title": "Does your site have any requirements not covered by our question routing?",
+      "input": "Specify the requirements here",
+      "continue": "Continue"
+    },
+    "Summary": {
+      "questions": "Questions",
+      "answers": "Answers",
+      "edit": "Edit",
+      "plans": "Select Plans"
+    }
   }
 }
