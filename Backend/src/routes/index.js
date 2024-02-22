@@ -14,8 +14,11 @@ const putUser = require('../controllers/putUser');
 const getAllProjects = require('../controllers/getAllProjects');
 const postPreference = require('../controllers/postPreference');
 const getReviewByRating = require('../controllers/getReviewByRating');
+const postMercadoPago = require('../controllers/postMercadoPago');
+
 const router = express.Router();
 
+router.post("/createpreference",postPreference)
 router.get('/projects/category', getProjectByCategory)
 router.get('/projects/name', getProjectByName)
 router.get('/projects/:id', getProjectById)
@@ -31,6 +34,8 @@ router.get('/reviews/rating',getReviewByRating)
 router.get('/reviews', getReviews)
 router.put('/users', putUser)
 router.post("/preference",postPreference)
+router.post('/success', postMercadoPago);
+
 
 
 module.exports = router

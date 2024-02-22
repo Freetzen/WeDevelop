@@ -1,5 +1,4 @@
 const userModel = require('../models/userModel')
-const axios = require('axios')
 
 const findUsers = async () => {
     try {

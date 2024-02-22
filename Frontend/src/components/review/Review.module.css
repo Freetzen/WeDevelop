@@ -10,14 +10,16 @@
 
 .reviewRatingAndContainer {
     width: 92%;
+    height: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
 .cardContainer {
     width: 100%;
-    height: max-content;
+    height: auto;
     padding:0px;
     display: flex;
     flex-wrap: wrap;

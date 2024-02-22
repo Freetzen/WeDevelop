@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate } from "react-router-dom";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import style from './LoginButton.module.css'
 import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
@@ -9,7 +8,7 @@ import Swal from 'sweetalert2'
 
 const LoginButton = () => {
 
-  const navigate = useNavigate
+
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const postUserData = async () => {
     try {
@@ -20,6 +19,10 @@ const LoginButton = () => {
       }
       const textodeejemplo = await userProvider.getUserByEmail(user.email)
 
+      if(!textodeejemplo) { 
+       const newUser1 = await userProvider.createUser(newUser)
+       return newUser1
+      }
       if(textodeejemplo.banned){
         
         Swal.fire({
@@ -35,8 +38,7 @@ const LoginButton = () => {
      return 
         
       }
-      if(!textodeejemplo) { 
-        await userProvider.createUser(newUser)}
+
     } catch (error) {
       console.error('Error al enviar los datos del usuario al servidor:', error);
     }

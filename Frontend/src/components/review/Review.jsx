@@ -4,27 +4,13 @@ import ReviewCard from "../reviewCard/ReviewCard";
 import style from "./Review.module.css";
 import ReviewRating from "../reviewRating/ReviewRating";
 import { useAuth0 } from "@auth0/auth0-react";
-import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import ReviewBar from "../reviewBar/ReviewBar";
 import LoginButton from "../loginButton/LoginButton";
 import ReviewsButton from "../reviewsButton/ReviewsButton";
 
 
-export default function Review() {
+export default function Review({totalReviews, messages}) {
   const { isAuthenticated } = useAuth0();
-  const [messages, setMessages] = useState([]);
-  const [totalReviews, setTotalReviews] = useState([])
-
-  const bringData = async () => {
-    const response = await reviewsProvider.getReview()
-    setTotalReviews(response)
-    const sortingResponse = response.slice(-4);
-    setMessages(sortingResponse);
-  }
-
-  useEffect(() => {
-    bringData()
-  }, []);
 
   return (
     <div className={style.container}>
