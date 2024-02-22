@@ -10,14 +10,12 @@ const postPreference = async (req, res) => {
   try {
     const { title, price, quantity, quote  } = req.body;
 
-    const shop = {
+  /*   const shop = {
       title,
       price,
       quantity,
       info: quote
-    } 
-
-    console.log(shop)
+    }  */
 
     const body = {
       items: [
@@ -25,7 +23,8 @@ const postPreference = async (req, res) => {
           title,
           unit_price: Number(price),
           quantity: Number(quantity),
-          currency_id: "ARS",
+          email: 'federuizgei@gmail.com',
+          currency_id: "ARS"
         },
       ],
       back_urls: {
@@ -34,13 +33,15 @@ const postPreference = async (req, res) => {
         pending: "https://wedevelop.vercel.app/projects",
       },
       auto_return: "approved",
+      additional_info: {
+         email: 'federuizgei@gmail.com'
+       }
     };
 
     const preference = new Preference(client);
 
     try {
       const result = await preference.create({ body });
-      console.log(result)
       res.status(200).json({ id: result.id });
     } catch (error) {
       console.log(error.message)
