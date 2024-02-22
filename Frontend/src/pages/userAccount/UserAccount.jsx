@@ -33,6 +33,7 @@ export const UserAccount = ({ menuIsActive }) => {
         <p> {res}</p>
       </div>
       <div className={style.buttonsContainer}>
+        <button onClick={() => logout()}>Sign Out</button>
         <div>
         {
   userBD && userBD.role === 'admin' ? (
@@ -42,7 +43,6 @@ export const UserAccount = ({ menuIsActive }) => {
   ) : null
 }
         </div>
-        <button onClick={() => logout()}>Sign Out</button>
       </div>
     </div>
   )

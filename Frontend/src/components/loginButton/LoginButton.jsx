@@ -8,7 +8,9 @@ import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
 
 const LoginButton = () => {
+
   const [t, i18n] = useTranslation("global");
+
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const postUserData = async () => {
     try {
@@ -19,6 +21,10 @@ const LoginButton = () => {
       }
       const textodeejemplo = await userProvider.getUserByEmail(user.email)
 
+      if(!textodeejemplo) { 
+       const newUser1 = await userProvider.createUser(newUser)
+       return newUser1
+      }
       if(textodeejemplo.banned){
         
         Swal.fire({
@@ -34,18 +40,18 @@ const LoginButton = () => {
      return 
         
       }
-      if(!textodeejemplo) { 
-        await userProvider.createUser(newUser)}
+
     } catch (error) {
       console.error('Error al enviar los datos del usuario al servidor:', error);
     }
   };
 
-  isAuthenticated && user && postUserData(); //si el usuario esta autenticado y se recibieron los datos los envio al servidor del back
+  isAuthenticated && user && postUserData();
 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+
     if (isAuthenticated && user) {
       setLoading(true);
       const timer = setTimeout(() => {

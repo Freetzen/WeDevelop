@@ -83,21 +83,19 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
                 <div className={style.buttons1}>
                     <label htmlFor="">Show</label>
                     <button onClick={getUs}>Users</button>
-                    <button onClick={getProjets}>Proyects</button>
+                    <button onClick={getProjets}>Projects</button>
                 </div>
 
-                <div className={style.buttons1}>
+                <div className={style.buttons2}>
                     <label htmlFor="">Create</label>
                     <button><NavLink to={'/createProject'}>Create Project</NavLink></button>
-                    <button><NavLink to={'/createUser'}>Create User</NavLink></button>
                 </div>
 
-                <div className={style.buttons1}>
+                <div className={style.buttons2}>
                     <label htmlFor="">Back</label>
                     <button><NavLink to={'/'}>Home</NavLink></button>
                 </div>
             </div>
-
         </div>
     )
 }
