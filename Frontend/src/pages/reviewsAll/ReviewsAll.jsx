@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
 import PaginateReviews from "../../components/paginateReviews/PaginateReviews";
+import { useTranslation } from "react-i18next";
 
 export default function ReviewsAll() {
+  const [t, i18n] = useTranslation("global");
 
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState("All");
@@ -15,7 +17,7 @@ export default function ReviewsAll() {
       const response = await reviewsProvider.getReview(page);
       setReviews(response);
     } catch(error) {
-      console.error('Error al obtener reviews:', error);
+      console.error(t("RatingHome.ReviewsAll.error1"), error);
     }
   }
   
@@ -25,7 +27,7 @@ export default function ReviewsAll() {
       const response = await reviewsProvider.getReviewsByRating({rating: ratingNumber, page: page}); 
       setReviews(response);
     } catch(error) {
-      console.error('Error al obtener reviews por rating:', error);
+      console.error(t("RatingHome.ReviewsAll.error2"), error);
     }
   }
   
@@ -44,17 +46,17 @@ export default function ReviewsAll() {
     <div className={style.container}>
 
       <div className={style.titulo}>
-        <h3>Reviews and comments</h3>
+        <h3>{t("RatingHome.ReviewsAll.title")}</h3>
       </div>
 
       <div className={style.filtro}>
         <select onChange={handleChange}>
-          <option value="All">All reviews</option>
-          <option value="5">5 stars</option>
-          <option value="4">4 stars</option>
-          <option value="3">3 stars</option>
-          <option value="2">2 stars</option>
-          <option value="1">1 star</option>
+          <option value="All">{t("RatingHome.ReviewsAll.all")}</option>
+          <option value="5">{t("RatingHome.ReviewsAll.5stars")}</option>
+          <option value="4">{t("RatingHome.ReviewsAll.4stars")}</option>
+          <option value="3">{t("RatingHome.ReviewsAll.3stars")}</option>
+          <option value="2">{t("RatingHome.ReviewsAll.2stars")}</option>
+          <option value="1">{t("RatingHome.ReviewsAll.1star")}</option>
         </select>
       </div>
 
@@ -62,7 +64,7 @@ export default function ReviewsAll() {
         { 
         reviews.length ?
         reviews.map((review, index) => <ReviewCard key={index} review={review} />) : 
-        <p className={style.notFound}>No reviews found with that rating</p> 
+        <p className={style.notFound}>{t("RatingHome.ReviewsAll.noReviewsStar")}</p> 
         }
       </div>
 

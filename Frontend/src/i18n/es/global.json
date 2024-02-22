@@ -14,6 +14,13 @@
     "title": "Iniciar Sesion"
   },
 
+  "UserAccount": {
+    "Membership": "Membresia",
+    "creationDate": "Fecha de creacion de la cuenta",
+    "SignOut": "Desconectarse",
+    "adminPanel": "Panel de administrador"
+  },
+
   "AboutUs": {
     "title": "Sobre nosotros",
     "description": "En WebDevelop, no solo creamos sitios web, también tejemos historias digitales. Desde nuestros modestos comienzos en 2022, nos hemos dedicado con pasión a crear experiencias en línea excepcionales que cautivan, inspiran y conectan."
@@ -59,12 +66,29 @@
 
   "RatingHome": {
     "rating": "Calificación",
-    "comments": "Comentarios Totales",
-    "NotLogged": "Debes estar registrado para enviar una reseña"
+    "comments": "reseñas Totales",
+    "NotLogged": "Debes estar registrado para enviar una reseña",
+    "RatingForm": {
+      "message": "Deja tu reseña :",
+      "button": "Enviar Reseña!"
+    },
+    "viewAll": "Ver todas las reseñas",
+    "ReviewsAll": {
+      "error1": "Error al obtener reviews por rating:",
+      "error2": "Error al obtener reviews por rating:",
+      "title": "Comentarios y reseñas",
+      "all": "All reviews",
+      "5stars": "5 estrellas",
+      "4stars": "4 estrellas",
+      "3stars": "3 estrellas",
+      "2stars": "2 estrellas",
+      "1star": "1 estrellas",
+      "noReviewsStar": "No se encontraron reseñas con esa calificación."
+    }
   },
 
   "Footer": {
-    "bydeveloper": "Hecho por programadores",
+    "bydeveloper": "By developers",
     "Navigation": {
       "title": "Rutas",
       "Home": "Inicio",
@@ -80,7 +104,6 @@
     },
     "Copyright": "©WeDevelop Todos Los Derechos Reservados 2024"
   },
-
 
   "QuoteQuestions": {
     "Section1": "¿Cuál será el propósito de su proyecto?",
@@ -156,5 +179,102 @@
       "edit": "Editar",
       "plans": "Seleccionar Plan"
     }
+  },
+
+  "plans": {
+    "BasicPlan": {
+      "title": "Plan Básico",
+      "sec1": "Registro en otras plataformas.",
+      "sec2": "Dominio personalizado.",
+      "sec3": "Plantillas predefinidas.",
+      "sec4": "Campos por formulario.",
+      "sec5": "Correo electrónico personalizado.",
+      "sec6": "Certificado SSL.",
+      "sec7": "Acceso prioritario a nuevas características y actualizaciones.",
+      "sec8": "Automatizaciones de correo electrónico.",
+      "sec9": "Panel y administradores multi-sitio.",
+      "sec10": "Chat en vivo.",
+      "sec11": "Chat en vivo personalizado con IA.",
+      "button": "Comenzar"
+    },
+    "BusinessPlan": {
+      "title": "Plan de Negocios",
+      "sec1": "Certificado SSL.",
+      "sec2": "Registro en otras plataformas.",
+      "sec3": "Dominio personalizado.",
+      "sec4": "Acceso prioritario a nuevas características y actualizaciones.",
+      "sec5": "Automatizaciones de correo electrónico.",
+      "sec6": "Chat en vivo.",
+      "sec7": "Campos por formulario.",
+      "sec8": "Sitio web personalizado.",
+      "sec9": "Panel y administradores multi-sitio.",
+      "sec10": "Correo electrónico personalizado.",
+      "sec11": "Chat en vivo personalizado con IA.",
+      "button": "Comenzar"
+    },
+    "EnterprisePlan": {
+      "title": "Plan Empresarial",
+      "sec1": "Certificado SSL.",
+      "sec2": "Registro en otras plataformas.",
+      "sec3": "Dominio personalizado.",
+      "sec4": "Acceso prioritario a nuevas características y actualizaciones.",
+      "sec5": "Sitio web personalizado.",
+      "sec6": "Correo electrónico personalizado.",
+      "sec7": "Automatizaciones de correo electrónico.",
+      "sec8": "Panel y administradores multi-sitio.",
+      "sec9": "Chat en vivo.",
+      "sec10": "Chat en vivo personalizado con IA.",
+      "sec11": "Campos por formulario.",
+      "button": "Comenzar"
+    }
+  },
+
+  "ContactUsPage": {
+    "alert": {
+      "title": "¡Su mensaje ha sido enviado!",
+      "description": "Nos pondremos en contacto contigo a la brevedad"
+    },
+    "bydevelopers": "By developers",
+    "title": "Contactenos",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "description": "Escribe tu mensaje aqui...",
+    "submit": "Enviar"
+  },
+
+  "Projects": {
+    "notFound": "Proyecto no encontrado",
+    "cards": "Categoria:",
+    "paginate": {
+      "prev": "Anterior",
+      "next": "Siguiente"
+    },
+    "projectsDetails": {
+      "title": "Categoria:",
+      "back": "Regresar a proyectos",
+      "quote": "Cotizar"
+    },
+    "projectsSelect": {
+      "categories": {
+        "E-commerce": "Comercio Electrónico",
+        "Tourism": "Turismo",
+        "Health": "Salud",
+        "Landing Page": "Página de Destino",
+        "Social Network": "Red Social",
+        "Portfolio": "Portafolio",
+        "Entertainment": "Entretenimiento"
+      }
+    }
+  },
+
+  "NotFoundPage": {
+    "part1": "404 - Pagina no encontrada",
+    "part2": "Puede que estés aquí porque:",
+    "part3": "• La pagina ha sido movida o eliminada",
+    "part4": "• La pagina ya no existe",
+    "part5": "Estabas buscando a tus gatitos y te perdiste",
+    "part6": "• Te gustan las paginas 404",
+    "part7": "¡No llores! simplemente haga clic en el botón de abajo para solucionarlo",
+    "button": "Zona segura"
   }
 }

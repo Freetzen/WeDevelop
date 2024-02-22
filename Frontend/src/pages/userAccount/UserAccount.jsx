@@ -3,9 +3,11 @@ import style from "./UserAccount.module.css"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import userProvider from "../../utils/provider/userProvider/userProvider";
+import { useTranslation } from "react-i18next";
 
 
 export const UserAccount = ({ menuIsActive }) => {
+  const [t, i18n] = useTranslation("global");
   const { user, logout } = useAuth0()
   const [userBD, setUserBD] = useState({})
   let fecha = user.updated_at.split("")
@@ -27,18 +29,18 @@ export const UserAccount = ({ menuIsActive }) => {
         <p>{user?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
-        <label >Membership</label>
+        <label >{t("UserAccount.Membership")}</label>
         <p>Premium</p>
-        <label >Fecha de creacion de la cuenta</label>
+        <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
       </div>
       <div className={style.buttonsContainer}>
-        <button onClick={() => logout()}>Sign Out</button>
+        <button onClick={() => logout()}>{t("UserAccount.SignOut")}</button>
         <div>
         {
   userBD && userBD.role === 'admin' ? (
     <Link to={'/admin'}>
-      <button>Admin panel</button>
+      <button>{t("UserAccount.adminPanel")}</button>
     </Link>
   ) : null
 }
