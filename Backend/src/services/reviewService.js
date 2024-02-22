@@ -1,6 +1,14 @@
 const reviewModel = require('../models/reviewModel');
 
-const findReviews = async (page, limit) => {
+const findReviews = async () => {
+    try {
+        return await reviewModel.find();
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+const findReviewsAll = async (page, limit) => {
     try {
         return await reviewModel.paginate({}, { page, limit });
     } catch (error) {
@@ -10,7 +18,7 @@ const findReviews = async (page, limit) => {
 
 const findReviewByRating = async (rating, page, limit) => {
     try {
-        return await reviewModel.paginate({ "rating": {rating} }, { page, limit });
+        return await reviewModel.paginate({ rating: rating }, { page, limit });
     } catch (error) {
         throw new Error(error);
     }
@@ -26,4 +34,4 @@ const createReview = async (form) => {
 }
 
 
-module.exports = { findReviews, createReview, findReviewByRating };
+module.exports = { findReviews, findReviewsAll, createReview, findReviewByRating };

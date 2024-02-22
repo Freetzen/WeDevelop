@@ -15,6 +15,7 @@ const getAllProjects = require('../controllers/getAllProjects');
 const postPreference = require('../controllers/postPreference');
 const getReviewByRating = require('../controllers/getReviewByRating');
 const postMercadoPago = require('../controllers/postMercadoPago');
+const getReviewsAll = require('../controllers/getreviewsAll');
 
 const router = express.Router();
 
@@ -31,12 +32,11 @@ router.post('/login', postUsers)
 router.post('/projects', postProject)
 router.post('/reviews', postReviews)
 router.get('/reviews/rating',getReviewByRating)
+router.get('/reviewsAll', getReviewsAll)
 router.get('/reviews', getReviews)
 router.put('/users', putUser)
 router.post("/preference",postPreference)
 router.post('/success', postMercadoPago);
-
-
 
 
 module.exports = router
