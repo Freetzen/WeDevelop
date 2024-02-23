@@ -71,11 +71,15 @@ export const Section = ({ quote, setQuote }) => {
       <div className={style.container}>
         <div className={style.ContainerQuestions}>
           <div className={style.Question}>
-          {
+          {/* {
             array.map((pregunta, index) => (
-                  <span key={index}>{pregunta}</span>
+                  <div key={index}>
+                    <span>{index}</span>
+                    <p>{pregunta}</p>
+                  </div>
+
             ))
-          }
+          } */}
           </div>
         </div>
         <div className={style.containerQuoteAndBar}>

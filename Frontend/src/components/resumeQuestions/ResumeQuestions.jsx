@@ -3,7 +3,7 @@ import style from './ResumeQuestions.module.css';
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineEdit } from "react-icons/md";
 
-export const ResumeQuestions = ({ quote, setQuestion, question }) => {
+export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, setProgressBar }) => {
 
     const array = Object.keys(quote)
 
@@ -13,6 +13,7 @@ export const ResumeQuestions = ({ quote, setQuestion, question }) => {
             if (element === event.target.value) {
                 let indexPage = array.indexOf(element) + 1;
                 setQuestion(indexPage)
+                setProgressBar(progressBar - 10)
             }
         })
     }

@@ -38,32 +38,31 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion, setProgressB
         <h3>Are there any specific legal requirements or regulations that must be met in the development of your website?</h3>
       </div>
 
-      <div className={styles.containerButtons}>
+      <div className={styles.containerButtons} style={positiveAnswer ? {display: 'none'} : {display: ''}}>
         <button className={styles.button} value="Yes" onClick={handleClick}>Yes</button>
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
       </div>
-      <br />
 
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
         <div className={styles.TrueLegalNorm}>
-          <label>Which ones?</label>
-          <br />
           <input
             name='requirements'
             type="text"
-            placeholder='enter the requirements here'
+            placeholder='Enter the requirements here'
             value={requirements}
             onChange={handleChange}
           />
-          <br />
           <button
             onClick={handleClickContinue}
           >
             Continue
           </button>
+          <button
+              onClick={() => setPosAnswer(false)}
+            >Cancelar</button>
         </div>
       ) : (<></>)}
     </div>

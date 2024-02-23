@@ -1,90 +1,79 @@
 .containerExtraRequeriments {
-    background-color: #6940ff;
-    border: 1px solid black;
-    height: 920px;
+    height: 680px;
     width: 100%;
+    padding: 20px 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 10px;
 }
 
 .containerExtraRequeriments .titleCuestion {
-    display: flex;
-    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 20px 15px;
     
 }
 
 .containerExtraRequeriments .titleCuestion h3 {
-    width: 70%;
-    color: aliceblue;
-    font-size: 50px;
-    font-weight: 200;
-    letter-spacing: -1px;
-    margin: 20px 0px;
-    text-align: center;
+    color: rgb(76, 76, 76);
+    font-size:50px;
+    font-weight: 600;
+    letter-spacing: -2px;
 }
 
 .ExtraRequerimentsContainer {
-    width: 50%;
+    width: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 15px;
+    justify-content:start;
 }
 
 .ExtraRequerimentsContainer .ExtraRequerimentsOpcionOne{
-    margin: 15px 15px;
-    width: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 15px;
+    padding-left: 15px;
 }
 
 .ExtraRequerimentsContainer .ExtraRequerimentsOpcionOne .button{
-    margin: 0px 10px;
-    width: 200px;
     height: 50px;
-    font-size: 20px;
-    font-weight: 700;
+    width: 200px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: blueviolet;
     color: aliceblue;
-    background-color: #FCC922;
-    box-shadow: black 6px 6px;
+    border: none;
     cursor: pointer;
 }
 
 .ExtraRequerimentsTwo {
-    width: 50%;
-    padding: 15px;
+    width: 100%;
+    height: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 15px;
+    padding-left: 15px;
 }
 
-.ExtraRequerimentsTwo h2 {
-    width: 90%;
-    color: #1c1c1c;
-    font-size: 17px;
-    
-}
 
 .ExtraRequerimentsTwo .ExtraRequerimentsTextArea {
-    width: 90%;
-    height: 150px;
-    margin: 10px 0px;
-    padding: 5px;
-    box-shadow: black 6px 6px;
-    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    height: 200px;
+    width: 80%;
+    border: 1px solid rgb(202, 202, 202);
 }
 
-.ExtraRequerimentsTwo .ExtraRequerimentsUpload {
-    width: 90%;
-    height: 40px;
-    margin: 10px 0px;
-    background-color: rgb(42, 226, 226);
-    border: none ;
-    box-shadow: black 6px 6px;
+.coontainerButton {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ExtraRequerimentsTwo button{
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: blueviolet;
+    color: aliceblue;
+    border: none;
     cursor: pointer;
-    font-size: 15px;
 }

@@ -1,15 +1,14 @@
 .containerResumen {
-    background-color: #6940ff;
-    height: 1100px;
+    height: auto;
     width: 100%;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
 }
 
 .containerResumen .containerAnswers {
-    width: 60%;
+    width: 100%;
     height: max-content;
 }
 

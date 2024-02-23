@@ -41,31 +41,30 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion, setProgr
         <h3>Do you require integration with external platforms or services, such as social networks or online payment systems?</h3>
       </div>
       
-      <div className={styles.containerButtons}>
+      <div className={styles.containerButtons}  style={positiveAnswer ? {display: 'none'} : {display: ''}}>
         <button className={styles.button} value="Yes" onClick={handleClick}>Yes</button>
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
 
       </div>
-      <br />
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
         <div className={styles.TrueExtraServiceContainer}>
-          <label>Which ones?</label>
-          <br />
           <input
             name='platform'
             type="text"
-            placeholder='ingrese aqui las plataformas'
+            placeholder='Enter the platforms here'
             value={platform}
             onChange={handleChange}
           />
-          <br />
           <button
             onClick={handleClickContinue}
           >
             Continue
           </button>
+          <button
+              onClick={() => setPosAnswer(false)}
+            >Cancelar</button>
         </div>
       ) : (<></>)}
     </div>

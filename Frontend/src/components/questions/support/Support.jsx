@@ -34,7 +34,7 @@ export const Support = ({ quote, setQuote, question, setQuestion, progressBar, s
         <h3>Will your website require support?</h3>
       </div>
 
-      <div className={style.containerImages}>
+      <div className={style.containerImages} style={showOptions ? {display: 'none'} : {display: ''}}>
         <div className={style.imageContainer} onClick={handleYesClick}>
           <img src={YesSuppor} alt="servicios" className={style.image} />
           <div className={style.containerIcon}>
@@ -46,7 +46,6 @@ export const Support = ({ quote, setQuote, question, setQuestion, progressBar, s
         </div>
 
         <div className={style.imageContainer} onClick={handleClick} value='No'>
-
           <img src={NoSupport} alt="Services" className={style.image} />
           <div className={style.containerIcon}>
             <FcCancel className={style.smallImage}/>
@@ -58,12 +57,12 @@ export const Support = ({ quote, setQuote, question, setQuestion, progressBar, s
       </div>
       {showOptions && (
         <div className={style.containerOptions}>
-          <h2>Support options</h2>
           <div className={style['options-list']}>
             <button className={style['option-item']} onClick={handleClick} value='Weekly'>Weekly</button>
             <button className={style['option-item']} onClick={handleClick} value='Monthly'>Monthly</button>
             <button className={style['option-item']} onClick={handleClick} value='Quarterly'>Quarterly</button>
             <button className={style['option-item']} onClick={handleClick} value='Others'>Others</button>
+            <button onClick={() => setShowOptions(false)}>Cancel</button>
           </div>
         </div>
       )}
