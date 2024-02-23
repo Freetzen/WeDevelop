@@ -7,7 +7,13 @@
   },
 
   "Header": {
-    "title": "If you can imagine it, we can"
+    "title": "If you can imagine it, we can",
+    "change": {
+      "word1": "develop it.",
+      "word2": "make it happen.",
+      "word3": "bring it to life.",
+      "word4": "build it."
+    }
   },
 
   "LoginButton": {
