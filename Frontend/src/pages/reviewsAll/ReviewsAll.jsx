@@ -90,7 +90,7 @@ export default function ReviewsAll() {
 
       <div className={style.reviewsContainer}>
         { 
-        reviews ?
+        reviews.length ?
         reviews.map((review, index) => <ReviewCard key={index} review={review} />) : 
         <p className={style.notFound}>No reviews found with that rating</p> 
         }
