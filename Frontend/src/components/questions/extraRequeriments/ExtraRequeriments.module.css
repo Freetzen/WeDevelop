@@ -1,5 +1,5 @@
 .containerExtraRequeriments {
-    height: 680px;
+    height: 920px;
     width: 100%;
     padding: 20px 50px;
     display: flex;
@@ -16,9 +16,9 @@
 
 .containerExtraRequeriments .titleCuestion h3 {
     color: rgb(76, 76, 76);
-    font-size:50px;
+    font-size:45px;
     font-weight: 600;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
 }
 
 .ExtraRequerimentsContainer {
@@ -38,7 +38,7 @@
     width: 200px;
     font-size: 18px;
     letter-spacing: 1px;
-    background-color: blueviolet;
+    background-color: #6940ff;
     color: aliceblue;
     border: none;
     cursor: pointer;
@@ -72,7 +72,7 @@
     width: 200px;
     font-size: 18px;
     letter-spacing: 1px;
-    background-color: blueviolet;
+    background-color: #6940ff;
     color: aliceblue;
     border: none;
     cursor: pointer;

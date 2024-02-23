@@ -4,75 +4,48 @@
     background-color: #EDEDED;
 }
 
-/* Logo And BUTTON */
-
-.LogoAndButton {
-    background-color: aliceblue;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:0px 40px;
-    box-shadow: 0px 5px 10px rgba(55, 55, 55, 0.1)
-}
-
-.LogoAndButton button{
-    border: none;
-    font-size: 30px;
-    border-radius: 15px;
-    background-color: transparent;
-    background-color:#0059F3;
-    color: aliceblue;
-    width: 50px;
-    height: 50px;
-    padding-top: 5px;
-    cursor: pointer;
-}
-
 
 /* sideBar */
 
 .ContainerQuestions {
-    background-color: #0059F3;
-    margin: 10px;
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Question {
-    height: auto;
-    width: auto;
+    background-image: url('../../../public/images/fondoQuestion.jpg');
+    background-attachment:fixed;
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    color: rgb(228, 228, 228);
+    align-items:center ;
+    justify-content: space-between;
 }
 
-.Question div {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.Question span {
-    font-size: 20px;
-    font-weight: 400;
-    padding: 8px 14px;
-    width: auto;
+.containerImg {
+    position: relative;
+    margin-top: 40px;
     height: auto;
-    border: 1px solid  rgb(228, 228, 228);
-    border-radius: 50%;
-    color: rgb(228, 228, 228);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.Question p {
-    font-size: 20px;
-    font-weight: 300;
+.containerButtons {
+    position: fixed;
+    width: 17%;
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
 }
 
-
+.containerButtons button {
+    width: 70px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    font-size: 50px;
+    color: rgb(240, 248, 255);
+    cursor: pointer;
+}
 /* fomulario y barra de progreso */
 
 .container {
@@ -89,7 +62,6 @@
     background-color: aliceblue;
     height: auto;
     width: 100%;
-    margin: 10px;
 }
 
 .containerBar {

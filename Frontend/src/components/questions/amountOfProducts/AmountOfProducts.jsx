@@ -2,13 +2,8 @@ import React from 'react'
 import style from './AmountOfProducts.module.css'
 import { useTranslation } from 'react-i18next'
 
-
-<<<<<<< HEAD
 export const AmountOfProducts = ({ quote, setQuote, question, setQuestion,  setProgressBar, progressBar  }) => {
-=======
-export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => {
   const [t, i18n] = useTranslation("global");
->>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
 
   const handleClick = (e) => {
     const valueClick = e.target.value

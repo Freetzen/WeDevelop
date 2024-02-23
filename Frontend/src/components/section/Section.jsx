@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './Section.module.css'
 import { Support } from '../questions/support/Support'
 import { AmountVisites } from '../questions/amountVisites/AmountVisites'
@@ -13,15 +13,43 @@ import { Language } from '../questions/language/Language'
 import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
 import BarProgress from './barProgress/BarProgress'
 import Pricing from '../pricing/Pricing'
-import { IoHomeOutline } from "react-icons/io5";
+import SpinnerResumen from '../spinners/spinnerResumen/spinnerResumen'
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+
 
 
 export const Section = ({ quote, setQuote }) => {
 
   const [question, setQuestion] = useState(1)
   const [progressBar, setProgressBar] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const [showPrevious, setShowPrevious] = useState(false);
+  const [showNext, setShowNext] = useState(true);
 
   const array = Object.keys(quote)
+
+  useEffect(() => {
+    setLoading(!loading);
+
+    setShowPrevious(question > 1 ? true : false);
+
+    setShowNext(question < 12 ? true : false);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, [progressBar, question]);
+
+  const handlePrevious = () => {
+    setProgressBar(progressBar - 10)
+    setQuestion(question - 1);
+  };
+
+  const handleNext = () => {
+    setQuestion(question + 1);
+    setProgressBar(progressBar + 10)
+  };
 
 
   const switchQuestion = (question) => {
@@ -64,22 +92,24 @@ export const Section = ({ quote, setQuote }) => {
 
   return (
     <div className={style.containerSection}>
-      <div className={style.LogoAndButton}>
-        <img src="./images/LogoResumen.png" alt="" />
-        <button><IoHomeOutline/></button>
-      </div>
       <div className={style.container}>
         <div className={style.ContainerQuestions}>
-          <div className={style.Question}>
-          {/* {
-            array.map((pregunta, index) => (
-                  <div key={index}>
-                    <span>{index}</span>
-                    <p>{pregunta}</p>
-                  </div>
-
-            ))
-          } */}
+          <div className={style.containerImg}>
+            <img src='./images/LogoResumen.png' alt="" />
+            <div className={style.containerButtons}>
+              <button onClick={handlePrevious}
+                title='Previous'
+                disabled={!showPrevious}
+                style={!showPrevious ? { color: 'rgba(240, 248, 255, 0.555)' } : { color: 'aliceblue' }}>
+                <IoIosArrowDropleftCircle />
+              </button>
+              <button onClick={handleNext}
+                title='Next'
+                disabled={!showNext}
+                style={!showNext ? { color: 'rgba(240, 248, 255, 0.555)' } : { color: 'aliceblue' }}>
+                <IoIosArrowDroprightCircle />
+              </button>
+            </div>
           </div>
         </div>
         <div className={style.containerQuoteAndBar}>
@@ -87,9 +117,7 @@ export const Section = ({ quote, setQuote }) => {
             <BarProgress progressBar={progressBar} />
           </div>
           <div className={style.containerQuote}>
-            {
-              switchQuestion(question)
-            }
+            {loading ? <SpinnerResumen /> : switchQuestion(question)}
           </div>
         </div>
       </div>

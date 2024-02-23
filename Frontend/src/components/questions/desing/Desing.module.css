@@ -16,7 +16,7 @@ text-align: center;
 
 .containerDesing .titleCuestion h3 {
   color: rgb(76, 76, 76);
-  font-size:50px;
+  font-size:45px;
   font-weight: 600;
   letter-spacing: -2px;
 }
@@ -111,7 +111,7 @@ text-align: center;
     width: 200px;
     font-size: 18px;
     letter-spacing: 1px;
-    background-color: blueviolet;
+    background-color: #6940ff;
     color: aliceblue;
     border: none;
     cursor: pointer;

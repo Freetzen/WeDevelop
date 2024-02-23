@@ -2,12 +2,8 @@ import React, { useState } from 'react'
 import style from "./ExtraRequeriments.module.css"
 import { useTranslation } from 'react-i18next';
 
-<<<<<<< HEAD
 export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
-=======
-export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) => {
   const [t, i18n] = useTranslation("global");
->>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
 
   const [requeriment, setRequeriment] = useState('')
   const [positiveAnswer, setPosAnswer] = useState(false)
@@ -59,11 +55,10 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
             onClick={handleClick}
           >No</button>
         </div>
-<<<<<<< HEAD
         {positiveAnswer ? (
           <div className={style.ExtraRequerimentsTwo}>
             <textarea
-              placeholder='Specify the requirements here'
+              placeholder={t("QuoteQuestions.Section10.input")}
               value={requeriment}
               type='text'
               onChange={handleChange}
@@ -73,29 +68,13 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) =>
               <button
                 className={style.ExtraRequerimentsUpload}
                 onClick={handleClickContinue}
-              >Send</button>
+              >{t("QuoteQuestions.Section10.continue")}</button>
               <button
                 onClick={() => setPosAnswer(false)}
-              >Cancelar</button>
+              >Cancel</button>
             </div>
           </div>
-
         ) : (<></>)}
-=======
-        <div className={style.ExtraRequerimentsTwo}>
-          <textarea
-          placeholder={t("QuoteQuestions.Section10.input")}
-            value={requeriment}
-            type='text'
-            onChange={handleChange}
-            className={style.ExtraRequerimentsTextArea}
-          ></textarea>
-          <button
-            className={style.ExtraRequerimentsUpload}
-            onClick={handleClick}
-          >{t("QuoteQuestions.Section10.continue")}</button>
-        </div>
->>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
       </div>
     </div>
   );
