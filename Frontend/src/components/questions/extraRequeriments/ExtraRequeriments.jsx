@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import style from "./ExtraRequeriments.module.css"
+import { useTranslation } from 'react-i18next';
 
+<<<<<<< HEAD
 export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
+=======
+export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
+>>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
 
   const [requeriment, setRequeriment] = useState('')
   const [positiveAnswer, setPosAnswer] = useState(false)
@@ -38,7 +44,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion, prog
   return (
     <div className={style.containerExtraRequeriments}>
       <div className={style.titleCuestion}>
-        <h3>Does your site have any requirements not covered by our question routing?</h3>
+        <h3>{t("QuoteQuestions.Section10.title")}</h3>
       </div>
       <div className={style.ExtraRequerimentsContainer}>
         <div className={style.ExtraRequerimentsOpcionOne} style={positiveAnswer ? { display: 'none' } : { display: '' }}>
@@ -53,6 +59,7 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion, prog
             onClick={handleClick}
           >No</button>
         </div>
+<<<<<<< HEAD
         {positiveAnswer ? (
           <div className={style.ExtraRequerimentsTwo}>
             <textarea
@@ -74,6 +81,21 @@ export const ExtraRequeriments = ({ quote, setQuote, question, setQuestion, prog
           </div>
 
         ) : (<></>)}
+=======
+        <div className={style.ExtraRequerimentsTwo}>
+          <textarea
+          placeholder={t("QuoteQuestions.Section10.input")}
+            value={requeriment}
+            type='text'
+            onChange={handleChange}
+            className={style.ExtraRequerimentsTextArea}
+          ></textarea>
+          <button
+            className={style.ExtraRequerimentsUpload}
+            onClick={handleClick}
+          >{t("QuoteQuestions.Section10.continue")}</button>
+        </div>
+>>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
       </div>
     </div>
   );

@@ -1,10 +1,15 @@
 import style from './Header.module.css';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const [t, i18n] = useTranslation("global");
+  
   return (
     <div className={style.HeaderContainer}>
       <div className={style.titleContainer}>
-        <h1 className={style.h1}>If you can imagine it, we can develop it</h1>
+        <h1 className={style.h1}>{t("Header.title")} <span></span></h1>
+        
         <img src="./images/logo-header.png" alt="" />
       </div>
       <div className={style.ImgContainer}>

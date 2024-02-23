@@ -2,8 +2,14 @@
 import style from './ResumeQuestions.module.css';
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineEdit } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
+<<<<<<< HEAD
 export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, setProgressBar }) => {
+=======
+export const ResumeQuestions = ({ quote, setQuestion, question }) => {
+    const [t, i18n] = useTranslation("global");
+>>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
 
     const array = Object.keys(quote)
 
@@ -26,13 +32,13 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
                 <div className={style.Answers}>
                     <div className={style.containerTitle}>
                         <div className={style.TitleQuestion}>
-                            <span>Questions</span>
+                            <span>{t("QuoteQuestions.Summary.questions")}</span>
                         </div>
                         <div className={style.TitleAnswer}>
-                            <span>Answers</span>
+                            <span>{t("QuoteQuestions.Summary.answers")}</span>
                         </div>
                         <div className={style.TitleEdit}>
-                            <span>Edit</span>
+                            <span>{t("QuoteQuestions.Summary.edit")}</span>
                         </div>
                     </div>
                     {
@@ -58,7 +64,7 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
                     }
                 </div>
             </div>
-            <button onClick={()=>setQuestion(question + 1)}>select Plans</button>
+            <button onClick={()=>setQuestion(question + 1)}>{t("QuoteQuestions.Summary.plans")}</button>
         </div>
     )
 

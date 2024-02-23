@@ -2,35 +2,54 @@ import style from "./ReviewsAll.module.css";
 import { useEffect, useState } from "react";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
+import PaginateReviews from "../../components/paginateReviews/PaginateReviews";
 
 export default function ReviewsAll() {
 
   const [reviews, setReviews] = useState([]);
-  const [stars, setStars] = useState("All");
-  let filteredReviews = [];
+  const [rating, setRating] = useState("All");
+  const [totalInfo, setTotalInfo] = useState([])
 
-  if(stars === "All") {
-    filteredReviews = reviews;
-  } else {
-    filteredReviews = reviews.filter(review => review.rating === parseInt(stars));
+
+  
+  const dataInit = async (page = 1) => {
+    try {
+      const response = await reviewsProvider.getReviewsAll(page);
+      console.log(response);
+      setReviews(response.docs);
+      setTotalInfo(response);
+    } catch(error) {
+      console.error('Error al obtener reviews:', error);
+    }
   }
-
-
+  
+  const bringData = async (page = 1) => {
+    try { 
+      const ratingNumber = Number(rating);
+      let obj = {
+        rating: ratingNumber,
+        page
+      };
+      const response = await reviewsProvider.getReviewsByRating(obj); 
+      setReviews(response.docs);
+      setTotalInfo(response);
+    } catch(error) {
+      console.error('Error al obtener reviews por rating:', error);
+    }
+  }
+  
   useEffect(() => {
-     bringData()
-  }, [])
+    if(rating !== "All") bringData();
+    else dataInit();
+  }, [rating])
 
-  const bringData = async () => {
-    const response = await reviewsProvider.getReview();
-    setReviews(response)
-     }
 
   const handleChange = (e) => {
-      e.preventDefault();
-      setStars(e.target.value);
+      const ratingSelected = e.target.value;
+      setRating(ratingSelected);
   }
 
-  return (
+  return(
     <div className={style.container}>
 
       <div className={style.titulo}>
@@ -50,12 +69,16 @@ export default function ReviewsAll() {
 
       <div className={style.reviewsContainer}>
         { 
-        filteredReviews.length ?
-        filteredReviews.map((review, index) => <ReviewCard key={index} review={review} />) : 
+        reviews.length ?
+        reviews.map((review, index) => <ReviewCard key={index} review={review} />) : 
         <p className={style.notFound}>No reviews found with that rating</p> 
         }
       </div>
-
-    </div>
+      
+       <PaginateReviews totalInfo={totalInfo} bringData={bringData} dataInit={dataInit} rating={rating}/> 
+       
+    
+      
+  </div>
   )
 }

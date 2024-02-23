@@ -4,8 +4,14 @@ import YesSuppor from './SupportWebYes.png';
 import NoSupport from './SupportWebNo.png';
 import { FcCancel } from "react-icons/fc";
 import { FcOk } from "react-icons/fc";
+import { useTranslation } from 'react-i18next';
 
+<<<<<<< HEAD
 export const Support = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
+=======
+export const Support = ({ quote, setQuote, question, setQuestion }) => {
+  const [t, i18n] = useTranslation("global");
+>>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
 
   const [showOptions, setShowOptions] = useState(false);
   const [selectedSupport, setSelectedSupport] = useState(null); 
@@ -31,7 +37,7 @@ export const Support = ({ quote, setQuote, question, setQuestion, progressBar, s
   return (
     <div className={style.containerSupport}>
       <div className={style.titleCuestion}>
-        <h3>Will your website require support?</h3>
+        <h3>{t("QuoteQuestions.Section9.title")}</h3>
       </div>
 
       <div className={style.containerImages} style={showOptions ? {display: 'none'} : {display: ''}}>
@@ -41,7 +47,7 @@ export const Support = ({ quote, setQuote, question, setQuestion, progressBar, s
             <FcOk className={style.smallImage} />
           </div>
           <div className={style.title}>
-            <h4>Requires Support</h4>
+            <h4>{t("QuoteQuestions.Section9.answer1.title")}</h4>
           </div>
         </div>
 
@@ -51,18 +57,27 @@ export const Support = ({ quote, setQuote, question, setQuestion, progressBar, s
             <FcCancel className={style.smallImage}/>
           </div>
           <div className={style.title}>
-            <h4>No Support Required</h4>
+            <h4>{t("QuoteQuestions.Section9.answer2")}</h4>
           </div>
         </div>
       </div>
       {showOptions && (
         <div className={style.containerOptions}>
+<<<<<<< HEAD
           <div className={style['options-list']}>
             <button className={style['option-item']} onClick={handleClick} value='Weekly'>Weekly</button>
             <button className={style['option-item']} onClick={handleClick} value='Monthly'>Monthly</button>
             <button className={style['option-item']} onClick={handleClick} value='Quarterly'>Quarterly</button>
             <button className={style['option-item']} onClick={handleClick} value='Others'>Others</button>
             <button onClick={() => setShowOptions(false)}>Cancel</button>
+=======
+          <h2>{t("QuoteQuestions.Section9.answer1.subtitle")}</h2>
+          <div className={style['options-list']}>
+            <button className={style['option-item']} onClick={handleClick} value='Weekly'>{t("QuoteQuestions.Section9.answer1.op1")}</button>
+            <button className={style['option-item']} onClick={handleClick} value='Monthly'>{t("QuoteQuestions.Section9.answer1.op2")}</button>
+            <button className={style['option-item']} onClick={handleClick} value='Quarterly'>{t("QuoteQuestions.Section9.answer1.op3")}</button>
+            <button className={style['option-item']} onClick={handleClick} value='Others'>{t("QuoteQuestions.Section9.answer1.op4")}</button>
+>>>>>>> b30b935a0e21b3a70bb09c926cdb46cae8e28a16
           </div>
         </div>
       )}

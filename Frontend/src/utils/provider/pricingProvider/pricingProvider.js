@@ -2,10 +2,11 @@ import axios from "axios"
 
 export const createPreference = async (project) => {
     try {
-        const response = await axios.post("/preference", project)
-        // const {id} = response.data;
-        // return id;
-        return response
+        console.log(project)
+        const response = await axios.post("/create_preference", project)
+        console.log('ASDFASDG', response)
+        const {id} = response.data;
+        return id;
     } catch (error) {
         console.log(error.message)        
     }
