@@ -8,14 +8,18 @@ export default function ReviewsAll() {
 
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState("All");
+  const [sortOrder, setSortOrder] = useState('recent');
   const [totalInfo, setTotalInfo] = useState([])
 
 
   
   const dataInit = async (page = 1) => {
     try {
-      const response = await reviewsProvider.getReviewsAll(page);
-      console.log(response);
+      let obj = {
+        sortOrder,
+        page
+      };
+      const response = await reviewsProvider.getReviewsAll(obj);
       setReviews(response.docs);
       setTotalInfo(response);
     } catch(error) {
@@ -28,6 +32,7 @@ export default function ReviewsAll() {
       const ratingNumber = Number(rating);
       let obj = {
         rating: ratingNumber,
+        sortOrder,
         page
       };
       const response = await reviewsProvider.getReviewsByRating(obj); 
@@ -41,13 +46,19 @@ export default function ReviewsAll() {
   useEffect(() => {
     if(rating !== "All") bringData();
     else dataInit();
-  }, [rating])
+  }, [rating, sortOrder]);
 
 
-  const handleChange = (e) => {
+  const handleRating = (e) => {
       const ratingSelected = e.target.value;
       setRating(ratingSelected);
   }
+
+  const handleSortOrder = (e) => {
+    const order = e.target.value;
+    setSortOrder(order);
+  };
+
 
   return(
     <div className={style.container}>
@@ -57,7 +68,9 @@ export default function ReviewsAll() {
       </div>
 
       <div className={style.filtro}>
-        <select onChange={handleChange}>
+        <div>
+        <label>Filter by reviews:</label>
+        <select onChange={handleRating}>
           <option value="All">All reviews</option>
           <option value="5">5 stars</option>
           <option value="4">4 stars</option>
@@ -65,11 +78,19 @@ export default function ReviewsAll() {
           <option value="2">2 stars</option>
           <option value="1">1 star</option>
         </select>
+        </div>
+        <div>
+        <label>Order by:</label>
+        <select onChange={handleSortOrder}>
+          <option value="recent">Most recent</option>
+          <option value="oldest">Oldest</option>
+        </select>
+      </div>
       </div>
 
       <div className={style.reviewsContainer}>
         { 
-        reviews.length ?
+        reviews ?
         reviews.map((review, index) => <ReviewCard key={index} review={review} />) : 
         <p className={style.notFound}>No reviews found with that rating</p> 
         }
