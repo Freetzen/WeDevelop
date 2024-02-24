@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import style from './LoginButton.module.css'
@@ -7,19 +7,15 @@ import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import { UserAccount } from "../../pages/userAccount/UserAccount";
 import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
-import { userDate } from "../../helpers/local";
-import { loadUserData } from "../../redux/actions";
-
-
+import { clearLocalStorage, userDate } from "../../helpers/local";
 
 
 
 const LoginButton = () => {
-  /* const dta = useSelector(state => state.userData)
-  console.log('global' ,dta); */
+  const dta = useSelector(state => state.userData)
+  console.log('global' ,dta);
 
   const [t, i18n] = useTranslation("global");
-  const dispatch = useDispatch();
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const postUserData = async () => {
     try {
@@ -46,7 +42,7 @@ const LoginButton = () => {
         setTimeout(() => {
           logout()
         }, 6000);
-
+        clearLocalStorage()
      return 
         
       }
@@ -61,10 +57,8 @@ const LoginButton = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-
     if (isAuthenticated && user) {
       setLoading(true);
-      dispatch(loadUserData());
       const timer = setTimeout(() => {
         setLoading(false);
       }, 1000);

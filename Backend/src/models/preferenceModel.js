@@ -1,26 +1,49 @@
 const { Schema, model } = require('mongoose')
 
 const preferenceSchema = new Schema({
-    title: {
+    email: {
         type: String,
-        required: true,
-        unique: true
-    },
-    price: {
-        type: Number,
         required: true
     },
-    quantity: {
-        type: Number,
-        required: true
+    emailMp: {
+        type: String
     },
-    info: {
+    cardName: {
+        type: String
+    },
+    preferenceId: {
+        type: String
+    },
+    payId: {
+        type: Number
+    },
+    title: {
+        type: String
+    },
+    amount: {
+        type: Number
+    },
+    quote: {
         type: Object,
-        required: true
+        default: {}
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    date_approved: {
+        type: String
+    },
+    date_created: {
+        type: String
+    },
+    status: {
+        type: String
+    },
+    payment_method_id: {
+        type: String
+    },
+    payment_type_id: {
+        type: String,
+    },
+    payment_method_id: {
+        type: String
     }
 });
 

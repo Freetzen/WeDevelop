@@ -26,6 +26,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  plan: {
+     type: Schema.ObjectId, 
+     ref: "preference"
+  },
   createdAt: {
     type: Date,
     default: Date.now,
