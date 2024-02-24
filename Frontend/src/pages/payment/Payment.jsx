@@ -36,7 +36,7 @@ export const Payment = () => {
                 <h2>Payment Email: {paymentInfo?.email}</h2>
             </div>
             <div>
-                <Link to='/home'>
+                <Link to='/'>
                     <button>Back to Home</button>
                 </Link>
             </div>
