@@ -4,7 +4,7 @@ import { GoQuestion } from "react-icons/go";
 import { MdOutlineEdit } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
 
-export const ResumeQuestions = ({ quote, setQuestion, question }) => {
+export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, setProgressBar }) => {
     const [t, i18n] = useTranslation("global");
 
     const array = Object.keys(quote)
@@ -15,6 +15,7 @@ export const ResumeQuestions = ({ quote, setQuestion, question }) => {
             if (element === event.target.value) {
                 let indexPage = array.indexOf(element) + 1;
                 setQuestion(indexPage)
+                setProgressBar(progressBar - 10)
             }
         })
     }
@@ -59,8 +60,11 @@ export const ResumeQuestions = ({ quote, setQuestion, question }) => {
                     }
                 </div>
             </div>
-            <button onClick={()=>setQuestion(question + 1)}>{t("QuoteQuestions.Summary.plans")}</button>
+            <div className={style.containerButtonResumen}>
+                <button onClick={() => setQuestion(question + 1)}>{t("QuoteQuestions.Summary.plans")}</button>
+            </div>
         </div>
+
     )
 
 }
