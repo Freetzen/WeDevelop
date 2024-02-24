@@ -3,10 +3,15 @@ import { Section } from "../../components/section/Section";
 import { useAuth0 } from "@auth0/auth0-react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Quote = () => {
+
+  const user = JSON.parse(localStorage.getItem('info'))
+
+  console.log('USERR ------',user)
   const navigate = useNavigate()
-  const { user, isLoading } = useAuth0()
+  const {isLoading} = useAuth0()
   const [quote, setQuote] = useState({
     purpose: '',
     apiOrDatabase: null,
@@ -19,7 +24,7 @@ export const Quote = () => {
     support: null,
     extraRequeriments: null,
   })
-
+  
   useEffect(() => {
     if (!isLoading && !user) {
       Swal.fire({
@@ -36,7 +41,7 @@ export const Quote = () => {
   return (
     <>
       {
-        user
+        user.email
           ? <Section quote={quote} setQuote={setQuote} />
           : null
       }

@@ -20,7 +20,6 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 
 export const Section = ({ quote, setQuote }) => {
-  console.log('Useeeeerr', user);
   const [question, setQuestion] = useState(1)
   const [progressBar, setProgressBar] = useState(0)
   const [loading, setLoading] = useState(false)

@@ -2,7 +2,7 @@ import { LOAD_USER_DATA } from "./actions-types";
 
 
 const initialState = {
-    userData: JSON.parse(localStorage.getItem('info')) || null,
+    userData: {},
 };
   
 

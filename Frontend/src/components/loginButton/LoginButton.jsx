@@ -67,9 +67,6 @@ const LoginButton = () => {
     }
   }, [])
 
-
-  
-  
   const [menuIsActive, setMenuIsActive] = useState(true)
 
   const activeMenu = () => {
