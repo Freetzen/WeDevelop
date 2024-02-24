@@ -1,4 +1,5 @@
 .container {
+    background-color: #F0F8FF;
     width: auto;
     height: auto;
     padding: 40px 0px;
@@ -9,16 +10,19 @@
 }
 
 .reviewRatingAndContainer {
-    width: 92%;
+    width: 80%;
+    height: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
 .cardContainer {
-    width: 100%;
-    height: max-content;
+    width: 80%;
+    height: auto;
     padding:0px;
+    margin: 20px 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

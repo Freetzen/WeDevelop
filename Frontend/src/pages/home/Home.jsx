@@ -6,40 +6,54 @@ import Highlights from "../../components/highlights/Highlights";
 import Review from "../../components/review/Review";
 import Skills from "../../components/skills/Skills";
 import StartQuote from "../../components/startQuote/StartQuote";
+import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import SpinnerConLogo from '../../components/spinners/spinnerConLogo/SpinnerConLogo';
 
-const Home = () => {
-  const [chargingScreen, setChargingScreen] = useState(true);
-  const [loadingComplete, setLoadingComplete] = useState(false);
+const Home = ({loading, setLoading}) => {
+
+  const [messages, setMessages] = useState([]);
+  const [totalReviews, setTotalReviews] = useState([])
+  
 
   useEffect(() => {
-    const pantallaDeCarga = () => {
-      setTimeout(() => {
-        setChargingScreen(false);
-        setLoadingComplete(true);
-      }, 5000);
-    };
-
-    if (!loadingComplete) {
-      pantallaDeCarga();
+    const bringData = async () => {
+      try {
+        const response = await reviewsProvider.getReview()
+        setTotalReviews(response)
+        const sortingResponse = response.slice(-4);
+        setMessages(sortingResponse);
+      } catch (error) {
+        console.error(`Se produjo un error: ${error}`);
+      } finally {
+        setTimeout(() => {
+          setLoading(false)  
+        }, 4000);
+      }
     }
+
+    bringData()
   }, []);
+
+
 
   return (
     <>
-      {chargingScreen ? <SpinnerConLogo /> :
+      {loading ? (
+        <SpinnerConLogo />
+      ) : (
         <>
           <Header />
-          <AboutUs />
+          <AboutUs setLoading={setLoading}/>
           <Skills />
           <Highlights />
           <StartQuote />
-          <Review />
+          {/* <Review totalReviews={totalReviews} messages={messages} /> */}
           <Footer />
         </>
-      }
+      )}
     </>
   );
-};
+
+}
 
 export default Home;

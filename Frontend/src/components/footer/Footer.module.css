@@ -170,6 +170,7 @@
   font-size: 15px;
   margin: 10px 0px;
   box-shadow: rgba(0, 0, 0, 0.594) 5px 5px;
+  cursor: pointer;
 }
 
 /* Footer */

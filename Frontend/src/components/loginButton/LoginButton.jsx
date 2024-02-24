@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import style from './LoginButton.module.css'
 import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import { UserAccount } from "../../pages/userAccount/UserAccount";
 import Swal from 'sweetalert2'
+import { useTranslation } from "react-i18next";
+import { userDate } from "../../helpers/local";
+import { loadUserData } from "../../redux/actions";
+
+
+
+
 
 const LoginButton = () => {
+  /* const dta = useSelector(state => state.userData)
+  console.log('global' ,dta); */
 
-
+  const [t, i18n] = useTranslation("global");
+  const dispatch = useDispatch();
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const postUserData = async () => {
     try {
@@ -17,6 +28,7 @@ const LoginButton = () => {
         email: user.email,
         image: user.picture
       }
+      userDate('info', newUser)
       const textodeejemplo = await userProvider.getUserByEmail(user.email)
 
       if(!textodeejemplo) { 
@@ -52,6 +64,7 @@ const LoginButton = () => {
 
     if (isAuthenticated && user) {
       setLoading(true);
+      dispatch(loadUserData());
       const timer = setTimeout(() => {
         setLoading(false);
       }, 1000);
@@ -59,6 +72,9 @@ const LoginButton = () => {
       return () => clearTimeout(timer);
     }
   }, [])
+
+
+  
   
   const [menuIsActive, setMenuIsActive] = useState(true)
 
@@ -70,7 +86,7 @@ const LoginButton = () => {
   return (
     <div className={style.containerLogin}>
       {!isAuthenticated ? (
-        <button className={style.buttonLogin} onClick={() => loginWithRedirect()}>LogIn</button>
+        <button className={style.buttonLogin} onClick={() => loginWithRedirect()}>{t("LoginButton.title")}</button>
       ) : (
         <>
         <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu}/>

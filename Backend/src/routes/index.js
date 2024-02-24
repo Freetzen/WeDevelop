@@ -10,14 +10,16 @@ const getProjectById = require('../controllers/getProjectById');
 const putProject = require('../controllers/putProject');
 const getProjectByName = require('../controllers/getProjectByName');
 const getProjectByCategory = require('../controllers/getProjectByCategory');
-const getReviewAvarage = require('../controllers/getReviewAvarage');
 const putUser = require('../controllers/putUser');
 const getAllProjects = require('../controllers/getAllProjects');
 const postPreference = require('../controllers/postPreference');
+const getReviewByRating = require('../controllers/getReviewByRating');
 const postMercadoPago = require('../controllers/postMercadoPago');
 const getPaymentMP = require('../controllers/getPaymentMP');
 const getPreferenceByEmailBD = require('../controllers/getPreferenceByEmail');
 const chatSocket = require('../controllers/chatSocket');
+const getReviewsAll = require('../controllers/getReviewsAll');
+
 const router = express.Router();
 
 router.post("/createpreference",postPreference)
@@ -31,15 +33,16 @@ router.get('/users/email', getUserByEmail)
 router.put('/projects', putProject)
 router.post('/login', postUsers)
 router.post('/projects', postProject)
-router.post('/reviews', postReviews);
-router.get('/reviews', getReviews);
-router.get('/reviewsRating', getReviewAvarage);
-router.put('/users', putUser);
+router.post('/reviews', postReviews)
+router.get('/reviews/rating',getReviewByRating)
+router.get('/reviewsall', getReviewsAll)
+router.get('/reviews', getReviews)
+router.put('/users', putUser)
+router.post("/preference",postPreference)
 router.post('/success', postMercadoPago);
 router.get('/successpayment', getPaymentMP);
 router.get('/getpreference', getPreferenceByEmailBD);
 router.get('/chat', chatSocket);
-
 
 
 module.exports = router
