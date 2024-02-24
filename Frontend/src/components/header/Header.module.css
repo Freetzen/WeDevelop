@@ -129,3 +129,54 @@
 .customshapedividerbottom1707406615 .shapefill {
   fill: aliceblue;
 }
+
+
+
+
+   /* Estilos para dispositivos móviles ------------------------------- */
+
+   @media only screen and (max-width: 680px) {
+
+    .HeaderContainer {
+      height: 100vh;
+      background-position: right;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      position: relative;
+      padding: 100px 20px;
+      padding-top: 150px;
+    }
+    
+    .titleContainer {
+      height: auto;
+      width: 100%;
+      justify-content: center;
+      align-items: start;
+      padding-left: 0;
+    }
+    
+    .h1 {
+      width: 75%;
+      height: auto;
+      font-size: 32px;
+      word-spacing: -2px;
+      letter-spacing: .5px;
+      line-height: 2rem;
+      margin-bottom: 5px;
+    }
+    
+    .ImgContainer {
+      height: auto;
+      width: 100%;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .imgResponsive {
+      width: 70%;
+    }
+
+  
+  }

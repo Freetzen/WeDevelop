@@ -15,7 +15,7 @@ const getAllProjects = require('../controllers/getAllProjects');
 const postPreference = require('../controllers/postPreference');
 const getReviewByRating = require('../controllers/getReviewByRating');
 const postMercadoPago = require('../controllers/postMercadoPago');
-const getReviewsAll = require('../controllers/getreviewsAll');
+const getReviewsAll = require('../controllers/getReviewsAll');
 
 const router = express.Router();
 
