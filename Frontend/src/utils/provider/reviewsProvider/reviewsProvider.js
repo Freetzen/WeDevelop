@@ -11,7 +11,7 @@ const reviewsProvider = {
     },
     async getReviewsAll(obj) {
         try {
-            const getReviews = await axios.get(`/reviewsAll`, {params: obj});
+            const getReviews = await axios.get(`/reviewsall`, {params: obj});
             return getReviews.data;
         } catch (error) {
             return error.message;
