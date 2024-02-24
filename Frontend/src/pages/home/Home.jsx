@@ -27,7 +27,7 @@ const Home = () => {
         console.error(`Se produjo un error: ${error}`);
       } finally {
         setTimeout(() => {
-          setLoading(false)  
+          setLoading(false)
         }, 1000);
       }
     }
@@ -48,7 +48,7 @@ const Home = () => {
           <Skills />
           <Highlights />
           <StartQuote />
-          <Review totalReviews={totalReviews} messages={messages} />
+          {/* <Review totalReviews={totalReviews} messages={messages} /> */}
           <Footer />
         </>
       )}

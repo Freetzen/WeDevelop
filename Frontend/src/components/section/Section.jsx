@@ -15,43 +15,44 @@ import Pricing from '../pricing/Pricing'
 
 
 export const Section = ({ quote, setQuote }) => {
-
+  console.log('Useeeeerr', user);
   const [question, setQuestion] = useState(1)
+
 
 
   const switchQuestion = (question) => {
 
     switch (question) {
-    case 1:
-      return <Purpose quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question}/>;
-    case 2:
-      return <ApiOrDatabase quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 3:
-      if(quote.purpose === "ecommerce"){
-        return <AmountOfProducts quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-      }else{
-        setQuestion(question + 1)
-      }
-    case 4:
-      return <ExtraServices quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 5:
-      return <LegalNorm quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 6:
-      return <AmountVisites quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />;
-    case 7:
-      return <Language quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 8:
-      return <Desing quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 9:
-      return <Support quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 10:
-      return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
-    case 11:
-      return <ResumeQuestions quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 1:
+        return <Purpose quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />;
+      case 2:
+        return <ApiOrDatabase quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 3:
+        if (quote.purpose === "ecommerce") {
+          return <AmountOfProducts quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+        } else {
+          setQuestion(question + 1)
+        }
+      case 4:
+        return <ExtraServices quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 5:
+        return <LegalNorm quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 6:
+        return <AmountVisites quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />;
+      case 7:
+        return <Language quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 8:
+        return <Desing quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 9:
+        return <Support quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 10:
+        return <ExtraRequeriments quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
+      case 11:
+        return <ResumeQuestions quote={quote} setQuote={setQuote} setQuestion={setQuestion} question={question} />
       case 12:
-      return <Pricing quote={quote} />
-    default:
-      return <></>
+        return <Pricing quote={quote} />
+      default:
+        return <></>
 
     }
   }
