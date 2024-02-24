@@ -19,7 +19,7 @@ const Home = ({loading, setLoading}) => {
     const bringData = async () => {
       try {
         const response = await reviewsProvider.getReview()
-        setTotalReviews(response)
+        // setTotalReviews(response)
         const sortingResponse = response.slice(-4);
         setMessages(sortingResponse);
       } catch (error) {
