@@ -1,7 +1,7 @@
 import { LOAD_USER_DATA } from "./actions-types";
 
 
-export const loadUserData = () => ({
+export const loadUserData = (data) => ({
     type: LOAD_USER_DATA,
-    payload: JSON.parse(localStorage.getItem('info')),
+    payload: data,
   });
