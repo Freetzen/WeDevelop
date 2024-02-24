@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ReviewForm from "../reviewForm/ReviewForm";
 import ReviewCard from "../reviewCard/ReviewCard";
 import style from "./Review.module.css";
@@ -18,9 +17,8 @@ export default function Review({ totalReviews, messages }) {
     <div className={style.container}>
       <div className={style.reviewRatingAndContainer}>
         <ReviewRating totalReviews={totalReviews} />
-        <ReviewBar />
+        <ReviewBar reviews={totalReviews}/>
       </div>
-      {/* <h2>Reviews and comments</h2> */}
       <div className={style.cardContainer}>
         {messages?.map((review, index) => (
           <ReviewCard key={index} review={review} />

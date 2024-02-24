@@ -167,13 +167,7 @@ const Pricing = ({ quote }) => {
                     {
                         preferenceId && project.title === "Enterprise Plan" && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts: { valueProp: 'smart_option' } }} />
                     }
-
-
-                    {/* <Wallet initialization={{ preferenceId: "preferenceId" }} customization={{ texts:{ valueProp: 'smart_option'}}} /> */}
-
                 </div>
-
-
             </section>
 
         </>

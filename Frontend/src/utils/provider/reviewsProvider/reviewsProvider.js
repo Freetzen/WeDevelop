@@ -9,10 +9,9 @@ const reviewsProvider = {
             return error.message;
         }
     },
-    async getReviewsAll(page) {
+    async getReviewsAll(obj) {
         try {
-            if (!page) page = 1;
-            const getReviews = await axios.get(`/reviewsAll?page=${page}`);
+            const getReviews = await axios.get(`/reviewsall`, {params: obj});
             return getReviews.data;
         } catch (error) {
             return error.message;

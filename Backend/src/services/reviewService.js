@@ -8,17 +8,48 @@ const findReviews = async () => {
     }
 }
 
-const findReviewsAll = async (page, limit) => {
+const findReviewsAll = async (sortOrder, page, limit) => {
     try {
-        return await reviewModel.paginate({}, { page, limit });
+        let options = {};
+        if (sortOrder === "recent") {
+            options = {
+                page,
+                limit,
+                sort: { date: -1 }
+            }
+        } else {
+            options = {
+                page,
+                limit,
+                sort: { date: 1 }
+            }
+        }
+        const response = await reviewModel.paginate({}, options);
+        return response;
     } catch (error) {
         throw new Error(error);
     }
 }
 
-const findReviewByRating = async (rating, page, limit) => {
+const findReviewByRating = async (rating, sortOrder, page, limit) => {
     try {
-        return await reviewModel.paginate({ rating: rating }, { page, limit });
+        let options = {};
+        if (sortOrder === "recent") {
+            options = {
+                page,
+                limit,
+                sort: { date: -1 }
+            }
+        } else {
+            options = {
+                page,
+                limit,
+                sort: { date: 1 }
+            }
+        }
+        const query = { rating };
+        const response = await reviewModel.paginate(query, options);
+        return response;
     } catch (error) {
         throw new Error(error);
     }
