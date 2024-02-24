@@ -2,17 +2,26 @@ import React from 'react'
 import style from './Purpose.module.css'
 import { useTranslation } from 'react-i18next';
 
-
-export const Purpose = ({ quote, setQuote, question, setQuestion }) => {
+export const Purpose = ({ quote, setQuote, question, setQuestion, setProgressBar, progressBar }) => {
   const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
+
     const valueClick = e.target.value
     setQuote({
       ...quote,
       'purpose': valueClick
     })
-    setQuestion(question + 1)
+
+    if (valueClick === 'web') {
+      setProgressBar(progressBar + 20)
+      setQuestion(question + 1)
+    } else {
+      setProgressBar(progressBar + 10)
+      setQuestion(question + 1)
+
+    }
+
   }
 
   return (

@@ -2,8 +2,7 @@ import React from 'react'
 import style from './AmountOfProducts.module.css'
 import { useTranslation } from 'react-i18next'
 
-
-export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => {
+export const AmountOfProducts = ({ quote, setQuote, question, setQuestion,  setProgressBar, progressBar  }) => {
   const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
@@ -13,6 +12,7 @@ export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => 
       'amountOfProducts': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
   return (
