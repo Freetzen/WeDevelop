@@ -14,6 +14,7 @@ import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import axios from 'axios'
+import { Payment } from './pages/payment/Payment'
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="/reviews" element={<ReviewsAll />}></Route>
+        <Route path="/successpayment" element={<Payment />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
