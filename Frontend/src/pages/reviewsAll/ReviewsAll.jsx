@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
 import PaginateReviews from "../../components/paginateReviews/PaginateReviews";
+import { useTranslation } from "react-i18next";
 
 export default function ReviewsAll() {
+  const [t, i18n] = useTranslation("global");
 
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState("All");
@@ -23,7 +25,7 @@ export default function ReviewsAll() {
       setReviews(response.docs);
       setTotalInfo(response);
     } catch(error) {
-      console.error('Error al obtener reviews:', error);
+      console.error(t("RatingHome.ReviewsAll.error1"), error);
     }
   }
   
@@ -39,7 +41,7 @@ export default function ReviewsAll() {
       setReviews(response.docs);
       setTotalInfo(response);
     } catch(error) {
-      console.error('Error al obtener reviews por rating:', error);
+      console.error(t("RatingHome.ReviewsAll.error2"), error);
     }
   }
   
@@ -64,7 +66,7 @@ export default function ReviewsAll() {
     <div className={style.container}>
 
       <div className={style.titulo}>
-        <h3>Reviews and comments</h3>
+        <h3>{t("RatingHome.ReviewsAll.title")}</h3>
       </div>
 
       <div className={style.filtro}>
@@ -92,7 +94,7 @@ export default function ReviewsAll() {
         { 
         reviews.length ?
         reviews.map((review, index) => <ReviewCard key={index} review={review} />) : 
-        <p className={style.notFound}>No reviews found with that rating</p> 
+        <p className={style.notFound}>{t("RatingHome.ReviewsAll.noReviewsStar")}</p> 
         }
       </div>
       

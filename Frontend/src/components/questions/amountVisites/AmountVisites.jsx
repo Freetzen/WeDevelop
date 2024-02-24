@@ -2,7 +2,7 @@ import React from 'react'
 import style from './AmountVisites.module.css'
 import { useTranslation } from 'react-i18next'
 
-export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
+export const AmountVisites = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
   const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
@@ -12,8 +12,8 @@ export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
       'amountOfVisits': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
-
 
   return (
     <div className={style.containerAmountVisites}>

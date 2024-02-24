@@ -29,74 +29,8 @@
   margin-bottom: 10px;
   line-height: 5rem;
 }
-.h1 span {
-  position: relative;
-}
-.h1 span::before {
-  content: "developer";
-  animation: words 20s linear infinite;
-}
-.h1 span::after {
-  content: "";
-  position: absolute;
-  width: calc(100% + 8px);
-  height: 100%;
-  border-left: 5px solid white;
-  right: -8px;
-  animation: cursor 1s infinite, typing 20s steps(14) infinite;
-}
-@keyframes cursor {
-  to {
-    border-left: 2px solid transparent;
-  }
-}
-@keyframes words {
-  0%,
-  20% {
-    content: "develop it.";
-  }
-  21%,
-  40% {
-    content: "create it.";
-  }
-  41%,
-  60% {
-    content: "make it happen.";
-  }
-  61%,
-  80% {
-    content: "bring it to life.";
-  }
-  81%,
-  100% {
-    content: "build it.";
-  }
-}
-@keyframes typing {
-  10%,
-  15%,
-  30%,
-  35%,
-  50%,
-  55%,
-  70%,
-  75%,
-  90%,
-  95% {
-    width: 0;
-  }
-  5%,
-  20%,
-  25%,
-  40%,
-  45%,
-  60%,
-  65%,
-  80%,
-  85% {
-    width: calc(100% + 8px);
-  }
-}
+
+
 
 .ImgContainer {
   height: 50%;

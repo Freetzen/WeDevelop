@@ -9,16 +9,15 @@ import StartQuote from "../../components/startQuote/StartQuote";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import SpinnerConLogo from '../../components/spinners/spinnerConLogo/SpinnerConLogo';
 
-const Home = () => {
+const Home = ({loading, setLoading}) => {
 
   const [messages, setMessages] = useState([]);
   const [totalReviews, setTotalReviews] = useState([])
-  const [loading, setLoading] = useState(false)
+  
 
   useEffect(() => {
     const bringData = async () => {
       try {
-        setLoading(!loading)
         const response = await reviewsProvider.getReview()
         setTotalReviews(response)
         const sortingResponse = response.slice(-4);
@@ -28,7 +27,7 @@ const Home = () => {
       } finally {
         setTimeout(() => {
           setLoading(false)  
-        }, 1000);
+        }, 4000);
       }
     }
 
@@ -44,11 +43,11 @@ const Home = () => {
       ) : (
         <>
           <Header />
-          <AboutUs />
+          <AboutUs setLoading={setLoading}/>
           <Skills />
           <Highlights />
           <StartQuote />
-          <Review totalReviews={totalReviews} messages={messages} />
+          {/* <Review totalReviews={totalReviews} messages={messages} /> */}
           <Footer />
         </>
       )}

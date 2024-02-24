@@ -6,11 +6,12 @@ import { FcCancel } from "react-icons/fc";
 import { FcOk } from "react-icons/fc";
 import { useTranslation } from 'react-i18next';
 
-export const Support = ({ quote, setQuote, question, setQuestion }) => {
+export const Support = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
+
   const [t, i18n] = useTranslation("global");
 
   const [showOptions, setShowOptions] = useState(false);
-  const [selectedSupport, setSelectedSupport] = useState(null); 
+  const [selectedSupport, setSelectedSupport] = useState(null);
   const handleYesClick = () => {
     setShowOptions(true);
   };
@@ -18,16 +19,15 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
 
   const handleClick = (e) => {
     const valueClick = e.currentTarget.getAttribute('value');
-   
-    setSelectedSupport(valueClick); 
+    setSelectedSupport(valueClick);
     setQuote({
       ...quote,
       'support': valueClick
     });
     setShowOptions(false);
     setQuestion(question + 1);
-  
-    console.log(valueClick);
+    setProgressBar(progressBar + 10)
+
   };
 
   return (
@@ -36,7 +36,7 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
         <h3>{t("QuoteQuestions.Section9.title")}</h3>
       </div>
 
-      <div className={style.containerImages}>
+      <div className={style.containerImages} style={showOptions ? { display: 'none' } : { display: '' }}>
         <div className={style.imageContainer} onClick={handleYesClick}>
           <img src={YesSuppor} alt="servicios" className={style.image} />
           <div className={style.containerIcon}>
@@ -48,10 +48,9 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
         </div>
 
         <div className={style.imageContainer} onClick={handleClick} value='No'>
-
           <img src={NoSupport} alt="Services" className={style.image} />
           <div className={style.containerIcon}>
-            <FcCancel className={style.smallImage}/>
+            <FcCancel className={style.smallImage} />
           </div>
           <div className={style.title}>
             <h4>{t("QuoteQuestions.Section9.answer2")}</h4>
@@ -60,12 +59,12 @@ export const Support = ({ quote, setQuote, question, setQuestion }) => {
       </div>
       {showOptions && (
         <div className={style.containerOptions}>
-          <h2>{t("QuoteQuestions.Section9.answer1.subtitle")}</h2>
           <div className={style['options-list']}>
             <button className={style['option-item']} onClick={handleClick} value='Weekly'>{t("QuoteQuestions.Section9.answer1.op1")}</button>
             <button className={style['option-item']} onClick={handleClick} value='Monthly'>{t("QuoteQuestions.Section9.answer1.op2")}</button>
             <button className={style['option-item']} onClick={handleClick} value='Quarterly'>{t("QuoteQuestions.Section9.answer1.op3")}</button>
             <button className={style['option-item']} onClick={handleClick} value='Others'>{t("QuoteQuestions.Section9.answer1.op4")}</button>
+            <button onClick={() => setShowOptions(false)}>Cancel</button>
           </div>
         </div>
       )}

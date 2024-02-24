@@ -1,8 +1,10 @@
 import React from 'react'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
 import style from './PaginateProyect.module.css'
+import { useTranslation } from 'react-i18next';
 
 const PaginateProyect = ({ totalInfo, selectedOptions, dataInit, bringData }) => {
+  const [t, i18n] = useTranslation("global");
 
 
   const handleNext = async () => {
@@ -26,10 +28,10 @@ const PaginateProyect = ({ totalInfo, selectedOptions, dataInit, bringData }) =>
   return (
     <div>
       {
-        totalInfo.hasPrevPage ? <button className={style.Buttons} onClick={handlePrev}>Prev</button> : null
+        totalInfo.hasPrevPage ? <button className={style.Buttons} onClick={handlePrev}>{t("Projects.paginate.prev")}</button> : null
       }
       {
-        totalInfo.hasNextPage ? <button className={style.Buttons} onClick={handleNext}>Next</button> : null
+        totalInfo.hasNextPage ? <button className={style.Buttons} onClick={handleNext}>{t("Projects.paginate.next")}</button> : null
       }
     </div>
   )

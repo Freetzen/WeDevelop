@@ -4,8 +4,10 @@ import projectsProvider from "../../utils/provider/projectsProvider/projectsProv
 import { useEffect, useState } from "react";
 import PaginateProyect from "../../components/paginateProject/PaginateProyect";
 import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
 
 export default function Projects({ setSelectedOptions, selectedOptions }) {
+  const [t, i18n] = useTranslation("global");
 
   // const [selectedOptions, setSelectedOptions] = useState([])
   const [projects, setProjects] = useState([])
@@ -43,7 +45,7 @@ export default function Projects({ setSelectedOptions, selectedOptions }) {
 
   const formattedOptions = categoriesMain.map(option => ({
     value: option,
-    label: option,
+    label: t(`Projects.projectsSelect.categories.${option}`),
     category: option
   }));
   const handleChange = (selectedOption) => {

@@ -14,11 +14,13 @@ import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import axios from 'axios'
+import { Payment } from './pages/payment/Payment'
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 
 function App() {
   const [selectedOptions, setSelectedOptions] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const location = useLocation()
 
@@ -29,10 +31,11 @@ function App() {
         && location.pathname !== '/createUser'
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
+        && location.pathname !== '/quote'
         && <NavBar />}
 
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home loading={loading} setLoading={setLoading}/>}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/projects" element={<Projects setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />}></Route>
@@ -42,6 +45,7 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="/reviews" element={<ReviewsAll />}></Route>
+        <Route path="/successpayment" element={<Payment />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
