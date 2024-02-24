@@ -15,6 +15,9 @@ const putUser = require('../controllers/putUser');
 const getAllProjects = require('../controllers/getAllProjects');
 const postPreference = require('../controllers/postPreference');
 const postMercadoPago = require('../controllers/postMercadoPago');
+const getPaymentMP = require('../controllers/getPaymentMP');
+const getPreferenceByEmailBD = require('../controllers/getPreferenceByEmail');
+const chatSocket = require('../controllers/chatSocket');
 const router = express.Router();
 
 router.post("/createpreference",postPreference)
@@ -33,6 +36,9 @@ router.get('/reviews', getReviews);
 router.get('/reviewsRating', getReviewAvarage);
 router.put('/users', putUser);
 router.post('/success', postMercadoPago);
+router.get('/successpayment', getPaymentMP);
+router.get('/getpreference', getPreferenceByEmailBD);
+router.get('/chat', chatSocket);
 
 
 
