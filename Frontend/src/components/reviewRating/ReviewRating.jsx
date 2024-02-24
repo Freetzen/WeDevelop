@@ -1,7 +1,9 @@
 import { GoStarFill } from "react-icons/go";
 import style from "./ReviewRating.module.css";
+import { useTranslation } from 'react-i18next';
 
 export default function ReviewRating({ totalReviews }) {
+  const [t, i18n] = useTranslation("global");
 
   const sum = totalReviews.reduce((sum, rating) => sum + rating.rating, 0)
   const numReviews = totalReviews.length
@@ -20,8 +22,8 @@ export default function ReviewRating({ totalReviews }) {
     <div className={style.container}>
       <div className={style.subContainer}>
         <h2 className={style.rating}>{average?.toFixed(1)}</h2>
-        <h4>Rating: {renderStars()}</h4>
-        <p>(Total comments: {numReviews})</p>
+        <h4>{t("RatingHome.rating")} {renderStars()}</h4>
+        <p>({t("RatingHome.comments")}: {numReviews})</p>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styles from './ExtraServices.module.css'
+import { useTranslation } from 'react-i18next';
 
-export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
+export const ExtraServices = ({ quote, setQuote, question, setQuestion, setProgressBar, progressBar }) => {
+  const [t, i18n] = useTranslation("global");
   const [platform, setPlatform] = useState('')
   const [positiveAnswer, setPosAnswer] = useState(false)
 
@@ -11,64 +13,59 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion }) => {
 
   const handleClick = (e) => {
     const valueClick = e.target.value
-    if (valueClick === 'Yes') setPosAnswer(true)
+    if (valueClick === 'Yes' || valueClick === 'Si') setPosAnswer(true)
     else {
       setQuote({
         ...quote,
         'extraServices': valueClick
       })
       setQuestion(question + 1)
+      setProgressBar(progressBar + 10)
     }
   }
 
   const handleClickContinue = (e) => {
+
     e.preventDefault()
     setQuote({
       ...quote,
       'extraServices': platform
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
-  const handleClickGoBack = () => {
-    quote.purpose === 'ecommerce'
-      ? setQuestion(question - 1)
-      : setQuestion(question - 2)
-  }
 
   return (
     <div className={styles.containerExtraServices}>
 
       <div className={styles.titleCuestion}>
-        <h3>Do you require integration with external platforms or services, such as social networks or online payment systems?</h3>
+        <h3>{t("QuoteQuestions.Section4.title")}</h3>
       </div>
-      
-      <div className={styles.containerButtons}>
-        <button className={styles.button} value="Yes" onClick={handleClick}>Yes</button>
+
+      <div className={styles.containerButtons} style={positiveAnswer ? { display: 'none' } : { display: '' }}>
+        <button className={styles.button} value={t("QuoteQuestions.Section4.answer1")} onClick={handleClick}>{t("QuoteQuestions.Section4.answer1")}</button>
 
         <button className={styles.button} value="No" onClick={handleClick}>No</button>
-
-        <button className={styles.button} onClick={handleClickGoBack}>Previous question</button>
       </div>
-      <br />
       {/* A continuacion aparece el index si la respuesta es positiva */}
       {positiveAnswer ? (
         <div className={styles.TrueExtraServiceContainer}>
-          <label>Which ones?</label>
-          <br />
           <input
             name='platform'
             type="text"
-            placeholder='ingrese aqui las plataformas'
+            placeholder={t("QuoteQuestions.Section4.whichOne.input")}
             value={platform}
             onChange={handleChange}
           />
-          <br />
           <button
             onClick={handleClickContinue}
           >
-            Continue
+            {t("QuoteQuestions.Section4.whichOne.save")}
           </button>
+          <button
+            onClick={() => setPosAnswer(false)}
+          >Cancel</button>
         </div>
       ) : (<></>)}
     </div>

@@ -9,6 +9,8 @@ const postPreference = async (req, res) => {
   try {
     const { title, price, quantity, quote  } = req.body;
 
+    console.log(req.body)
+
   /*   const shop = {
       title,
       price,

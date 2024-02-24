@@ -1,7 +1,9 @@
 import React from 'react'
 import style from './AmountOfProducts.module.css'
+import { useTranslation } from 'react-i18next'
 
-export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => {
+export const AmountOfProducts = ({ quote, setQuote, question, setQuestion,  setProgressBar, progressBar  }) => {
+  const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -10,31 +12,32 @@ export const AmountOfProducts = ({ quote, setQuote, question, setQuestion }) => 
       'amountOfProducts': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
 
   return (
     <div className={style.containerAmountOfProductse}>
       <div className={style.titleCuestion}>
-        <h3>Estimated number of products to publish?</h3>
+        <h3>{t("QuoteQuestions.Section3.title")}</h3>
       </div>
       <div className={style.containerButtons}>
         <button
         className={style.button}
-          value="under 10"
+          value={t("QuoteQuestions.Section3.answer1")}
           onClick={handleClick}
-        >Under 10</button>
+        >{t("QuoteQuestions.Section3.answer1")}</button>
 
         <button
         className={style.button}
-          value="10 to 20"
+          value={t("QuoteQuestions.Section3.answer2")}
           onClick={handleClick}
-        >10 to 20</button>
+        >{t("QuoteQuestions.Section3.answer2")}</button>
 
         <button
         className={style.button}
-          value="Over 20"
+          value={("QuoteQuestions.Section3.answer3")}
           onClick={handleClick}
-        >Over 20</button>
+        >{t("QuoteQuestions.Section3.answer3")}</button>
       </div>
     </div>
   )

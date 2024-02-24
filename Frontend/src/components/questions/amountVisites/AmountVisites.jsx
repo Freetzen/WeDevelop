@@ -1,7 +1,9 @@
 import React from 'react'
 import style from './AmountVisites.module.css'
+import { useTranslation } from 'react-i18next'
 
-export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
+export const AmountVisites = ({ quote, setQuote, question, setQuestion, progressBar, setProgressBar }) => {
+  const [t, i18n] = useTranslation("global");
 
   const handleClick = (e) => {
     const valueClick = e.target.value
@@ -10,33 +12,33 @@ export const AmountVisites = ({ quote, setQuote, question, setQuestion }) => {
       'amountOfVisits': valueClick
     })
     setQuestion(question + 1)
+    setProgressBar(progressBar + 10)
   }
-
 
   return (
     <div className={style.containerAmountVisites}>
       <div className={style.titleCuestion}>
-        <h3>How many visits do you estimate your site will have?</h3>
+        <h3>{t("QuoteQuestions.Section6.title")}</h3>
       </div>
 
       <div className={style.containerButtons}>
         <button
           className={style.button}
-          value="5 to 10 visits per month"
+          value={t("QuoteQuestions.Section6.answer1")}
           onClick={handleClick}
-        >5 to 10 visits per month</button>
+        >{t("QuoteQuestions.Section6.answer1")}</button>
 
         <button
           className={style.button}
-          value="10 to 20 visits per month"
+          value={t("QuoteQuestions.Section6.answer2")}
           onClick={handleClick}
-        >10 to 20 visits per month</button>
+        >{t("QuoteQuestions.Section6.answer2")}</button>
 
         <button
           className={style.button}
-          value="20 or more visits per month"
+          value={t("QuoteQuestions.Section6.answer3")}
           onClick={handleClick}
-        >20 or more visits per month</button>
+        >{t("QuoteQuestions.Section6.answer3")}</button>
       </div>
     </div>
   )
