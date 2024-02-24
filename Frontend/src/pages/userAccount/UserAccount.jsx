@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import { useTranslation } from "react-i18next";
+import { clearLocalStorage } from "../../helpers/local";
 
 
 export const UserAccount = ({ menuIsActive }) => {
@@ -12,6 +13,11 @@ export const UserAccount = ({ menuIsActive }) => {
   const [userBD, setUserBD] = useState({})
   let fecha = user.updated_at.split("")
   let res = fecha.slice(0, 10)
+
+  const handleLogut = () => {
+    logout()
+    clearLocalStorage()
+  }
 
   useEffect(() => {
     fetchData();
@@ -35,7 +41,7 @@ export const UserAccount = ({ menuIsActive }) => {
         <p> {res}</p>
       </div>
       <div className={style.buttonsContainer}>
-        <button onClick={() => logout()}>{t("UserAccount.SignOut")}</button>
+        <button onClick={handleLogut}>{t("UserAccount.SignOut")}</button>
         <div>
         {
   userBD && userBD.role === 'admin' ? (
