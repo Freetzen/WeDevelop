@@ -14,8 +14,9 @@ import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import ChatSocket from './components/chatSocket/ChatSocket'
-import axios from 'axios'
 import { Payment } from './pages/payment/Payment'
+import axios from 'axios'
+
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 

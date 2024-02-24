@@ -41,6 +41,7 @@ const postPreference = async (req, res) => {
       }
 
       const newPreferenceBD = await createPreference(newObj)
+      
       res.status(200).json({ id: result.id });
     } catch (error) {
       console.log(error.message)

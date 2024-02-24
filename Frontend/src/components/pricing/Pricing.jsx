@@ -6,12 +6,11 @@ import { MdCancel } from "react-icons/md";
 import { MdStars } from "react-icons/md";
 import { useEffect, useState } from 'react';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import { useAuth0 } from "@auth0/auth0-react";
-import projectsProvider from "../../utils/provider/projectsProvider/projectsProvider";
+import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 
 const Pricing = ({ quote }) => {
 
-    const {user} = useAuth0()
+    const infoUser = JSON.parse(localStorage.getItem('info'))
 
     initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
 
@@ -22,19 +21,23 @@ const Pricing = ({ quote }) => {
         price: 0,
         quantity: 1,
         quote,
-        email: user.email
+        email: infoUser.email
     })
 
     const handleClick = async (e) => {
         setPreferenceId('')
-
+        console.log('1')
         const newProject = {
             ...project,
             'title': e.target.name,
             'price': e.target.value
         };
         
+        await setProject(newProject)
+        console.log('2')
+        
     } 
+    console.log('3', project)
 
     useEffect(() => {
         handleBuy();
@@ -42,7 +45,8 @@ const Pricing = ({ quote }) => {
 
 
     const handleBuy = async () => {
-        const id = await projectsProvider.createPreference(project)
+        console.log('4')
+        const id = await pricingProvider.createPreference(project)
         console.log('ID', id)
         if (id) {
             await setPreferenceId(id)
