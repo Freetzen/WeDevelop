@@ -13,7 +13,7 @@ import { Language } from '../questions/language/Language'
 import { ResumeQuestions } from '../resumeQuestions/ResumeQuestions'
 import BarProgress from './barProgress/BarProgress'
 import Pricing from '../pricing/Pricing'
-import SpinnerResumen from '../spinners/spinnerResumen/spinnerResumen'
+import SpinnerResumen from '../spinners/spinnerResumen/SpinnerResumen'
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
