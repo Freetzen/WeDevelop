@@ -8,26 +8,16 @@ const client = new MercadoPagoConfig({
 
 const postMercadoPago = async(req, res) => {
 try {
-    console.log('REQ.BODY DE MP: ', req.body)
-
     const {data} = req.body
-
     const {id} = data
 
-    console.log('DATA.ID: ', id)
+    const payment = await new Payment(client).get({id: id}) 
 
-    const payment = new Payment(client);
-
-payment.get({
-	id: id,
-}).then(console.log).catch(console.log);
-    
-    console.log('PAYMENT: ', payment)
-
-    res.status(200).send("ok")
+    res.status(200).send('success')
 } catch (error) {
     
 }
+
 }
 
 module.exports = postMercadoPago
