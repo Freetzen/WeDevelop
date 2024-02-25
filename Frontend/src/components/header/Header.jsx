@@ -1,10 +1,35 @@
 import style from './Header.module.css';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const [t, i18n] = useTranslation("global");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [words, setWords] = useState([]);
+
+  const fetchTranslatedWords = () => {
+    const translatedWords = [t("Header.change.word1"), t("Header.change.word2"), t("Header.change.word3"), t("Header.change.word4")];
+    setWords(translatedWords);
+    setWordIndex(Math.floor(Math.random() * translatedWords.length));
+  };
+
+  useEffect(() => {
+    fetchTranslatedWords();
+
+    const interval = setInterval(() => {
+      setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [t]);
+
   return (
     <div className={style.HeaderContainer}>
       <div className={style.titleContainer}>
-        <h1 className={style.h1}>If you can imagine it, we can develop it</h1>
+        <h1 className={style.h1}>{t("Header.title")} <span>{words[wordIndex]}</span></h1>
+        
         <img src="./images/logo-header.png" alt="" />
       </div>
       <div className={style.ImgContainer}>

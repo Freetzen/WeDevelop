@@ -3,14 +3,16 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { GoStarFill } from "react-icons/go";
 import style from "./ReviewForm.module.css";
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider';
+import { useTranslation } from "react-i18next";
 
 const ReviewForm = () => {
+  const [t, i18n] = useTranslation("global");
   const { user } = useAuth0();
   const [info, setInfo] = useState({
     name: user.name,
     email: user.email,
     image: user.picture,
-    rating: 5,
+    rating: 0,
     message: ''
   });
 
@@ -48,7 +50,7 @@ const ReviewForm = () => {
     <div className={style.container}>
       <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.linea}>
-          <label>Message: </label>
+          <label>{t("RatingHome.RatingForm.message")} </label>
           <textarea key='message' name='message' value={info.message} rows="5" onChange={handleChange} />
         </div>
 
@@ -67,7 +69,7 @@ const ReviewForm = () => {
           ))}
         </div>
         <div className={style.containerButton}>
-          <button type="submit" disabled={info.message === ''}>Send review!</button>
+          <button type="submit" disabled={info.message === ''}>{t("RatingHome.RatingForm.button")}</button>
         </div>
       </form>
     </div>

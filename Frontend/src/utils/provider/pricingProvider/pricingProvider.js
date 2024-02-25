@@ -1,13 +1,21 @@
 import axios from "axios"
 
-export const createPreference = async (project) => {
-    console.log("datos provider:",project)
-    try {
-        const response = await axios.post("/preference", project)
-        // const {id} = response.data;
-        // return id;
-        return response
-    } catch (error) {
-        console.log(error.message)        
+const pricingProvider = {
+    async createPreference(project) {
+        try {
+            console.log('prov1', project)
+            const response = await axios.post('/createpreference', project)
+            console.log('prov2')
+            const {id} = response.data
+            return id
+        }catch (error) {
+            console.log(error.message)
+        }
     }
+
+
 }
+
+
+
+export default pricingProvider

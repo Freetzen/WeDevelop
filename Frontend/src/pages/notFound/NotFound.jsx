@@ -1,8 +1,10 @@
 import React from 'react'
 import style from './NotFound.module.css'
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
+  const [t, i18n] = useTranslation("global");
 
     const navigate = useNavigate();
     const handleClick = () => {
@@ -16,23 +18,23 @@ const NotFound = () => {
             <img src= "./images/404NotFound.png" />
         </div>
         
-        <h1>404 - Page Not Found</h1>
+        <h1>{t("NotFoundPage.part1")}</h1>
         <p>
-        You might be here because:
+        {t("NotFoundPage.part2")}
         <br />
-        • The page has moved
+        {t("NotFoundPage.part3")}
         <br />
-        • The page no longer exists
+        {t("NotFoundPage.part4")}
         <br />
-        You were looking for your kittens and got lost
+        {t("NotFoundPage.part5")}
         <br />
-        • You like 404 pages
+        {t("NotFoundPage.part6")}
         <br />
         <br />
-        Dont cry! just click the button below to fix it
+        {t("NotFoundPage.part7")}
       </p>
       <br />
-      <button className={style.button} onClick={handleClick}>Secure zone</button>
+      <button className={style.button} onClick={handleClick}>{t("NotFoundPage.button")}</button>
         </div>
     )
 }

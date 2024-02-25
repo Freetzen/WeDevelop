@@ -3,8 +3,10 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import style from './Highlights.module.css'
 import ProjectsButton from "../projectsButton/ProjectsButton";
+import { useTranslation } from 'react-i18next';
 
 const Highlights = () => {
+  const [t, i18n] = useTranslation("global");
   const [projects, setProjects] = useState([
     { url: 'https://img.freepik.com/free-vector/watercolor-abstract-shapes-template-design_23-2149324861.jpg?w=1380&t=st=1707430805~exp=1707431405~hmac=dad2e714b36b0106825827f38d0d0cb50bac17a1f17af9e28fcc1528012c1f32' },
     { url: 'https://img.freepik.com/free-vector/travel-sale-home-page_52683-44156.jpg?w=1380&t=st=1707430512~exp=1707431112~hmac=1bebf41cc6feda8016199151fe09ec299c4da67fe6068fb332e5c330439471be' },
@@ -27,7 +29,7 @@ const Highlights = () => {
   return (
     <div className={style.carouselcontainer}>
       <div className={style.containerTitle}>
-        <h2>WeDevelop Templates</h2>
+        <h2>{t("Highlights.title")}</h2>
       </div>
       <div className={style.containerCarrusel}>
         <Carousel {...carouselSettings} autoPlay={true} interval={3000} infiniteLoop={true} className={style.carouselStyles} >

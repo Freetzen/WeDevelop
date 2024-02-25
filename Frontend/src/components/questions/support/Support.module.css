@@ -1,26 +1,29 @@
 .containerSupport {
-  background-color: #6940ff;
-  height: 1000px;
+  height: 920px;
   width: 100%;
+  padding: 20px 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 10px;
+}
+
+.titleCuestion {
+  width: auto;
+  height: auto;
+  padding: 20px 15px;
 }
 
 .containerSupport .titleCuestion h3 {
-  color: aliceblue;
-  font-size: 50px;
-  font-weight: 200;
-  letter-spacing: -1px;
-  margin: 20px 0px;
+  color: rgb(76, 76, 76);
+  font-size: 45px;
+  font-weight: 600;
+  letter-spacing: -2px;
 }
 
 .containerImages {
-  width: 60%;
+  width: 100%;
   margin: 20px 0px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
@@ -53,48 +56,40 @@
 }
 
 .imageContainer .title {
-  border: 1px solid white;
   margin: 20px 0px;
   padding: 15px;
   text-align: center;
 }
 
-.imageContainer .title h4{
- color: aliceblue;
- font-size: 30px;
+.imageContainer .title h4 {
+  color: #646464;
+  font-size: 30px;
 }
 
 .containerOptions {
-  width: 60%;
+  width: auto;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  margin: 15px 0px;
   padding: 15px;
+  gap: 15px;
 }
 
-.containerOptions h2 {
-  color: aliceblue;
-  font-size: 30px;
-  font-weight: 500;
-  margin: 20px 0px;
+.options-list {
+  display: flex;
+    gap: 15px;
+    padding-left: 15px;
 }
 
-.options-list .option-item {
-  margin: 15px 10px;
-  width: 250px;
+.options-list button {
   height: 50px;
-  font-size: 20px;
-  font-weight: 700;
-  color: aliceblue;
-  background-color: #FCC922;
-  box-shadow: black 6px 6px;
-  cursor: pointer;
-
+    width: 200px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: blueviolet;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
 }
 
 
-.option-item:hover {
-  transform: scale(1.04);
-}

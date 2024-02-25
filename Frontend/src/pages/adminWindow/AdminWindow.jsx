@@ -7,9 +7,23 @@ import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
 import userProvider from '../../utils/provider/userProvider/userProvider'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider'
+import SpinnerSinLogo from '../../components/spinners/spinnerSinLogo/SpinnerSinLogo'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
     const [detailState, setDetailState] = useState('')
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        setLoading(!loading)
+
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 4000);
+
+        return () => clearTimeout(timer);
+
+    }, [itemsToEdit])
 
     const [pieGraph, setPieGraph] = useState([
         { name: 'Inactive', value: 0, valuePercent: `${25}%` },
@@ -60,7 +74,7 @@ const AdminWindow = () => {
             counter[item.rating] = (counter[item.rating] || 0) + 1;
             return counter;
         }, {});
-        console.log('counter proj', counterProjects);
+
         setBarGraph([
             { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
             { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },
@@ -81,6 +95,7 @@ const AdminWindow = () => {
             { name: 'Social Network', value: counterProjects.Social_Network, valuePercent: `${75}%` },
             { name: 'Tourism', value: counterProjects.Tourism, valuePercent: `${75}%` },
         ])
+
 
     }
 
@@ -160,55 +175,56 @@ const AdminWindow = () => {
                         </ResponsiveContainer>
                     </div>
                 </div>
-                <div className={style.adminusers}>
-                    {!itemsToEdit.length ? '' : itemsToEdit[0].email ?
-                        <div className={style.containerInfo}>
-                            <p className={style.user}>User</p>
-                            <p className={style.email}>Email</p>
-                            <p>Status</p>
-                            <p className={style.role}>Role</p>
-                        </div> : <div className={style.containerInfoProject}>
-                            <p className={style.image}>Image</p>
-                            <p className={style.name}>Name</p>
-                            <p className={style.category}>Category</p>
-                        </div>}
+                {loading ? <div className={style.containerSpinner}><SpinnerSinLogo /></div> :
+                    <div className={style.adminusers}>
+                        {!itemsToEdit.length ? '' : itemsToEdit[0].email ?
+                            <div className={style.containerInfo}>
+                                <p className={style.user}>User</p>
+                                <p className={style.email}>Email</p>
+                                <p>Status</p>
+                                <p className={style.role}>Role</p>
+                            </div> : <div className={style.containerInfoProject}>
+                                <p className={style.image}>Image</p>
+                                <p className={style.name}>Name</p>
+                                <p className={style.category}>Category</p>
+                            </div>}
 
-                    <div className={style.adminCards}>
-                        {
-                            detailState
-                                ? <AdminDetail
-                                    detailState={detailState}
-                                    setDetailState={setDetailState}
-                                    setItemsToEdit={setItemsToEdit}
-                                    itemsToEdit={itemsToEdit}
-                                />
-                                : !itemsToEdit.length
-                                    ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
-                                    : itemsToEdit[0].email
-                                        ? itemsToEdit.map(item => (
-                                            <AdminItemCard
-                                                key={item._id}
-                                                id={item._id}
-                                                name={item.name}
-                                                email={item.email}
-                                                suspended={item.suspended}
-                                                role={item.role}
-                                                setDetailState={setDetailState}
-                                            />
-                                        ))
-                                        : itemsToEdit.map(item => (
-                                            <AdminItemCard
-                                                key={item._id}
-                                                id={item._id}
-                                                name={item.name}
-                                                images={item.images}
-                                                category={item.category}
-                                                setDetailState={setDetailState}
-                                            />
-                                        ))
-                        }
-                    </div>
-                </div>
+                        <div className={style.adminCards}>
+                            {
+                                detailState
+                                    ? <AdminDetail
+                                        detailState={detailState}
+                                        setDetailState={setDetailState}
+                                        setItemsToEdit={setItemsToEdit}
+                                        itemsToEdit={itemsToEdit}
+                                    />
+                                    : !itemsToEdit.length
+                                        ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                                        : itemsToEdit[0].email
+                                            ? itemsToEdit.map(item => (
+                                                <AdminItemCard
+                                                    key={item._id}
+                                                    id={item._id}
+                                                    name={item.name}
+                                                    email={item.email}
+                                                    suspended={item.suspended}
+                                                    role={item.role}
+                                                    setDetailState={setDetailState}
+                                                />
+                                            ))
+                                            : itemsToEdit.map(item => (
+                                                <AdminItemCard
+                                                    key={item._id}
+                                                    id={item._id}
+                                                    name={item.name}
+                                                    images={item.images}
+                                                    category={item.category}
+                                                    setDetailState={setDetailState}
+                                                />
+                                            ))
+                            }
+                        </div>
+                    </div>}
             </div>
         </div>
     )

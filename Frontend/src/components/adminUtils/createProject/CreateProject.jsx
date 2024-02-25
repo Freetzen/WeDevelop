@@ -2,6 +2,7 @@ import { useState } from "react";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
 import style from './CreateProject.module.css'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const CreateProject = () => {
 
@@ -33,6 +34,15 @@ const CreateProject = () => {
         images: "",
         description: "",
         category: category[0],
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Your new project has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'center',
+        }
       });
       return newProject;
     } catch (error) {
@@ -114,7 +124,7 @@ const CreateProject = () => {
           <button type="submit" /* disabled={!proyect.name && !proyect.category && !proyect.images && !proyect.description} */>Send</button>
         </div>
       </form>
-
+      <div id="sweetAlertContainer" className={style.center}></div>
     </div>
   );
 }

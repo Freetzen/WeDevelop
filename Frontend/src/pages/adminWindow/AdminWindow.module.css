@@ -4,7 +4,13 @@
     height: max-content;
     display: flex;
     justify-content: center;
+    position: relative;
 
+}
+
+.containerSpinner {
+    position: relative;
+    top: 250px;
 }
 
 .containerPanel {
@@ -53,7 +59,6 @@
 .adminWindow .titleAdminUser {
     width: 98%;
     text-align: center;
-    border: 1px solid black;
 }
 
 .adminWindow .titleAdminUser h2 {
@@ -62,8 +67,12 @@
     text-align: start;
     letter-spacing: -2px;
     color: #707070;
-    border: 1px solid black;
 }
+.adminusers {
+    height: max-content;
+}
+
+
 
 .containerPanel .adminusers {
     background-color: #F5F5F5;
@@ -72,10 +81,6 @@
     margin: 10px 10px;
 }
 
-.adminusers {
-    height: max-content;
-
-}
 
 /* tabla user title */
 
