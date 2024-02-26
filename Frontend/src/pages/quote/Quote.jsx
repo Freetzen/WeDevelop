@@ -3,8 +3,10 @@ import { Section } from "../../components/section/Section";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useTranslation } from "react-i18next";
 
 export const Quote = () => {
+  const [t, i18n] = useTranslation("global");
 
   const user = JSON.parse(localStorage.getItem('info'))
 
@@ -30,7 +32,7 @@ export const Quote = () => {
       Swal.fire({
         position: "center",
         icon: "error",
-        title: "Debes iniciar sesión!",
+        title: t("NavBar.Quote.alertNotLogged"),
         showConfirmButton: false,
         timer: 2000,
       });
@@ -43,7 +45,7 @@ export const Quote = () => {
       Swal.fire({
         position: "center",
         icon: "error",
-        title: "Debes iniciar sesión!",
+        title: t("NavBar.Quote.alertNotLogged"),
         showConfirmButton: false,
         timer: 2000,
       });

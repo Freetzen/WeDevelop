@@ -1,7 +1,10 @@
 {
   "NavBar": {
     "Home": "Inicio",
-    "Quote": "Cotizar",
+    "Quote": {
+      "title": "Cotizar",
+      "alertNotLogged": "Debes iniciar sesión para cotizar"
+    },
     "Projects": "Proyectos",
     "ContactUs": "Contactanos"
   },
@@ -17,7 +20,11 @@
   },
 
   "LoginButton": {
-    "title": "Iniciar Sesion"
+    "title": "Iniciar Sesion",
+    "register": "Registrarse",
+    "bannedAlert": "Has sido baneado. Por favor contacte al soporte.",
+    "bannedAlertContact": "Soporte de contacto",
+    "bannedWhy": "¿Por qué tengo este problema?"
   },
 
   "UserAccount": {
@@ -76,19 +83,28 @@
     "NotLogged": "Debes estar registrado para enviar una reseña",
     "RatingForm": {
       "message": "Deja tu reseña :",
-      "button": "Enviar Reseña!"
+      "button": "Enviar Reseña!",
+      "alertTitle": "¡Su Reseña ha sido enviada!"
     },
     "viewAll": "Ver todas las reseñas",
     "ReviewsAll": {
       "error1": "Error al obtener reviews por rating:",
       "error2": "Error al obtener reviews por rating:",
       "title": "Comentarios y reseñas",
-      "all": "All reviews",
+      "subTitle": "Filtrar por estrellas:",
+      "all": "Todas las reseñas",
       "5stars": "5 estrellas",
       "4stars": "4 estrellas",
       "3stars": "3 estrellas",
       "2stars": "2 estrellas",
       "1star": "1 estrellas",
+      "orderBy": "Ordenar de:",
+      "recent": "Más reciente",
+      "oldest": "Más antiguo",
+      "paginatePrev": "Anterior",
+      "paginatePage": "Página",
+      "paginateOf": "de",
+      "paginateNext": "Siguiente",
       "noReviewsStar": "No se encontraron reseñas con esa calificación."
     }
   },
@@ -187,9 +203,16 @@
     }
   },
 
+
+
+  "plansTitle":{
+    "title": "Planes y Precios",
+    "subtitle": "Elija el plan adecuado para su sitio web y nosotros lo desarrollaremos"
+  },
   "plans": {
     "BasicPlan": {
       "title": "Plan Básico",
+      "description": "Para quienes desean iniciar su presencia en Internet de forma sencilla pero eficaz.",
       "sec1": "Registro en otras plataformas.",
       "sec2": "Dominio personalizado.",
       "sec3": "Plantillas predefinidas.",
@@ -201,10 +224,14 @@
       "sec9": "Panel y administradores multi-sitio.",
       "sec10": "Chat en vivo.",
       "sec11": "Chat en vivo personalizado con IA.",
+      "showMore": "Ver más",
+      "showLess": "Ver menos",
+      "perProject": "/por proyecto",
       "button": "Comenzar"
     },
     "BusinessPlan": {
       "title": "Plan de Negocios",
+      "description": "Diseñado para mejorar la eficacia, la seguridad y la interactividad de su presencia digital..",
       "sec1": "Certificado SSL.",
       "sec2": "Registro en otras plataformas.",
       "sec3": "Dominio personalizado.",
@@ -216,10 +243,14 @@
       "sec9": "Panel y administradores multi-sitio.",
       "sec10": "Correo electrónico personalizado.",
       "sec11": "Chat en vivo personalizado con IA.",
+      "showMore": "Ver más",
+      "showLess": "Ver menos",
+      "perProject": "/por proyecto",
       "button": "Comenzar"
     },
     "EnterprisePlan": {
       "title": "Plan Empresarial",
+      "description": "Libere el potencial digital de su empresa con funciones diseñadas para el crecimiento.",
       "sec1": "Certificado SSL.",
       "sec2": "Registro en otras plataformas.",
       "sec3": "Dominio personalizado.",
@@ -230,7 +261,10 @@
       "sec8": "Panel y administradores multi-sitio.",
       "sec9": "Chat en vivo.",
       "sec10": "Chat en vivo personalizado con IA.",
-      "sec11": "Campos por formulario.",
+      "sec11": "Herramientas analíticas avanzadas.",
+      "showMore": "Ver más",
+      "showLess": "Ver menos",
+      "perProject": "/por proyecto",
       "button": "Comenzar"
     }
   },

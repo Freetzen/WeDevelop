@@ -47,7 +47,7 @@ const NavBar = () => {
             <Link to="/">{t("NavBar.Home")}</Link>
           </li>
           <li>
-            <Link to="/quote">{t("NavBar.Quote")}</Link>
+            <Link to="/quote">{t("NavBar.Quote.title")}</Link>
           </li>
           <li>
             <Link to="/projects">{t("NavBar.Projects")}</Link>
@@ -60,16 +60,19 @@ const NavBar = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <span>
+            <span className={style.dropdownIcon}>
               <TfiWorld />
             </span>
             {isDropdownOpen && (
               <ul className={style.dropdownContent}>
                 <li>
-                <button onClick={() => handleChangeLanguage("es")}>🏳️‍🌈 Español</button>          
-                  </li>
+                <button onClick={() => handleChangeLanguage("es")} className={style.languageButton}><img src="./public/images/spanish.png" /></button>          
+                </li>
                 <li>
-                <button onClick={() => handleChangeLanguage("en")}>🏳️‍🌈 English</button>    
+                <button onClick={() => handleChangeLanguage("en")} className={style.languageButton}><img src="./public/images/english.png" /></button>    
+                </li>
+                <li>
+                <button onClick={() => handleChangeLanguage("fr")} className={style.languageButton}><img src="./public/images/french.png" /></button>
                 </li>
               </ul>
             )}

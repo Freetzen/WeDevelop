@@ -61,20 +61,20 @@ const Pricing = ({ quote }) => {
     return (
         <div className={style.pricingContainer}>
             <div className={style.titleCuestion}>
-                <h3>Plans and pricing</h3>
-                <p>Choose the right plan for your website and we will develop it</p>
+                <h3>{t("plansTitle.title")}</h3>
+                <p>{t("plansTitle.subtitle")}</p>
             </div>
 
             <div className={style.containerCards}>
                 <div className={style.cardBox} >
                     <div className={style.containerTitleAndDescripcion}>
                         <h4 style={{color: '#DB319B'}}>{t("plans.BasicPlan.title")}</h4>
-                        <p>For those looking to start their online presence in a simple yet effective way.</p>
+                        <p>{t("plans.BasicPlan.description")}</p>
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
                             <h4 className={style.h4}>$100</h4>
-                            <p className={style.p}>/per project</p>
+                            <p className={style.p}>{t("plans.BasicPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
                             <button
@@ -110,7 +110,7 @@ const Pricing = ({ quote }) => {
                                 <button
                                     className={style.buttonSeeMore}
                                     onClick={() => setSeeMoreBasic(!seeMoreBasic)}
-                                >{seeMoreBasic ? 'Show Less' : 'Show More'}
+                                >{seeMoreBasic ? t("plans.BasicPlan.showLess") : t("plans.BasicPlan.showMore")}
                                     {seeMoreBasic ? <IoIosArrowDropup className={style.icon} /> : <IoIosArrowDropdown className={style.icon} />}
                                 </button>
                             </div>
@@ -123,12 +123,12 @@ const Pricing = ({ quote }) => {
                 <div className={style.cardBox}>
                     <div className={style.containerTitleAndDescripcion}>
                         <h4 style={{ color: '#982090' }}>{t("plans.BusinessPlan.title")}</h4>
-                        <p>Designed to enhance efficiency, security, and interactivity in your digital presence.</p>
+                        <p>{t("plans.BusinessPlan.description")}</p>
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
                             <h4 className={style.h4}>$200</h4>
-                            <p className={style.p}>/per project</p>
+                            <p className={style.p}>{t("plans.BusinessPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
                             <button className={style.buttonPay} name="Business Plan" value='200' onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
@@ -159,7 +159,7 @@ const Pricing = ({ quote }) => {
                                 <button
                                     className={style.buttonSeeMore}
                                     onClick={() => setSeeMoreBusiness(!seeMoreBusiness)}
-                                >{seeMoreBusiness ? 'Show Less' : 'Show More'}
+                                >{seeMoreBusiness ? t("plans.BusinessPlan.showLess") : t("plans.BusinessPlan.showMore")}
                                     {seeMoreBusiness ? <IoIosArrowDropup className={style.icon} /> : <IoIosArrowDropdown className={style.icon} />}
                                 </button>
                             </div>
@@ -171,12 +171,12 @@ const Pricing = ({ quote }) => {
                 <div className={style.cardBox}>
                     <div className={style.containerTitleAndDescripcion}>
                         <h4 style={{ color: '#5425fc' }}>{t("plans.EnterprisePlan.title")}</h4>
-                        <p>Unlock your company's digital potential with features designed for growth.</p>
+                        <p>{t("plans.EnterprisePlan.description")}</p>
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
                             <h4 className={style.h4}>$350</h4>
-                            <p className={style.p}>/per project</p>
+                            <p className={style.p}>{t("plans.EnterprisePlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
                             <button className={style.buttonPay} name="Enterprise Plan" value='350' onClick={handleClick}>{t("plans.EnterprisePlan.button")}</button>
@@ -200,14 +200,14 @@ const Pricing = ({ quote }) => {
                                 <p><FaCircleCheck className={style.icon} />{t("plans.EnterprisePlan.sec7")}</p>
                                 <p><FaCircleCheck className={style.icon} />{t("plans.EnterprisePlan.sec8")}</p>
                                 <p><FaCircleCheck className={style.icon} />{t("plans.EnterprisePlan.sec9")}</p>
-                                <p><FaCircleCheck className={style.icon} />+30 {t("plans.EnterprisePlan.sec10")}</p>
-                                <p><FaCircleCheck className={style.icon} />Advanced Analytics Tools</p>
+                                <p><FaCircleCheck className={style.icon} />{t("plans.EnterprisePlan.sec10")}</p>
+                                <p><FaCircleCheck className={style.icon} />{t("plans.EnterprisePlan.sec11")}</p>
                             </> : <></>}
                             <div className={style.containerButton}>
                                 <button
                                     className={style.buttonSeeMore}
                                     onClick={() => setSeeMoreEnterprise(!seeMoreEnterprise)}
-                                >{seeMoreEnterprise ? 'Show Less' : 'Show More'}
+                                >{seeMoreEnterprise ? t("plans.EnterprisePlan.showLess") : t("plans.EnterprisePlan.showMore")}
                                     {seeMoreEnterprise ? <IoIosArrowDropup className={style.icon} /> : <IoIosArrowDropdown className={style.icon} />}
 
                                 </button>
