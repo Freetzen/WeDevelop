@@ -2,21 +2,33 @@ import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { TfiWorld } from "react-icons/tfi";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import LoginButton from "../loginButton/LoginButton";
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu} from 'react-icons/fi';
+import { UserAccountMobile } from "../userAccountMobile/UserAccountMobile";
 
 
 
 const NavBar = () => {
-  const isMobile = window.innerWidth < 680;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 680);
+    };
+  window.addEventListener('resize', handleResize);
+  return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
   const [t, i18n] = useTranslation("global");
   const handleChangeLanguage = (lang) => {
     i18next.changeLanguage(lang);
   };
-  const { user } = useAuth0();
+  const { isAuthenticated ,user } = useAuth0();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -36,14 +48,10 @@ const NavBar = () => {
     };
   }, [isDropdownOpen]);
 
-  
+  const [isVisible, setIsVisible] = useState(false);
+
   const handleShowMenu = () => {
-    const menu = document.querySelector(`.${style.menu}`);
-    if(menu.style.left === "-800px") {
-        menu.style.left = "0";
-    } else {
-        menu.style.left = "-800px";
-    }
+    setIsVisible(!isVisible);
   }
 
   const ocultarMenu = () => {
@@ -59,7 +67,7 @@ const NavBar = () => {
         </div>
       </Link>
 
-      <div className={style.menu} onClick={ocultarMenu}>
+      <div className={style.menu} onClick={ocultarMenu} style={isVisible ? { left: '0' } : { left: '-800px' }}>
         <nav>
             <ul>
                   <li>
@@ -95,14 +103,15 @@ const NavBar = () => {
                   </li>
             </ul>
           </nav>
-        <div className={style.login}>
+        <div className={style.login} style={isAuthenticated && isMobile ? { display: 'none' } : { display: ''}}>
              <LoginButton />
-        </div>     
+        </div>  
+        { isAuthenticated ? <UserAccountMobile /> : null }   
       </div>
-      {
-        isMobile && <div className={style.hamburgContainer}><button onClick={handleShowMenu}><FiMenu /></button></div>
-      }
-    </div>
+        <div className={style.hamburgContainer}>
+          <button className={style.menuButton} onClick={handleShowMenu}><FiMenu /></button>
+        </div>
+      </div>
   );
 };
 

@@ -35,8 +35,8 @@ export default function Review({ totalReviews, messages }) {
         </div>
       ) : (
         <div className={style.H3andButton}>
-          <h3>{t("RatingHome.NotLogged")} </h3>
-          <LoginButton />
+            <h3>{t("RatingHome.NotLogged")} </h3>
+            <LoginButton /> 
         </div>
       )}
     </div>

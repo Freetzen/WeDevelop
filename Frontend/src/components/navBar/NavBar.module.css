@@ -86,6 +86,9 @@
     display: block;
   }
 
+  .hamburgContainer {
+    display: none;
+  }
 
 
 
@@ -94,7 +97,7 @@
   @media only screen and (max-width: 680px) {
     
     .NavBarContainer {
-      height: 40px;
+      height: 50px;
       justify-content: space-between;
       padding: 0;
       top: 0;
@@ -104,10 +107,12 @@
   }
   
  .logo {
-      width: 100px;
+      width: 120px;
+      height: auto;
+      margin: auto 0px;
       margin-left: 15px;
       position: absolute;
-      top: 10px;
+      top: 12px;
  }
 
   .logo img {
@@ -115,22 +120,28 @@
   }
   
 .menu {
-      width: 100vw;
+      width: 100%;
       padding: 20px 0px;
       flex-direction: column;
       background: #2f2f2f;
-      position: relative;
-      left: -800px;
-      top: 150px;
+      position: absolute;
+      top: 50px;
       justify-self: start;
       justify-content: left;
       transition: all 0.5s;
+      z-index: 1000;
     }
 
+.menu nav {
+  width: 100%;
+  padding: 0px 20px;
+}
+
 .menu ul {
-      width: 380px;
-      padding: 0px 20px;
+      width: 100%;
+      padding: 0;
       flex-wrap: wrap;
+      border-bottom: .2px solid rgba(55,55,55, 1);
   }
   
   .menu ul li {
@@ -145,7 +156,7 @@
       color: aliceblue;
       display: block;
       font-weight: 500;
-      font-size: 17px;
+      font-size: 20px;
   }
 
   .login {
@@ -159,7 +170,7 @@
       height: auto;
       width: max-content;
       font-weight: 500;
-      font-size: 17px;
+      font-size: 20px;
       color: #6940FF;
       background: transparent;
       border: none;
@@ -193,12 +204,18 @@
     .dropdown:hover .dropdownContent {
       display: block;
     }
+
+    .hamburgContainer {
+      height: 26px;
+      display: block;
+      margin-right: 15px;
+    }
   
     .hamburgContainer button{
-      font-size: 20px;
+      font-size: 26px;
       font-weight: 600;
+      line-height: 26px;
       color: #fff;
-      margin-right: 15px;
       background: transparent;
       border: none;
     }

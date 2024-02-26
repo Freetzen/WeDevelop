@@ -73,7 +73,7 @@
   "RatingHome": {
     "rating": "Rating",
     "comments": "Total Comments",
-    "NotLogged": "You must be singed up to send review",
+    "NotLogged": "Login to submit review",
     "RatingForm": {
       "message": "Leave Your Review :",
       "button": "Send Review!"
