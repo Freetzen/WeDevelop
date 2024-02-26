@@ -19,9 +19,7 @@ export const Purpose = ({ quote, setQuote, question, setQuestion, setProgressBar
     } else {
       setProgressBar(progressBar + 10)
       setQuestion(question + 1)
-
     }
-
   }
 
   return (
