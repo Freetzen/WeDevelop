@@ -12,20 +12,18 @@ import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 
 const Pricing = ({ quote }) => {
+    const [t, i18n] = useTranslation("global");
+
+    const [seeMoreBasic, setSeeMoreBasic] = useState(false);
+    const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
+    const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
+    const [loading, setLoading] = useState(false)
+    const [preferenceId, setPreferenceId] = useState('')
+    
 
     const infoUser = JSON.parse(localStorage.getItem('info'))
 
     initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
-
-    const [preferenceId, setPreferenceId] = useState('')
-
-    console.log('hola', preferenceId)
-    // Estados para desplegar los show more
-    const [seeMoreBasic, setSeeMoreBasic] = useState(false);
-    const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
-    const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
-
-    const [loading, setLoading] = useState(false)
 
 
     const [project, setProject] = useState({
@@ -36,29 +34,17 @@ const Pricing = ({ quote }) => {
         email: infoUser.email
     })
 
-    const createPreference = async () => {
-        try {
-            const response = await axios.post('http://localhost:3001/createpreference', project)
-            const { id } = response.data
-            return id
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
-
-
     const handleClick = async (e) => {
-        await setPreferenceId('');
-        setLoading(!loading)
+        setPreferenceId('')
+        console.log('1')
         const newProject = {
             ...project,
             'title': e.target.name,
             'price': e.target.value
         };
 
-        await setProject(newProject);
-    }
-
+        await setProject(newProject)
+    } 
 
     useEffect(() => {
         handleBuy();
@@ -66,9 +52,7 @@ const Pricing = ({ quote }) => {
 
 
     const handleBuy = async () => {
-        console.log('4')
         const id = await pricingProvider.createPreference(project)
-        console.log('ID', id)
         if (id) {
             await setPreferenceId(id)
         }

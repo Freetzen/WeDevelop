@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Section } from "../../components/section/Section";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const Quote = () => {
 
