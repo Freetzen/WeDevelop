@@ -13,8 +13,11 @@ export const Desing = ({ quote, setQuote, question, setQuestion, progressBar, se
       ...quote,
       'desing': title
     })
-    setQuestion(question + 1)
-    setProgressBar(progressBar + 10)
+    if (quote.extraRequeriments == null) {
+      setProgressBar(progressBar + 10)
+      setQuestion(question + 1)
+    }
+    else setQuestion(11)
   }
 
   // Captura el valor del textArea
@@ -26,7 +29,11 @@ export const Desing = ({ quote, setQuote, question, setQuestion, progressBar, se
       ...quote,
       'desing': valorTextarea
     })
-    setQuestion(question + 1)
+    if (quote.extraRequeriments == null) {
+      setProgressBar(progressBar + 10)
+      setQuestion(question + 1)
+    }
+    else setQuestion(11)
   }
 
   return (

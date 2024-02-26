@@ -37,7 +37,7 @@ function App() {
         && <NavBar />}
 
       <Routes>
-        <Route path="/" element={<Home loading={loading} setLoading={setLoading}/>}></Route>
+        <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/projects" element={<Projects setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />}></Route>
