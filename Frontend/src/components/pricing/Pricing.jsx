@@ -17,7 +17,7 @@ const Pricing = ({ quote }) => {
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
     const [loading, setLoading] = useState(false)
     const [preferenceId, setPreferenceId] = useState('')
-    
+
 
     const infoUser = JSON.parse(localStorage.getItem('info'))
 
@@ -40,9 +40,9 @@ const Pricing = ({ quote }) => {
             'title': e.target.name,
             'price': e.target.value
         };
-        
-        await setProject(newProject)   
-    } 
+
+        await setProject(newProject)
+    }
 
     useEffect(() => {
         handleBuy();
@@ -66,7 +66,7 @@ const Pricing = ({ quote }) => {
             <div className={style.containerCards}>
                 <div className={style.cardBox} >
                     <div className={style.containerTitleAndDescripcion}>
-                        <h4 style={{color: '#DB319B'}}>{t("plans.BasicPlan.title")}</h4>
+                        <h4 style={{ color: '#DB319B' }}>{t("plans.BasicPlan.title")}</h4>
                         <p>For those looking to start their online presence in a simple yet effective way.</p>
                     </div>
                     <div className={style.containerPricingAndButton}>
@@ -76,12 +76,12 @@ const Pricing = ({ quote }) => {
                         </div>
                         <div className={style.containerButtonPay}>
                             <button
-                                style={loading ? {display: 'none'}: {display: ''}}
+                                style={loading ? { display: 'none' } : { display: '' }}
                                 className={style.buttonPay}
                                 name="Basic Plan"
                                 value='100'
                                 onClick={handleClick}>
-                                {!loading ? t("plans.BasicPlan.button") : <SpinnerLogin />}
+                                {t("plans.BasicPlan.button")}
                             </button>
                             {preferenceId && project.title === "Basic Plan" &&
                                 <Wallet
