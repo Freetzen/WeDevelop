@@ -61,7 +61,7 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
                 </div>
             </div>
             <div className={style.containerButtonResumen}>
-                <button onClick={() => setQuestion(question + 1)}>{t("QuoteQuestions.Summary.plans")}</button>
+            <button onClick={()=>setQuestion(question + 1)}>{t("QuoteQuestions.Summary.plans")}</button>
             </div>
         </div>
 
