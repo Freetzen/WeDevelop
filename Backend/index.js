@@ -16,8 +16,9 @@ const app = express();
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'https://wedevelop.vercel.app/'
-  }
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"]
+   }
 })
 
 io.on('connection', (socket) => {
@@ -31,12 +32,17 @@ io.on('connection', (socket) => {
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173", // Permitir solo este origen
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type'],
+  credentials: true // Habilitar credenciales
+}));
 app.use((req, res, next) => {
-   res.header('Access-Control-Allow-Origin', '*');
-   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-   res.header('Access-Control-Allow-Headers', 'Content-Type'); 
-   res.header('Access-Control-Allow-Credentials', true); // Habilitar credenciales
+   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With,Content-Type'); 
+   res.setHeader('Access-Control-Allow-Credentials', true); // Habilitar credenciales
    next();
 });
 
