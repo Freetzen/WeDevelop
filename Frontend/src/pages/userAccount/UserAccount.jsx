@@ -13,9 +13,8 @@ export const UserAccount = ({ menuIsActive }) => {
   const [t, i18n] = useTranslation("global");
   const { user, logout } = useAuth0()
   const [userBD, setUserBD] = useState({})
-  let fecha = data.createdAt.split("")
-  let res = fecha.slice(0, 10)
-
+  let fecha = data.createdAt?.split("")
+  let res = fecha?.slice(0, 10)
   const handleLogut = () => {
     logout()
     clearLocalStorage()
