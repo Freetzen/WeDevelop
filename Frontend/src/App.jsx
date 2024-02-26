@@ -17,8 +17,8 @@ import ChatSocket from './components/chatSocket/ChatSocket'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
 
-// axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
+// axios.defaults.baseURL = 'http://localhost:3001'
 
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
         && <NavBar />}
 
       <Routes>
-        <Route path="/" element={<Home loading={loading} setLoading={setLoading}/>}></Route>
+        <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/projects" element={<Projects setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />}></Route>
