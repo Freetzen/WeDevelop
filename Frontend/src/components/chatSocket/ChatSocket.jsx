@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import io from 'socket.io-client'
-const socket = io('/')
+const socket = io('https://wedevelop-production.up.railway.app')
  const ChatSocket = () => {
 
     const [sendMessage, setSendMessage] = useState('')

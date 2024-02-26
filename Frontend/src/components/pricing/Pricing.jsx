@@ -1,5 +1,3 @@
-
-import axios from "axios"
 import styles from './Pricing.module.css';
 import { FaCheck } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
@@ -33,11 +31,8 @@ const Pricing = ({ quote }) => {
             'price': e.target.value
         };
         
-        await setProject(newProject)
-        console.log('2')
-        
+        await setProject(newProject)   
     } 
-    console.log('3', project)
 
     useEffect(() => {
         handleBuy();
@@ -45,9 +40,7 @@ const Pricing = ({ quote }) => {
 
 
     const handleBuy = async () => {
-        console.log('4')
         const id = await pricingProvider.createPreference(project)
-        console.log('ID', id)
         if (id) {
             await setPreferenceId(id)
         }

@@ -13,20 +13,12 @@ const {createServer} = require('node:http') //Crear un server http de Node
 const PORT = 3001
 
 const app = express();
-app.use((req, res, next) => {
-   res.header('Access-Control-Allow-Origin', '*');
-   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-   res.header('Access-Control-Allow-Headers', 'Content-Type'); 
-   res.header('Access-Control-Allow-Credentials', true); // Habilitar credenciales
-   next();
-});
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'https://wedevelop.vercel.app/chat',
+    origin: 'https://wedevelop.vercel.app'
   }
 })
-
 
 io.on('connection', (socket) => {
   console.log('a user has connected!!')
@@ -36,9 +28,17 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('messageBroadcast', data)
   })
 })
+
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
+app.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', '*');
+   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+   res.header('Access-Control-Allow-Headers', 'Content-Type'); 
+   res.header('Access-Control-Allow-Credentials', true); // Habilitar credenciales
+   next();
+});
 
 app.use(session({
     store: MongoStore.create({
