@@ -57,7 +57,7 @@ const Home = ({loading, setLoading}) => {
           <Skills />
           <Highlights />
           <StartQuote />
-          {/* <Review totalReviews={totalReviews} messages={messages} /> */}
+          <Review totalReviews={totalReviews} messages={messages} />
           <Footer />
         </>
       )}

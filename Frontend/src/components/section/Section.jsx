@@ -20,7 +20,6 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 
 export const Section = ({ quote, setQuote }) => {
-  console.log('Useeeeerr', user);
   const [question, setQuestion] = useState(1)
   const [progressBar, setProgressBar] = useState(0)
   const [loading, setLoading] = useState(false)
@@ -42,13 +41,11 @@ export const Section = ({ quote, setQuote }) => {
   }, [progressBar, question]);
 
   const handlePrevious = () => {
-    setProgressBar(progressBar - 10)
     setQuestion(question - 1);
   };
 
   const handleNext = () => {
     setQuestion(question + 1);
-    setProgressBar(progressBar + 10)
   };
 
 

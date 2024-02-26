@@ -78,7 +78,6 @@ const LoginButton = () => {
     loginWithRedirect() 
  }
   
-  
   const [menuIsActive, setMenuIsActive] = useState(true)
 
   const activeMenu = () => {
