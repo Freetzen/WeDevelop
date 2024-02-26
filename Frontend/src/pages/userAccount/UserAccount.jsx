@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import { useTranslation } from "react-i18next";
 import { clearLocalStorage } from "../../helpers/local";
+import { useSelector } from "react-redux";
 
 
 export const UserAccount = ({ menuIsActive }) => {
+  const data = useSelector(state => state.userData)
   const [t, i18n] = useTranslation("global");
   const { user, logout } = useAuth0()
   const [userBD, setUserBD] = useState({})
-  let fecha = user.updated_at.split("")
+  let fecha = data.createdAt.split("")
   let res = fecha.slice(0, 10)
 
   const handleLogut = () => {
@@ -30,13 +32,13 @@ export const UserAccount = ({ menuIsActive }) => {
   return (
     <div className={style.infoContainer} style={menuIsActive ? { left: '-20%' } : { left: '0%' }}>
       <div className={style.imgAndNameContainer}>
-        <img src={user?.picture}></img>
-        <h2>{user?.name}</h2>
+        <img src={data?.image}></img>
+        <h2>{data?.name}</h2>
         <p>{user?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
-        <label >{t("UserAccount.Membership")}</label>
-        <p>Premium</p>
+        <label >{t("Role")}</label>
+        <p>{userBD.role}</p>
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
       </div>
