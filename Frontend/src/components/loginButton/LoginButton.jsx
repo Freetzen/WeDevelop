@@ -57,6 +57,13 @@ const LoginButton = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+
+   /*  const newUser = {
+      name: user.name,
+      email: user.email,
+      image: user.picture
+    }
+    userDate('info', newUser) */
     if (isAuthenticated && user) {
       setLoading(true);
       const timer = setTimeout(() => {
@@ -67,6 +74,10 @@ const LoginButton = () => {
     }
   }, [])
 
+  const handleLogin = () => {
+    loginWithRedirect() 
+ }
+  
   const [menuIsActive, setMenuIsActive] = useState(true)
 
   const activeMenu = () => {
@@ -76,8 +87,8 @@ const LoginButton = () => {
 
   return (
     <div className={style.containerLogin}>
-      {!isAuthenticated ? (
-        <button className={style.buttonLogin} onClick={() => loginWithRedirect()}>{t("LoginButton.title")}</button>
+      {!dta.email ? (
+        <button className={style.buttonLogin} onClick={handleLogin}>{t("LoginButton.title")}</button>
       ) : (
         <>
         <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu}/>
@@ -87,9 +98,9 @@ const LoginButton = () => {
           </div>
           <div className={style.containerNameAndButton} style={loading ? {display: 'none'} : {display: ''}}>
             <button onClick={activeMenu}>
-              {user.name}
+              {dta.name}
             </button>
-            <img src={user.picture} alt=""></img>
+            <img src={dta.image} alt=""></img>
           </div>
         </div>
         </>
