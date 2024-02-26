@@ -6,6 +6,8 @@ import { TfiWorld } from "react-icons/tfi";
 import React, { useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 
 const NavBar = () => {
@@ -61,15 +63,14 @@ const NavBar = () => {
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
             <span>
-              <TfiWorld />
+              Languague
+              {isDropdownOpen ? <IoIosArrowDown/> : <IoIosArrowUp/>}
             </span>
             {isDropdownOpen && (
               <ul className={style.dropdownContent}>
                 <li>
-                <button onClick={() => handleChangeLanguage("es")}>🏳️‍🌈 Español</button>          
-                  </li>
-                <li>
-                <button onClick={() => handleChangeLanguage("en")}>🏳️‍🌈 English</button>    
+                <button onClick={() => handleChangeLanguage("es")}> <TfiWorld/>Español</button>          
+                <button onClick={() => handleChangeLanguage("en")}> <TfiWorld/>English</button>    
                 </li>
               </ul>
             )}
