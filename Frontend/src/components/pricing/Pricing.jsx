@@ -9,10 +9,11 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
 import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
-
+import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 
 const Pricing = ({ quote }) => {
-    const [t, i18n] = useTranslation("global");
+
+    const infoUser = JSON.parse(localStorage.getItem('info'))
 
     initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
 
@@ -31,9 +32,9 @@ const Pricing = ({ quote }) => {
         title: "",
         price: 0,
         quantity: 1,
-        quote
+        quote,
+        email: infoUser.email
     })
-
 
     const createPreference = async () => {
         try {
@@ -58,13 +59,15 @@ const Pricing = ({ quote }) => {
         await setProject(newProject);
     }
 
+
     useEffect(() => {
         handleBuy();
     }, [project])
 
 
     const handleBuy = async () => {
-        const id = await createPreference()
+        console.log('4')
+        const id = await pricingProvider.createPreference(project)
         console.log('ID', id)
         if (id) {
             await setPreferenceId(id)

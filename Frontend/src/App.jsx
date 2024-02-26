@@ -13,7 +13,10 @@ import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
+import ChatSocket from './components/chatSocket/ChatSocket'
+import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
+
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 
@@ -44,6 +47,8 @@ function App() {
         <Route path="/createProject" element={<CreateProject />}></Route>
         <Route path="/createUser" element={<UserAdmin />}></Route>
         <Route path="/reviews" element={<ReviewsAll />}></Route>
+        <Route path="/chat" element={<ChatSocket />}></Route>
+        <Route path="/successpayment" element={<Payment />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 

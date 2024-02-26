@@ -20,7 +20,6 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 
 export const Section = ({ quote, setQuote }) => {
-
   const [question, setQuestion] = useState(1)
   const [progressBar, setProgressBar] = useState(0)
   const [loading, setLoading] = useState(false)
@@ -48,6 +47,7 @@ export const Section = ({ quote, setQuote }) => {
   const handleNext = () => {
     setQuestion(question + 1);
   };
+
 
 
   const switchQuestion = (question) => {
