@@ -8,15 +8,15 @@ const cors = require("cors");
 const router = require("./src/routes/index");
 const session = require('express-session')
 const chatSocket = require("./src/controllers/chatSocket");
-const {Server} = require('socket.io'); //Creacion de un server con socket io
-const {createServer} = require('node:http') //Crear un server http de Node 
+const { Server } = require('socket.io'); //Creacion de un server con socket io
+const { createServer } = require('node:http') //Crear un server http de Node 
 const PORT = 3001
 
 const app = express();
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'https://wedevelop.vercel.app/'
+    origin: 'https://wedevelop.vercel.app'
   }
 })
 
@@ -33,22 +33,22 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 app.use((req, res, next) => {
-   res.header('Access-Control-Allow-Origin', '*');
-   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-   res.header('Access-Control-Allow-Headers', 'Content-Type'); 
-   res.header('Access-Control-Allow-Credentials', true); // Habilitar credenciales
-   next();
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Credentials', true); // Habilitar credenciales
+  next();
 });
 
 app.use(session({
-    store: MongoStore.create({
-        mongoUrl: URLMONGODB,
-        ttl: 120
-    }),
-    secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    rolling: false
+  store: MongoStore.create({
+    mongoUrl: URLMONGODB,
+    ttl: 120
+  }),
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  rolling: false
 }))
 
 app.get('/chat', chatSocket)

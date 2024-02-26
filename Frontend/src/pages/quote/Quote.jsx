@@ -9,9 +9,9 @@ export const Quote = () => {
 
   const user = JSON.parse(localStorage.getItem('info'))
 
-  console.log('USERR ------',user)
+  console.log('USERR ------', user)
   const navigate = useNavigate()
-  const {isLoading} = useAuth0()
+  const { isLoading } = useAuth0()
   const [quote, setQuote] = useState({
     purpose: '',
     apiOrDatabase: null,
@@ -24,7 +24,7 @@ export const Quote = () => {
     support: null,
     extraRequeriments: null,
   })
-  
+
   useEffect(() => {
     if (!isLoading && !user) {
       Swal.fire({
@@ -41,7 +41,7 @@ export const Quote = () => {
   return (
     <>
       {
-        user.email
+        user?.email
           ? <Section quote={quote} setQuote={setQuote} />
           : null
       }

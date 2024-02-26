@@ -1,13 +1,26 @@
 
 import style from './ResumeQuestions.module.css';
 import { GoQuestion } from "react-icons/go";
-import { MdOutlineEdit } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
 export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, setProgressBar }) => {
     const [t, i18n] = useTranslation("global");
+    // const [array, setArray] = useState(Object.keys(quote))
+    let array = Object.keys(quote)
+    if (quote.purpose === 'web') {
+        array = array.filter(item => item !== 'amountOfProducts')
+    }
 
-    const array = Object.keys(quote)
+
+    // if (quote.purpose === 'web') {
+    //     const arrTemp = array.filter(item => item !== 'amountOfProducts')
+    //     console.log('arrtemp...', arrTemp);
+    //     setArray(arrTemp)
+    // }
+
+    console.log('quote ', quote);
+    console.log('array ', array);
 
     const handleClick = (event) => {
         event.preventDefault()
@@ -15,7 +28,6 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
             if (element === event.target.value) {
                 let indexPage = array.indexOf(element) + 1;
                 setQuestion(indexPage)
-                setProgressBar(progressBar - 10)
             }
         })
     }
@@ -39,6 +51,7 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
                     </div>
                     {
                         array.map((e, index) => (
+
                             <div className={style.Question} key={index}>
                                 <div className={style.containerQuestionAndIcon}>
                                     <span className={style.question}>{e}</span>
