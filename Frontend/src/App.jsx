@@ -34,6 +34,7 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
+        && location.pathname !== '/payment'
         && <NavBar />}
 
       <Routes>
@@ -50,6 +51,8 @@ function App() {
         <Route path="/chat" element={<ChatSocket />}></Route>
         <Route path="/successpayment" element={<Payment />}></Route>
         <Route path="*" element={<NotFound />}></Route>
+        <Route path="payment" element={<Payment />}></Route>
+        
       </Routes>
 
     </>
