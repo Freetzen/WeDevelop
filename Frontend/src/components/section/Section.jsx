@@ -42,13 +42,11 @@ export const Section = ({ quote, setQuote }) => {
   }, [progressBar, question]);
 
   const handlePrevious = () => {
-    setProgressBar(progressBar - 10)
     setQuestion(question - 1);
   };
 
   const handleNext = () => {
     setQuestion(question + 1);
-    setProgressBar(progressBar + 10)
   };
 
 
