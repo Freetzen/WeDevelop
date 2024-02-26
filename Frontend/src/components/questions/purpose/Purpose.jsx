@@ -27,11 +27,13 @@ export const Purpose = ({ quote, setQuote, question, setQuestion, setProgressBar
         setQuestion(11)
       }
     } else {
+
       if (quote.extraRequeriments == null) {
         setProgressBar(progressBar + 10)
         setQuestion(question + 1)
       }
       else setQuestion(11)
+
     }
   }
 
