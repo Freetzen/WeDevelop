@@ -13,7 +13,6 @@ import { clearLocalStorage, userDate } from "../../helpers/local";
 
 const LoginButton = () => {
   const dta = useSelector(state => state.userData)
-  console.log('global' ,dta);
 
   const [t, i18n] = useTranslation("global");
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();

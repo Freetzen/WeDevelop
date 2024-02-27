@@ -1,5 +1,3 @@
-
-import axios from "axios"
 import style from './Pricing.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
@@ -36,7 +34,6 @@ const Pricing = ({ quote }) => {
 
     const handleClick = async (e) => {
         setPreferenceId('')
-        console.log('1')
         const newProject = {
             ...project,
             'title': e.target.name,
