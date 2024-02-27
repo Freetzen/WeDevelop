@@ -42,7 +42,6 @@ const NavBar = () => {
           <img src="./images/logo-nav.png" />
         </div>
       </Link>
-
       <div className={style.menu}>
         <ul>
           <li>
@@ -61,9 +60,9 @@ const NavBar = () => {
             className={style.dropdown}
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
-          >
+            >
             <span>
-              Languague
+              Language
               {isDropdownOpen ? <IoIosArrowDown/> : <IoIosArrowUp/>}
             </span>
             {isDropdownOpen && (
