@@ -73,7 +73,7 @@
   "RatingHome": {
     "rating": "Rating",
     "comments": "Total Comments",
-    "NotLogged": "You must be singed up to send review",
+    "NotLogged": "Login to submit review",
     "RatingForm": {
       "message": "Leave Your Review :",
       "button": "Send Review!"
@@ -145,14 +145,14 @@
       "answer3": "Previous question"
     },
     "Section6": {
-      "title": "How many visits do you estimate your site will have?",
-      "answer1": "5 to 10 visits per month",
-      "answer2": "10 to 20 visits per month",
-      "answer3": "20 or more visits per month"
+      "title": "How many visits per month do you estimate your site will have?",
+      "answer1": "5 to 10",
+      "answer2": "10 to 20",
+      "answer3": "+ 20"
     },
     "Section7": {
       "title": "How many languages do you need your website to support?",
-      "answer1": "Single language",
+      "answer1": "Single",
       "answer2": "Bilingual",
       "answer3": "Multilingual"
     },

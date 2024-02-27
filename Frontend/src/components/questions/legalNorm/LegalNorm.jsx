@@ -64,6 +64,7 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion, setProgressB
             value={requirements}
             onChange={handleChange}
           />
+          <div className={styles.buttonsTwo}>
           <button
             onClick={handleClickContinue}
           >
@@ -72,6 +73,8 @@ export const LegalNorm = ({ quote, setQuote, question, setQuestion, setProgressB
           <button
             onClick={() => setPosAnswer(false)}
           >Cancel</button>
+          </div>
+          
         </div>
       ) : (<></>)}
     </div>
