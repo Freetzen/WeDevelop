@@ -34,7 +34,6 @@ const Pricing = ({ quote }) => {
 
     const handleClick = async (e) => {
         setPreferenceId('')
-        console.log('1')
         const newProject = {
             ...project,
             'title': e.target.name,
