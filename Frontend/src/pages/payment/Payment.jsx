@@ -24,6 +24,8 @@ export const Payment = () => {
     useEffect(() => {
         yeison()
     }, [])
+
+
     return (
         <div>
             <div className={style.paymentContainer}>
