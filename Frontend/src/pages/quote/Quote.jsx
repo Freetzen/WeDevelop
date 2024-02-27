@@ -3,8 +3,20 @@ import { Section } from "../../components/section/Section";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import NavBar from "../../components/navBar/NavBar";
 
 export const Quote = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 680);
+    };
+  window.addEventListener('resize', handleResize);
+  return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
 
   const user = JSON.parse(localStorage.getItem('info'))
 
@@ -52,6 +64,7 @@ export const Quote = () => {
 
   return (
     <>
+      {isMobile ? <NavBar /> : null }
       {
         user?.email
           ? <Section quote={quote} setQuote={setQuote} />
