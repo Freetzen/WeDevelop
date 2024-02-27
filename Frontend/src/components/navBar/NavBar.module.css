@@ -1,92 +1,115 @@
 .NavBarContainer {
-    height: 10%;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 15px;
-    margin-top: 6px;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    z-index: 1000;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px;
+  margin-top: 6px;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  z-index: 1000;
 }
 
 .Link .logo {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.menu {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+
+/* Menu Items */
+
+.NavBarContainer .menu {
+  width: 30%;
 }
 
 .menu ul {
-    height: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: start;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .menu ul li {
-    list-style: none;
-    margin-right: 20px;
+  list-style: none;
 }
 
 .menu ul li a {
-    text-decoration: none;
-    color: aliceblue;
-    font-weight: 500;
-    font-size: 17px;
-}
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 20px;
+  font-weight: 300;
 
 .login button {
-    height: max-content;
-    height: 50px;
-    width: max-content;
-    font-weight: 400;
-    font-size: 17px;
-    color: aliceblue;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+  height: max-content;
+  height: 50px;
+  width: max-content;
+  font-weight: 400;
+  font-size: 17px;
+  color: aliceblue;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .dropdown {
-    position: relative;
-    cursor: pointer;
-  }
-  .dropdown span{
-    color: white;
-  }
-  
-  .dropdownContent {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    z-index: 1;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .dropdownContent a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown:hover .dropdownContent {
-    display: block;
-  }
+  position: relative;
+  cursor: pointer;
+}
 
-  .hamburgContainer {
+.dropdown span {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  gap: 5px;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+  top: 40px;
+  list-style-type: none;
+  margin: 0;
+}
+
+.dropdownContent li {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownContent li button {
+  font-size: 16px;
+  border: none;
+  color: rgb(156, 156, 156);
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  gap: 10px;
+}
+
+.dropdownContent li button:hover {
+  background-color: #393939;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+  height: 100px;
+  background-color: #2c2c2c;
+}
+
+.hamburgContainer {
     display: none;
   }
 

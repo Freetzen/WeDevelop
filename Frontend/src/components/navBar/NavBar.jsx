@@ -5,10 +5,11 @@ import { TfiWorld } from "react-icons/tfi";
 import React, { useEffect, useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import LoginButton from "../loginButton/LoginButton";
 import { FiMenu} from 'react-icons/fi';
 import { UserAccountMobile } from "../userAccountMobile/UserAccountMobile";
-
 
 
 const NavBar = () => {
@@ -66,7 +67,6 @@ const NavBar = () => {
           <img src="./images/logo-nav.png" />
         </div>
       </Link>
-
       <div className={style.menu} onClick={ocultarMenu} style={isVisible ? { left: '0' } : { left: '-800px' }}>
         <nav>
             <ul>
@@ -83,24 +83,23 @@ const NavBar = () => {
                     <Link to="/contact">{t("NavBar.ContactUs")}</Link>
                   </li>
                   <li
-                    className={style.dropdown}
-                    onMouseEnter={() => setIsDropdownOpen(true)}
-                    onMouseLeave={() => setIsDropdownOpen(false)}
-                  >
-                    <span>
-                      <TfiWorld />
-                    </span>
-                    {isDropdownOpen && (
-                      <ul className={style.dropdownContent}>
-                        <li>
-                        <button onClick={() => handleChangeLanguage("es")}>🏳️‍🌈 Español</button>          
-                          </li>
-                        <li>
-                        <button onClick={() => handleChangeLanguage("en")}>🏳️‍🌈 English</button>    
-                        </li>
-                      </ul>
-                    )}
-                  </li>
+            className={style.dropdown}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <span>
+              Languague
+              {isDropdownOpen ? <IoIosArrowDown/> : <IoIosArrowUp/>}
+            </span>
+            {isDropdownOpen && (
+              <ul className={style.dropdownContent}>
+                <li>
+                <button onClick={() => handleChangeLanguage("es")}> <TfiWorld/>Español</button>          
+                <button onClick={() => handleChangeLanguage("en")}> <TfiWorld/>English</button>    
+                </li>
+              </ul>
+            )}
+          </li>
             </ul>
           </nav>
         <div className={style.login} style={isAuthenticated && isMobile ? { display: 'none' } : { display: ''}}>
