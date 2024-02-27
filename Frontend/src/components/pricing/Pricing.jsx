@@ -1,5 +1,3 @@
-
-import axios from "axios"
 import style from './Pricing.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
@@ -8,22 +6,22 @@ import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 import { useTranslation } from 'react-i18next';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 
 const Pricing = ({ quote }) => {
-    const [t, i18n] = useTranslation("global");
 
+    initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
+
+    const [t, i18n] = useTranslation("global");
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
     const [loading, setLoading] = useState(false)
     const [preferenceId, setPreferenceId] = useState('')
-    
+
 
     const infoUser = JSON.parse(localStorage.getItem('info'))
 
-    initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
 
 
     const [project, setProject] = useState({
@@ -36,7 +34,6 @@ const Pricing = ({ quote }) => {
 
     const handleClick = async (e) => {
         setPreferenceId('')
-        console.log('1')
         const newProject = {
             ...project,
             'title': e.target.name,
@@ -44,7 +41,7 @@ const Pricing = ({ quote }) => {
         };
 
         await setProject(newProject)
-    } 
+    }
 
     useEffect(() => {
         handleBuy();
@@ -70,6 +67,7 @@ const Pricing = ({ quote }) => {
                     <div className={style.containerTitleAndDescripcion}>
                         <h4 style={{color: '#DB319B'}}>{t("plans.BasicPlan.title")}</h4>
                         <p>{t("plans.BasicPlan.description")}</p>
+
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
@@ -78,12 +76,12 @@ const Pricing = ({ quote }) => {
                         </div>
                         <div className={style.containerButtonPay}>
                             <button
-                                style={loading ? {display: 'none'}: {display: ''}}
+                                style={loading ? { display: 'none' } : { display: '' }}
                                 className={style.buttonPay}
                                 name="Basic Plan"
                                 value='100'
                                 onClick={handleClick}>
-                                {!loading ? t("plans.BasicPlan.button") : <SpinnerLogin />}
+                                {t("plans.BasicPlan.button")}
                             </button>
                             {preferenceId && project.title === "Basic Plan" &&
                                 <Wallet

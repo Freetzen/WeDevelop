@@ -161,10 +161,10 @@
       "answer3": "Pregunta anterior"
     },
     "Section6": {
-      "title": "¿Cuántas visitas estima que tendrá su sitio?",
-      "answer1": "5 de 10 visitas por mes",
-      "answer2": "10 a 20 visitas por mes",
-      "answer3": "Mas de 20 visitas por mes"
+      "title": "¿Cuántas visitas estima que tendrá su sitio por mes?",
+      "answer1": "5 a 10",
+      "answer2": "10 a 20",
+      "answer3": "Mas de 20"
     },
     "Section7": {
       "title": "¿Cuántos idiomas necesita que admita su sitio web?",

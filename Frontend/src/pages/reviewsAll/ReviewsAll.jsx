@@ -25,7 +25,7 @@ export default function ReviewsAll() {
       setReviews(response.docs);
       setTotalInfo(response);
     } catch(error) {
-      console.error(t("RatingHome.ReviewsAll.error1"), error);
+      console.error(error.message);
     }
   }
   
@@ -41,7 +41,7 @@ export default function ReviewsAll() {
       setReviews(response.docs);
       setTotalInfo(response);
     } catch(error) {
-      console.error(t("RatingHome.ReviewsAll.error2"), error);
+      console.error(error.message);
     }
   }
   

@@ -35,7 +35,6 @@ const Footer = () => {
       }
 
       const responseData = await response.json();
-      console.log(responseData);
     } catch (error) {
       setError(error.message);
     }

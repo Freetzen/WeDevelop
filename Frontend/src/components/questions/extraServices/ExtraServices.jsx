@@ -64,6 +64,7 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion, setProgr
             value={platform}
             onChange={handleChange}
           />
+          <div className={styles.buttonsTwo}>
           <button
             onClick={handleClickContinue}
           >
@@ -72,6 +73,8 @@ export const ExtraServices = ({ quote, setQuote, question, setQuestion, setProgr
           <button
             onClick={() => setPosAnswer(false)}
           >Cancel</button>
+          </div>
+         
         </div>
       ) : (<></>)}
     </div>
