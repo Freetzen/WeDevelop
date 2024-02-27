@@ -12,16 +12,6 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
         array = array.filter(item => item !== 'amountOfProducts')
     }
 
-
-    // if (quote.purpose === 'web') {
-    //     const arrTemp = array.filter(item => item !== 'amountOfProducts')
-    //     console.log('arrtemp...', arrTemp);
-    //     setArray(arrTemp)
-    // }
-
-    console.log('quote ', quote);
-    console.log('array ', array);
-
     const handleClick = (event) => {
         event.preventDefault()
         array.map((element) => {

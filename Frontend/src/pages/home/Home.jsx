@@ -25,7 +25,6 @@ const Home = ({loading, setLoading}) => {
       try {
         if (infoUser) {
           const bringUser = await userProvider.getUserByEmail(infoUser.email)
-          console.log('provider', bringUser);
           dispatch(loadUserData(bringUser))
         }
         const response = await reviewsProvider.getReview()
