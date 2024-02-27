@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import style from './LoginButton.module.css'
@@ -8,35 +8,47 @@ import { UserAccount } from "../../pages/userAccount/UserAccount";
 import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
 import { clearLocalStorage, userDate } from "../../helpers/local";
+import { loadUserData } from "../../redux/actions";
 
 
 
 const LoginButton = () => {
-  const dta = useSelector(state => state.userData)
 
-  const [t, i18n] = useTranslation("global");
+  const dispatch = useDispatch()
+  const [menuIsActive, setMenuIsActive] = useState(true)
+  const data = useSelector(state => state.userData)
+
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  const [loading, setLoading] = useState(false);
+  const [t, i18n] = useTranslation("global");
+  console.log('global' ,data);
+
+
+  useEffect(() => {
+
   const postUserData = async () => {
     try {
       const newUser = {
-        name: user.name,
-        email: user.email,
-        image: user.picture
+        name: user?.name,
+        email: user?.email,
+        image: user?.picture
       }
       userDate('info', newUser)
-      const textodeejemplo = await userProvider.getUserByEmail(user.email)
 
-      if(!textodeejemplo) { 
-       const newUser1 = await userProvider.createUser(newUser)
-       return newUser1
+      const Response = await userProvider.getUserByEmail(user.email)
+      if(!Response) { 
+        const newUser1 = await userProvider.createUser(newUser)
+        dispatch(loadUserData(newUser1))
+        return newUser1
       }
-      if(textodeejemplo.banned){
+      dispatch(loadUserData(Response))
+      if(data.banned){
         
         Swal.fire({
           icon: "error",
-          title: "You are Banned from our page.",
-          text: "Contact us.",
-          footer: `<a href="https://wedevelop.vercel.app/contact">Why do I have this issue?</a>`
+          title: t("LoginButton.bannedAlert"),
+          text: t("LoginButton.bannedAlertContact"),
+          footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
         });
         setTimeout(() => {
           logout()
@@ -50,19 +62,11 @@ const LoginButton = () => {
       console.error('Error al enviar los datos del usuario al servidor:', error);
     }
   };
+  postUserData()
+}, [isAuthenticated, user])
 
-  isAuthenticated && user && postUserData();
-
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-
-   /*  const newUser = {
-      name: user.name,
-      email: user.email,
-      image: user.picture
-    }
-    userDate('info', newUser) */
     if (isAuthenticated && user) {
       setLoading(true);
       const timer = setTimeout(() => {
@@ -77,7 +81,6 @@ const LoginButton = () => {
     loginWithRedirect() 
  }
   
-  const [menuIsActive, setMenuIsActive] = useState(true)
 
   const activeMenu = () => {
     setMenuIsActive(!menuIsActive)
@@ -86,7 +89,7 @@ const LoginButton = () => {
 
   return (
     <div className={style.containerLogin}>
-      {!dta.email ? (
+      {!data?.email ? (
         <button className={style.buttonLogin} onClick={handleLogin}>{t("LoginButton.title")}</button>
       ) : (
         <>
@@ -97,9 +100,9 @@ const LoginButton = () => {
           </div>
           <div className={style.containerNameAndButton} style={loading ? {display: 'none'} : {display: ''}}>
             <button onClick={activeMenu}>
-              {dta.name}
+              {data?.name}
             </button>
-            <img src={dta.image} alt=""></img>
+            <img src={data.image} alt=""></img>
           </div>
         </div>
         </>

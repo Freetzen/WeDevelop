@@ -9,10 +9,13 @@ import i18next from "i18next";
 import { I18nextProvider, initReactI18next } from "react-i18next";
 import global_es from "./i18n/es/global.json";
 import global_en from "./i18n/en/global.json";
+import global_fr from "./i18n/fr/global.json";
+
+const storedLanguage = localStorage.getItem('language') || 'en';
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "en",
+  lng: storedLanguage,
   resources: {
     en: {
       global: global_en,
@@ -20,6 +23,9 @@ i18next.init({
     es: {
       global: global_es,
     },
+    fr: {
+      global: global_fr,
+    }
   },
 });
 

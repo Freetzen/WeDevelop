@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <div className={style.HeaderContainer}>
       <div className={style.titleContainer}>
-        <h1 className={style.h1}>{t("Header.title")} <span>{words[wordIndex]}</span></h1>
+        <h1 className={style.h1}>{t("Header.title")} <span>{t(`${words[wordIndex]}`)}</span></h1>
         
         <img src="./images/logo-header.png" alt="" />
       </div>
@@ -37,6 +37,7 @@ const Header = () => {
       </div>
       <div className={style.customshapedividerbottom1707406615}>
         <svg
+          className={style.svg}
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"

@@ -56,14 +56,14 @@ export const Desing = ({ quote, setQuote, question, setQuestion, progressBar, se
           ))}
         </div>
         <div className={style.containerTextArea}>
-          <h4>Don't like any template?</h4>
+          <h4>{t("QuoteQuestions.Section8.subtitle")}</h4>
           <textarea
             onChange={(e) => setValorTextarea(e.target.value)}
             name={valorTextarea}
             id=""
             cols="30"
             rows="10"
-            placeholder='Write your ideas here'
+            placeholder={t("QuoteQuestions.Section8.input")}
           ></textarea>
           <button onClick={capturarValor}>{t("QuoteQuestions.Section8.continue")}</button>
         </div>

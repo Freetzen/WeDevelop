@@ -11,8 +11,7 @@ import { useSelector } from "react-redux";
 export const UserAccount = ({ menuIsActive }) => {
   const data = useSelector(state => state.userData)
   const [t, i18n] = useTranslation("global");
-  const { user, logout } = useAuth0()
-  const [userBD, setUserBD] = useState({})
+  const { logout } = useAuth0()
   let fecha = data.createdAt?.split("")
   let res = fecha?.slice(0, 10)
   const handleLogut = () => {
@@ -20,13 +19,6 @@ export const UserAccount = ({ menuIsActive }) => {
     clearLocalStorage()
   }
 
-  useEffect(() => {
-    fetchData();
-  }, [])
-  const fetchData = async () => {
-    const userext = await userProvider.getUserByEmail(data.email);
-    setUserBD(userext)
-  }
 
   return (
     <div className={style.infoContainer} style={menuIsActive ? { left: '-20%' } : { left: '0%' }}>
@@ -37,7 +29,7 @@ export const UserAccount = ({ menuIsActive }) => {
       </div>
       <div className={style.planAndMembershipContainer}>
         <label >{t("Role")}</label>
-        <p>{userBD.role}</p>
+        <p>{data?.role}</p>
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
       </div>
@@ -45,7 +37,7 @@ export const UserAccount = ({ menuIsActive }) => {
         <button onClick={handleLogut}>{t("UserAccount.SignOut")}</button>
         <div>
         {
-  userBD && userBD.role === 'admin' ? (
+  data && data.role === 'admin' ? (
     <Link to={'/admin'}>
       <button>{t("UserAccount.adminPanel")}</button>
     </Link>
