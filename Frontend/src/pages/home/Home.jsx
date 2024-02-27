@@ -10,24 +10,17 @@ import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvide
 import SpinnerConLogo from '../../components/spinners/spinnerConLogo/SpinnerConLogo';
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import { useDispatch } from "react-redux";
-import { loadUserData } from "../../redux/actions";
 import { getUserData } from "../../helpers/local";
 
 const Home = ({loading, setLoading}) => {
 
   const [messages, setMessages] = useState([]);
   const [totalReviews, setTotalReviews] = useState([])
-  const dispatch = useDispatch()
+
 
   useEffect(() => {
     const bringData = async () => {
-      const infoUser = getUserData()
       try {
-        if (infoUser) {
-          const bringUser = await userProvider.getUserByEmail(infoUser.email)
-          console.log('provider', bringUser);
-          dispatch(loadUserData(bringUser))
-        }
         const response = await reviewsProvider.getReview()
         setTotalReviews(response)
         const sortingResponse = response.slice(-4);
