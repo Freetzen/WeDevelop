@@ -16,20 +16,23 @@ export const Payment = () => {
         payment_id: payment_id,
         preference_id: preference_id
     }
-    const yeison = async () => {
-        const { _id } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
-        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: _id })
+    const searchPay = async () => {
+        const { data } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
+        const value = {
+            id: data._id
+        }
+        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: value })
         setPaymentInfo(search.data)
     }
     useEffect(() => {
-        yeison()
+        searchPay()
     }, [])
     return (
         <div>
             <div className={style.paymentContainer}>
                 <div className={style.containerBox}>
                     <div className={style.confirmation}>
-                        {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus}/> : <FcHighPriority className={style.iconStatus}/>}
+                        {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus} /> : <FcHighPriority className={style.iconStatus} />}
                         <span>{paymentInfo?.status}</span>
                     </div>
                     <div className={style.infoPayment}>
@@ -37,12 +40,18 @@ export const Payment = () => {
                             <h2>Payment Status</h2>
                         </div>
                         <div className={style.info}>
-                            <p>Payment number: {paymentInfo?.payId}</p>
-                            <p>Service Name:  {paymentInfo?.title}</p>
-                            <p>Payment Type: {paymentInfo?.payment_type_id}</p>
-                            <p>Payment Amount: ARS {paymentInfo?.amount}</p>
-                            <p>Creation Date: {paymentInfo?.date_approved}</p>
-                            <p>Email: {paymentInfo?.email}</p>
+                            <p>Payment number:</p>
+                            <span> {paymentInfo?.payId}</span>
+                            <p>Service Name:</p>
+                            <span>{paymentInfo?.title}</span>
+                            <p>Payment Type:</p>
+                            <span> {paymentInfo?.payment_type_id}</span>
+                            <p>Payment Amount:</p>
+                            <span> {paymentInfo?.amount} ARG</span>
+                            <p>Creation Date:</p>
+                            <span> {paymentInfo?.date_approved}</span>
+                            <p>Email:</p>
+                            <span> {paymentInfo?.email}</span>
                         </div>
                         <div className={style.containerButton}>
                             <Link to='/'>

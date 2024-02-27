@@ -54,15 +54,15 @@ export default function Projects({ setSelectedOptions, selectedOptions }) {
 
   return (
     <div className={style.projectsContainer}>
-     <div className={style.selectContainer}>
-     <Select
-        isMulti
-        value={selectedOptions}
-        onChange={handleChange}
-        options={formattedOptions}
-        className={style.selectOptions}
-      />
-     </div>
+      <div className={style.selectContainer}>
+        <Select
+          isMulti
+          value={selectedOptions}
+          onChange={handleChange}
+          options={formattedOptions}
+          className={style.selectOptions}
+        />
+      </div>
 
       <div className={style.proyectos}>
         {

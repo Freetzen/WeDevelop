@@ -1,5 +1,3 @@
-
-import axios from "axios"
 import style from './Pricing.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
@@ -8,12 +6,13 @@ import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 import { useTranslation } from 'react-i18next';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 
 const Pricing = ({ quote }) => {
-    const [t, i18n] = useTranslation("global");
 
+    initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
+
+    const [t, i18n] = useTranslation("global");
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
@@ -23,7 +22,6 @@ const Pricing = ({ quote }) => {
 
     const infoUser = JSON.parse(localStorage.getItem('info'))
 
-    initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
 
 
     const [project, setProject] = useState({
@@ -36,7 +34,6 @@ const Pricing = ({ quote }) => {
 
     const handleClick = async (e) => {
         setPreferenceId('')
-        console.log('1')
         const newProject = {
             ...project,
             'title': e.target.name,

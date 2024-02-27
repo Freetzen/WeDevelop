@@ -43,3 +43,39 @@
     margin-top: 10px;
     color: rgb(115, 115, 115);
 }
+
+
+
+
+/* Estilos para mobile ----------------------------------------------------------*/
+
+@media only screen and (max-width: 680px) {
+
+    .container {
+        width: 70%;
+        height: auto;
+        padding: 0px;
+        margin: 30px auto;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0,.3);
+    }
+    
+    .subContainer {
+        width: auto;
+        height: max-content;
+        padding: 20px;
+    }
+    
+    .subContainer h2 {
+        font-size: 42px;
+        font-weight: 600;
+    }
+    
+    .subContainer h4 {
+        font-size: 22px;
+    }
+    
+    .subContainer p {
+        font-size: 16px;
+    }
+    
+}

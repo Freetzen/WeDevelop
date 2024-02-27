@@ -20,7 +20,7 @@ export default function AdminItemCard(props) {
                             <div className={style.containerInfo}>
                                 <p className={style.user}>{props.name}</p>
                                 <p className={style.email}>{props.email}</p>
-                                <p className={style.status} style={props.suspended ? { color: 'red' } : { color: 'forestgreen' }}>{props.suspended ? <IoMdCloseCircle /> : <FaCheck />}</p>
+                                <p className={style.status} style={props.banned ? { color: 'red' } : { color: 'forestgreen' }}>{props.suspended ? <IoMdCloseCircle /> : <FaCheck />}</p>
                                 <p className={style.role}>{props.role}</p>
                             </div>
                         )
