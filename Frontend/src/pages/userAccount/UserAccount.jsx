@@ -13,8 +13,8 @@ export const UserAccount = ({ menuIsActive }) => {
   const [t, i18n] = useTranslation("global");
   const { user, logout } = useAuth0()
   const [userBD, setUserBD] = useState({})
-  let fecha = data.createdAt.split("")
-  let res = fecha.slice(0, 10)
+  let fecha = data.createdAt?.split("")
+  let res = fecha?.slice(0, 10)
 
   const handleLogut = () => {
     logout()
@@ -45,13 +45,13 @@ export const UserAccount = ({ menuIsActive }) => {
       <div className={style.buttonsContainer}>
         <button onClick={handleLogut}>{t("UserAccount.SignOut")}</button>
         <div>
-        {
-  userBD && userBD.role === 'admin' ? (
-    <Link to={'/admin'}>
-      <button>{t("UserAccount.adminPanel")}</button>
-    </Link>
-  ) : null
-}
+          {
+            userBD && userBD.role === 'admin' ? (
+              <Link to={'/admin'}>
+                <button>{t("UserAccount.adminPanel")}</button>
+              </Link>
+            ) : null
+          }
         </div>
       </div>
     </div>

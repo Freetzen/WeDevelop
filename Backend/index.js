@@ -16,18 +16,37 @@ const app = express();
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'https://wedevelop.vercel.app'
+    origin: 'http://localhost:5173'
   }
 })
 
-io.on('connection', (socket) => {
-  console.log('a user has connected!!')
 
-  socket.on('message', (data) => {
-    console.log(data)
-    socket.broadcast.emit('messageBroadcast', data)
-  })
-})
+// Manejar conexiones de socket
+io.on('connection', (socket) => {
+  console.log('Usuario conectado:', socket.id);
+
+  // Manejar autenticación del usuario
+  socket.on('authenticate', (userData) => {
+    socket.userData = userData;
+    console.log('Usuario autenticado:', userData);
+    socket.join(userData.role); // Unir al usuario a la sala de su rol
+  });
+
+  // Manejar envío de mensajes privados
+  socket.on('private message', ({ content, to }) => {
+    // Enviar mensaje a la sala del destinatario
+    io.to(to).emit('private message', {
+      content,
+      from: socket.id
+    });
+  });
+
+
+  // Manejar desconexiones de socket
+  socket.on('disconnect', () => {
+    console.log('Usuario desconectado:', socket.id);
+  });
+});
 
 app.use(morgan("dev"));
 app.use(express.json());
@@ -56,14 +75,14 @@ app.use(router);
 
 
 server.listen(PORT, () => {
-  console.log(`Server listening on port http://localhost:3001`);
+  console.log('Server listening on port http://localhost:3001');
 })
 
 //Mongo DB
 const connectionMongoose = async () => {
   await mongoose.connect(URLMONGODB)
     .catch((err) => console.log(err));
-  console.log(`Database connected`)
+  console.log('Database connected')
 }
 
 connectionMongoose()
