@@ -14,7 +14,7 @@ export const UserAccount = ({ menuIsActive }) => {
   const { user, logout } = useAuth0()
   const [userBD, setUserBD] = useState({})
   let fecha = data.createdAt.split("")
-  let res = fecha.slice(0, 10)
+  let res = fecha.slice(0, 10) 
 
   const handleLogut = () => {
     logout()
@@ -40,7 +40,7 @@ export const UserAccount = ({ menuIsActive }) => {
         <label >{t("Role")}</label>
         <p>{userBD.role}</p>
         <label >{t("UserAccount.creationDate")}</label>
-        <p> {res}</p>
+        <p> { res }</p>
       </div>
       <div className={style.buttonsContainer}>
         <button onClick={handleLogut}>{t("UserAccount.SignOut")}</button>

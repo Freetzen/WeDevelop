@@ -55,7 +55,7 @@ export const ResumeQuestions = ({ quote, setQuestion, question, progressBar, set
                             <div className={style.Question} key={index}>
                                 <div className={style.containerQuestionAndIcon}>
                                     <span className={style.question}>{e}</span>
-                                    <GoQuestion />
+                                    <span className={style.icono}><GoQuestion /></span>
                                 </div>
                                 <div className={style.containerQuestion}>
                                     <span className={style.answer}>{quote[e]}</span>

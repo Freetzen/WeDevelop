@@ -14,6 +14,8 @@ export const Payment = () => {
         payment_id: payment_id,
         preference_id: preference_id
     }
+
+    /*
     const yeison = async () => {
         const { _id } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
         const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: _id })
@@ -23,8 +25,10 @@ export const Payment = () => {
     useEffect(() => {
         yeison()
     }, [])
+    */ 
+   
     return (
-        <div>
+        <div className={style.container}>
             <div className={style.paymentContainer}>
                 <h1>     Payment Confirmation      </h1>
                 <h2>Payment number: {paymentInfo?.payId}</h2>
@@ -35,7 +39,7 @@ export const Payment = () => {
                 <h2>Creation Date: {paymentInfo?.date_approved}</h2>
                 <h2>Payment Email: {paymentInfo?.email}</h2>
             </div>
-            <div>
+            <div className={style.buttonContainer}>
                 <Link to='/'>
                     <button>Back to Home</button>
                 </Link>
