@@ -11,6 +11,7 @@ import SpinnerConLogo from '../../components/spinners/spinnerConLogo/SpinnerConL
 import userProvider from "../../utils/provider/userProvider/userProvider";
 import { useDispatch } from "react-redux";
 import { loadUserData } from "../../redux/actions";
+import { getUserData } from "../../helpers/local";
 
 const Home = ({loading, setLoading}) => {
 
@@ -20,7 +21,7 @@ const Home = ({loading, setLoading}) => {
 
   useEffect(() => {
     const bringData = async () => {
-      const infoUser = JSON.parse(localStorage.getItem('info'))
+      const infoUser = getUserData()
       try {
         if (infoUser) {
           const bringUser = await userProvider.getUserByEmail(infoUser.email)
@@ -55,7 +56,7 @@ const Home = ({loading, setLoading}) => {
           <Skills />
           <Highlights />
           <StartQuote />
-          <Review totalReviews={totalReviews} messages={messages} />
+          <Review totalReviews={totalReviews} messages={messages} /> 
           <Footer />
         </>
       )}

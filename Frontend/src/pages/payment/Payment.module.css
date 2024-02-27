@@ -1,3 +1,134 @@
 .paymentContainer {
-    background-color: aqua;
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBox {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation {
+    height:35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../public/images/fondoPayment.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.confirmation .iconStatus {
+    font-size: 100px;
+}
+
+.confirmation span {
+    font-size: 30px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.infoPayment {
+    background-color: rgb(253, 253, 253);
+    height: 100%;
+    display: flex;
+    padding: 30px 40px;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.containerTitle h2 {
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.info {
+    height: auto;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.containerButton {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.containerButton button {
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    background-color: #6940ff;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+/* Estilos para mobile ----------------------------------------------------------*/
+
+@media only screen and (max-width: 680px) {
+
+.container {
+    height: 100vh;
+    background: rgba(236, 236, 236, 1);
+}
+
+.paymentContainer {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    background-color: transparent;
+}
+
+.paymentContainer h1 {
+    text-align: center;
+    color: #111;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.paymentContainer h2 {
+    padding: 0px 20px;
+    text-align: left;
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.buttonContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.buttonContainer button {
+        height: auto;
+        width: auto;
+        padding: 8px 16px;
+        background-color: #6940ff;
+        color: aliceblue;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, .5);
+}
+
 }

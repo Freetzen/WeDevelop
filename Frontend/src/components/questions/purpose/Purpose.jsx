@@ -8,7 +8,6 @@ export const Purpose = ({ quote, setQuote, question, setQuestion, setProgressBar
   const handleClick = (e) => {
 
     const valueClick = e.target.value
-    console.log('valueClick', valueClick);
     setQuote({
       ...quote,
       'purpose': valueClick

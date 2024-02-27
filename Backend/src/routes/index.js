@@ -17,7 +17,6 @@ const getReviewByRating = require('../controllers/getReviewByRating');
 const postMercadoPago = require('../controllers/postMercadoPago');
 const getPaymentMP = require('../controllers/getPaymentMP');
 const getPreferenceByEmailBD = require('../controllers/getPreferenceByEmail');
-const chatSocket = require('../controllers/chatSocket');
 const getReviewsAll = require('../controllers/getReviewsAll');
 
 const router = express.Router();
@@ -42,7 +41,5 @@ router.post("/preference",postPreference)
 router.post('/success', postMercadoPago);
 router.get('/successpayment', getPaymentMP);
 router.get('/getpreference', getPreferenceByEmailBD);
-router.get('/chat', chatSocket);
-
 
 module.exports = router

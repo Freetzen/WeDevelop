@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import style from './Payment.module.css'
+import { FcApproval } from "react-icons/fc";
+import { FcHighPriority } from "react-icons/fc";
 
 export const Payment = () => {
     const [paymentInfo, setPaymentInfo] = useState()
@@ -14,31 +16,44 @@ export const Payment = () => {
         payment_id: payment_id,
         preference_id: preference_id
     }
-    const yeison = async () => {
-        const { _id } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
-        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: _id })
+    const searchPay = async () => {
+        const { data } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
+        const value = {
+            id: data._id
+        }
+        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: value })
         setPaymentInfo(search.data)
     }
-    console.log(paymentInfo);
     useEffect(() => {
-        yeison()
+        searchPay()
     }, [])
     return (
         <div>
             <div className={style.paymentContainer}>
-                <h1>     Payment Confirmation      </h1>
-                <h2>Payment number: {paymentInfo?.payId}</h2>
-                <h2>Service Name: {paymentInfo?.title}</h2>
-                <h2>Payment Type: {paymentInfo?.payment_type_id}</h2>
-                <h2>Payment Status: {paymentInfo?.status}</h2>
-                <h2>Payment Amount: ARS {paymentInfo?.amount}</h2>
-                <h2>Creation Date: {paymentInfo?.date_approved}</h2>
-                <h2>Payment Email: {paymentInfo?.email}</h2>
-            </div>
-            <div>
-                <Link to='/'>
-                    <button>Back to Home</button>
-                </Link>
+                <div className={style.containerBox}>
+                    <div className={style.confirmation}>
+                        {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus} /> : <FcHighPriority className={style.iconStatus} />}
+                        <span>{paymentInfo?.status}</span>
+                    </div>
+                    <div className={style.infoPayment}>
+                        <div className={style.containerTitle}>
+                            <h2>Payment Status</h2>
+                        </div>
+                        <div className={style.info}>
+                            <p>Payment number: {paymentInfo?.payId}</p>
+                            <p>Service Name:  {paymentInfo?.title}</p>
+                            <p>Payment Type: {paymentInfo?.payment_type_id}</p>
+                            <p>Payment Amount: ARS {paymentInfo?.amount}</p>
+                            <p>Creation Date: {paymentInfo?.date_approved}</p>
+                            <p>Email: {paymentInfo?.email}</p>
+                        </div>
+                        <div className={style.containerButton}>
+                            <Link to='/'>
+                                <button>Back to Home</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
