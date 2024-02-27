@@ -8,7 +8,6 @@ export const Quote = () => {
 
   const user = JSON.parse(localStorage.getItem('info'))
 
-
   const navigate = useNavigate()
   const {isLoading} = useAuth0()
 
