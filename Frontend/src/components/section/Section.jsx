@@ -16,6 +16,7 @@ import Pricing from '../pricing/Pricing'
 import SpinnerResumen from '../spinners/spinnerResumen/SpinnerResumen'
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { Link } from 'react-router-dom'
 
 
 
@@ -93,7 +94,7 @@ export const Section = ({ quote, setQuote }) => {
       <div className={style.container}>
         <div className={style.ContainerQuestions}>
           <div className={style.containerImg}>
-            <img src='./images/LogoResumen.png' alt="" />
+            <Link to='/'> <img src='./images/LogoResumen.png' alt="" /> </Link>
             <div className={style.containerButtons}>
               <button onClick={handlePrevious}
                 title='Previous'

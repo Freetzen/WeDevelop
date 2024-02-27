@@ -58,8 +58,10 @@
   cursor: pointer;
 }
 
+/* Idiomas */
 .dropdown {
   position: relative;
+
   cursor: pointer;
 }
 
@@ -246,3 +248,4 @@
   }
 
 }
+

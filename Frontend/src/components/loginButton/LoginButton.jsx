@@ -34,9 +34,9 @@ const LoginButton = () => {
         
         Swal.fire({
           icon: "error",
-          title: "You are Banned from our page.",
-          text: "Contact us.",
-          footer: `<a href="https://wedevelop.vercel.app/contact">Why do I have this issue?</a>`
+          title: t("LoginButton.bannedAlert"),
+          text: t("LoginButton.bannedAlertContact"),
+          footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
         });
         setTimeout(() => {
           logout()

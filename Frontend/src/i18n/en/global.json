@@ -1,9 +1,13 @@
 {
   "NavBar": {
     "Home": "Home",
-    "Quote": "Quote",
+    "Quote": {
+      "title": "Quote",
+      "alertNotLogged": "You must log in to quote"
+    },
     "Projects": "Projects",
-    "ContactUs": "Contact Us"
+    "ContactUs": "Contact Us",
+    "Language": "Language"
   },
 
   "Header": {
@@ -17,7 +21,10 @@
   },
 
   "LoginButton": {
-    "title": "Login"
+    "title": "Login",
+    "bannedAlert": "You have been banned. Please contact support.",
+    "bannedAlertContact": "Contact Support",
+    "bannedWhy": "Why do I have this issue?"
   },
 
   "UserAccount": {
@@ -76,19 +83,28 @@
     "NotLogged": "Login to submit review",
     "RatingForm": {
       "message": "Leave Your Review :",
-      "button": "Send Review!"
+      "button": "Send Review!",
+      "alertTitle": "Your review has been submitted!"
     },
     "viewAll": "All reviews",
     "ReviewsAll": {
       "error1": "Error getting reviews:",
       "error2": "Error when obtaining reviews by rating:",
       "title": "Reviews and comments",
+      "subTitle": "Filter by stars:",
       "all": "All reviews",
       "5stars": "5 stars",
       "4stars": "4 stars",
       "3stars": "3 stars",
       "2stars": "2 stars",
       "1star": "1 star",
+      "orderBy": "Order by:",
+      "recent": "Most recent",
+      "oldest": "Oldest",
+      "paginatePrev": "Previous",
+      "paginatePage": "Page",
+      "paginateOf": "of",
+      "paginateNext": "Next",
       "noReviewsStar": "No reviews found with that rating"
     }
   },
@@ -187,9 +203,16 @@
     }
   },
 
+
+
+  "plansTitle":{
+    "title": "Plans and pricing",
+    "subtitle": "Choose the right plan for your website and we will develop it"
+  },
   "plans": {
     "BasicPlan": {
       "title": "Basic Plan",
+      "description": "For those looking to start their online presence in a simple yet effective way.",
       "sec1": "Registration with other platforms.",
       "sec2": "Custom domain.",
       "sec3": "Templates predefined.",
@@ -201,10 +224,14 @@
       "sec9": "Multi-site dashboard & admins.",
       "sec10": "live chat.",
       "sec11": "AI personalized live chat.",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "perProject": "/per project",
       "button": "Get Started"
     },
     "BusinessPlan": {
       "title": "Business Plan",
+      "description": "Designed to enhance efficiency, security, and interactivity in your digital presence.",
       "sec1": "SSL certificate.",
       "sec2": "Registration with other platforms.",
       "sec3": "Custom domain.",
@@ -216,10 +243,14 @@
       "sec9": "Multi-site dashboard & admins",
       "sec10": "Personalized email",
       "sec11": "AI personalized live chat",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "perProject": "/per project",
       "button": "Get Started"
     },
     "EnterprisePlan": {
       "title": "Enterprise Plan",
+      "description": "Unlock your company's digital potential with features designed for growth.",
       "sec1": "SSL certificate.",
       "sec2": "Registration with other platforms.",
       "sec3": "Custom domain.",
@@ -230,7 +261,10 @@
       "sec8": "Multi-site dashboard & admins",
       "sec9": "live chat.",
       "sec10": "AI personalized live chat.",
-      "sec11": "Fields per form.",
+      "sec11": "Advanced Analytics Tools.",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "perProject": "/per project",
       "button": "Get Started"
     }
   },

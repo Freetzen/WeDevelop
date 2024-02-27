@@ -28,6 +28,8 @@ const NavBar = () => {
   const [t, i18n] = useTranslation("global");
   const handleChangeLanguage = (lang) => {
     i18next.changeLanguage(lang);
+    localStorage.setItem('language', lang);
+
   };
   const { isAuthenticated, user } = useAuth0();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
@@ -74,7 +76,7 @@ const NavBar = () => {
               <Link to="/">{t("NavBar.Home")}</Link>
             </li>
             <li>
-              <Link to="/quote">{t("NavBar.Quote")}</Link>
+              <Link to="/quote">{t("NavBar.Quote.title")}</Link>
             </li>
             <li>
               <Link to="/projects">{t("NavBar.Projects")}</Link>
@@ -84,7 +86,7 @@ const NavBar = () => {
             </li>
             <li className={style.dropdown} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
               <span>
-                Language
+                {t("NavBar.Language")}
                 {isDropdownOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
               </span>
               {isDropdownOpen && (
@@ -92,6 +94,7 @@ const NavBar = () => {
                   <li>
                     <button onClick={() => handleChangeLanguage("es")}> <TfiWorld />Español</button>
                     <button onClick={() => handleChangeLanguage("en")}> <TfiWorld />English</button>
+                    <button onClick={() => handleChangeLanguage("fr")}> <TfiWorld />Français</button>
                   </li>
                 </ul>
               )}

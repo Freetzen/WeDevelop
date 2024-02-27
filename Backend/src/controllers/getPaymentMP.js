@@ -1,6 +1,10 @@
 const {findPreferenceByIdPreference, PutPreference,} = require("../services/preferenceService");
 const accessToken = "TEST-8044533475948845-022019-af21cd73911e2e5a0a21744664b0fe4a-142403819";
 const axios = require("axios");
+const {mailApprovedMP, mailRejectedMP} = require ("../utils/emailsMercadoPago");
+
+
+
 
 const getPaymentMP = async (req, res) => {
   try {
@@ -27,7 +31,19 @@ const getPaymentMP = async (req, res) => {
         payment_type_id: payAidi.data.payment_type_id,
       }
       
+     
     const newOrder = await PutPreference(searchPayment._id, pay);
+
+    if (payAidi.data.status === "approved") {
+      mailApprovedMP(pay.emailMp, pay.payId, pay.date_approved, pay.status, pay.payment_type_id, pay.payment_method_id, newOrder.quote);
+    }
+
+    if (payAidi.data.status === "in_process") {
+      mailRejectedMP(pay.emailMp, pay.payId, pay.date_approved, pay.status, pay.payment_type_id, pay.payment_method_id, newOrder.quote);
+      
+    }
+
+    
     
     res.status(200).json(newOrder);
   } catch (error) {
