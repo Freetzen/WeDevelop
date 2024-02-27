@@ -24,7 +24,7 @@ export const UserAccount = ({ menuIsActive }) => {
     fetchData();
   }, [])
   const fetchData = async () => {
-    const userext = await userProvider.getUserByEmail(user?.email);
+    const userext = await userProvider.getUserByEmail(data.email);
     setUserBD(userext)
   }
 
@@ -33,7 +33,7 @@ export const UserAccount = ({ menuIsActive }) => {
       <div className={style.imgAndNameContainer}>
         <img src={data?.image}></img>
         <h2>{data?.name}</h2>
-        <p>{user?.email}</p>
+        <p>{data?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
         <label >{t("Role")}</label>

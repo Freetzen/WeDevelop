@@ -34,7 +34,6 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && location.pathname !== '/payment'
         && <NavBar />}
 
       <Routes>
