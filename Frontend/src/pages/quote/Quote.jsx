@@ -12,16 +12,16 @@ export const Quote = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 680);
     };
-  window.addEventListener('resize', handleResize);
-  return () => {
+    window.addEventListener('resize', handleResize);
+    return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); 
+  }, []);
 
   const user = JSON.parse(localStorage.getItem('info'))
 
   const navigate = useNavigate()
-  const {isLoading} = useAuth0()
+  const { isLoading } = useAuth0()
 
   const [quote, setQuote] = useState({
     purpose: '',
@@ -49,22 +49,9 @@ export const Quote = () => {
     }
   }, [isLoading, user, navigate]);
 
-  useEffect(() => {
-    if (!isLoading && !user) {
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Debes iniciar sesión!",
-        showConfirmButton: false,
-        timer: 2000,
-      });
-      navigate("/");
-    }
-  }, [isLoading, user, navigate]);
-
   return (
     <>
-      {isMobile ? <NavBar /> : null }
+      {isMobile ? <NavBar /> : null}
       {
         user?.email
           ? <Section quote={quote} setQuote={setQuote} />
