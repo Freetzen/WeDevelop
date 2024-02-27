@@ -86,7 +86,7 @@ const NavBar = () => {
             </li>
             <li className={style.dropdown} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
               <span>
-                Language
+                {t("NavBar.Language")}
                 {isDropdownOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
               </span>
               {isDropdownOpen && (
