@@ -25,7 +25,7 @@ const getPaymentMP = async (req, res) => {
         status: payAidi.data.status,
         payment_method_id: payAidi.data.payment_method_id,
         payment_type_id: payAidi.data.payment_type_id,
-      };
+      }
       
     const newOrder = await PutPreference(searchPayment._id, pay);
     

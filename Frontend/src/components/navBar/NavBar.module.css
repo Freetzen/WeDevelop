@@ -13,27 +13,26 @@
   z-index: 1000;
 }
 
-/* Logo Nav */
-
 .Link .logo {
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
-
 /* Menu Items */
 
 .NavBarContainer .menu {
-  width: 30%;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .menu ul {
   height: 100%;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .menu ul li {
@@ -47,14 +46,12 @@
   font-weight: 300;
 }
 
-/* Login */
-
 .login button {
   height: max-content;
   height: 50px;
   width: max-content;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 20px;
   color: aliceblue;
   background: transparent;
   border: none;
@@ -111,4 +108,141 @@
   display: block;
   height: 100px;
   background-color: #2c2c2c;
+}
+
+.hamburgContainer {
+  display: none;
+}
+
+
+
+/* Estilos para dispositivos móviles ------------------------------- */
+
+@media only screen and (max-width: 680px) {
+
+  .NavBarContainer {
+    height: 50px;
+    justify-content: space-between;
+    padding: 0;
+    top: 0;
+    margin-top: 0;
+    position: fixed;
+    background-color: #6940FF;
+  }
+
+  .logo {
+    width: 120px;
+    height: auto;
+    margin: auto 0px;
+    margin-left: 15px;
+    position: absolute;
+    top: 12px;
+  }
+
+  .logo img {
+    width: 100%;
+  }
+
+  .menu {
+    width: 100%;
+    padding: 20px 0px;
+    flex-direction: column;
+    background: #2f2f2f;
+    position: absolute;
+    top: 50px;
+    justify-self: start;
+    justify-content: left;
+    transition: all 0.5s;
+    z-index: 1000;
+  }
+
+  .menu nav {
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  .menu ul {
+    width: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+    border-bottom: .2px solid rgba(55, 55, 55, 1);
+  }
+
+  .menu ul li {
+    width: 100%;
+    margin-bottom: 12px;
+    margin-right: 0;
+  }
+
+  .menu ul li a {
+    width: 100%;
+    text-decoration: none;
+    color: aliceblue;
+    display: block;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .login {
+    width: 100%;
+    padding: 0px 20px;
+    margin-top: 40px;
+  }
+
+  .login button {
+    height: max-content;
+    height: auto;
+    width: max-content;
+    font-weight: 500;
+    font-size: 20px;
+    color: #6940FF;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .dropdown span {
+    color: white;
+  }
+
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropdownContent a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown:hover .dropdownContent {
+    display: block;
+  }
+
+  .hamburgContainer {
+    height: 26px;
+    display: block;
+    margin-right: 15px;
+  }
+
+  .hamburgContainer button {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #fff;
+    background: transparent;
+    border: none;
+  }
+
 }

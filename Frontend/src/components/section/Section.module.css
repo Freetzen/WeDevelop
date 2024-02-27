@@ -72,3 +72,25 @@
     width: auto;
     height: auto;
 }
+
+
+/* Estilos para mobile ----------------------------------------------------------*/
+
+@media only screen and (max-width: 680px) {
+   
+    .ContainerQuestions {
+        display: none;
+    }
+    
+    .containerQuoteAndBar {
+        height: calc(100vh - 50px);
+        padding: 0px 20px;
+        margin: 40px 0px;
+    }
+    
+    .containerQuote {
+        width: auto;
+        height: auto;
+    }
+    
+}
