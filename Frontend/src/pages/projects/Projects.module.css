@@ -1,13 +1,25 @@
 .projectsContainer {
-    background-color: #6940ff;
+    background-image: url('./../../../public/images/fondoProject.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
     width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 100px 0px;
-    text-align: center;
+    padding-top: 300px;
 }
+
+.Title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 100px;
+}
+
+.containerProject {
+    background-color: aliceblue;
+    padding-top: 50px;
+}
+
 
 .projectsContainer .filtersContainer {
     height: max-content;

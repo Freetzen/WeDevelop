@@ -16,23 +16,22 @@ export const Payment = () => {
         payment_id: payment_id,
         preference_id: preference_id
     }
-
-    console.log(obj)
-    const yeison = async () => {
+    const searchPay = async () => {
         const { data } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
-        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: data._id })
+        const value = { id: data._id }
+        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: value })
         setPaymentInfo(search.data)
     }
     useEffect(() => {
-        yeison()
+        searchPay()
     }, [])
     return (
         <div>
             <div className={style.paymentContainer}>
                 <div className={style.containerBox}>
                     <div className={style.confirmation}>
-                        {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus}/> : <FcHighPriority className={style.iconStatus}/>}
-                        <span>approved</span>
+                        {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus} /> : <FcHighPriority className={style.iconStatus} />}
+                        <span>{paymentInfo?.status}</span>
                     </div>
                     <div className={style.infoPayment}>
                         <div className={style.containerTitle}>
