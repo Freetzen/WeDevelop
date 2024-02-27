@@ -26,12 +26,12 @@ const LoginButton = () => {
       userDate('info', newUser)
       const textodeejemplo = await userProvider.getUserByEmail(user.email)
 
-      if(!textodeejemplo) { 
-       const newUser1 = await userProvider.createUser(newUser)
-       return newUser1
+      if (!textodeejemplo) {
+        const newUser1 = await userProvider.createUser(newUser)
+        return newUser1
       }
-      if(textodeejemplo.banned){
-        
+      if (textodeejemplo.banned) {
+
         Swal.fire({
           icon: "error",
           title: "You are Banned from our page.",
@@ -42,8 +42,8 @@ const LoginButton = () => {
           logout()
         }, 6000);
         clearLocalStorage()
-     return 
-        
+        return
+
       }
 
     } catch (error) {
@@ -57,12 +57,12 @@ const LoginButton = () => {
 
   useEffect(() => {
 
-   /*  const newUser = {
-      name: user.name,
-      email: user.email,
-      image: user.picture
-    }
-    userDate('info', newUser) */
+    /*  const newUser = {
+       name: user.name,
+       email: user.email,
+       image: user.picture
+     }
+     userDate('info', newUser) */
     if (isAuthenticated && user) {
       setLoading(true);
       const timer = setTimeout(() => {
@@ -74,9 +74,9 @@ const LoginButton = () => {
   }, [])
 
   const handleLogin = () => {
-    loginWithRedirect() 
- }
-  
+    loginWithRedirect()
+  }
+
   const [menuIsActive, setMenuIsActive] = useState(true)
 
   const activeMenu = () => {
@@ -90,18 +90,18 @@ const LoginButton = () => {
         <button className={style.buttonLogin} onClick={handleLogin}>{t("LoginButton.title")}</button>
       ) : (
         <>
-        <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu}/>
-        <div className={style.containerButtonUser} >
-          <div className={style.containerSpinner} style={loading ? {display: ''} : {display: 'none'}} >
-            <SpinnerLogin />
+          <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu} />
+          <div className={style.containerButtonUser} >
+            <div className={style.containerSpinner} style={loading ? { display: '' } : { display: 'none' }} >
+              <SpinnerLogin />
+            </div>
+            <div className={style.containerNameAndButton} style={loading ? { display: 'none' } : { display: '' }}>
+              <button onClick={activeMenu}>
+                {dta.name}
+              </button>
+              <img src={dta.image} alt=""></img>
+            </div>
           </div>
-          <div className={style.containerNameAndButton} style={loading ? {display: 'none'} : {display: ''}}>
-            <button onClick={activeMenu}>
-              {dta.name}
-            </button>
-            <img src={dta.image} alt=""></img>
-          </div>
-        </div>
         </>
       )}
     </div>

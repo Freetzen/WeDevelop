@@ -115,8 +115,6 @@ const Pricing = ({ quote }) => {
                     </div>
                 </div>
 
-
-
                 <div className={style.cardBox}>
                     <div className={style.containerTitleAndDescripcion}>
                         <h4 style={{ color: '#982090' }}>{t("plans.BusinessPlan.title")}</h4>
