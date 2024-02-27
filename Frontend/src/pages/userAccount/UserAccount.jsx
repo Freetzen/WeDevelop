@@ -32,9 +32,9 @@ export const UserAccount = ({ menuIsActive }) => {
   return (
     <div className={style.infoContainer} style={menuIsActive ? { left: '-20%' } : { left: '0%' }}>
       <div className={style.imgAndNameContainer}>
-        <img src={data?.image}></img>
-        <h2>{data?.name}</h2>
-        <p>{user?.email}</p>
+        <img src={data.image}></img>
+        <h2>{data.name}</h2>
+        <p>{data.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
         <label >{t("Role")}</label>
