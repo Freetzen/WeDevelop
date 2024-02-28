@@ -6,7 +6,7 @@ import { IoIosArrowDropup } from "react-icons/io";
 import { Wallet } from '@mercadopago/sdk-react'
 import { useState } from 'react';
 
-const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
+const QuoteEcommerce = ({ handleClick, preferenceId, t, project, plan }) => {
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
@@ -16,12 +16,12 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
     const ecommerce2 = plan[1]
     const ecommerce3 = plan[2]
 
-  return (
-    <>
-    <div className={style.containerCards}>
+    return (
+        <>
+            <div className={style.containerCards}>
                 <div className={style.cardBox} >
                     <div className={style.containerTitleAndDescripcion}>
-                        <h4 style={{color: '#DB319B'}}>{t("plans.BasicPlan.title")}</h4>
+                        <h4 style={{ color: '#DB319B' }}>{t("plans.BasicPlan.title")}</h4>
                         <p>{t("plans.BasicPlan.description")}</p>
 
                     </div>
@@ -170,8 +170,8 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
                     </div>
                 </div>
             </div>
-    </>
-  )
+        </>
+    )
 }
 
 export default QuoteEcommerce
