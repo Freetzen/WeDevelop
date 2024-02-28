@@ -4,8 +4,8 @@ import { initMercadoPago } from '@mercadopago/sdk-react'
 import { useTranslation } from 'react-i18next';
 import pricingProvider from "../../../utils/provider/pricingProvider/pricingProvider.js";
 import planProvider from '../../../utils/provider/planProvider/planProvider.js';
-import Web from '../web/Web.jsx';
 import Ecommerce from '../ecommerce/Commerce';
+import QuoteWeb from '../quoteWeb/QuoteWeb.jsx';
 
 const Pricing = ({ quote, plan }) => {
 
@@ -59,7 +59,7 @@ const Pricing = ({ quote, plan }) => {
             </div>
             {
                 quote.purpose === 'web' 
-                ? <Web handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/> 
+                ? <QuoteWeb handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/> 
                 : <Ecommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
             }
         </div>

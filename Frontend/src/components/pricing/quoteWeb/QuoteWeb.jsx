@@ -6,7 +6,7 @@ import { IoIosArrowDropup } from "react-icons/io";
 import { Wallet } from '@mercadopago/sdk-react'
 import { useState } from 'react';
 
-const Web = ({handleClick, preferenceId, t, project, plan}) => {
+const QuoteWeb = ({handleClick, preferenceId, t, project, plan}) => {
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
@@ -174,4 +174,4 @@ const Web = ({handleClick, preferenceId, t, project, plan}) => {
   )
 }
 
-export default Web
+export default QuoteWeb
