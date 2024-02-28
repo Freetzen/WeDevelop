@@ -36,7 +36,7 @@ const LoginButton = () => {
 
         userDate('info', newUser)
 
-        const Response = await userProvider.getUserByEmail(data?.email)
+        const Response = await userProvider.getUserByEmail(user.email)
         if (!Response) {
           const newUser1 = await userProvider.createUser(newUser)
           dispatch(loadUserData(newUser1))

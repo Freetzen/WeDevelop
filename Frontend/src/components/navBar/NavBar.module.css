@@ -15,14 +15,13 @@
 
 .Link .logo {
   display: flex;
-  justify-content: center;
   align-content: center;
 }
 
 /* Menu Items */
 
 .NavBarContainer .menu {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
@@ -155,7 +154,7 @@
     justify-self: start;
     justify-content: left;
     transition: all 0.5s;
-    z-index: 1000;
+    z-index: 3000;
   }
 
   .menu nav {

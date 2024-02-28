@@ -42,7 +42,7 @@ export const Quote = () => {
   })
 
   useEffect(() => {
-    if (!user) {
+    if (!isLoading && !user) {
       Swal.fire({
         position: "center",
         icon: "error",
