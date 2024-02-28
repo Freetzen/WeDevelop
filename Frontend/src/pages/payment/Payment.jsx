@@ -27,6 +27,8 @@ export const Payment = () => {
     useEffect(() => {
         searchPay()
     }, [])
+
+
     return (
         <div>
             <div className={style.paymentContainer}>

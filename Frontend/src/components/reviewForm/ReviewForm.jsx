@@ -5,14 +5,16 @@ import style from "./ReviewForm.module.css";
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider';
 import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
+import { useSelector } from 'react-redux';
 
 const ReviewForm = () => {
+  const data = useSelector(state => state.userData);
   const [t, i18n] = useTranslation("global");
   const { user } = useAuth0();
   const [info, setInfo] = useState({
-    name: user.name,
-    email: user.email,
-    image: user.picture,
+    name: data.name,
+    email: data.email,
+    image: data.picture,
     rating: 0,
     message: ''
   });
