@@ -31,15 +31,14 @@ const LoginButton = () => {
         email: user?.email,
         image: user?.picture
       }
-  const guestUser = await getUserData()
-  if(!guestUser) userDate('info', newUser)
+  userDate('info', newUser)
 
       if(user){
         const Response = await userProvider.getUserByEmail(user.email)
         if(!Response) { 
           const newUser1 = await userProvider.createUser(newUser)
           dispatch(loadUserData(newUser1))
-          return newUser1
+          return newUser1 
         }
         dispatch(loadUserData(Response))
       }
