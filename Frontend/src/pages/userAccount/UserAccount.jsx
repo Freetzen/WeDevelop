@@ -31,12 +31,13 @@ export const UserAccount = ({ menuIsActive }) => {
         {
           data.role === "admin" ? (
             <>
-          <label >{t("Role")}</label>
+          <label >{t("UserAccount.role")}</label>
           <p>{data?.role}</p>
             </>
           ) 
           : null
         }
+
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
         {

@@ -28,7 +28,7 @@
   },
 
   "UserAccount": {
-    "Membership": "Membership",
+    "role": "Role",
     "creationDate": "Account creation date",
     "SignOut": "Log out",
     "adminPanel": "Admin panel"
