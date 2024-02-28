@@ -29,7 +29,7 @@
   },
 
   "UserAccount": {
-    "Membership": "Membresia",
+    "role": "Rol",
     "creationDate": "Fecha de creacion de la cuenta",
     "SignOut": "Desconectarse",
     "adminPanel": "Panel de administrador"

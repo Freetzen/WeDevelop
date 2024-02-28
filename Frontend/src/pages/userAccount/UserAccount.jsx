@@ -28,7 +28,7 @@ export const UserAccount = ({ menuIsActive }) => {
         <p>{data?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
-        <label >{t("Role")}</label>
+        <label >{t("UserAccount.role")}</label>
         <p>{data?.role}</p>
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
