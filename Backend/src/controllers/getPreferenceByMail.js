@@ -1,7 +1,7 @@
 const { findPreferenceByEmail } = require("../services/preferenceService")
 
 
-const getPreferenceByCorreo = async (req, res) => {
+const getPreferenceByMail = async (req, res) => {
 try {
     const {email} = req.query
     const search = await findPreferenceByEmail(email);
@@ -12,4 +12,4 @@ try {
   
 }
 
-module.exports = getPreferenceByCorreo
+module.exports = getPreferenceByMail
