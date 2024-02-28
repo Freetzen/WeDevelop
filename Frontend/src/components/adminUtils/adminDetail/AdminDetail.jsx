@@ -9,8 +9,6 @@ import pricingProvider from "../../../utils/provider/pricingProvider/pricingProv
 export default function AdminDetail({ detailState, setDetailState, setItemsToEdit }) {
     const [changes, setChanges] = useState({});
     const [isUser, setIsUser] = useState(true)
-    console.log('esto es detail state', detailState);
-    console.log(typeof detailState);
     useEffect(() => {
         let isMounted = true;
         const fetchData = async () => {
@@ -92,7 +90,6 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
             });
         } catch (error) { }
     };
-
 
     const [edit, setEdit] = useState(false)
 
