@@ -6,11 +6,10 @@ import { IoIosArrowDropup } from "react-icons/io";
 import { Wallet } from '@mercadopago/sdk-react'
 import { useState } from 'react';
 
-const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
+const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan, loadingMoreBasicEco, loadingBusinessEco, loadingEnterpriseEco}) => {
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
-    const [loading, setLoading] = useState(false)
 
     const ecommerce1 = plan[0]
     const ecommerce2 = plan[1]
@@ -32,7 +31,7 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
                         </div>
                         <div className={style.containerButtonPay}>
                             <button
-                                style={loading ? { display: 'none' } : { display: '' }}
+                                style={loadingMoreBasicEco ? {display: 'none'} : {display: ''}}
                                 className={style.buttonPay}
                                 name={ecommerce3.name}
                                 value={ecommerce3.price}
@@ -85,7 +84,13 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
                             <p className={style.p}>{t("plans.BusinessPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name={ecommerce3.name} value={ecommerce2.price} onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
+                            <button 
+                            style={loadingBusinessEco ? {display: 'none'} : {display: ''}}
+                            className={style.buttonPay} 
+                            name={ecommerce2.name} 
+                            value={ecommerce2.price} 
+                            onClick={handleClick}
+                            >{t("plans.BusinessPlan.button")}</button>
                             {
                                 preferenceId && project.title === "Business" &&
                                 <Wallet
@@ -133,7 +138,13 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
                             <p className={style.p}>{t("plans.EnterprisePlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name={ecommerce1.name} value={ecommerce1.price} onClick={handleClick}>{t("plans.EnterprisePlan.button")}</button>
+                            <button 
+                            style={loadingEnterpriseEco ? {display: 'none'} : {display: ''}}
+                            className={style.buttonPay} 
+                            name={ecommerce1.name} 
+                            value={ecommerce1.price} 
+                            onClick={handleClick}
+                            >{t("plans.EnterprisePlan.button")}</button>
                             {
                                 preferenceId && project.title === "Enterprise" &&
                                 <Wallet

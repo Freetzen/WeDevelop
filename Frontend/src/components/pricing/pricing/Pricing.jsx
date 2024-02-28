@@ -14,7 +14,15 @@ const Pricing = ({ quote, plan }) => {
 
     const [t, i18n] = useTranslation("global");
     const [preferenceId, setPreferenceId] = useState('')
-  
+
+
+    const [loadingMoreBasic, setLoadingMoreBasic] = useState(false);
+    const [loadingBusiness, setLoadingBusiness] = useState(false);
+    const [loadingEnterprise, setLoadingEnterprise] = useState(false);
+
+    const [loadingMoreBasicEco, setLoadingMoreBasicEco] = useState(false);
+    const [loadingBusinessEco, setLoadingBusinessEco] = useState(false);
+    const [loadingEnterpriseEco, setLoadingEnterpriseEco] = useState(false);
 
     const infoUser = JSON.parse(localStorage.getItem('info'))
 
@@ -25,9 +33,16 @@ const Pricing = ({ quote, plan }) => {
         quote,
         email: infoUser.email
     })
-    
+
 
     const handleClick = async (e) => {
+        setLoadingMoreBasic(false)
+        setLoadingEnterprise(false)
+        setLoadingBusiness(false)
+        setLoadingMoreBasicEco(false)
+        setLoadingBusinessEco(false)
+        setLoadingEnterpriseEco(false)
+
         const dolar = await planProvider.getDolar()
         setPreferenceId('')
         const newProject = {
@@ -37,6 +52,24 @@ const Pricing = ({ quote, plan }) => {
         };
 
         await setProject(newProject)
+
+        if(quote.purpose === 'web') {
+            if (e.target.name === 'Basic') {
+                setLoadingMoreBasic(true)
+            } else if (e.target.name === 'Business') {
+                setLoadingBusiness(true)
+            } else if (e.target.name === 'Enterprise'){
+                setLoadingEnterprise(true)
+            }
+        } else {
+            if (e.target.name === 'Basic') {
+                setLoadingMoreBasicEco(true)
+            } else if (e.target.name === 'Business') {
+                setLoadingBusinessEco(true)
+            } else if (e.target.name === 'Enterprise'){
+                setLoadingEnterpriseEco(true)
+            }
+        }
     }
 
     useEffect(() => {
@@ -53,17 +86,39 @@ const Pricing = ({ quote, plan }) => {
 
     return (
         <>
-        <div className={style.pricingContainer}>
-            <div className={style.titleCuestion}>
-                <h3>{t("plansTitle.title")}</h3>
-                <p>{t("plansTitle.subtitle")}</p>
+            <div className={style.pricingContainer}>
+                <div className={style.titleCuestion}>
+                    <h3>{t("plansTitle.title")}</h3>
+                    <p>{t("plansTitle.subtitle")}</p>
+                </div>
+                {
+                    quote.purpose === 'web'
+                        ?
+                        <QuoteWeb handleClick={handleClick}
+                            preferenceId={preferenceId}
+                            t={t}
+                            project={project}
+                            plan={plan}
+                            loadingMoreBasic={loadingMoreBasic}
+                            loadingBusiness={loadingBusiness}
+                            loadingEnterprise={loadingEnterprise}
+                        />
+
+
+                        : 
+                        
+                        <QuoteEcommerce 
+                        handleClick={handleClick} 
+                        preferenceId={preferenceId} 
+                        t={t} 
+                        project={project} 
+                        plan={plan} 
+                        loadingMoreBasicEco={loadingMoreBasicEco}
+                        loadingBusinessEco={loadingBusinessEco}
+                        loadingEnterpriseEco={loadingEnterpriseEco}
+                        />
+                }
             </div>
-            {
-                quote.purpose === 'web' 
-                ? <QuoteWeb handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/> 
-                : <QuoteEcommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
-            }
-        </div>
         </>
     );
 };
