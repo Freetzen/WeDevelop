@@ -1,89 +1,45 @@
-import style from './Pricing.module.css';
+import style from './Web.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
-import { useEffect, useState } from 'react';
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import { useTranslation } from 'react-i18next';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
+import { Wallet } from '@mercadopago/sdk-react'
+import { useState } from 'react';
 
-const Pricing = ({ quote }) => {
-
-    initMercadoPago('TEST-a17e8b8f-91a1-4351-bc9c-cdb9d1033859', { locale: "es-AR" });
-
-    const [t, i18n] = useTranslation("global");
+const QuoteWeb = ({handleClick, preferenceId, t, project, plan}) => {
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
     const [loading, setLoading] = useState(false)
-    const [preferenceId, setPreferenceId] = useState('')
 
+    const web1 = plan[0]
+    const web2 = plan[1]
+    const web3 = plan[2]
 
-    const infoUser = JSON.parse(localStorage.getItem('info'))
-
-
-
-    const [project, setProject] = useState({
-        title: "",
-        price: 0,
-        quantity: 1,
-        quote,
-        email: infoUser.email
-    })
-
-    const handleClick = async (e) => {
-        setPreferenceId('')
-        const newProject = {
-            ...project,
-            'title': e.target.name,
-            'price': e.target.value
-        };
-
-        await setProject(newProject)
-    }
-
-    useEffect(() => {
-        handleBuy();
-    }, [project])
-
-
-    const handleBuy = async () => {
-        const id = await pricingProvider.createPreference(project)
-        if (id) {
-            await setPreferenceId(id)
-        }
-    }
-
-    return (
-        <div className={style.pricingContainer}>
-            <div className={style.titleCuestion}>
-                <h3>{t("plansTitle.title")}</h3>
-                <p>{t("plansTitle.subtitle")}</p>
-            </div>
-
-            <div className={style.containerCards}>
+  return (
+    <>
+    <div className={style.containerCards}>
                 <div className={style.cardBox} >
                     <div className={style.containerTitleAndDescripcion}>
-                        <h4 style={{ color: '#DB319B' }}>{t("plans.BasicPlan.title")}</h4>
+                        <h4 style={{color: '#DB319B'}}>{t("plans.BasicPlan.title")}</h4>
                         <p>{t("plans.BasicPlan.description")}</p>
 
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
-                            <h4 className={style.h4}>$100</h4>
+                            <h4 className={style.h4}>${web1.price}</h4>
                             <p className={style.p}>{t("plans.BasicPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
                             <button
                                 style={loading ? { display: 'none' } : { display: '' }}
                                 className={style.buttonPay}
-                                name="Basic Plan"
-                                value='100'
+                                name={web1.name}
+                                value={web1.price}
                                 onClick={handleClick}>
                                 {t("plans.BasicPlan.button")}
                             </button>
-                            {preferenceId && project.title === "Basic Plan" &&
+                            {preferenceId && project.title === "Basic" &&
                                 <Wallet
                                     initialization={{ preferenceId: preferenceId }}
                                     customization={{ texts: { valueProp: 'smart_option' }, visual: { verticalPadding: '0px', buttonHeight: '55px' } }} />}
@@ -116,6 +72,8 @@ const Pricing = ({ quote }) => {
                     </div>
                 </div>
 
+
+
                 <div className={style.cardBox}>
                     <div className={style.containerTitleAndDescripcion}>
                         <h4 style={{ color: '#982090' }}>{t("plans.BusinessPlan.title")}</h4>
@@ -123,13 +81,13 @@ const Pricing = ({ quote }) => {
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
-                            <h4 className={style.h4}>$200</h4>
+                            <h4 className={style.h4}>${web2.price}</h4>
                             <p className={style.p}>{t("plans.BusinessPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name="Business Plan" value='200' onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
+                            <button className={style.buttonPay} name={web2.name} value={web2.price} onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
                             {
-                                preferenceId && project.title === "Business Plan" &&
+                                preferenceId && project.title === "Business" &&
                                 <Wallet
                                     initialization={{ preferenceId: preferenceId }}
                                     customization={{ texts: { valueProp: 'smart_option' }, visual: { verticalPadding: '0px', buttonHeight: '55px' } }} />
@@ -171,13 +129,13 @@ const Pricing = ({ quote }) => {
                     </div>
                     <div className={style.containerPricingAndButton}>
                         <div className={style.containerValue}>
-                            <h4 className={style.h4}>$350</h4>
+                            <h4 className={style.h4}>${web3.price}</h4>
                             <p className={style.p}>{t("plans.EnterprisePlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name="Enterprise Plan" value='350' onClick={handleClick}>{t("plans.EnterprisePlan.button")}</button>
+                            <button className={style.buttonPay} name={web3.name} value={web3.price} onClick={handleClick}>{t("plans.EnterprisePlan.button")}</button>
                             {
-                                preferenceId && project.title === "Enterprise Plan" &&
+                                preferenceId && project.title === "Enterprise" &&
                                 <Wallet
                                     initialization={{ preferenceId: preferenceId }}
                                     customization={{ texts: { valueProp: 'smart_option' }, visual: { verticalPadding: '0px', buttonHeight: '55px' } }} />
@@ -212,8 +170,8 @@ const Pricing = ({ quote }) => {
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+    </>
+  )
+}
 
-export default Pricing;
+export default QuoteWeb
