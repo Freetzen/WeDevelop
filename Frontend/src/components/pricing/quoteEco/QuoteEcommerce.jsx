@@ -1,4 +1,4 @@
-import style from './Ecommerce.module.css';
+import style from './QuoteEcommerce.module.css';
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -15,10 +15,6 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
     const ecommerce1 = plan[0]
     const ecommerce2 = plan[1]
     const ecommerce3 = plan[2]
-
-    console.log('ecommerce1', ecommerce1)
-    console.log('ecommerce2', ecommerce2)
-    console.log('ecommerce3', ecommerce3)
 
   return (
     <>
