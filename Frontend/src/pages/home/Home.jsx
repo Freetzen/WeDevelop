@@ -12,7 +12,7 @@ import userProvider from "../../utils/provider/userProvider/userProvider";
 import { useDispatch } from "react-redux";
 import { getUserData } from "../../helpers/local";
 
-const Home = ({loading, setLoading}) => {
+const Home = ({ loading, setLoading }) => {
 
   const [messages, setMessages] = useState([]);
   const [totalReviews, setTotalReviews] = useState([])
@@ -29,7 +29,7 @@ const Home = ({loading, setLoading}) => {
         console.error(`Se produjo un error: ${error}`);
       } finally {
         setTimeout(() => {
-          setLoading(false)  
+          setLoading(false)
         }, 4000);
       }
     }
@@ -46,11 +46,11 @@ const Home = ({loading, setLoading}) => {
       ) : (
         <>
           <Header />
-          <AboutUs setLoading={setLoading}/>
+          <AboutUs setLoading={setLoading} />
           <Skills />
           <Highlights />
           <StartQuote />
-          <Review totalReviews={totalReviews} messages={messages} /> 
+          <Review totalReviews={totalReviews} messages={messages} />
           <Footer />
         </>
       )}
