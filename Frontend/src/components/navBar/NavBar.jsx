@@ -1,6 +1,5 @@
 import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 import { TfiWorld } from "react-icons/tfi";
 import React, { useEffect, useState } from "react";
 import i18next from "i18next";
@@ -11,9 +10,12 @@ import LoginButton from "../loginButton/LoginButton";
 import { FiMenu } from 'react-icons/fi';
 import { UserAccountMobile } from "../userAccountMobile/UserAccountMobile";
 import logoNav from '../../../public/images/logo-nav.png'
+import { useSelector } from "react-redux";
+
 
 
 const NavBar = () => {
+  const data = useSelector(state => state.userData);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
 
   useEffect(() => {
@@ -29,8 +31,9 @@ const NavBar = () => {
   const [t, i18n] = useTranslation("global");
   const handleChangeLanguage = (lang) => {
     i18next.changeLanguage(lang);
+    localStorage.setItem('language', lang);
+
   };
-  const { isAuthenticated, user } = useAuth0();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -75,7 +78,7 @@ const NavBar = () => {
               <Link to="/">{t("NavBar.Home")}</Link>
             </li>
             <li>
-              <Link to="/quote">{t("NavBar.Quote")}</Link>
+              <Link to="/quote">{t("NavBar.Quote.title")}</Link>
             </li>
             <li>
               <Link to="/projects">{t("NavBar.Projects")}</Link>
@@ -85,7 +88,7 @@ const NavBar = () => {
             </li>
             <li className={style.dropdown} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
               <span>
-                Language
+                {t("NavBar.Language")}
                 {isDropdownOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
               </span>
               {isDropdownOpen && (
@@ -93,16 +96,17 @@ const NavBar = () => {
                   <li>
                     <button onClick={() => handleChangeLanguage("es")}> <TfiWorld />Español</button>
                     <button onClick={() => handleChangeLanguage("en")}> <TfiWorld />English</button>
+                    <button onClick={() => handleChangeLanguage("fr")}> <TfiWorld />Français</button>
                   </li>
                 </ul>
               )}
             </li>
           </ul>
         </nav>
-        <div className={style.login} style={isAuthenticated && isMobile ? { display: 'none' } : { display: '' }}>
+        <div className={style.login} style={data.name && isMobile ? { display: 'none' } : { display: '' }}>
           <LoginButton />
         </div>
-        {isAuthenticated ? <UserAccountMobile /> : null}
+        {data?.name ? <UserAccountMobile /> : null}
       </div>
       <div className={style.hamburgContainer}>
         <button className={style.menuButton} onClick={handleShowMenu}><FiMenu /></button>
