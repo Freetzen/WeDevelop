@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 import planProvider from '../../utils/provider/planProvider/planProvider';
 import Web from './web/Web';
-import Ecommerce from './ecommerce/Commerce';
+import Ecommerce from './ecommerce/Commerce.jsx';
 
 const Pricing = ({ quote, plan }) => {
 
