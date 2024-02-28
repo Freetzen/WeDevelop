@@ -19,7 +19,7 @@ const getPaymentMP = require('../controllers/getPaymentMP');
 const getPreferenceByEmailBD = require('../controllers/getPreferenceByEmail');
 const getReviewsAll = require('../controllers/getReviewsAll');
 const getPreferences = require('../controllers/getPreferences');
-const getPreferenceByCorreo = require('../controllers/getPreferenceByCorreo');
+const getPreferenceByCorreo = require('../controllers/getPreferenceByMail');
 
 const router = express.Router();
 
