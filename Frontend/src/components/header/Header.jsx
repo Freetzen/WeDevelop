@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <div className={style.HeaderContainer}>
       <div className={style.titleContainer}>
-        <h1 className={style.h1}>{t("Header.title")} <span>{words[wordIndex]}</span></h1>
+        <h1 className={style.h1}>{t("Header.title")} <span>{t(`${words[wordIndex]}`)}</span></h1>
         
         <img src="./images/logo-header.png" alt="" />
       </div>

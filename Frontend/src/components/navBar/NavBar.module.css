@@ -58,8 +58,10 @@
   cursor: pointer;
 }
 
+/* Idiomas */
 .dropdown {
   position: relative;
+
   cursor: pointer;
 }
 
@@ -144,7 +146,7 @@
   }
 
   .menu {
-    width: 100%;
+    width: 100vw !important;
     padding: 20px 0px;
     flex-direction: column;
     background: #2f2f2f;
@@ -170,7 +172,7 @@
 
   .menu ul li {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     margin-right: 0;
   }
 
@@ -246,3 +248,4 @@
   }
 
 }
+
