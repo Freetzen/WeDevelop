@@ -223,21 +223,22 @@ footer {
   }
   
   .footerNavigation h4 {
-    font-size: 22px;
-    font-weight: 300;
+    font-size: 23px;
+    font-weight: 600;
     margin-bottom: 15px;
-    text-decoration: underline;
   }
   
   .footerNavigation .link {
+    display: inline;
     width: auto;
   }
   
   .footerNavigation .link a{
     text-decoration: none;
-    margin: 0;
+    margin: 0px 4px;
     margin-bottom: 7px;
     font-size: 16px;
+    font-weight: 400;
   }
   
   .footerContact {
@@ -246,12 +247,11 @@ footer {
   }
   
   .footerContact h4 {
-    font-size: 22px;
-    font-weight: 300;
+    font-size: 23px;
+    font-weight: 600;
     margin: 0;
     margin-bottom: 15px;
     text-align: center;
-    text-decoration: underline;
   }
   
   .footerContact .contact{
@@ -262,7 +262,7 @@ footer {
   
   .footerContact .contact p{
     margin: 0;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
   }
   
   .footerContact .contact p .icon{

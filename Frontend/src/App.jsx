@@ -48,7 +48,7 @@ function App() {
         <Route path="/reviews" element={<ReviewsAll />}></Route>
         <Route path="/successpayment" element={<Payment />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="payment" element={<Payment />}></Route>
+        <Route path="/payment" element={<Payment />}></Route>
 
       </Routes>
 

@@ -9,10 +9,11 @@ import i18next from "i18next";
 import { I18nextProvider, initReactI18next } from "react-i18next";
 import global_es from "./i18n/es/global.json";
 import global_en from "./i18n/en/global.json";
+import global_fr from "./i18n/en/global.json";
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: storedLanguage,
+  lng: "en",
   resources: {
     en: {
       global: global_en,
@@ -29,9 +30,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
 
       <Auth0Provider
-
-       domain="dev-zy68xm5sl5mhrgw3.us.auth0.com"
-       clientId="rH6qLmDrP51hwYBROC1JUlmZy5HbPkwl"
+        domain="dev-zy68xm5sl5mhrgw3.us.auth0.com"
+        clientId="rH6qLmDrP51hwYBROC1JUlmZy5HbPkwl"
         authorizationParams={{
           redirect_uri: window.location.origin
         }}
