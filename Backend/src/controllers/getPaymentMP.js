@@ -22,7 +22,6 @@ const getPaymentMP = async (req, res) => {
       }
       );
       
-      
       const pay = {
         payId: Number(payment_id),
         emailMp: payAidi.data.payer.email,
@@ -55,8 +54,6 @@ const getPaymentMP = async (req, res) => {
       const newOrder = await PutPreference(searchPayment._id, pay);
       
       const dolis = await axios('https://dolarapi.com/v1/dolares/oficial')
-      
-      
       
       const mailer = {
         title: searchPayment.title,
