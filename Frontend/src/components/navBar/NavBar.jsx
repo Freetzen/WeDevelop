@@ -1,6 +1,5 @@
 import style from "./NavBar.module.css";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 import { TfiWorld } from "react-icons/tfi";
 import React, { useEffect, useState } from "react";
 import i18next from "i18next";
@@ -10,9 +9,11 @@ import { IoIosArrowUp } from "react-icons/io";
 import LoginButton from "../loginButton/LoginButton";
 import { FiMenu } from 'react-icons/fi';
 import { UserAccountMobile } from "../userAccountMobile/UserAccountMobile";
+import { useSelector } from "react-redux";
 
 
 const NavBar = () => {
+  const data = useSelector(state => state.userData);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
 
   useEffect(() => {
@@ -31,7 +32,6 @@ const NavBar = () => {
     localStorage.setItem('language', lang);
 
   };
-  const { isAuthenticated, user } = useAuth0();
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -101,10 +101,10 @@ const NavBar = () => {
             </li>
           </ul>
         </nav>
-        <div className={style.login} style={isAuthenticated && isMobile ? { display: 'none' } : { display: '' }}>
+        <div className={style.login} style={data.name && isMobile ? { display: 'none' } : { display: '' }}>
           <LoginButton />
         </div>
-        {isAuthenticated ? <UserAccountMobile /> : null}
+        {data?.name ? <UserAccountMobile /> : null}
       </div>
       <div className={style.hamburgContainer}>
         <button className={style.menuButton} onClick={handleShowMenu}><FiMenu /></button>
