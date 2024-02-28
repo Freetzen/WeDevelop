@@ -9,8 +9,9 @@ import { useSelector } from "react-redux";
 
 export const Quote = () => {
   const user = useSelector(state => state.userData)
-console.log(user)
+  console.log(user)
   const [t, i18n] = useTranslation("global");
+
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ console.log(user)
       });
       navigate("/");
     }
-  }, [ user, navigate, isLoading]);
+  }, [user, navigate, isLoading]);
 
 
   return (
@@ -58,7 +59,7 @@ console.log(user)
       {isMobile ? <NavBar /> : null}
       {
         user?.email
-          ? <Section quote={quote} setQuote={setQuote}/>
+          ? <Section quote={quote} setQuote={setQuote} />
           : null
       }
     </>

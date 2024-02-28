@@ -28,7 +28,7 @@ const postPlan = require('../controllers/postPlan');
 
 const router = express.Router();
 
-router.post("/createpreference",postPreference)
+router.post("/createpreference", postPreference)
 router.get('/projects/category', getProjectByCategory)
 router.get('/projects/name', getProjectByName)
 router.get('/projects/:id', getProjectById)
@@ -40,12 +40,12 @@ router.put('/projects', putProject)
 router.post('/login', postUsers)
 router.post('/projects', postProject)
 router.post('/reviews', postReviews)
-router.get('/reviews/rating',getReviewByRating)
+router.get('/reviews/rating', getReviewByRating)
 router.get('/reviewsall', getReviewsAll)
 router.get('/reviews', getReviews)
 router.put('/users', putUser)
-router.get("/preference",getPreferences)
-router.post("/preference",postPreference)
+router.get("/preference", getPreferences)
+router.post("/preference", postPreference)
 router.post('/success', postMercadoPago);
 router.get('/successpayment', getPaymentMP);
 router.get('/getpreference', getPreferenceByEmailBD);
@@ -55,4 +55,4 @@ router.put('/plans', putPlan);
 router.get('/planstype', getPlanByType);
 router.post('/plans', postPlan);
 
-module.exports = router
+module.exports = router
