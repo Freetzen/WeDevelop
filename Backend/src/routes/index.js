@@ -19,6 +19,7 @@ const getPaymentMP = require('../controllers/getPaymentMP');
 const getPreferenceByEmailBD = require('../controllers/getPreferenceByEmail');
 const getReviewsAll = require('../controllers/getReviewsAll');
 const getPreferences = require('../controllers/getPreferences');
+const getPreferenceByCorreo = require('../controllers/getPreferenceByCorreo');
 
 const router = express.Router();
 
@@ -43,5 +44,6 @@ router.post("/preference",postPreference)
 router.post('/success', postMercadoPago);
 router.get('/successpayment', getPaymentMP);
 router.get('/getpreference', getPreferenceByEmailBD);
+router.get('/getpreference/email', getPreferenceByCorreo);
 
 module.exports = router
