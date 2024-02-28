@@ -13,9 +13,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         let isMounted = true;
         const fetchData = async () => {
             if (typeof detailState === 'object') {
-                console.log('validadooooooooooooo');
                 const preference = await pricingProvider.getPreferenceById(detailState);
-                console.log('preference', preference);
                 if (isMounted) {
                     setChanges(preference);
                     setIsUser(true)
@@ -80,6 +78,10 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         });
     }
 
+    const sendSellsChanges = async () => {
+
+    }
+
     const handleImage = async (e) => {
         const imgFile = e.target.files[0];
         try {
@@ -96,90 +98,106 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
     const handleEdit = () => {
         setEdit(!edit)
     }
-
+    console.log('esto es changes', changes);
     return (
         <div className={style.detailsContainer}>
             {
-                isUser
-                    ? (
+                typeof detailState === 'object'
+                    ?
+                    (
                         <div className={style.containerCard}>
                             <div className={style.labelAndSelect}>
-                                <label style={{ paddingLeft: '20px' }}>{changes.name}</label>
+                                <label style={{ paddingLeft: '20px' }}>{changes.title}</label>
                                 <label className={style.labelEmail}>{changes.email}</label>
-                                <select
-                                    name="banned"
-                                    onChange={handleChange}
-                                    value={changes.banned}>
-                                    <option value={false} key="false">UnBanned</option>
-                                    <option value={true} key="true">Banned</option>
-                                </select>
-                                <select
-                                    name="role"
-                                    onChange={handleChange}
-                                    value={changes.role}>
-                                    <option value="admin" key="admin">Admin</option>
-                                    <option value="user" key="user">User</option>
-                                </select>
+                                <label className={style.labelEmail}>{changes.status}</label>
+                                <label className={style.labelEmail}>{changes.amount}</label>
                             </div>
                             <div className={style.containerButton}>
-                                <button onClick={sendUserChanges}>Send</button>
+                                <button onClick={sendSellsChanges}>Refresh</button>
                             </div>
                         </div>
                     )
-                    : (
-                        <div className={style.containerDetailProject}>
-                            <div className={style.containerSelectArchivos}>
-                                <img src={changes.images} alt="" />
-                                <input className={style.inputArchivos} style={edit ? { display: '' } : { display: 'none' }} type="file" name="image" onChange={handleImage} />
-                            </div>
-                            <div className={style.InputSelectAndDescription}>
-                                <div className={style.containerInput}>
-                                    <h2 style={edit ? { display: 'none' } : { display: '' }}>{changes.name}</h2>
-                                    <input
-                                        style={edit ? { display: '' } : { display: 'none' }}
-                                        type="text"
-                                        placeholder={changes.name}
-                                        name="name"
-                                        value={changes.name}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className={style.containerSelecth4}>
-                                    <h4 style={edit ? { display: 'none' } : { display: '' }}>{changes.category}</h4>
+
+                    : isUser
+                        ? (
+                            <div className={style.containerCard}>
+                                <div className={style.labelAndSelect}>
+                                    <label style={{ paddingLeft: '20px' }}>{changes.name}</label>
+                                    <label className={style.labelEmail}>{changes.email}</label>
                                     <select
-                                        style={edit ? { display: '' } : { display: 'none' }}
-                                        name="category"
+                                        name="banned"
                                         onChange={handleChange}
-                                        value={changes.category}>
-                                        <option value='Tourism' key="Tourism">Tourism</option>
-                                        <option value='E-commerce' key="E-commerce">E-commerce</option>
-                                        <option value='Social Network' key="Social Network">Social Network</option>
-                                        <option value='Health' key="Health">Health</option>
-                                        <option value='Landing Page' key="Landing Page">Landing Page</option>
-                                        <option value='Portfolio' key="Portfolio">Portfolio</option>
-                                        <option value='Entertainment' key="Entertainment">Entertainment</option>
+                                        value={changes.banned}>
+                                        <option value={false} key="false">UnBanned</option>
+                                        <option value={true} key="true">Banned</option>
+                                    </select>
+                                    <select
+                                        name="role"
+                                        onChange={handleChange}
+                                        value={changes.role}>
+                                        <option value="admin" key="admin">Admin</option>
+                                        <option value="user" key="user">User</option>
                                     </select>
                                 </div>
-                                <div className={style.containerTextAreaAndP}>
-                                    <p style={edit ? { display: 'none' } : { display: '' }}>{changes.description}</p>
-                                    <textarea
-                                        style={edit ? { display: '' } : { display: 'none' }}
-                                        name="description"
-                                        id="description"
-                                        cols="60"
-                                        rows="10"
-                                        placeholder={changes.description}
-                                        value={changes.description}
-                                        onChange={handleChange} />
-                                </div>
-                                <div className={style.containerButtons}>
-                                    <button onClick={() => setEdit(false)} style={edit ? { display: '' } : { display: 'none' }}>Cancelar</button>
-                                    <button onClick={handleEdit} style={edit ? { display: 'none' } : { display: '' }} >Editar</button>
-                                    <button onClick={sendprojectChanges} style={edit ? { display: '' } : { display: 'none' }} >Send</button>
+                                <div className={style.containerButton}>
+                                    <button onClick={sendUserChanges}>Send</button>
                                 </div>
                             </div>
-                        </div>
-                    )
+                        )
+                        : (
+                            <div className={style.containerDetailProject}>
+                                <div className={style.containerSelectArchivos}>
+                                    <img src={changes.images} alt="" />
+                                    <input className={style.inputArchivos} style={edit ? { display: '' } : { display: 'none' }} type="file" name="image" onChange={handleImage} />
+                                </div>
+                                <div className={style.InputSelectAndDescription}>
+                                    <div className={style.containerInput}>
+                                        <h2 style={edit ? { display: 'none' } : { display: '' }}>{changes.name}</h2>
+                                        <input
+                                            style={edit ? { display: '' } : { display: 'none' }}
+                                            type="text"
+                                            placeholder={changes.name}
+                                            name="name"
+                                            value={changes.name}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <div className={style.containerSelecth4}>
+                                        <h4 style={edit ? { display: 'none' } : { display: '' }}>{changes.category}</h4>
+                                        <select
+                                            style={edit ? { display: '' } : { display: 'none' }}
+                                            name="category"
+                                            onChange={handleChange}
+                                            value={changes.category}>
+                                            <option value='Tourism' key="Tourism">Tourism</option>
+                                            <option value='E-commerce' key="E-commerce">E-commerce</option>
+                                            <option value='Social Network' key="Social Network">Social Network</option>
+                                            <option value='Health' key="Health">Health</option>
+                                            <option value='Landing Page' key="Landing Page">Landing Page</option>
+                                            <option value='Portfolio' key="Portfolio">Portfolio</option>
+                                            <option value='Entertainment' key="Entertainment">Entertainment</option>
+                                        </select>
+                                    </div>
+                                    <div className={style.containerTextAreaAndP}>
+                                        <p style={edit ? { display: 'none' } : { display: '' }}>{changes.description}</p>
+                                        <textarea
+                                            style={edit ? { display: '' } : { display: 'none' }}
+                                            name="description"
+                                            id="description"
+                                            cols="60"
+                                            rows="10"
+                                            placeholder={changes.description}
+                                            value={changes.description}
+                                            onChange={handleChange} />
+                                    </div>
+                                    <div className={style.containerButtons}>
+                                        <button onClick={() => setEdit(false)} style={edit ? { display: '' } : { display: 'none' }}>Cancelar</button>
+                                        <button onClick={handleEdit} style={edit ? { display: 'none' } : { display: '' }} >Editar</button>
+                                        <button onClick={sendprojectChanges} style={edit ? { display: '' } : { display: 'none' }} >Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        )
             }
         </div>
     );

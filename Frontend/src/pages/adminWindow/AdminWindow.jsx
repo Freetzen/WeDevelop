@@ -144,6 +144,9 @@ const AdminWindow = () => {
             <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState} />
             <div className={style.containerPanel}>
                 {
+                    // itemsToEdit
+                    //     ?
+                    // :
                     itemsToEdit[0]?.payId
                         ? (
                             <div className={style.graphscontainer}>
