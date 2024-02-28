@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
 import planProvider from '../../utils/provider/planProvider/planProvider';
 import Web from './web/Web';
-import ECommerce from './ecommerce/ECommerce';
+import Ecommerce from './ecommerce/Commerce';
 
 const Pricing = ({ quote, plan }) => {
 
@@ -60,7 +60,7 @@ const Pricing = ({ quote, plan }) => {
             {
                 quote.purpose === 'web' 
                 ? <Web handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/> 
-                : <ECommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
+                : <Ecommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
             }
         </div>
         </>

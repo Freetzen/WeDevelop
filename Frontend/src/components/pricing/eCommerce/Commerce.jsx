@@ -6,7 +6,7 @@ import { IoIosArrowDropup } from "react-icons/io";
 import { Wallet } from '@mercadopago/sdk-react'
 import { useState } from 'react';
 
-const ECommerce = ({handleClick, preferenceId, t, project, plan}) => {
+const Ecommerce = ({handleClick, preferenceId, t, project, plan}) => {
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
@@ -178,4 +178,4 @@ const ECommerce = ({handleClick, preferenceId, t, project, plan}) => {
   )
 }
 
-export default ECommerce
+export default Ecommerce
