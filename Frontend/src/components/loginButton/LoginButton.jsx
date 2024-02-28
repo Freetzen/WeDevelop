@@ -31,8 +31,8 @@ const LoginButton = () => {
         email: user?.email,
         image: user?.picture
       }
-  const guestUser = await getUserData()
-  if(!guestUser) userDate('info', newUser)
+      const guestUser = await getUserData()
+      if(!guestUser) userDate('info', newUser)
 
       if(user){
         const Response = await userProvider.getUserByEmail(user.email)
