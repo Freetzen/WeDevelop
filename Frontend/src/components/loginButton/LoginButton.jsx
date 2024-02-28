@@ -31,9 +31,9 @@ const LoginButton = () => {
         email: user?.email,
         image: user?.picture
       }
-  userDate('info', newUser)
-
+      
       if(user){
+        userDate('info', newUser)
         const Response = await userProvider.getUserByEmail(user.email)
         if(!Response) { 
           const newUser1 = await userProvider.createUser(newUser)
