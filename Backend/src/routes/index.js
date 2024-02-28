@@ -20,6 +20,12 @@ const getPreferenceByEmailBD = require('../controllers/getPreferenceByEmail');
 const getReviewsAll = require('../controllers/getReviewsAll');
 const getPreferences = require('../controllers/getPreferences');
 const getPreferenceByMail = require('../controllers/getPreferenceByMail');
+const getPlans = require('../controllers/getPlans');
+const getPlanByType = require('../controllers/getPlanByType');
+const putPlan = require('../controllers/putPlan');
+const postPlan = require('../controllers/postPlan');
+const getPreferenceByCorreo = require('../controllers/getPreferenceByCorreo');
+
 
 const router = express.Router();
 
@@ -45,5 +51,10 @@ router.post('/success', postMercadoPago);
 router.get('/successpayment', getPaymentMP);
 router.get('/getpreference', getPreferenceByEmailBD);
 router.get('/getpreference/email', getPreferenceByMail);
+router.get('/plans', getPlans);
+router.put('/plans', putPlan);
+router.get('/planstype', getPlanByType);
+router.post('/plans', postPlan);
+router.get('/getpreference/email', getPreferenceByCorreo);
 
-module.exports = router
+module.exports = router

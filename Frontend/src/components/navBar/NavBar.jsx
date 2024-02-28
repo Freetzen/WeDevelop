@@ -9,7 +9,9 @@ import { IoIosArrowUp } from "react-icons/io";
 import LoginButton from "../loginButton/LoginButton";
 import { FiMenu } from 'react-icons/fi';
 import { UserAccountMobile } from "../userAccountMobile/UserAccountMobile";
+import logoNav from '../../../public/images/logo-nav.png'
 import { useSelector } from "react-redux";
+
 
 
 const NavBar = () => {
@@ -66,7 +68,7 @@ const NavBar = () => {
     <div className={style.NavBarContainer}>
       <Link to="/" className={style.Link}>
         <div className={style.logo}>
-          <img src="./images/logo-nav.png" />
+          <img src={logoNav} />
         </div>
       </Link>
       <div className={style.menu} onClick={ocultarMenu} style={isVisible ? { left: '0' } : { left: '-800px' }}>
