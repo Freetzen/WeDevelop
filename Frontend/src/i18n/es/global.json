@@ -212,7 +212,7 @@
   },
   "plans": {
     "BasicPlan": {
-      "title": "Plan Básico",
+      "title": "Basic",
       "description": "Para quienes desean iniciar su presencia en Internet de forma sencilla pero eficaz.",
       "sec1": "Registro en otras plataformas.",
       "sec2": "Dominio personalizado.",
@@ -231,7 +231,7 @@
       "button": "Comenzar"
     },
     "BusinessPlan": {
-      "title": "Plan de Negocios",
+      "title": "Business",
       "description": "Diseñado para mejorar la eficacia, la seguridad y la interactividad de su presencia digital..",
       "sec1": "Certificado SSL.",
       "sec2": "Registro en otras plataformas.",
@@ -250,7 +250,7 @@
       "button": "Comenzar"
     },
     "EnterprisePlan": {
-      "title": "Plan Empresarial",
+      "title": "Enterprise",
       "description": "Libere el potencial digital de su empresa con funciones diseñadas para el crecimiento.",
       "sec1": "Certificado SSL.",
       "sec2": "Registro en otras plataformas.",
