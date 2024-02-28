@@ -37,11 +37,11 @@
 
   "AboutUs": {
     "title": "Sobre nosotros",
-    "description": "En WebDevelop, no solo creamos sitios web, también tejemos historias digitales. Desde nuestros modestos comienzos en 2022, nos hemos dedicado con pasión a crear experiencias en línea excepcionales que cautivan, inspiran y conectan."
+    "description": "En WeDevelop, no solo creamos sitios web, también tejemos historias digitales. Desde nuestros modestos comienzos en 2022, nos hemos dedicado con pasión a crear experiencias en línea excepcionales que cautivan, inspiran y conectan."
   },
 
   "WhyWedevelop": {
-    "title": "¿Por que WebDevelop?",
+    "title": "¿Por que WeDevelop?",
     "section1": {
       "title": "  Experiencia",
       "description": "Con experiencia en la creación de sitios web, nos destacamos en diseño, programación y optimización. Nuestro enfoque centrado en el usuario y nuestro conocimiento actualizado garantizan sitios web eficientes y estéticamente agradables."
@@ -268,6 +268,17 @@
       "perProject": "/por proyecto",
       "button": "Comenzar"
     }
+  },
+
+  "PayStatus": {
+    "title": "Estado del pago",
+    "number": "Número de pago:",
+    "service": "Nombre del servicio:",
+    "type": "Tipo de pago:",
+    "amount": "Monto del pago:",
+    "creation": "Fecha de creación:",
+    "email": "Correo electrónico:",
+    "backHome": "Volver a inicio"
   },
 
   "ContactUsPage": {
