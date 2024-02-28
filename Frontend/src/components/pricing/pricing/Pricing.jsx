@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next';
 import pricingProvider from "../../../utils/provider/pricingProvider/pricingProvider.js";
 import planProvider from '../../../utils/provider/planProvider/planProvider.js';
 import QuoteWeb from '../quoteWeb/QuoteWeb.jsx';
-import Ecommerce from '../ecommerce/Commerce.jsx';
-
+import QuoteEcommerce from '../quoteEco/QuoteEcommerce.jsx';
 
 
 const Pricing = ({ quote, plan }) => {
@@ -62,7 +61,7 @@ const Pricing = ({ quote, plan }) => {
             {
                 quote.purpose === 'web' 
                 ? <QuoteWeb handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/> 
-                : <Ecommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
+                : <QuoteEcommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
             }
         </div>
         </>
