@@ -81,7 +81,7 @@
     "RatingHome": {
       "rating": "Évaluation",
       "comments": "Commentaires totaux",
-      "NotLogged": "Vous devez être connecté pour laisser un commentaire",
+      "NotBuyer": "Vous devez être connecté pour laisser un commentaire",
       "RatingForm": {
         "message": "Laissez votre commentaire :",
         "button": "Envoyer un commentaire !",

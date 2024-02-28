@@ -81,7 +81,7 @@
   "RatingHome": {
     "rating": "Calificación",
     "comments": "reseñas Totales",
-    "NotLogged": "Debes estar registrado para enviar una reseña",
+    "NotBuyer": "Debes estar registrado para enviar una reseña",
     "RatingForm": {
       "message": "Deja tu reseña :",
       "button": "Enviar Reseña!",
