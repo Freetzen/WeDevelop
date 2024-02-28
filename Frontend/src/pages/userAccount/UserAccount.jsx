@@ -45,7 +45,7 @@ export const UserAccount = ({ menuIsActive }) => {
             <label >{t("Contrated Plan")}</label>
             <p>{data.preference.title}</p>
             <label >{t("Purpose of your project")}</label>
-            <p>{data.preference.quote.purpose}</p>
+            <p>{data?.preference?.quote?.purpose}</p>
             </>
           ): null
         }
