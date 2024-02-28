@@ -21,8 +21,6 @@ const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
-  console.log('global' ,data);
-
 
   useEffect(() => {
 
@@ -36,13 +34,15 @@ const LoginButton = () => {
   const guestUser = await getUserData()
   if(!guestUser) userDate('info', newUser)
 
-      const Response = await userProvider.getUserByEmail(user.email)
-      if(!Response) { 
-        const newUser1 = await userProvider.createUser(newUser)
-        dispatch(loadUserData(newUser1))
-        return newUser1
+      if(user){
+        const Response = await userProvider.getUserByEmail(user.email)
+        if(!Response) { 
+          const newUser1 = await userProvider.createUser(newUser)
+          dispatch(loadUserData(newUser1))
+          return newUser1
+        }
+        dispatch(loadUserData(Response))
       }
-      dispatch(loadUserData(Response))
       if(data.banned){
         
         Swal.fire({

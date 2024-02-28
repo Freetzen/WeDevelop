@@ -85,7 +85,7 @@ const QuoteEcommerce = ({handleClick, preferenceId, t, project, plan}) => {
                             <p className={style.p}>{t("plans.BusinessPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name={ecommerce3.name} value={ecommerce2.price} onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
+                            <button className={style.buttonPay} name={ecommerce2.name} value={ecommerce2.price} onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
                             {
                                 preferenceId && project.title === "Business" &&
                                 <Wallet
