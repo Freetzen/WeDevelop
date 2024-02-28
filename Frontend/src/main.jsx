@@ -11,7 +11,7 @@ import global_es from "./i18n/es/global.json";
 import global_en from "./i18n/en/global.json";
 import global_fr from "./i18n/fr/global.json";
 
-const storedLanguage = localStorage.getItem('language') || 'en';
+const storedLanguage = localStorage.getItem("language") || "en";
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -25,20 +25,18 @@ i18next.init({
     },
     fr: {
       global: global_fr,
-    }
+    },
   },
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-
     <BrowserRouter>
-
       <Auth0Provider
        domain="dev-zy68xm5sl5mhrgw3.us.auth0.com"
        clientId="MmFcSLJ9UQTmH7objSXSSL0IPgiZwTR7"
         authorizationParams={{
-          redirect_uri: window.location.origin
+          redirect_uri: window.location.origin,
         }}
       >
         <I18nextProvider i18n={i18next}>
