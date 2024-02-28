@@ -65,7 +65,7 @@ const Pricing = ({ quote }) => {
             <div className={style.containerCards}>
                 <div className={style.cardBox} >
                     <div className={style.containerTitleAndDescripcion}>
-                        <h4 style={{color: '#DB319B'}}>{t("plans.BasicPlan.title")}</h4>
+                        <h4 style={{ color: '#DB319B' }}>{t("plans.BasicPlan.title")}</h4>
                         <p>{t("plans.BasicPlan.description")}</p>
 
                     </div>
@@ -115,8 +115,6 @@ const Pricing = ({ quote }) => {
                         </div>
                     </div>
                 </div>
-
-
 
                 <div className={style.cardBox}>
                     <div className={style.containerTitleAndDescripcion}>
