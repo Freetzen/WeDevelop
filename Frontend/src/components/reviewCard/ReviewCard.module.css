@@ -92,14 +92,14 @@
     .firstRow {
         width: auto;
         height: auto;
-        flex-direction: column;
+        flex-wrap: wrap;
         justify-content: start;
         gap: 0px;
         padding: 0px;
     }
     
     .image {
-        width: 100%;
+        width: auto;
         text-align: left;
     }
 
@@ -110,12 +110,12 @@
     
     .firstRow .containerNameAndDate {
         text-align: start;
-        width: max-content;
-        width: 100%;
+        width: auto;
+        margin-left: 4px;
     }
     
     .containerNameAndDate h4{
-        width: 100%;
+        width: auto;
         font-size: 20px;
         font-weight: 600;
         letter-spacing: -.5px;
@@ -126,17 +126,19 @@
         width: 100%;
         height: auto;
         justify-content: start;
-        margin-top: 10px;
+        margin-top: 20px;
     }
     
     .containerStarts p {
         font-size: 22px;
+        font-size: 500;
         text-align: start;
     }
     
     .containerComment p{
-        margin-top: 10px;
-        width: 300px;
+        width: 240px;
         font-size: 17px;
+        font-weight: 500;
+        margin-top: 15px;
     }
  }
