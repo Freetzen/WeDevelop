@@ -6,6 +6,7 @@ import pricingProvider from "../../../utils/provider/pricingProvider/pricingProv
 import planProvider from '../../../utils/provider/planProvider/planProvider.js';
 import QuoteWeb from '../quoteWeb/QuoteWeb.jsx';
 import QuoteEcommerce from '../quoteEco/QuoteEcommerce.jsx';
+import { useSelector } from 'react-redux';
 
 
 const Pricing = ({ quote, plan }) => {
@@ -15,7 +16,6 @@ const Pricing = ({ quote, plan }) => {
     const [t, i18n] = useTranslation("global");
     const [preferenceId, setPreferenceId] = useState('')
 
-
     const [loadingMoreBasic, setLoadingMoreBasic] = useState(false);
     const [loadingBusiness, setLoadingBusiness] = useState(false);
     const [loadingEnterprise, setLoadingEnterprise] = useState(false);
@@ -24,7 +24,8 @@ const Pricing = ({ quote, plan }) => {
     const [loadingBusinessEco, setLoadingBusinessEco] = useState(false);
     const [loadingEnterpriseEco, setLoadingEnterpriseEco] = useState(false);
 
-    const infoUser = JSON.parse(localStorage.getItem('info'))
+
+    const infoUser = useSelector(state => state.userData)
 
     const [project, setProject] = useState({
         title: "",
@@ -103,10 +104,7 @@ const Pricing = ({ quote, plan }) => {
                             loadingBusiness={loadingBusiness}
                             loadingEnterprise={loadingEnterprise}
                         />
-
-
-                        : 
-                        
+                        :                       
                         <QuoteEcommerce 
                         handleClick={handleClick} 
                         preferenceId={preferenceId} 

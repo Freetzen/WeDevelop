@@ -28,7 +28,7 @@
   },
 
   "UserAccount": {
-    "Membership": "Membership",
+    "role": "Role",
     "creationDate": "Account creation date",
     "SignOut": "Log out",
     "adminPanel": "Admin panel"
@@ -211,7 +211,7 @@
   },
   "plans": {
     "BasicPlan": {
-      "title": "Basic Plan",
+      "title": "Basic",
       "description": "For those looking to start their online presence in a simple yet effective way.",
       "sec1": "Registration with other platforms.",
       "sec2": "Custom domain.",
@@ -230,7 +230,7 @@
       "button": "Get Started"
     },
     "BusinessPlan": {
-      "title": "Business Plan",
+      "title": "Business",
       "description": "Designed to enhance efficiency, security, and interactivity in your digital presence.",
       "sec1": "SSL certificate.",
       "sec2": "Registration with other platforms.",
@@ -249,7 +249,7 @@
       "button": "Get Started"
     },
     "EnterprisePlan": {
-      "title": "Enterprise Plan",
+      "title": "Enterprise",
       "description": "Unlock your company's digital potential with features designed for growth.",
       "sec1": "SSL certificate.",
       "sec2": "Registration with other platforms.",

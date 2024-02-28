@@ -8,9 +8,6 @@ import Skills from "../../components/skills/Skills";
 import StartQuote from "../../components/startQuote/StartQuote";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import SpinnerConLogo from '../../components/spinners/spinnerConLogo/SpinnerConLogo';
-import userProvider from "../../utils/provider/userProvider/userProvider";
-import { useDispatch } from "react-redux";
-import { getUserData } from "../../helpers/local";
 
 const Home = ({ loading, setLoading }) => {
 

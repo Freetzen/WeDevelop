@@ -9,8 +9,6 @@ import pricingProvider from "../../../utils/provider/pricingProvider/pricingProv
 export default function AdminDetail({ detailState, setDetailState, setItemsToEdit }) {
     const [changes, setChanges] = useState({});
     const [isUser, setIsUser] = useState(true)
-    console.log('esto es detail state', detailState);
-    console.log(typeof detailState);
     useEffect(() => {
         let isMounted = true;
         const fetchData = async () => {
@@ -92,7 +90,6 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
             });
         } catch (error) { }
     };
-
 
     const [edit, setEdit] = useState(false)
 
@@ -176,8 +173,8 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
                                         onChange={handleChange} />
                                 </div>
                                 <div className={style.containerButtons}>
-                                    <button onClick={() => setEdit(false)} style={edit ? { display: '' } : { display: 'none' }}>Cancelar</button>
-                                    <button onClick={handleEdit} style={edit ? { display: 'none' } : { display: '' }} >Editar</button>
+                                    <button onClick={() => setEdit(false)} style={edit ? { display: '' } : { display: 'none' }}>Cancel</button>
+                                    <button onClick={handleEdit} style={edit ? { display: 'none' } : { display: '' }} >Edi</button>
                                     <button onClick={sendprojectChanges} style={edit ? { display: '' } : { display: 'none' }} >Send</button>
                                 </div>
                             </div>

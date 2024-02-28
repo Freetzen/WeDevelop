@@ -28,10 +28,28 @@ export const UserAccount = ({ menuIsActive }) => {
         <p>{data?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
-        <label >{t("Role")}</label>
-        <p>{data?.role}</p>
+        {
+          data.role === "admin" ? (
+            <>
+          <label >{t("UserAccount.role")}</label>
+          <p>{data?.role}</p>
+            </>
+          ) 
+          : null
+        }
+
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
+        {
+          data.preference ? (
+            <>
+            <label >{t("Contrated Plan")}</label>
+            <p>{data.preference.title}</p>
+            <label >{t("Purpose of your project")}</label>
+            <p>{data?.preference?.quote?.purpose}</p>
+            </>
+          ): null
+        }
       </div>
       <div className={style.buttonsContainer}>
         <button onClick={handleLogut}>{t("UserAccount.SignOut")}</button>

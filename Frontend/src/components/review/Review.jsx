@@ -15,7 +15,7 @@ export default function Review({ totalReviews, messages }) {
   const user = useSelector(state => state.userData);
 
   const userHasPreference = async () => {
-    const preference = await preferenceProvider.getPreferenceByEmail(user.email);
+    const preference = await preferenceProvider.getPreferenceByEmail(user?.email);
     setUserPreference(preference);
   }
 

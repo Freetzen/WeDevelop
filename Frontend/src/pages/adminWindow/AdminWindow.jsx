@@ -311,7 +311,7 @@ const AdminWindow = () => {
                                         itemsToEdit={itemsToEdit}
                                     />
                                     : !itemsToEdit.length
-                                        ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                                        ? <div className={style.titleContaine}><h3>No items have been selected</h3></div>
                                         : itemsToEdit[0].payId
                                             ? itemsToEdit.map(item => (
                                                 <AdminItemCard
