@@ -80,7 +80,7 @@
   "RatingHome": {
     "rating": "Rating",
     "comments": "Total Comments",
-    "NotLogged": "Login to submit review",
+    "NotBuyer": "You must get a buy to review",
     "RatingForm": {
       "message": "Leave Your Review :",
       "button": "Send Review!",

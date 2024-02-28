@@ -23,6 +23,8 @@ const getPlans = require('../controllers/getPlans');
 const getPlanByType = require('../controllers/getPlanByType');
 const putPlan = require('../controllers/putPlan');
 const postPlan = require('../controllers/postPlan');
+const getPreferenceByCorreo = require('../controllers/getPreferenceByCorreo');
+
 
 const router = express.Router();
 
@@ -51,5 +53,7 @@ router.get('/plans', getPlans);
 router.put('/plans', putPlan);
 router.get('/planstype', getPlanByType);
 router.post('/plans', postPlan);
+router.get('/getpreference/email', getPreferenceByCorreo);
+
 
 module.exports = router
