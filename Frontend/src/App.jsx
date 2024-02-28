@@ -16,8 +16,7 @@ import { useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
 
-// axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 
 function App() {

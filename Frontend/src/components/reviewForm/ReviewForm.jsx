@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { GoStarFill } from "react-icons/go";
 import style from "./ReviewForm.module.css";
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider';
+import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
 
 const ReviewForm = () => {
@@ -43,7 +44,10 @@ const ReviewForm = () => {
       rating: 0,
       message: ''
     });
-    window.alert('Review uploaded successfully');
+    Swal.fire({
+      title: t("RatingHome.RatingForm.alertTitle"),
+      icon: "success"
+    });
   };
 
   return (

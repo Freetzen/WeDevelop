@@ -4,15 +4,26 @@ import style from "./AdminDetail.module.css";
 import userProvider from "../../../utils/provider/userProvider/userProvider";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
 import Swal from 'sweetalert2'
+import pricingProvider from "../../../utils/provider/pricingProvider/pricingProvider";
 
 export default function AdminDetail({ detailState, setDetailState, setItemsToEdit }) {
     const [changes, setChanges] = useState({});
     const [isUser, setIsUser] = useState(true)
-
+    console.log('esto es detail state', detailState);
+    console.log(typeof detailState);
     useEffect(() => {
         let isMounted = true;
         const fetchData = async () => {
-            if (validator.isEmail(detailState)) {
+            if (typeof detailState === 'object') {
+                console.log('validadooooooooooooo');
+                const preference = await pricingProvider.getPreferenceById(detailState);
+                console.log('preference', preference);
+                if (isMounted) {
+                    setChanges(preference);
+                    setIsUser(true)
+                }
+            }
+            else if (typeof detailState === 'string' && validator.isEmail(detailState)) {
                 const user = await userProvider.getUserByEmail(detailState);
                 if (isMounted) {
                     setChanges(user);
