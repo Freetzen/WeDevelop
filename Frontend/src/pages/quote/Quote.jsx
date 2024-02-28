@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 export const Quote = () => {
   
   const [t, i18n] = useTranslation("global");
-
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
 
   useEffect(() => {
@@ -60,7 +59,7 @@ export const Quote = () => {
       {isMobile ? <NavBar /> : null}
       {
         user?.email
-          ? <Section quote={quote} setQuote={setQuote} />
+          ? <Section quote={quote} setQuote={setQuote}/>
           : null
       }
     </>

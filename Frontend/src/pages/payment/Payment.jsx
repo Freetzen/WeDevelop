@@ -20,15 +20,15 @@ export const Payment = () => {
     }
     const searchPay = async () => {
         const { data } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
-        const value = {
-            id: data._id
-        }
+        const value = { id: data._id }
         const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: value })
         setPaymentInfo(search.data)
     }
     useEffect(() => {
         searchPay()
     }, [])
+
+
     return (
         <div>
             <div className={style.paymentContainer}>

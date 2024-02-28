@@ -66,12 +66,12 @@
     }
     
     .carouselStyles {
-        width: 80%;
+        width: 100%;
         margin: 0px;
     }
-    
+
     .buttonContainer {
-        margin-top: 50px;
+        margin-top: 70px;
     }
 }
 
