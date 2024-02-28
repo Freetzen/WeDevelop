@@ -10,4 +10,4 @@ export const clearLocalStorage = () => {
 export const getUserData = () => {
     const userLocal = JSON.parse(localStorage.getItem('info'));
     return userLocal
-  };
+};
