@@ -7,7 +7,7 @@ import NavBar from "../../components/navBar/NavBar";
 import { useTranslation } from "react-i18next";
 
 export const Quote = () => {
-  
+
   const [t, i18n] = useTranslation("global");
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
@@ -42,7 +42,7 @@ export const Quote = () => {
   })
 
   useEffect(() => {
-    if (!isLoading && !user) {
+    if (!user) {
       Swal.fire({
         position: "center",
         icon: "error",
