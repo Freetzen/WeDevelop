@@ -26,6 +26,7 @@ const putPlan = require('../controllers/putPlan');
 const postPlan = require('../controllers/postPlan');
 
 
+
 const router = express.Router();
 
 router.post("/createpreference", postPreference)
@@ -54,5 +55,6 @@ router.get('/plans', getPlans);
 router.put('/plans', putPlan);
 router.get('/planstype', getPlanByType);
 router.post('/plans', postPlan);
+
 
 module.exports = router

@@ -19,7 +19,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
 
     // }
     const handleClick = () => {
-        if (name === '') return window.alert('Debes ingresar un nombre')
+        if (name === '') return window.alert('You must enter a name')
         if (validator.isEmail(name)) getUsEmail(name)
         else {
             getProjectName(name)
@@ -50,7 +50,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
     const getProjectName = async (name) => {
         setItemsToEdit([])
         const projectsResponse = await projectsProvider.getProjectByName(name)
-        if (projectsResponse.length === 0) return window.alert('No existen coincidencias con el nombre proporcionado')
+        if (projectsResponse.length === 0) return window.alert('There are no matches to the name provided.')
         else setItemsToEdit(projectsResponse)
     }
     const getUsEmail = async (email) => {
@@ -58,7 +58,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
         // if (name === '') return window.alert('Debes ingresar un nombre')
         const usersResponse = await userProvider.getUserByEmail(email)
         if (usersResponse === null) {
-            return window.alert('No existen coincidencias con el nombre proporcionado')
+            return window.alert('There are no matches to the name provided.')
         }
         else setItemsToEdit([usersResponse])
     }

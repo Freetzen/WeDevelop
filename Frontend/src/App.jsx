@@ -15,6 +15,11 @@ import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
+import { useEffect } from 'react'
+import userProvider from './utils/provider/userProvider/userProvider'
+import { getUserData } from './helpers/local'
+import { useDispatch } from 'react-redux'
+import { loadUserData } from './redux/actions'
 
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 // axios.defaults.baseURL = 'http://localhost:3001/'
@@ -23,9 +28,23 @@ axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 function App() {
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const dispatch = useDispatch()
+  const localStorageUser = getUserData()
+  const [localData, setLocalData] = useState(localStorageUser)
   const location = useLocation()
-
+  
+  useEffect(() => {
+    const loadData = async() => {
+      try {
+        const userDB = await userProvider.getUserByEmail(localData?.email)
+        return dispatch(loadUserData(userDB))
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    loadData()
+  }, [localData])
+ 
   return (
     <>
       {location.pathname !== '/admin'
@@ -34,7 +53,7 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && <NavBar />}
+        && <NavBar setLocalData={setLocalData}/>}
 
       <Routes>
         <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
