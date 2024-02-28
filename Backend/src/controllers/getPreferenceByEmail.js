@@ -2,7 +2,6 @@ const { findPreferenceById } = require("../services/preferenceService")
 
 
 const getPreferenceByEmailBD = async (req, res) => {
-    console.log('Esto es query by id', req.query)
     try {
         const { id } = req.query
         const search = await findPreferenceById(id)
