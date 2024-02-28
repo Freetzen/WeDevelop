@@ -33,6 +33,7 @@ const LoginButton = () => {
         email: user?.email,
         image: user?.picture
       }
+      
       userDate('info', newUser)
 
       const Response = await userProvider.getUserByEmail(user.email)
@@ -42,8 +43,7 @@ const LoginButton = () => {
         return newUser1
       }
       dispatch(loadUserData(Response))
-      if(data.banned){
-        
+      if(data.banned){        
         Swal.fire({
           icon: "error",
           title: t("LoginButton.bannedAlert"),
@@ -54,8 +54,7 @@ const LoginButton = () => {
           logout()
         }, 6000);
         clearLocalStorage()
-     return 
-        
+     return         
       }
 
     } catch (error) {
