@@ -4,8 +4,10 @@ import { initMercadoPago } from '@mercadopago/sdk-react'
 import { useTranslation } from 'react-i18next';
 import pricingProvider from "../../../utils/provider/pricingProvider/pricingProvider.js";
 import planProvider from '../../../utils/provider/planProvider/planProvider.js';
-import Ecommerce from '../ecommerce/Commerce';
 import QuoteWeb from '../quoteWeb/QuoteWeb.jsx';
+import Ecommerce from '../ecommerce/Commerce.jsx';
+
+
 
 const Pricing = ({ quote, plan }) => {
 
