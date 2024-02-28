@@ -2,10 +2,10 @@ import style from './Pricing.module.css';
 import { useEffect, useState } from 'react';
 import { initMercadoPago } from '@mercadopago/sdk-react'
 import { useTranslation } from 'react-i18next';
-import pricingProvider from "../../utils/provider/pricingProvider/pricingProvider";
-import planProvider from '../../utils/provider/planProvider/planProvider';
-import Web from './web/Web';
-import Ecommerce from './ecommerce/Commerce.jsx';
+import pricingProvider from "../../../utils/provider/pricingProvider/pricingProvider.js";
+import planProvider from '../../../utils/provider/planProvider/planProvider.js';
+import Web from '../web/Web.jsx';
+import Ecommerce from '../ecommerce/Commerce.jsx';
 
 const Pricing = ({ quote, plan }) => {
 
