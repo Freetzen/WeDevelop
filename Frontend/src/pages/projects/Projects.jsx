@@ -70,14 +70,14 @@ export default function Projects({ setSelectedOptions, selectedOptions }) {
           />
         </div>
 
-        
+
         <div className={style.proyectos}>
           {
             projects.map((proyecto, index) => <ProjectsCard key={index} project={proyecto} />)
           }
         </div>
 
-        <div>
+        <div className={style.paginate}>
           <PaginateProyect bringData={bringData} dataInit={dataInit} totalInfo={totalInfo} selectedOptions={selectedOptions} />
         </div>
 
