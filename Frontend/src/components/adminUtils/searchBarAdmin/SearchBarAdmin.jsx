@@ -5,6 +5,7 @@ import validator from 'validator'
 import userProvider from '../../../utils/provider/userProvider/userProvider';
 import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
 import { BsSearch } from "react-icons/bs";
+import pricingProvider from '../../../utils/provider/pricingProvider/pricingProvider';
 
 
 export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailState }) {
@@ -35,6 +36,12 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
         const projectsResponse = await projectsProvider.getProjects()
         setItemsToEdit(projectsResponse.docs)
     }
+    const getSells = async () => {
+        setDetailState('')
+        const projectsResponse = await pricingProvider.getPreference()
+        setItemsToEdit(projectsResponse)
+    }
+
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             handleClick()
@@ -55,8 +62,6 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
         }
         else setItemsToEdit([usersResponse])
     }
-
-
 
     return (
         <div className={style.searBar}>
@@ -84,6 +89,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
                     <label htmlFor="">Show</label>
                     <button onClick={getUs}>Users</button>
                     <button onClick={getProjets}>Projects</button>
+                    <button onClick={getSells}>Sells</button>
                 </div>
 
                 <div className={style.buttons2}>
