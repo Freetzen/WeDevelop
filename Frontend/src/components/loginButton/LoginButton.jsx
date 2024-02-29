@@ -20,11 +20,7 @@ const LoginButton = ({ setLocalData }) => {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
-  const [obj, setObj] = useState({})
 
-  if (obj.email) {
-    dispatch(loadUserData(obj))
-  }
   const newUser = {
     name: user?.name,
     email: user?.email,
@@ -42,10 +38,10 @@ const LoginButton = ({ setLocalData }) => {
           const response = await userProvider.getUserByEmail(user.email)
           if (!response) {
             const newUser1 = await userProvider.createUser(newUser)
-            setObj(newUser1)
+            await dispatch(loadUserData(newUser1))
             return newUser1
           } else {
-            setObj(response)
+            await dispatch(loadUserData(response))
           }
 
           if (response.banned) {

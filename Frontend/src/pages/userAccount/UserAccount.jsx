@@ -16,7 +16,7 @@ export const UserAccount = ({ menuIsActive }) => {
   let res = fecha?.slice(0, 10)
   const handleLogut = () => {
     logout()
-    clearLocalStorage()
+    localStorage.removeItem('info')
   }
 
 
