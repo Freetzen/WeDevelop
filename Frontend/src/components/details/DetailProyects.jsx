@@ -4,7 +4,7 @@ import style from "./DetailProyects.module.css";
 import { useNavigate } from "react-router-dom";
 import projectsProvider from "../../utils/provider/projectsProvider/projectsProvider";
 import { useTranslation } from "react-i18next";
-import SpinnerResumen from "../spinners/spinnerResumen/spinnerResumen";
+import SpinnerResumen from "../spinners/spinnerResumen/SpinnerResumen";
 
 export default function ProjectDetails() {
   const [Loading, setLoading] = useState(false)
