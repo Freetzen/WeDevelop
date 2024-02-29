@@ -18,7 +18,7 @@ import axios from 'axios'
 import { getUserData } from './helpers/local'
 import { useDispatch, useSelector } from 'react-redux'
 
-axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app/'
+axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app'
 // axios.defaults.baseURL = 'http://localhost:3001/'
 
 
