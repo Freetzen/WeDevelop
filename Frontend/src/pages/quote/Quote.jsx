@@ -41,7 +41,7 @@ export const Quote = () => {
   })
 
   useEffect(() => {
-    if (!user.email && !isLoading) {
+    if (!user?.email && !isLoading) {
       Swal.fire({
         position: "center",
         icon: "error",
