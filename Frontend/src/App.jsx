@@ -21,8 +21,8 @@ import { getUserData } from './helpers/local'
 import { useDispatch } from 'react-redux'
 import { loadUserData } from './redux/actions'
 
-// axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
+// axios.defaults.baseURL = 'http://localhost:3001/'
 
 
 function App() {
