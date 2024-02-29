@@ -6,6 +6,7 @@ import pricingProvider from "../../../utils/provider/pricingProvider/pricingProv
 import planProvider from '../../../utils/provider/planProvider/planProvider.js';
 import QuoteWeb from '../quoteWeb/QuoteWeb.jsx';
 import QuoteEcommerce from '../quoteEco/QuoteEcommerce.jsx';
+import { useSelector } from 'react-redux';
 
 
 const Pricing = ({ quote, plan }) => {
@@ -14,9 +15,9 @@ const Pricing = ({ quote, plan }) => {
 
     const [t, i18n] = useTranslation("global");
     const [preferenceId, setPreferenceId] = useState('')
-  
 
-    const infoUser = JSON.parse(localStorage.getItem('info'))
+
+    const infoUser = useSelector(state => state.userData)
 
     const [project, setProject] = useState({
         title: "",
@@ -25,7 +26,7 @@ const Pricing = ({ quote, plan }) => {
         quote,
         email: infoUser.email
     })
-    
+
 
     const handleClick = async (e) => {
         const dolar = await planProvider.getDolar()
@@ -53,17 +54,17 @@ const Pricing = ({ quote, plan }) => {
 
     return (
         <>
-        <div className={style.pricingContainer}>
-            <div className={style.titleCuestion}>
-                <h3>{t("plansTitle.title")}</h3>
-                <p>{t("plansTitle.subtitle")}</p>
+            <div className={style.pricingContainer}>
+                <div className={style.titleCuestion}>
+                    <h3>{t("plansTitle.title")}</h3>
+                    <p>{t("plansTitle.subtitle")}</p>
+                </div>
+                {
+                    quote.purpose === 'web'
+                        ? <QuoteWeb handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan} />
+                        : <QuoteEcommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan} />
+                }
             </div>
-            {
-                quote.purpose === 'web' 
-                ? <QuoteWeb handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/> 
-                : <QuoteEcommerce handleClick={handleClick} preferenceId={preferenceId} t={t} project={project} plan={plan}/>
-            }
-        </div>
         </>
     );
 };
