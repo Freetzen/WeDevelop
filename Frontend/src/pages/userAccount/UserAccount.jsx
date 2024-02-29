@@ -28,10 +28,7 @@ export const UserAccount = ({ menuIsActive }) => {
         <p>{data?.email}</p>
       </div>
       <div className={style.planAndMembershipContainer}>
-<<<<<<< HEAD
 
-=======
->>>>>>> ac214d12967ac6966bb8d58e97f4ff144722b5a2
         {
           data.role === "admin" ? (
             <>
@@ -41,10 +38,6 @@ export const UserAccount = ({ menuIsActive }) => {
           ) 
           : null
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> ac214d12967ac6966bb8d58e97f4ff144722b5a2
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
         {
