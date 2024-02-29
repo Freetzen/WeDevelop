@@ -139,12 +139,13 @@ const AdminWindow = () => {
             SumTotPreferences,
         ),)
     }
+    console.log('esto es detail', detailState);
     return (
         <div className={style.adminWindow}>
             <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState} />
             <div className={style.containerPanel}>
                 {
-                    itemsToEdit[0]?.payId
+                    itemsToEdit !== undefined && itemsToEdit[0]?.payId
                         ? (
                             <div className={style.graphscontainer}>
                                 <div className={style.box}>
@@ -282,24 +283,30 @@ const AdminWindow = () => {
                     <div className={style.adminusers}>
                         {!itemsToEdit.length
                             ? ''
-                            : itemsToEdit[0].payId
-                                ? <div className={style.containerInfo}>
-                                    <p className={style.user}>Title</p>
-                                    <p className={style.email}>Email</p>
-                                    <p>Status</p>
-                                    <p className={style.role}>Amount</p>
+                            : itemsToEdit[0].type
+                                ? <div className={style.containerInfoProject}>
+                                    <p className={style.user}>Name</p>
+                                    <p className={style.email}>Type</p>
+                                    <p className={style.role}>Price</p>
                                 </div>
-                                : itemsToEdit[0].email ?
-                                    <div className={style.containerInfo}>
-                                        <p className={style.user}>User</p>
+                                : itemsToEdit[0].payId
+                                    ? <div className={style.containerInfo}>
+                                        <p className={style.user}>Title</p>
                                         <p className={style.email}>Email</p>
                                         <p>Status</p>
-                                        <p className={style.role}>Role</p>
-                                    </div> : <div className={style.containerInfoProject}>
-                                        <p className={style.image}>Image</p>
-                                        <p className={style.name}>Name</p>
-                                        <p className={style.category}>Category</p>
-                                    </div>}
+                                        <p className={style.role}>Amount</p>
+                                    </div>
+                                    : itemsToEdit[0].email ?
+                                        <div className={style.containerInfo}>
+                                            <p className={style.user}>User</p>
+                                            <p className={style.email}>Email</p>
+                                            <p>Status</p>
+                                            <p className={style.role}>Role</p>
+                                        </div> : <div className={style.containerInfoProject}>
+                                            <p className={style.image}>Image</p>
+                                            <p className={style.name}>Name</p>
+                                            <p className={style.category}>Category</p>
+                                        </div>}
 
                         <div className={style.adminCards}>
                             {
@@ -311,42 +318,53 @@ const AdminWindow = () => {
                                         itemsToEdit={itemsToEdit}
                                     />
                                     : !itemsToEdit.length
-                                        ? <div className={style.titleContaine}><h3>No items have been selected</h3></div>
-                                        : itemsToEdit[0].payId
+                                        ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
+                                        : itemsToEdit[0].type
                                             ? itemsToEdit.map(item => (
                                                 <AdminItemCard
                                                     key={item._id}
                                                     id={item._id}
-                                                    title={item.title}
-                                                    email={item.email}
-                                                    status={item.status}
-                                                    amount={item.amount}
-                                                    payId={item.payId}
+                                                    name={item.name}
+                                                    type={item.type}
+                                                    price={item.price}
                                                     setDetailState={setDetailState}
                                                 />
                                             ))
-                                            : itemsToEdit[0].email
+                                            : itemsToEdit[0].payId
                                                 ? itemsToEdit.map(item => (
                                                     <AdminItemCard
                                                         key={item._id}
                                                         id={item._id}
-                                                        name={item.name}
+                                                        title={item.title}
                                                         email={item.email}
-                                                        suspended={item.suspended}
-                                                        role={item.role}
+                                                        status={item.status}
+                                                        amount={item.amount}
+                                                        payId={item.payId}
                                                         setDetailState={setDetailState}
                                                     />
                                                 ))
-                                                : itemsToEdit.map(item => (
-                                                    <AdminItemCard
-                                                        key={item._id}
-                                                        id={item._id}
-                                                        name={item.name}
-                                                        images={item.images}
-                                                        category={item.category}
-                                                        setDetailState={setDetailState}
-                                                    />
-                                                ))
+                                                : itemsToEdit[0].email
+                                                    ? itemsToEdit.map(item => (
+                                                        <AdminItemCard
+                                                            key={item._id}
+                                                            id={item._id}
+                                                            name={item.name}
+                                                            email={item.email}
+                                                            suspended={item.suspended}
+                                                            role={item.role}
+                                                            setDetailState={setDetailState}
+                                                        />
+                                                    ))
+                                                    : itemsToEdit.map(item => (
+                                                        <AdminItemCard
+                                                            key={item._id}
+                                                            id={item._id}
+                                                            name={item.name}
+                                                            images={item.images}
+                                                            category={item.category}
+                                                            setDetailState={setDetailState}
+                                                        />
+                                                    ))
                             }
                         </div>
                     </div>}

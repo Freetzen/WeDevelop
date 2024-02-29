@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 
 
-const NavBar = ({setLocalData}) => {
+const NavBar = ({ setLocalData }) => {
 
   const data = useSelector(state => state.userData);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
@@ -105,7 +105,7 @@ const NavBar = ({setLocalData}) => {
           </ul>
         </nav>
         <div className={style.login} style={data?.name && isMobile ? { display: 'none' } : { display: '' }}>
-          <LoginButton setLocalData={setLocalData}/>
+          <LoginButton setLocalData={setLocalData} />
         </div>
         {data?.name ? <UserAccountMobile /> : null}
       </div>

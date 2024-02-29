@@ -26,6 +26,15 @@ const pricingProvider = {
             return error.message
         }
     },
+    async refreshPayment(obj) {
+        try {
+            console.log(obj);
+            const { data } = await axios.get(`/refreshpayment`, { params: obj })
+            return data
+        } catch (error) {
+            return error.message
+        }
+    },
 }
 
 export default pricingProvider
