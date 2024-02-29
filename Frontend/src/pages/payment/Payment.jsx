@@ -14,6 +14,7 @@ export const Payment = () => {
     const [paymentInfo, setPaymentInfo] = useState({})
     const dispatch = useDispatch()
     const location = useLocation()
+
     const params = new URLSearchParams(location.search)
     const payment_id = params.get('payment_id')
     const preference_id = params.get('preference_id')
@@ -28,6 +29,7 @@ export const Payment = () => {
         await setPaymentInfo(search.data)
     }
     useEffect(() => {
+        console.log('ddddddddddddddddd');
         searchPay()
     }, [])
 
