@@ -15,6 +15,7 @@ import { loadUserData } from "../../redux/actions";
 const LoginButton = ({ setLocalData }) => {
 
   const dispatch = useDispatch()
+  const [obj, setObj] = useState({})
   const [menuIsActive, setMenuIsActive] = useState(true)
   const data = useSelector(state => state.userData)
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
@@ -32,10 +33,11 @@ const LoginButton = ({ setLocalData }) => {
     const postUserData = async () => {
       try {
         userDate('info', newUser)
-
+        // setLocalData(newUser)
 
         if (user) {
           const response = await userProvider.getUserByEmail(user.email)
+
           if (!response) {
             const newUser1 = await userProvider.createUser(newUser)
             await dispatch(loadUserData(newUser1))
@@ -49,7 +51,7 @@ const LoginButton = ({ setLocalData }) => {
               icon: "error",
               title: t("LoginButton.bannedAlert"),
               text: t("LoginButton.bannedAlertContact"),
-              footer: <a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>
+              footer: <a href="https://wedevelop.vercel.app/contact">$%7Bt("LoginButton.bannedWhy")%7D</a>
             });
             setTimeout(() => {
               logout()
@@ -62,7 +64,7 @@ const LoginButton = ({ setLocalData }) => {
       }
     };
     postUserData()
-  }, [isAuthenticated])
+  }, [obj])
 
 
   useEffect(() => {
@@ -73,6 +75,9 @@ const LoginButton = ({ setLocalData }) => {
       }, 1000);
 
       return () => clearTimeout(timer);
+    }
+    if (user?.email) {
+      setObj(user.email)
     }
   }, [])
 
