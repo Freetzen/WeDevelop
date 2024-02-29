@@ -20,7 +20,7 @@ const LoginButton = ({ setLocalData }) => {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
-
+  console.log('dataaa', data);
   const newUser = {
     name: user?.name,
     email: user?.email,
@@ -62,7 +62,7 @@ const LoginButton = ({ setLocalData }) => {
       }
     };
     postUserData()
-  }, [user, isAuthenticated])
+  }, [isAuthenticated])
 
 
   useEffect(() => {
