@@ -9,6 +9,7 @@ export default function ProjectDetails() {
   const [t, i18n] = useTranslation("global");
   const { id } = useParams();
 
+  
   const [projectById, setProjectById] = useState([])
 
   const getProject = async () => {
@@ -37,6 +38,7 @@ export default function ProjectDetails() {
     navigate('/quote')
   }
 
+
   return (
     <div className={style.detailsContainer}>
       <div className={style.containerImage}>
@@ -48,7 +50,7 @@ export default function ProjectDetails() {
           <span><strong>{t("Projects.projectsDetails.title")}</strong> {projectById.category}</span>
           </div>
           <div className={style.containerDescription}>
-            <p>{projectById.description}</p>
+            <p>{t(`Projects.projectsDescription.categories.${projectById.category}`)}</p>
           </div>
         <div className={style.buttonsContainer}>
           <button onClick={backToHome} className={style.button1}>{t("Projects.projectsDetails.back")}</button>
