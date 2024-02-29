@@ -46,7 +46,7 @@
 
 .infoContainer .planAndMembershipContainer {
     width: 100%;
-    height: 30%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
