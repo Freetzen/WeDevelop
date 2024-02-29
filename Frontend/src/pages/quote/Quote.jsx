@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 export const Quote = () => {
   const user = useSelector(state => state.userData)
-  console.log(user)
   const [t, i18n] = useTranslation("global");
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);

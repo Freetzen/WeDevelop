@@ -15,14 +15,20 @@ import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
+import { getUserData } from './helpers/local'
+import { useDispatch, useSelector } from 'react-redux'
 
-axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app'
+axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app/'
 // axios.defaults.baseURL = 'http://localhost:3001/'
 
 
 function App() {
+  const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
+  const localStorageUser = getUserData()
+  const [localData, setLocalData] = useState(localStorageUser)
   const location = useLocation()
 
   return (
@@ -33,7 +39,7 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && <NavBar />}
+        && <NavBar setLocalData={setLocalData} />}
 
 
       < Routes >
