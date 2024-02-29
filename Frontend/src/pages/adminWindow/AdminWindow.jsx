@@ -7,8 +7,8 @@ import AdminDetail from '../../components/adminUtils/adminDetail/AdminDetail'
 import userProvider from '../../utils/provider/userProvider/userProvider'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider'
-import SpinnerSinLogo from '../../components/spinners/spinnerSinLogo/SpinnerSinLogo'
 import pricingProvider from '../../utils/provider/pricingProvider/pricingProvider'
+import SpinnerResumen from '../../components/spinners/spinnerResumen/SpinnerResumen'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
     const [detailState, setDetailState] = useState('')
@@ -20,7 +20,7 @@ const AdminWindow = () => {
 
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 4000);
+        }, 1000);
 
         return () => clearTimeout(timer);
 
@@ -151,10 +151,9 @@ const AdminWindow = () => {
                                     <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
                                         <h3>Total Amount</h3>
                                     </div>
-                                    <h2>
-                                        {sumTotPreference}
-                                    </h2>
-
+                                    <div className={style.containerH2}>
+                                        <p>{sumTotPreference}</p>
+                                    </div>
                                 </div>
                                 <div className={style.box}>
                                     <div className={style.title} style={{ backgroundColor: '#2F61E4' }}>
@@ -279,7 +278,7 @@ const AdminWindow = () => {
                             </div>
                         )
                 }
-                {loading ? <div className={style.containerSpinner}><SpinnerSinLogo /></div> :
+                {loading ? <div className={style.containerSpinner}><SpinnerResumen /></div> :
                     <div className={style.adminusers}>
                         {!itemsToEdit.length
                             ? ''

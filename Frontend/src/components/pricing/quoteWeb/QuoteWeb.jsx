@@ -6,11 +6,11 @@ import { IoIosArrowDropup } from "react-icons/io";
 import { Wallet } from '@mercadopago/sdk-react'
 import { useState } from 'react';
 
-const QuoteWeb = ({handleClick, preferenceId, t, project, plan}) => {
+const QuoteWeb = ({handleClick, preferenceId, t, project, plan, loadingMoreBasic, loadingBusiness, loadingEnterprise}) => {
     const [seeMoreBasic, setSeeMoreBasic] = useState(false);
     const [seeMoreBusiness, setSeeMoreBusiness] = useState(false);
     const [seeMoreEnterprise, setSeeMoreEnterprise] = useState(false);
-    const [loading, setLoading] = useState(false)
+
 
     const web1 = plan[0]
     const web2 = plan[1]
@@ -32,17 +32,17 @@ const QuoteWeb = ({handleClick, preferenceId, t, project, plan}) => {
                         </div>
                         <div className={style.containerButtonPay}>
                             <button
-                                style={loading ? { display: 'none' } : { display: '' }}
+                                style={loadingMoreBasic ? {display: 'none'} : {display: ''}}
                                 className={style.buttonPay}
                                 name={web1.name}
                                 value={web1.price}
-                                onClick={handleClick}>
+                                onClick={handleClick}>        
                                 {t("plans.BasicPlan.button")}
                             </button>
                             {preferenceId && project.title === "Basic" &&
                                 <Wallet
                                     initialization={{ preferenceId: preferenceId }}
-                                    customization={{ texts: { valueProp: 'smart_option' }, visual: { verticalPadding: '0px', buttonHeight: '55px' } }} />}
+                                    customization={{ texts: { valueProp: 'smart_option' }, visual: {horizontalPadding:'0px', buttonHeight: '55px' } }} />}
                         </div>
                     </div>
                     <div className={style.containerIncludes}>
@@ -85,7 +85,13 @@ const QuoteWeb = ({handleClick, preferenceId, t, project, plan}) => {
                             <p className={style.p}>{t("plans.BusinessPlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name={web2.name} value={web2.price} onClick={handleClick}>{t("plans.BusinessPlan.button")}</button>
+                            <button 
+                            style={loadingBusiness ? {display: 'none'} : {display: ''}}
+                            className={style.buttonPay} 
+                            name={web2.name} 
+                            value={web2.price} 
+                            onClick={handleClick}>
+                            {t("plans.BusinessPlan.button")}</button>
                             {
                                 preferenceId && project.title === "Business" &&
                                 <Wallet
@@ -133,7 +139,12 @@ const QuoteWeb = ({handleClick, preferenceId, t, project, plan}) => {
                             <p className={style.p}>{t("plans.EnterprisePlan.perProject")}</p>
                         </div>
                         <div className={style.containerButtonPay}>
-                            <button className={style.buttonPay} name={web3.name} value={web3.price} onClick={handleClick}>{t("plans.EnterprisePlan.button")}</button>
+                            <button 
+                            style={loadingEnterprise ? {display: 'none'} : {display: ''}}
+                            className={style.buttonPay} 
+                            name={web3.name} value={web3.price} 
+                            onClick={handleClick}>
+                            {t("plans.EnterprisePlan.button")}</button>
                             {
                                 preferenceId && project.title === "Enterprise" &&
                                 <Wallet
