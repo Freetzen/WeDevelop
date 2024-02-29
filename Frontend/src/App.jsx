@@ -18,7 +18,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import userProvider from './utils/provider/userProvider/userProvider'
 import { getUserData } from './helpers/local'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loadUserData } from './redux/actions'
 
 axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
@@ -26,6 +26,7 @@ axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
 
 
 function App() {
+  const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
@@ -44,6 +45,7 @@ function App() {
     }
     loadData()
   }, [])
+
 
   return (
     <>
