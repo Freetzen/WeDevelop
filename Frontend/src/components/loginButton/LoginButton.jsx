@@ -7,35 +7,48 @@ import SpinnerLogin from "../spinners/spinnerLogin/SpinnerLogin";
 import { UserAccount } from "../../pages/userAccount/UserAccount";
 import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
-import { clearLocalStorage, userDate } from "../../helpers/local";
+import { clearLocalStorage, getUserData, userDate } from "../../helpers/local";
 import { loadUserData } from "../../redux/actions";
 
+
+
 const LoginButton = ({ setLocalData }) => {
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch()
   const [menuIsActive, setMenuIsActive] = useState(true)
-  const data = useSelector(state => state.userData);
+  const data = useSelector(state => state.userData)
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
+  const [obj, setObj] = useState({})
+
+  if (obj.email) {
+    dispatch(loadUserData(obj))
+  }
   const newUser = {
     name: user?.name,
     email: user?.email,
     image: user?.picture
-  };
+  }
 
   useEffect(() => {
+
     const postUserData = async () => {
       try {
-        if (isAuthenticated && user) {
-          setLoading(true);
-          const response = await userProvider.getUserByEmail(user.email);
+        userDate('info', newUser)
+        // setLocalData(newUser)
+
+        if (user) {
+          const response = await userProvider.getUserByEmail(user.email)
           if (!response) {
-            const newUser1 = await userProvider.createUser(newUser);
-            dispatch(loadUserData(newUser1));
+            const newUser1 = await userProvider.createUser(newUser)
+            setObj(newUser1)
+            return newUser1
           } else {
-            dispatch(loadUserData(response));
+            setObj(response)
           }
-          if (response?.banned) {
+
+          if (response.banned) {
             Swal.fire({
               icon: "error",
               title: t("LoginButton.bannedAlert"),
@@ -43,27 +56,39 @@ const LoginButton = ({ setLocalData }) => {
               footer: <a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>
             });
             setTimeout(() => {
-              logout();
-              clearLocalStorage();
+              logout()
             }, 6000);
+            clearLocalStorage()
           }
         }
       } catch (error) {
         console.error('Error al enviar los datos del usuario al servidor:', error);
-      } finally {
-        setLoading(false);
       }
     };
-    postUserData();
-  }, [user, isAuthenticated, dispatch, logout, t]);
+    postUserData()
+  }, [user, isAuthenticated])
+
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      setLoading(true);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [])
 
   const handleLogin = () => {
-    loginWithRedirect();
-  };
+    loginWithRedirect()
+  }
+
 
   const activeMenu = () => {
-    setMenuIsActive(!menuIsActive);
-  };
+    setMenuIsActive(!menuIsActive)
+  }
+
 
   return (
     <div className={style.containerLogin}>
