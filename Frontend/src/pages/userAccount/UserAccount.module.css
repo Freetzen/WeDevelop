@@ -8,7 +8,7 @@
     padding-top: 50px;
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     -webkit-transition: 0.3s;
     transition: 0.5s;
 }
@@ -65,7 +65,7 @@
 .planAndMembershipContainer p {
     color: rgb(116, 116, 116);
     margin-bottom: 20px;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 /* botone logout */
@@ -93,8 +93,7 @@
 /* Estilos para mobile ----------------------------------------------------------*/
 
 @media only screen and (max-width: 680px) {
-    .infoContainer{
+    .infoContainer {
         display: none;
     }
-}    
-
+}

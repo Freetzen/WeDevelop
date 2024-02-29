@@ -32,7 +32,7 @@ const LoginButton = ({ setLocalData }) => {
     const postUserData = async () => {
       try {
         userDate('info', newUser)
-        setLocalData(newUser)
+        // setLocalData(newUser)
 
         if (user) {
           const response = await userProvider.getUserByEmail(user.email)
@@ -40,11 +40,11 @@ const LoginButton = ({ setLocalData }) => {
             const newUser1 = await userProvider.createUser(newUser)
             await dispatch(loadUserData(newUser1))
             return newUser1
-          }else{
-              await dispatch(loadUserData(response))
-            }
+          } else {
+            await dispatch(loadUserData(response))
+          }
 
-          if (Response.banned) {
+          if (response.banned) {
             Swal.fire({
               icon: "error",
               title: t("LoginButton.bannedAlert"),

@@ -15,13 +15,10 @@ import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
-import { useEffect } from 'react'
-import userProvider from './utils/provider/userProvider/userProvider'
 import { getUserData } from './helpers/local'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadUserData } from './redux/actions'
 
-axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
+axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app'
 // axios.defaults.baseURL = 'http://localhost:3001/'
 
 
@@ -47,7 +44,6 @@ function App() {
     loadData()
   }, [])
 
-
   return (
     <>
       {location.pathname !== '/admin'
@@ -58,7 +54,8 @@ function App() {
         && location.pathname !== '/quote'
         && <NavBar setLocalData={setLocalData} />}
 
-      <Routes>
+
+      < Routes >
         <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
@@ -73,7 +70,8 @@ function App() {
         <Route path="*" element={<NotFound />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
 
-      </Routes>
+      </Routes >
+
 
     </>
   )

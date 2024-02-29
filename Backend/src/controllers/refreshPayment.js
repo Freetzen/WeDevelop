@@ -5,7 +5,6 @@ const { ACCESS_TOKEN } = process.env;
 
 const refreshPaymentMP = async (req, res) => {
     try {
-        console.log('esto es query', req.body);
         const { payId } = req.query
 
         const { data } = await axios(
