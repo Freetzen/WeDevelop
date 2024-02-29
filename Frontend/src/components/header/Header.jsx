@@ -4,31 +4,6 @@ import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const [t, i18n] = useTranslation("global");
-  // const [wordIndex, setWordIndex] = useState(0);
-  // const [words, setWords] = useState([]);
-
-  // const fetchTranslatedWords = () => {
-  //   const translatedWords = [
-  //     t("Header.change.word1"),
-  //     t("Header.change.word2"),
-  //     t("Header.change.word3"),
-  //     t("Header.change.word4"),
-  //   ];
-  //   setWords(translatedWords);
-  //   setWordIndex(Math.floor(Math.random() * translatedWords.length));
-  // };
-
-  // useEffect(() => {
-  //   fetchTranslatedWords();
-
-  //   const interval = setInterval(() => {
-  //     setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-  //   }, 3000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [t]);
 
   return (
     <div className={style.HeaderContainer}>

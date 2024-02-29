@@ -107,7 +107,6 @@ const AdminWindow = () => {
         const SumTotPreferences = payments.reduce((totalAmount, item) => {
             return totalAmount + item.amount;
         }, 0);
-        console.log('fffffffffffffff', counterPreferences);
         setBarGraph([
             { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
             { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },
@@ -142,7 +141,6 @@ const AdminWindow = () => {
             SumTotPreferences,
         ),)
     }
-    console.log('gggggggggggggggg', pieGraphCountPreference);
     return (
         <>
             {
