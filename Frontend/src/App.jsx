@@ -26,10 +26,23 @@ function App() {
   const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch()
-  const localStorageUser = getUserData()
-  const [localData, setLocalData] = useState(localStorageUser)
+  const dispatch = useDispatch() 
+  const [localData, setLocalData] = useState()
   const location = useLocation()
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const localStorageUser = getUserData()
+        console.log(localStorageUser)
+        const userDB = await userProvider.getUserByEmail(localStorageUser?.email)
+        return dispatch(loadUserData(userDB))
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    loadData()
+  }, [])
 
   return (
     <>
