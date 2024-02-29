@@ -12,7 +12,7 @@ import { loadUserData } from "../../redux/actions";
 
 
 
-const LoginButton = ({ setLocalData }) => {
+const LoginButton = () => {
 
   const dispatch = useDispatch()
   const [menuIsActive, setMenuIsActive] = useState(true)
@@ -21,30 +21,34 @@ const LoginButton = ({ setLocalData }) => {
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
 
+  const newUser = {
+    name: user?.name,
+    email: user?.email,
+    image: user?.picture
+  }
+
   useEffect(() => {
 
     const postUserData = async () => {
       try {
-        const newUser = {
-          name: user?.name,
-          email: user?.email,
-          image: user?.picture
-        }
         userDate('info', newUser)
-        setLocalData(newUser)
 
         if (user) {
-          const Response = await userProvider.getUserByEmail(user.email)
-          if (!Response) {
+          const response = await userProvider.getUserByEmail(user.email)
+          if (!response) {
             const newUser1 = await userProvider.createUser(newUser)
+            await dispatch(loadUserData(newUser1))
             return newUser1
+          } else {
+            await dispatch(loadUserData(response))
           }
-          if (Response.banned) {
+
+          if (response.banned) {
             Swal.fire({
               icon: "error",
               title: t("LoginButton.bannedAlert"),
               text: t("LoginButton.bannedAlertContact"),
-              footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
+              footer: <a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>
             });
             setTimeout(() => {
               logout()
