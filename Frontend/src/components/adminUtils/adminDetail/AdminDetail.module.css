@@ -55,13 +55,14 @@
     justify-content: space-between;
 }
 
-.labelAndSelectPayID label{
+.labelAndSelectPayID label {
+
     width: 20%;
     color: rgb(91, 91, 91);
     font-size: 18px;
 }
 
-.labelAndSelectPayID .label{
+.labelAndSelectPayID .label {
     color: rgb(91, 91, 91);
     font-size: 18px;
     width: 30%;
@@ -110,7 +111,7 @@
 /* detail card project */
 
 .detailsContainer .containerDetailProject {
-    display: flex; 
+    display: flex;
     height: 100%;
 }
 

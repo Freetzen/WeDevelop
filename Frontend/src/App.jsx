@@ -15,37 +15,15 @@ import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
 import { useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
-import { useEffect } from 'react'
-import userProvider from './utils/provider/userProvider/userProvider'
-import { getUserData } from './helpers/local'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadUserData } from './redux/actions'
 
-axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
+axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app'
 // axios.defaults.baseURL = 'http://localhost:3001/'
 
 
 function App() {
-  const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch()
-  const localStorageUser = getUserData()
-  const [localData, setLocalData] = useState(localStorageUser)
   const location = useLocation()
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const userDB = await userProvider.getUserByEmail(localData?.email)
-        return dispatch(loadUserData(userDB))
-      } catch (error) {
-        console.log(error.message)
-      }
-    }
-    loadData()
-  }, [])
-
 
   return (
     <>
@@ -55,9 +33,10 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && <NavBar setLocalData={setLocalData} />}
+        && <NavBar />}
 
-      <Routes>
+
+      < Routes >
         <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
@@ -72,7 +51,8 @@ function App() {
         <Route path="*" element={<NotFound />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
 
-      </Routes>
+      </Routes >
+
 
     </>
   )

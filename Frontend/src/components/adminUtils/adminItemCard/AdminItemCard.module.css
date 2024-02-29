@@ -13,8 +13,9 @@ a {
     justify-content: start;
     align-items: center;
     padding: 22px 10px;
-    
+
 }
+
 .containerInfo:hover {
     background-color: rgb(206, 206, 206);
 }
@@ -45,7 +46,7 @@ a {
 .containerInfo .role {
     width: 20%;
     text-align: end;
-    padding-right: 20px;  
+    padding-right: 20px;
 }
 /* cards type */
 .type {
@@ -57,6 +58,21 @@ a {
 }
 
 .type p{
+    width: 20%;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* cards type */
+.type {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 30px;
+}
+
+.type p {
     width: 20%;
     font-size: 18px;
     text-align: center;
@@ -75,7 +91,7 @@ a {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    
+
 }
 
 .containerProject:hover {
@@ -88,7 +104,7 @@ a {
 
 .containerProject img {
     width: 100px;
-    height:100%;
+    height: 100%;
     padding-left: 20px;
 }
 
@@ -102,4 +118,3 @@ a {
     text-align: end;
     padding-right: 25px;
 }
-

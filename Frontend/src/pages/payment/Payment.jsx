@@ -11,7 +11,7 @@ import { loadUserData } from '../../redux/actions';
 
 export const Payment = () => {
     const [t, i18n] = useTranslation("global");
-    const [paymentInfo, setPaymentInfo] = useState()
+    const [paymentInfo, setPaymentInfo] = useState({})
     const dispatch = useDispatch()
     const location = useLocation()
     const params = new URLSearchParams(location.search)
@@ -22,57 +22,62 @@ export const Payment = () => {
         preference_id: preference_id
     }
     const searchPay = async () => {
-        const { data } = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
-        const value = { id: data._id }
+        const response = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
+        const value = { id: response.data._id }
         const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: value })
-        setPaymentInfo(search.data)
+        await setPaymentInfo(search.data)
     }
     useEffect(() => {
         searchPay()
     }, [])
 
     const updateGlobalData = async () => {
-        const {data} = await userProvider.getUserByEmail(paymentInfo.email)
+        const data = await userProvider.getUserByEmail(paymentInfo?.email)
         dispatch(loadUserData(data))
     }
     useEffect(() => {
-      updateGlobalData()
+        updateGlobalData()
     }, [paymentInfo])
-    
+
     return (
         <div>
-            <div className={style.paymentContainer}>
-                <div className={style.containerBox}>
-                    <div className={style.confirmation}>
-                        {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus} /> : <FcHighPriority className={style.iconStatus} />}
-                        <span>{paymentInfo?.status}</span>
+            {
+                !paymentInfo
+                    ? null
+                    :
+                    <div className={style.paymentContainer}>
+                        <div className={style.containerBox}>
+                            <div className={style.confirmation}>
+                                {paymentInfo?.status === 'approved' ? <FcApproval className={style.iconStatus} /> : <FcHighPriority className={style.iconStatus} />}
+                                <span>{paymentInfo?.status}</span>
+                            </div>
+                            <div className={style.infoPayment}>
+                                <div className={style.containerTitle}>
+                                    <h2>{t("PayStatus.title")}</h2>
+                                </div>
+                                <div className={style.info}>
+                                    <p>{t("PayStatus.number")}</p>
+                                    <span> {paymentInfo?.payId}</span>
+                                    <p>{t("PayStatus.service")}</p>
+                                    <span>{paymentInfo?.title}</span>
+                                    <p>{t("PayStatus.type")}</p>
+                                    <span> {paymentInfo?.payment_type_id}</span>
+                                    <p>{t("PayStatus.amount")}</p>
+                                    <span> {paymentInfo?.amount} ARG</span>
+                                    <p>{t("PayStatus.creation")}</p>
+                                    <span> {paymentInfo?.date_approved}</span>
+                                    <p>{t("PayStatus.email")}</p>
+                                    <span> {paymentInfo?.email}</span>
+                                </div>
+                                <div className={style.containerButton}>
+                                    <Link to='/'>
+                                        <button>{t("PayStatus.backHome")}</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className={style.infoPayment}>
-                        <div className={style.containerTitle}>
-                            <h2>{t("PayStatus.title")}</h2>
-                        </div>
-                        <div className={style.info}>
-                            <p>{t("PayStatus.number")}</p>
-                            <span> {paymentInfo?.payId}</span>
-                            <p>{t("PayStatus.service")}</p>
-                            <span>{paymentInfo?.title}</span>
-                            <p>{t("PayStatus.type")}</p>
-                            <span> {paymentInfo?.payment_type_id}</span>
-                            <p>{t("PayStatus.amount")}</p>
-                            <span> {paymentInfo?.amount} ARG</span>
-                            <p>{t("PayStatus.creation")}</p>
-                            <span> {paymentInfo?.date_approved}</span>
-                            <p>{t("PayStatus.email")}</p>
-                            <span> {paymentInfo?.email}</span>
-                        </div>
-                        <div className={style.containerButton}>
-                            <Link to='/'>
-                                <button>{t("PayStatus.backHome")}</button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     )
 }

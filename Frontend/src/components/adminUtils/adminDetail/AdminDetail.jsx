@@ -155,9 +155,9 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
                             <div className={style.containerCard}>
                                 <div className={style.labelAndSelectPayID}>
                                     <label style={{ paddingLeft: '20px' }}>{changes.title}</label>
-                                    <label style={{ textAlign: 'end' }}className={style.label}>{changes.email}</label>
-                                    <label style={{ textAlign: 'end',paddingRight: '50px' }}className={style.labelEmail}>{changes.status}</label>
-                                    <label style={{ textAlign: 'end', paddingRight: '20px' }}className={style.labelEmail}>{changes.amount}</label>
+                                    <label style={{ textAlign: 'end' }} className={style.label}>{changes.email}</label>
+                                    <label style={{ textAlign: 'end', paddingRight: '50px' }} className={style.labelEmail}>{changes.status}</label>
+                                    <label style={{ textAlign: 'end', paddingRight: '20px' }} className={style.labelEmail}>{changes.amount}</label>
                                 </div>
                                 <div className={style.containerButton}>
                                     <button onClick={refreshSellsChanges}>Refresh</button>
@@ -165,7 +165,7 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
                             </div>
                         )
                         : (
-                            <div className={style.containerCard} style={{padding: '0px'}}>
+                            <div className={style.containerCard} style={{ padding: '0px' }}>
                                 <div className={style.type}>
                                     <label>{changes.name}</label>
                                     <label className={style.labelEmail}>{changes.type}</label>
