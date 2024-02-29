@@ -12,7 +12,7 @@ import { loadUserData } from "../../redux/actions";
 
 
 
-const LoginButton = ({setLocalData}) => {
+const LoginButton = ({ setLocalData }) => {
 
   const dispatch = useDispatch()
   const [menuIsActive, setMenuIsActive] = useState(true)
@@ -23,41 +23,41 @@ const LoginButton = ({setLocalData}) => {
 
   useEffect(() => {
 
-  const postUserData = async () => {
-    try {
-      const newUser = {
-        name: user?.name,
-        email: user?.email,
-        image: user?.picture
-      }
-     userDate('info', newUser)
-     setLocalData(newUser)
+    const postUserData = async () => {
+      try {
+        const newUser = {
+          name: user?.name,
+          email: user?.email,
+          image: user?.picture
+        }
+        userDate('info', newUser)
+        setLocalData(newUser)
 
-      if(user){
-        const Response = await userProvider.getUserByEmail(user.email)
-        if(!Response) { 
-          const newUser1 = await userProvider.createUser(newUser)
-          return newUser1 
+        if (user) {
+          const Response = await userProvider.getUserByEmail(user.email)
+          if (!Response) {
+            const newUser1 = await userProvider.createUser(newUser)
+            return newUser1
+          }
+          if (Response.banned) {
+            Swal.fire({
+              icon: "error",
+              title: t("LoginButton.bannedAlert"),
+              text: t("LoginButton.bannedAlertContact"),
+              footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
+            });
+            setTimeout(() => {
+              logout()
+            }, 6000);
+            clearLocalStorage()
+          }
         }
-        if(Response.banned){
-          Swal.fire({
-            icon: "error",
-            title: t("LoginButton.bannedAlert"),
-            text: t("LoginButton.bannedAlertContact"),
-            footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
-          });
-          setTimeout(() => {
-            logout()
-          }, 6000);
-          clearLocalStorage()
-        }
+      } catch (error) {
+        console.error('Error al enviar los datos del usuario al servidor:', error);
       }
-    } catch (error) {
-      console.error('Error al enviar los datos del usuario al servidor:', error);
-    }
-  };
-  postUserData()
-}, [user, isAuthenticated])
+    };
+    postUserData()
+  }, [user, isAuthenticated])
 
 
   useEffect(() => {
@@ -72,9 +72,9 @@ const LoginButton = ({setLocalData}) => {
   }, [])
 
   const handleLogin = () => {
-    loginWithRedirect() 
- }
-  
+    loginWithRedirect()
+  }
+
 
   const activeMenu = () => {
     setMenuIsActive(!menuIsActive)
@@ -87,18 +87,18 @@ const LoginButton = ({setLocalData}) => {
         <button className={style.buttonLogin} onClick={handleLogin}>{t("LoginButton.title")}</button>
       ) : (
         <>
-        <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu}/>
-        <div className={style.containerButtonUser} >
-          <div className={style.containerSpinner} style={loading ? {display: ''} : {display: 'none'}} >
-            <SpinnerLogin />
+          <UserAccount menuIsActive={menuIsActive} activeMenu={activeMenu} />
+          <div className={style.containerButtonUser} >
+            <div className={style.containerSpinner} style={loading ? { display: '' } : { display: 'none' }} >
+              <SpinnerLogin />
+            </div>
+            <div className={style.containerNameAndButton} style={loading ? { display: 'none' } : { display: '' }}>
+              <button onClick={activeMenu}>
+                {data?.name}
+              </button>
+              <img src={data.image} alt=""></img>
+            </div>
           </div>
-          <div className={style.containerNameAndButton} style={loading ? {display: 'none'} : {display: ''}}>
-            <button onClick={activeMenu}>
-              {data?.name}
-            </button>
-            <img src={data.image} alt=""></img>
-          </div>
-        </div>
         </>
       )}
     </div>

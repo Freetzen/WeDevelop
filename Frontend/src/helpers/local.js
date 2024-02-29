@@ -10,7 +10,7 @@ export const userDate = (key, elements) => {
 export const clearLocalStorage = () => {
     localStorage.removeItem('info');
 };
-  
+
 
 export const getUserData = () => {
     const userLocal = JSON.parse(localStorage.getItem('info'));

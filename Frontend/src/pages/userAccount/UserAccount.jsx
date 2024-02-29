@@ -30,37 +30,37 @@ export const UserAccount = ({ menuIsActive }) => {
       <div className={style.planAndMembershipContainer}>
 
         {
-          data.role === "admin" ? (
+          data?.role === "admin" ? (
             <>
-          <label >{t("UserAccount.role")}</label>
-          <p>{data?.role}</p>
+              <label >{t("UserAccount.role")}</label>
+              <p>{data?.role}</p>
             </>
-          ) 
-          : null
+          )
+            : null
         }
         <label >{t("UserAccount.creationDate")}</label>
         <p> {res}</p>
         {
-          data.preference ? (
+          data?.preference ? (
             <>
-            <label >{t("Contrated Plan")}</label>
-            <p>{data.preference.title}</p>
-            <label >{t("Purpose of your project")}</label>
-            <p>{data?.preference?.quote?.purpose}</p>
+              <label >{t("Contrated Plan")}</label>
+              <p>{data.preference.title}</p>
+              <label >{t("Purpose of your project")}</label>
+              <p>{data?.preference?.quote?.purpose}</p>
             </>
-          ): null
+          ) : null
         }
       </div>
       <div className={style.buttonsContainer}>
         <button onClick={handleLogut}>{t("UserAccount.SignOut")}</button>
         <div>
-        {
-  data && data.role === 'admin' ? (
-    <Link to={'/admin'}>
-      <button>{t("UserAccount.adminPanel")}</button>
-    </Link>
-  ) : null
-}
+          {
+            data && data?.role === 'admin' ? (
+              <Link to={'/admin'}>
+                <button>{t("UserAccount.adminPanel")}</button>
+              </Link>
+            ) : null
+          }
         </div>
       </div>
     </div>

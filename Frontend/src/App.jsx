@@ -33,9 +33,9 @@ function App() {
   const localStorageUser = getUserData()
   const [localData, setLocalData] = useState(localStorageUser)
   const location = useLocation()
-  
+
   useEffect(() => {
-    const loadData = async() => {
+    const loadData = async () => {
       try {
         const userDB = await userProvider.getUserByEmail(localData?.email)
         return dispatch(loadUserData(userDB))
@@ -44,7 +44,8 @@ function App() {
       }
     }
     loadData()
-  }, [localData])
+  }, [])
+
 
   return (
     <>
@@ -54,7 +55,7 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && <NavBar setLocalData={setLocalData}/>}
+        && <NavBar setLocalData={setLocalData} />}
 
       <Routes>
         <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
