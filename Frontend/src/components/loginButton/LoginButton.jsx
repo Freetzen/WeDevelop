@@ -12,12 +12,11 @@ import { loadUserData } from "../../redux/actions";
 
 
 
-const LoginButton = () => {
+const LoginButton = ({ setLocalData }) => {
 
   const dispatch = useDispatch()
   const [menuIsActive, setMenuIsActive] = useState(true)
   const data = useSelector(state => state.userData)
-
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const [loading, setLoading] = useState(false);
   const [t, i18n] = useTranslation("global");
@@ -31,40 +30,34 @@ const LoginButton = () => {
           email: user?.email,
           image: user?.picture
         }
-        const guestUser = await getUserData()
-        if (!guestUser) userDate('info', newUser)
+        userDate('info', newUser)
+        setLocalData(newUser)
 
         if (user) {
           const Response = await userProvider.getUserByEmail(user.email)
           if (!Response) {
             const newUser1 = await userProvider.createUser(newUser)
-            dispatch(loadUserData(newUser1))
             return newUser1
           }
-          dispatch(loadUserData(Response))
+          if (Response.banned) {
+            Swal.fire({
+              icon: "error",
+              title: t("LoginButton.bannedAlert"),
+              text: t("LoginButton.bannedAlertContact"),
+              footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
+            });
+            setTimeout(() => {
+              logout()
+            }, 6000);
+            clearLocalStorage()
+          }
         }
-        if (data.banned) {
-
-          Swal.fire({
-            icon: "error",
-            title: t("LoginButton.bannedAlert"),
-            text: t("LoginButton.bannedAlertContact"),
-            footer: `<a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>`
-          });
-          setTimeout(() => {
-            logout()
-          }, 6000);
-          clearLocalStorage()
-          return
-
-        }
-
       } catch (error) {
         console.error('Error al enviar los datos del usuario al servidor:', error);
       }
     };
     postUserData()
-  }, [isAuthenticated, user])
+  }, [user, isAuthenticated])
 
 
   useEffect(() => {

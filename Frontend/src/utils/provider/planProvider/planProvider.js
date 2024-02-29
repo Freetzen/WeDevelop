@@ -36,7 +36,15 @@ const planProvider = {
         } catch (error) {
             console.log(error.message)
         }
-    }
+    },
+    async getPlanById(obj) {
+        try {
+            const { data } = await axios.get(`/getplanbyid`, { params: obj })
+            return data
+        } catch (error) {
+            return error.message
+        }
+    },
 }
 
 export default planProvider

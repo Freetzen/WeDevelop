@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import validator from 'validator'
+import validator, { equals } from 'validator'
 import style from "./AdminDetail.module.css";
 import userProvider from "../../../utils/provider/userProvider/userProvider";
 import projectsProvider from "../../../utils/provider/projectsProvider/projectsProvider";
 import Swal from 'sweetalert2'
 import pricingProvider from "../../../utils/provider/pricingProvider/pricingProvider";
+import planProvider from "../../../utils/provider/planProvider/planProvider";
 
 export default function AdminDetail({ detailState, setDetailState, setItemsToEdit }) {
     const [changes, setChanges] = useState({});
@@ -13,10 +14,18 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         let isMounted = true;
         const fetchData = async () => {
             if (typeof detailState === 'object') {
-                const preference = await pricingProvider.getPreferenceById(detailState);
-                if (isMounted) {
-                    setChanges(preference);
-                    setIsUser(true)
+                if (detailState.payId) {
+                    const preference = await pricingProvider.getPreferenceById(detailState);
+                    if (isMounted) {
+                        setChanges(preference);
+                        setIsUser(true)
+                    }
+                } else {
+                    const preference = await planProvider.getPlanById(detailState);
+                    if (isMounted) {
+                        setChanges(preference);
+                        setIsUser(true)
+                    }
                 }
             }
             else if (typeof detailState === 'string' && validator.isEmail(detailState)) {
@@ -62,6 +71,22 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         setDetailState('')
     }
 
+    const sendPlansChanges = async () => {
+        await planProvider.putPlan(changes);
+        const Response = await planProvider.getPlans()
+        setItemsToEdit(Response)
+        Swal.fire({
+            icon: "success",
+            title: "Your Plan has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+                popup: 'center',
+            }
+        });
+        setDetailState('')
+    }
+
     const sendprojectChanges = async () => {
         await projectsProvider.putProject(changes);
         const projectsResponse = await projectsProvider.getProjects()
@@ -78,8 +103,27 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
         });
     }
 
-    const sendSellsChanges = async () => {
-
+    const refreshSellsChanges = async () => {
+        const response = await pricingProvider.refreshPayment({ id: changes._id, payId: changes.payId });
+        let iconState = ''
+        let finishedState = ''
+        if (response === 'in-progress') {
+            iconState = 'warning'
+            finishedState = 'Pending'
+        }
+        else {
+            iconState = 'success'
+            finishedState = 'Succes'
+        }
+        Swal.fire({
+            icon: iconState,
+            title: `Your Plan is currently ${finishedState}`,
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+                popup: 'center',
+            }
+        });
     }
 
     const handleImage = async (e) => {
@@ -98,25 +142,48 @@ export default function AdminDetail({ detailState, setDetailState, setItemsToEdi
     const handleEdit = () => {
         setEdit(!edit)
     }
+
     console.log('esto es changes', changes);
     return (
         <div className={style.detailsContainer}>
             {
                 typeof detailState === 'object'
                     ?
-                    (
-                        <div className={style.containerCard}>
-                            <div className={style.labelAndSelect}>
-                                <label style={{ paddingLeft: '20px' }}>{changes.title}</label>
-                                <label className={style.labelEmail}>{changes.email}</label>
-                                <label className={style.labelEmail}>{changes.status}</label>
-                                <label className={style.labelEmail}>{changes.amount}</label>
+                    detailState.payId
+                        ?
+                        (
+                            <div className={style.containerCard}>
+                                <div className={style.labelAndSelect}>
+                                    <label style={{ paddingLeft: '20px' }}>{changes.title}</label>
+                                    <label className={style.labelEmail}>{changes.email}</label>
+                                    <label className={style.labelEmail}>{changes.status}</label>
+                                    <label className={style.labelEmail}>{changes.amount}</label>
+                                </div>
+                                <div className={style.containerButton}>
+                                    <button onClick={refreshSellsChanges}>Refresh</button>
+                                </div>
                             </div>
-                            <div className={style.containerButton}>
-                                <button onClick={sendSellsChanges}>Refresh</button>
+                        )
+                        : (
+                            <div className={style.containerCard}>
+                                <div className={style.labelAndSelect}>
+                                    <label style={{ paddingLeft: '20px' }}>{changes.name}</label>
+                                    <label className={style.labelEmail}>{changes.type}</label>
+                                    <div className={style.containerInput}>
+                                        <input
+                                            type="number"
+                                            placeholder={changes.price}
+                                            name="price"
+                                            value={changes.price}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className={style.containerButton}>
+                                    <button onClick={sendPlansChanges}>Send</button>
+                                </div>
                             </div>
-                        </div>
-                    )
+                        )
 
                     : isUser
                         ? (
