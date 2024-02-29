@@ -8,10 +8,17 @@
 
 }
 
-.containerSpinner {
-    position: relative;
-    top: 250px;
+.box .containerH2 {
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.box .containerH2 p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #2F61E4;
 }
+
 
 .containerPanel {
     display: flex;

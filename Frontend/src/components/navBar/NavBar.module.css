@@ -86,6 +86,7 @@
 .dropdownContent li {
   display: flex;
   flex-direction: column;
+  justify-content: start;
 }
 
 .dropdownContent li button {
@@ -95,10 +96,11 @@
   background-color: transparent;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: 50px;
   gap: 10px;
+  padding-left: 25px;
 }
 
 .dropdownContent li button:hover {
@@ -107,7 +109,7 @@
 
 .dropdown:hover .dropdownContent {
   display: block;
-  height: 100px;
+  height: 150px;
   background-color: #2c2c2c;
 }
 

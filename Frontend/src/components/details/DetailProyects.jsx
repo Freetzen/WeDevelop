@@ -4,22 +4,29 @@ import style from "./DetailProyects.module.css";
 import { useNavigate } from "react-router-dom";
 import projectsProvider from "../../utils/provider/projectsProvider/projectsProvider";
 import { useTranslation } from "react-i18next";
+import SpinnerResumen from "../spinners/spinnerResumen/SpinnerResumen";
 
 export default function ProjectDetails() {
+  const [Loading, setLoading] = useState(false)
   const [t, i18n] = useTranslation("global");
   const { id } = useParams();
 
+  
   const [projectById, setProjectById] = useState([])
 
   const getProject = async () => {
     try {
-      const totalProjects = await projectsProvider.getProjectById(id)
-      setProjectById(totalProjects)
+      setLoading(true);
+      const totalProjects = await projectsProvider.getProjectById(id);
+      setProjectById(totalProjects);
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     }
-
-  }
+  };
 
   useEffect(() => {
     getProject()
@@ -37,9 +44,10 @@ export default function ProjectDetails() {
     navigate('/quote')
   }
 
+
   return (
     <div className={style.detailsContainer}>
-      <div className={style.containerImage}>
+      {!Loading ? <> <div className={style.containerImage}>
         <img src={projectById.images} alt={projectById.name} className="imgDetails" />
       </div>
       <div className={style.containerInfo}>
@@ -48,13 +56,14 @@ export default function ProjectDetails() {
           <span><strong>{t("Projects.projectsDetails.title")}</strong> {projectById.category}</span>
           </div>
           <div className={style.containerDescription}>
-            <p>{projectById.description}</p>
+            <p>{t(`Projects.projectsDescription.categories.${projectById.category}`)}</p>
           </div>
         <div className={style.buttonsContainer}>
           <button onClick={backToHome} className={style.button1}>{t("Projects.projectsDetails.back")}</button>
           <button onClick={goToQuote} className={style.button2}>{t("Projects.projectsDetails.quote")}</button>
         </div>
-      </div>
+      </div> </> : <div className={style.containerSpinner}> <SpinnerResumen/> </div>}
+      
 
     </div>
   );

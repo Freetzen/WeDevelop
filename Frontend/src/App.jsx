@@ -45,7 +45,7 @@ function App() {
     }
     loadData()
   }, [localData])
- console.log(data)
+
   return (
     <>
       {location.pathname !== '/admin'
