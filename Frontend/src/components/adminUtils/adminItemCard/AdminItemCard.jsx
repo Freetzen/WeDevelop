@@ -14,15 +14,16 @@ export default function AdminItemCard(props) {
     }
 
     return (
+        
         <NavLink onClick={handleClick}>
             <div className={style.card} >
                 {
                     props.type
                         ? (
-                            <div className={style.containerProject}>
-                                <p className={style.user}>{props.name}</p>
+                            <div className={style.type}>
+                                <p style={{textAlign:'start'}}className={style.user}>{props.name}</p>
                                 <p className={style.email}>{props.type}</p>
-                                <p className={style.role}>{props.price}</p>
+                                <p style={{textAlign:'end'}} className={style.role}>{props.price}</p>
                             </div>
                         )
                         :

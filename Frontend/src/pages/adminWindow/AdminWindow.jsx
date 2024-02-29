@@ -285,9 +285,9 @@ const AdminWindow = () => {
                             ? ''
                             : itemsToEdit[0].type
                                 ? <div className={style.containerInfoProject}>
-                                    <p className={style.user}>Name</p>
-                                    <p className={style.email}>Type</p>
-                                    <p className={style.role}>Price</p>
+                                    <p className={style.image}>Name</p>
+                                    <p className={style.name}>Type</p>
+                                    <p className={style.category}>Price</p>
                                 </div>
                                 : itemsToEdit[0].payId
                                     ? <div className={style.containerInfo}>
