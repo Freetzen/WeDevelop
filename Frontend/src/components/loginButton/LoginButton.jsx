@@ -15,6 +15,7 @@ import { loadUserData } from "../../redux/actions";
 const LoginButton = ({ setLocalData }) => {
 
   const dispatch = useDispatch()
+  const [obj, setObj] = useState({})
   const [menuIsActive, setMenuIsActive] = useState(true)
   const data = useSelector(state => state.userData)
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
