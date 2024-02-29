@@ -5,13 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import NavBar from "../../components/navBar/NavBar";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 
 export const Quote = () => {
-  const user = useSelector(state => state.userData)
-  console.log(user)
+  
   const [t, i18n] = useTranslation("global");
-
   const [isMobile, setIsMobile] = useState(window.innerWidth < 680);
 
   useEffect(() => {
@@ -23,6 +20,9 @@ export const Quote = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
+  const user = JSON.parse(localStorage.getItem('info'))
 
   const navigate = useNavigate()
   const { isLoading } = useAuth0()
@@ -41,7 +41,7 @@ export const Quote = () => {
   })
 
   useEffect(() => {
-    if (!user.email && !isLoading) {
+    if (!isLoading && !user) {
       Swal.fire({
         position: "center",
         icon: "error",
@@ -51,7 +51,7 @@ export const Quote = () => {
       });
       navigate("/");
     }
-  }, [user, navigate, isLoading]);
+  }, [isLoading, user, navigate]);
 
 
   return (
@@ -59,7 +59,7 @@ export const Quote = () => {
       {isMobile ? <NavBar /> : null}
       {
         user?.email
-          ? <Section quote={quote} setQuote={setQuote} />
+          ? <Section quote={quote} setQuote={setQuote}/>
           : null
       }
     </>
