@@ -8,7 +8,7 @@ import userProvider from '../../utils/provider/userProvider/userProvider'
 import projectsProvider from '../../utils/provider/projectsProvider/projectsProvider'
 import reviewsProvider from '../../utils/provider/reviewsProvider/reviewsProvider'
 import pricingProvider from '../../utils/provider/pricingProvider/pricingProvider'
-import SpinnerResumen from '../../components/spinners/spinnerResumen/spinnerResumen'
+import SpinnerResumen from '../../components/spinners/spinnerResumen/SpinnerResumen'
 const AdminWindow = () => {
     const [itemsToEdit, setItemsToEdit] = useState([])
     const [detailState, setDetailState] = useState('')
