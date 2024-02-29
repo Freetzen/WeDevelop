@@ -1,6 +1,6 @@
 .container {
     width: calc(50% - 10px);
-    height: auto;
+    height: 200px;
     max-height: 260px;
     padding: 20px;
     margin: 5px;
@@ -65,7 +65,7 @@
 }
 
 .containerComment p{
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 300;
     text-align: start;
     color: #a5a5a5;

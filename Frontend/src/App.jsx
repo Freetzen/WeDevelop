@@ -16,14 +16,13 @@ import { useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
 
-// axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app/'
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app'
+// axios.defaults.baseURL = 'http://localhost:3001/'
 
 
 function App() {
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
-
   const location = useLocation()
 
   return (
@@ -36,7 +35,8 @@ function App() {
         && location.pathname !== '/quote'
         && <NavBar />}
 
-      <Routes>
+
+      < Routes >
         <Route path="/" element={<Home loading={loading} setLoading={setLoading} />}></Route>
         <Route path="/quote" element={<Quote />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
@@ -49,9 +49,10 @@ function App() {
         <Route path="/reviews" element={<ReviewsAll />}></Route>
         <Route path="/successpayment" element={<Payment />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="payment" element={<Payment />}></Route>
+        <Route path="/payment" element={<Payment />}></Route>
 
       </Routes>
+
 
     </>
   )

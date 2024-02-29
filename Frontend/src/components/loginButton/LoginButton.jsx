@@ -24,45 +24,47 @@ const LoginButton = () => {
   console.log('global', data);
 
 
+  const newUser = {
+    name: user?.name,
+    email: user?.email,
+    image: user?.picture
+  }
+
   useEffect(() => {
 
     const postUserData = async () => {
       try {
-        const newUser = {
-          name: user?.name,
-          email: user?.email,
-          image: user?.picture
-        }
-
         userDate('info', newUser)
 
-        const Response = await userProvider.getUserByEmail(user.email)
-        if (!Response) {
-          const newUser1 = await userProvider.createUser(newUser)
-          dispatch(loadUserData(newUser1))
-          return newUser1
-        }
-        dispatch(loadUserData(Response))
-        if (data.banned) {
-          Swal.fire({
-            icon: "error",
-            title: t("LoginButton.bannedAlert"),
-            text: t("LoginButton.bannedAlertContact"),
-            footer: <a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>
-          });
-          setTimeout(() => {
-            logout()
-          }, 6000);
-          clearLocalStorage()
-          return
-        }
+        if (user) {
+          const response = await userProvider.getUserByEmail(user.email)
+          if (!response) {
+            const newUser1 = await userProvider.createUser(newUser)
+            await dispatch(loadUserData(newUser1))
+            return newUser1
+          } else {
+            await dispatch(loadUserData(response))
+          }
 
+          if (response.banned) {
+            Swal.fire({
+              icon: "error",
+              title: t("LoginButton.bannedAlert"),
+              text: t("LoginButton.bannedAlertContact"),
+              footer: <a href="https://wedevelop.vercel.app/contact">${t("LoginButton.bannedWhy")}</a>
+            });
+            setTimeout(() => {
+              logout()
+            }, 6000);
+            clearLocalStorage()
+          }
+        }
       } catch (error) {
         console.error('Error al enviar los datos del usuario al servidor:', error);
       }
     };
     postUserData()
-  }, [isAuthenticated, user])
+  }, [user, isAuthenticated])
 
 
   useEffect(() => {
