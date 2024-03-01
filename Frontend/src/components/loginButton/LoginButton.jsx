@@ -23,7 +23,6 @@ const LoginButton = () => {
   
   useEffect(() => {
 
-    
     const newUser = {
       name: user?.name,
     email: user?.email,

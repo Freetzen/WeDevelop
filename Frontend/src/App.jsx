@@ -30,31 +30,19 @@ function App() {
   const dispatch = useDispatch()
   const location = useLocation()
   
-
   useEffect(() => {
     const func = async () => {
       try {
-
-        // const setUserLocal = setUserData('user', obj)
-
         const getUserLocal = getUserData()
-        console.log('STORAGE APP -------> ',getUserLocal)
-
         const userData = await userProvider.getUserByEmail(getUserLocal.email)
-        console.log('USERDATA -------> ' , userData)
-
         dispatch(loadUserData(userData))
-
       } catch (error) {
         console.log(error.message)
       }
     }
-    
     func()
-    
   }, [])
-  
-  console.log('ESTADO GLOBAL -------> ' , data)
+
 
   return (
     <>
