@@ -30,9 +30,6 @@ function App() {
   const dispatch = useDispatch()
   const location = useLocation()
 
-  const obj = {
-    email: 'federuizgei@gmail.com'
-  }
   useEffect(() => {
     const func = async () => {
       try {
