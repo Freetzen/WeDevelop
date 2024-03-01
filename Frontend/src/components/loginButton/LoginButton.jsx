@@ -22,13 +22,13 @@ const LoginButton = () => {
 
   
   useEffect(() => {
-
     
     const newUser = {
       name: user?.name,
     email: user?.email,
     image: user?.picture
   }
+    
   const postUserData = async () => {
     try {
       if (user) {
@@ -38,6 +38,7 @@ const LoginButton = () => {
           image: user?.picture
         })
         const response = await userProvider.getUserByEmail(user.email)
+
           if (!response) {
             const newUser1 = await userProvider.createUser(newUser)
             dispatch(loadUserData(newUser1))

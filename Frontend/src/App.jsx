@@ -27,34 +27,38 @@ function App() {
   const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() 
+  const [localData, setLocalData] = useState()
   const location = useLocation()
   
 
   useEffect(() => {
     const func = async () => {
       try {
-
-        // const setUserLocal = setUserData('user', obj)
-
         const getUserLocal = getUserData()
-        console.log('STORAGE APP -------> ',getUserLocal)
-
         const userData = await userProvider.getUserByEmail(getUserLocal.email)
-        console.log('USERDATA -------> ' , userData)
-
         dispatch(loadUserData(userData))
-
       } catch (error) {
         console.log(error.message)
       }
     }
-    
     func()
-    
   }, [])
   
-  console.log('ESTADO GLOBAL -------> ' , data)
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const localStorageUser = getUserData()
+        console.log(localStorageUser)
+        const userDB = await userProvider.getUserByEmail(localStorageUser?.email)
+        return dispatch(loadUserData(userDB))
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    loadData()
+  }, [])
 
   return (
     <>
