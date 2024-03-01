@@ -107,6 +107,7 @@ const AdminWindow = () => {
         const SumTotPreferences = payments.reduce((totalAmount, item) => {
             return totalAmount + item.amount;
         }, 0);
+
         setBarGraph([
             { name: '5', valoraciones: counterRatings[5] ? counterRatings[5] : 0 },
             { name: '4', valoraciones: counterRatings[4] ? counterRatings[4] : 0 },
@@ -128,19 +129,20 @@ const AdminWindow = () => {
             { name: 'Tourism', value: counterProjects.Tourism, valuePercent: `${75}%` },
         ])
         setPieGraphCountPreference([
-            { name: 'Basic Plan', quantity: counterPreferences?.Basic },
-            { name: 'Business Plan', quantity: counterPreferences?.Business },
-            { name: 'Enterprise Plan', quantity: counterPreferences?.Enterprise }
+            { name: 'Basic Plan', quantity: counterPreferences?.Basic_Plan },
+            { name: 'Business Plan', quantity: counterPreferences?.Business_Plan },
+            { name: 'Enterprise Plan', quantity: counterPreferences?.Enterprise_Plan }
         ])
         setPieGraphSumPreference([
-            { name: 'Basic Plan', value: Number(SumPreferences?.Basic) },
-            { name: 'Business Plan', value: Number(SumPreferences?.Business) },
-            { name: 'Enterprise Plan', value: Number(SumPreferences?.Enterprise) }
+            { name: 'Basic Plan', value: Number(SumPreferences?.Basic_Plan) },
+            { name: 'Business Plan', value: Number(SumPreferences?.Business_Plan) },
+            { name: 'Enterprise Plan', value: Number(SumPreferences?.Enterprise_Plan) }
         ])
         setSumTotPreference(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(
             SumTotPreferences,
         ),)
     }
+    console.log('esto es detail', detailState);
     return (
         <>
             {
