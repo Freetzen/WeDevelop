@@ -8,9 +8,6 @@ import Skills from "../../components/skills/Skills";
 import StartQuote from "../../components/startQuote/StartQuote";
 import reviewsProvider from "../../utils/provider/reviewsProvider/reviewsProvider";
 import SpinnerConLogo from '../../components/spinners/spinnerConLogo/SpinnerConLogo';
-import userProvider from "../../utils/provider/userProvider/userProvider";
-import { useDispatch } from "react-redux";
-import { getUserData } from "../../helpers/local";
 
 const Home = ({ loading, setLoading }) => {
 
@@ -18,32 +15,12 @@ const Home = ({ loading, setLoading }) => {
   const [totalReviews, setTotalReviews] = useState([])
 
 
-  useEffect(() => {
-    const bringData = async () => {
-      try {
-        const response = await reviewsProvider.getReview()
-        setTotalReviews(response)
-        const sortingResponse = response.slice(-4);
-        setMessages(sortingResponse);
-      } catch (error) {
-        console.error(`Se produjo un error: ${error}`);
-      } finally {
-        setTimeout(() => {
-          setLoading(false)
-        }, 1000);
-      }
-    }
-
-    bringData()
-  }, []);
 
 
 
   return (
     <>
-      {loading ? (
-        <SpinnerConLogo />
-      ) : (
+   
         <>
           <Header />
           <AboutUs setLoading={setLoading} />
@@ -53,7 +30,7 @@ const Home = ({ loading, setLoading }) => {
           <Review totalReviews={totalReviews} messages={messages} />
           <Footer />
         </>
-      )}
+
     </>
   );
 

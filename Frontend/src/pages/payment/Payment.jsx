@@ -22,9 +22,9 @@ export const Payment = () => {
         preference_id: preference_id
     }
     const searchPay = async () => {
-        const response = await axios('https://wedevelop-production.up.railway.app/successpayment', { params: obj })
+        const response = await axios('https://wedelopp-production.up.railway.app/successpayment', { params: obj })
         const value = { id: response.data._id }
-        const search = await axios('https://wedevelop-production.up.railway.app/getpreference', { params: value })
+        const search = await axios('https://wedelopp-production.up.railway.app/getpreference', { params: value })
         await setPaymentInfo(search.data)
     }
     useEffect(() => {

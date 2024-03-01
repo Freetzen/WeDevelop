@@ -12,18 +12,51 @@ import ReviewsAll from './pages/reviewsAll/ReviewsAll'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
+import { getUserData, setUserData } from './helpers/local'
+import { useDispatch, useSelector } from 'react-redux'
+import userProvider from './utils/provider/userProvider/userProvider'
+import { loadUserData } from './redux/actions'
 
-axios.defaults.baseURL = 'https://wedevelop-production.up.railway.app'
-// axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app'
 
 
 function App() {
+  const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
   const location = useLocation()
+
+  const obj = {
+    email: 'federuizgei@gmail.com'
+  }
+  useEffect(() => {
+    const func = async () => {
+      try {
+
+        // const setUserLocal = setUserData('user', obj)
+
+        const getUserLocal = getUserData()
+        console.log('STORAGE APP -------> ',getUserLocal)
+
+        const userData = await userProvider.getUserByEmail(getUserLocal.email)
+        console.log('USERDATA -------> ' , userData)
+
+        dispatch(loadUserData(userData))
+
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    
+    func()
+    
+  }, [])
+  
+  console.log('ESTADO GLOBAL -------> ' , data)
 
   return (
     <>
@@ -33,7 +66,7 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && <NavBar />}
+        && <NavBar/>}
 
 
       < Routes >
@@ -51,7 +84,7 @@ function App() {
         <Route path="*" element={<NotFound />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
 
-      </Routes>
+      </Routes >
 
 
     </>

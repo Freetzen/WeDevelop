@@ -1,18 +1,14 @@
-export const userDate = (key, elements) => {
-    const getUserLocal = JSON.parse(localStorage.getItem('info'));
-    if(!getUserLocal?.email){
-        const setUserLocal = localStorage.setItem(key, JSON.stringify(elements))   
-        return setUserLocal
-    }
-    return getUserLocal
+export const setUserData = (key, elements) => {
+    const setUserLocal = localStorage.setItem(key, JSON.stringify(elements))   
+    return setUserLocal
 }
 
-export const clearLocalStorage = () => {
-    localStorage.removeItem('info');
+export const clearUserData = () => {
+    localStorage.removeItem('user');
 };
 
 
 export const getUserData = () => {
-    const userLocal = JSON.parse(localStorage.getItem('info'));
+    const userLocal = JSON.parse(localStorage.getItem('user'));
     return userLocal
-  };
+};
