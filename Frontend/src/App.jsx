@@ -27,9 +27,11 @@ function App() {
   const data = useSelector(state => state.userData)
   const [selectedOptions, setSelectedOptions] = useState([])
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() 
+  const [localData, setLocalData] = useState()
   const location = useLocation()
   
+
   useEffect(() => {
     const func = async () => {
       try {
