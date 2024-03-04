@@ -12,14 +12,15 @@ import ReviewsAll from './pages/reviewsAll/ReviewsAll'
 import UserAdmin from './components/adminUtils/usersAdmin/UserAdmin'
 import NotFound from './pages/notFound/NotFound'
 import AdminDetail from './components/adminUtils/adminDetail/AdminDetail'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Payment } from './pages/payment/Payment'
 import axios from 'axios'
-import { getUserData } from './helpers/local'
+import { getUserData, setUserData } from './helpers/local'
 import { useDispatch, useSelector } from 'react-redux'
+import userProvider from './utils/provider/userProvider/userProvider'
+import { loadUserData } from './redux/actions'
 
 axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app'
-// axios.defaults.baseURL = 'http://localhost:3001/'
 
 
 function App() {
@@ -29,20 +30,21 @@ function App() {
   const dispatch = useDispatch() 
   const [localData, setLocalData] = useState()
   const location = useLocation()
+  
 
   useEffect(() => {
-    const loadData = async () => {
+    const func = async () => {
       try {
-        const localStorageUser = getUserData()
-        console.log(localStorageUser)
-        const userDB = await userProvider.getUserByEmail(localStorageUser?.email)
-        return dispatch(loadUserData(userDB))
+        const getUserLocal = getUserData()
+        const userData = await userProvider.getUserByEmail(getUserLocal.email)
+        dispatch(loadUserData(userData))
       } catch (error) {
         console.log(error.message)
       }
     }
-    loadData()
+    func()
   }, [])
+
 
   return (
     <>
@@ -52,7 +54,7 @@ function App() {
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
         && location.pathname !== '/quote'
-        && <NavBar setLocalData={setLocalData} />}
+        && <NavBar/>}
 
 
       < Routes >
