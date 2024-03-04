@@ -6,6 +6,7 @@ import userProvider from '../../../utils/provider/userProvider/userProvider';
 import projectsProvider from '../../../utils/provider/projectsProvider/projectsProvider';
 import { BsSearch } from "react-icons/bs";
 import pricingProvider from '../../../utils/provider/pricingProvider/pricingProvider';
+import planProvider from '../../../utils/provider/planProvider/planProvider';
 
 
 export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailState }) {
@@ -19,7 +20,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
 
     // }
     const handleClick = () => {
-        if (name === '') return window.alert('You must enter a name')
+        if (name === '') return window.alert('Debes ingresar un nombre')
         if (validator.isEmail(name)) getUsEmail(name)
         else {
             getProjectName(name)
@@ -39,7 +40,13 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
     const getSells = async () => {
         setDetailState('')
         const projectsResponse = await pricingProvider.getPreference()
-        setItemsToEdit(projectsResponse)
+        const sellsFiltered = projectsResponse.filter(item => item.payId)
+        setItemsToEdit(sellsFiltered)
+    }
+    const getPlanPrices = async () => {
+        setDetailState('')
+        const Response = await planProvider.getPlans()
+        setItemsToEdit(Response)
     }
 
     const handleKeyPress = (e) => {
@@ -50,19 +57,18 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
     const getProjectName = async (name) => {
         setItemsToEdit([])
         const projectsResponse = await projectsProvider.getProjectByName(name)
-        if (projectsResponse.length === 0) return window.alert('There are no matches to the name provided.')
+        if (projectsResponse.length === 0) return window.alert('No existen coincidencias con el nombre proporcionado')
         else setItemsToEdit(projectsResponse)
     }
     const getUsEmail = async (email) => {
         setItemsToEdit([])
-        // if (name === '') return window.alert('Debes ingresar un nombre')
         const usersResponse = await userProvider.getUserByEmail(email)
         if (usersResponse === null) {
-            return window.alert('There are no matches to the name provided.')
+            return window.alert('No existen coincidencias con el nombre proporcionado')
         }
         else setItemsToEdit([usersResponse])
     }
-
+    console.log('esto es items to edit', itemsToEdit);
     return (
         <div className={style.searBar}>
 
@@ -90,6 +96,7 @@ export default function SearchBarAdmin({ setItemsToEdit, itemsToEdit, setDetailS
                     <button onClick={getUs}>Users</button>
                     <button onClick={getProjets}>Projects</button>
                     <button onClick={getSells}>Sells</button>
+                    <button onClick={getPlanPrices}>Plans Prices</button>
                 </div>
 
                 <div className={style.buttons2}>

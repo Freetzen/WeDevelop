@@ -19,19 +19,28 @@ const createPlan = async (plan) => {
 
 const findPlanByType = async (type) => {
     try {
-        const order = await plansModel.find( type );
+        const order = await plansModel.find(type);
         return order
     } catch (error) {
         throw new Error(error);
     }
 }
 
-const PutPlan = async (id, info) => {
+const updatePlan = async (id, info) => {
     try {
-    return await plansModel.findByIdAndUpdate(id, info);
+        return await plansModel.findByIdAndUpdate(id, info);
     } catch (error) {
-    throw new Error(error);
+        throw new Error(error);
     }
-    };
+};
 
-module.exports = {findAllPlans, createPlan, findPlanByType, PutPlan}
+const findPlanById = async (id) => {
+    try {
+        const order = await plansModel.findById(id);
+        return order
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+module.exports = { findAllPlans, createPlan, findPlanByType, updatePlan, findPlanById }

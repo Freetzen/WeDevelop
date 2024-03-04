@@ -24,6 +24,8 @@ const getPlans = require('../controllers/getPlans');
 const getPlanByType = require('../controllers/getPlanByType');
 const putPlan = require('../controllers/putPlan');
 const postPlan = require('../controllers/postPlan');
+const getPlanById = require('../controllers/getPlanById');
+const refreshPaymentMP = require('../controllers/refreshPayment');
 
 
 
@@ -49,9 +51,11 @@ router.get("/preference", getPreferences)
 router.post("/preference", postPreference)
 router.post('/success', postMercadoPago);
 router.get('/successpayment', getPaymentMP);
+router.get('/refreshpayment', refreshPaymentMP);
 router.get('/getpreference', getPreferenceByEmailBD);
 router.get('/getpreference/email', getPreferenceByMail);
 router.get('/plans', getPlans);
+router.get('/getplanbyid', getPlanById);
 router.put('/plans', putPlan);
 router.get('/planstype', getPlanByType);
 router.post('/plans', postPlan);
