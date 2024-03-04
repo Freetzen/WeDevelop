@@ -13,9 +13,23 @@ const Home = ({ loading, setLoading }) => {
 
   const [messages, setMessages] = useState([]);
   const [totalReviews, setTotalReviews] = useState([])
-
-
-
+  useEffect(() => {
+    const bringData = async () => {
+      try {
+        const response = await reviewsProvider.getReview();
+        setTotalReviews(response);
+        const sortingResponse = response.slice(-4);
+        setMessages(sortingResponse);
+      } catch (error) {
+        console.error('Se produjo un error: ' + error);
+      } finally {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+    }
+    bringData();
+  }, []);
 
 
   return (
