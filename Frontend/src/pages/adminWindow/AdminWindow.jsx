@@ -129,20 +129,20 @@ const AdminWindow = () => {
             { name: 'Tourism', value: counterProjects.Tourism, valuePercent: `${75}%` },
         ])
         setPieGraphCountPreference([
-            { name: 'Basic Plan', quantity: counterPreferences?.Basic_Plan },
-            { name: 'Business Plan', quantity: counterPreferences?.Business_Plan },
-            { name: 'Enterprise Plan', quantity: counterPreferences?.Enterprise_Plan }
+            { name: 'Basic', quantity: counterPreferences?.Basic },
+            { name: 'Business', quantity: counterPreferences?.Business },
+            { name: 'Enterprise', quantity: counterPreferences?.Enterprise }
         ])
         setPieGraphSumPreference([
-            { name: 'Basic Plan', value: Number(SumPreferences?.Basic_Plan) },
-            { name: 'Business Plan', value: Number(SumPreferences?.Business_Plan) },
-            { name: 'Enterprise Plan', value: Number(SumPreferences?.Enterprise_Plan) }
+            { name: 'Basic', value: Number(SumPreferences?.Basic) },
+            { name: 'Business', value: Number(SumPreferences?.Business) },
+            { name: 'Enterprise', value: Number(SumPreferences?.Enterprise) }
         ])
         setSumTotPreference(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(
             SumTotPreferences,
         ),)
     }
-    console.log('esto es detail', detailState);
+
     return (
         <>
             {
