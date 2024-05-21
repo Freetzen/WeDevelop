@@ -24,7 +24,7 @@ const putUser = async (req, res) => {
       const mailOptions = {
         from: "contactwedevelop@gmail.com",
         to: email,
-        subject: `Restricted Access to the Wedevelop Platform`,
+        subject: `Suspensión de Cuenta`,
         html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
          <head>
