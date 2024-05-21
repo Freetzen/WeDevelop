@@ -10,6 +10,7 @@ const Contact = () => {
   const formRef = useRef(null); 
 
   const handleFormSubmit = async (event) => {
+    event.preventDefault()
     await handleSubmit(event);
     if (state.succeeded) {
       Swal.fire({

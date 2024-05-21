@@ -11,7 +11,7 @@ const postReviews = async (req, res) => {
         rating,
         message,
       });
-
+console.log(form)
       res.status(200).json(form);
     } else {
       return res.status(403)

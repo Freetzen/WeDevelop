@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import userProvider from './utils/provider/userProvider/userProvider'
 import { loadUserData } from './redux/actions'
 
-axios.defaults.baseURL = 'https://wedelopp-production.up.railway.app'
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
     const func = async () => {
       try {
         const getUserLocal = getUserData()
-        const userData = await userProvider.getUserByEmail(getUserLocal.email)
+        const userData = await userProvider.getUserByEmail(getUserLocal?.email)
         dispatch(loadUserData(userData))
       } catch (error) {
         console.log(error.message)
@@ -48,8 +48,7 @@ function App() {
 
   return (
     <>
-      {location.pathname !== '/admin'
-        && location.pathname !== '/createProject'
+      { location.pathname !== '/createProject'
         && location.pathname !== '/createUser'
         && location.pathname !== '/useraccount'
         && location.pathname !== '/spinner'
