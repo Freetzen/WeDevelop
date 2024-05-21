@@ -37,7 +37,7 @@ const Home = ({ loading, setLoading }) => {
    
         <>
           <Header />
-          <AboutUs setLoading={setLoading} />
+          <AboutUs setLoading={setLoading}/>
           <Skills />
           <Highlights />
           <StartQuote />

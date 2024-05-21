@@ -147,7 +147,7 @@ const AdminWindow = () => {
         <>
             {
 
-                globalData && globalData.role === 'admin'
+                globalData 
                     ?
                     <div className={style.adminWindow}>
                         <SearchBarAdmin setItemsToEdit={setItemsToEdit} itemsToEdit={itemsToEdit} setDetailState={setDetailState} />
@@ -328,7 +328,7 @@ const AdminWindow = () => {
                                                 : !itemsToEdit.length
                                                     ? <div className={style.titleContaine}><h3>No se han seleccionado items</h3></div>
                                                     : itemsToEdit[0].type
-                                                        ? itemsToEdit.map(item => (
+                                                        ? itemsToEdit?.map(item => (
                                                             <AdminItemCard
                                                                 key={item._id}
                                                                 id={item._id}
@@ -339,7 +339,7 @@ const AdminWindow = () => {
                                                             />
                                                         ))
                                                         : itemsToEdit[0].preferenceId
-                                                            ? itemsToEdit.map(item => (
+                                                            ? itemsToEdit?.map(item => (
                                                                 <AdminItemCard
                                                                     key={item._id}
                                                                     id={item._id}
@@ -353,7 +353,7 @@ const AdminWindow = () => {
                                                                 />
                                                             ))
                                                             : itemsToEdit[0].email
-                                                                ? itemsToEdit.map(item => (
+                                                                ? itemsToEdit?.map(item => (
                                                                     <AdminItemCard
                                                                         key={item._id}
                                                                         id={item._id}
@@ -364,7 +364,7 @@ const AdminWindow = () => {
                                                                         setDetailState={setDetailState}
                                                                     />
                                                                 ))
-                                                                : itemsToEdit.map(item => (
+                                                                : itemsToEdit?.map(item => (
                                                                     <AdminItemCard
                                                                         key={item._id}
                                                                         id={item._id}
